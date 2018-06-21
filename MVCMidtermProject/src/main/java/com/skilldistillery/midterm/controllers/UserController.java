@@ -1,10 +1,9 @@
 package com.skilldistillery.midterm.controllers;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +13,7 @@ import com.skilldistillery.midterm.data.EventDAO;
 import com.skilldistillery.midterm.data.MatchDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Profile;
+import com.skilldistillery.midterm.entities.User;
 
 @Controller
 public class UserController {
@@ -33,30 +33,23 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "register.do", method = RequestMethod.GET)
-	public ModelAndView showRegister() {
+	public ModelAndView showRegister(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		User current = getCurrentUserFromSession(session);
 		mv.addObject("profile", new Profile());
+		mv.addObject("userCurrent", current);
 		mv.setViewName("WEB-INF/register.jsp");
 		return mv;
 	}
 	
-	@RequestMapping(path = "addProfile.do", method = RequestMethod.POST)
-	public ModelAndView addProfile(@Valid Profile profile, Errors errors) {
+	@RequestMapping(path = "addProfileDetails.do", method = RequestMethod.POST)
+	public ModelAndView addPlayerDetails(Profile profile) {
 		ModelAndView mv = new ModelAndView();
 		Profile profileAdded = udao.createProfile(profile);
 		mv.addObject("profile", profileAdded);
-		    // Determine if there are any errors.
-		    if (errors.getErrorCount() != 0) {
-		      // If there are any errors, return the login form.
-		      mv.setViewName("WEB-INF/register.jsp");
-		      return mv;
-		    }
-		    // If no errors, send the user forward to the profile view.
-		    mv.setViewName("WEB-INF/profileDetails.jsp");
-		    return mv;
-		  }
-	
-	
+		mv.setViewName("WEB-INF/profileDetails.jsp");
+		return mv;
+	}
 	
 	@RequestMapping(path = "updateProfile.do", method = RequestMethod.GET)
 	public ModelAndView updateProfile(@RequestParam(name = "profileId") int profileId) {
@@ -73,6 +66,21 @@ public class UserController {
 		Profile profileUpdated = udao.updateProfile(profile, profileId);
 		mv.addObject("profileUpdated", profileUpdated);
 		mv.setViewName("WEB-INF/updatedProfileDetails.jsp");
+		return mv;
+	}
+	
+	private User getCurrentUserFromSession(HttpSession session) {
+		User current = (User) session.getAttribute("user");
+		return current;
+	}
+
+	@RequestMapping(path = "navPlayer.do", params = "next")
+	public ModelAndView navPlayerNext(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		Player next = playerDAO.getNextPlayer(current);
+		session.setAttribute("player", next);
+		mv.addObject(next);
+		mv.setViewName("WEB-INF/playerdetails.jsp");
 		return mv;
 	}
 

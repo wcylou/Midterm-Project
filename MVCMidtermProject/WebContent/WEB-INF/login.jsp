@@ -13,9 +13,8 @@
 <%@ include file="nav.jsp" %>
 <h2>Log In</h2>
 <form:form action="login.do" modelAttribute="user">
-	<%-- Error messages --%>
 	Username<form:input path="username"/>
-	<form:errors path="userName"/><br>
+	<form:errors path="username"/><br>
 	Password<form:password path="password"/>
 	<form:errors path ="password"/>
 	<input type="submit" value="Log In" > 

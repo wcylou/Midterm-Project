@@ -13,8 +13,7 @@
 
 <%-- Output user details --%>
 <c:out value="${user.username}"></c:out><br>
-<c:out value="${user.firstName}"></c:out><br>
-<c:out value="${user.lastName}"></c:out>
+<c:out value="${user.access}"></c:out><br>
 
 <form action="logout.do">
 	<input type="submit" value="Log Out" > 

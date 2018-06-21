@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.midterm.data.EventDAO;
+import com.skilldistillery.midterm.data.LoginDAO;
 import com.skilldistillery.midterm.data.MatchDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.User;
-import com.skilldistillery.midterm.security.PasswordMD5Hash;
 
 @Controller
 public class LoginController {
@@ -25,10 +25,9 @@ public class LoginController {
 	private MatchDAO mdao;
 	@Autowired
 	private UserDAO udao;
-
 	@Autowired
-	private PasswordMD5Hash md5;
-
+	private LoginDAO ldao;
+	
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
 	public String displayLoginPage(Model model) {
 		model.addAttribute("user", new User());
@@ -37,7 +36,7 @@ public class LoginController {
 
 	@RequestMapping(path ="login.do", method = RequestMethod.POST) 
 	public String loginAttempt(@Valid User user, HttpSession http, Errors errors) {
-		User u = udao.getUserByUserNameAndPassword(user.getUsername(), user.getPassword());
+		User u = ldao.getUserByUserNameAndPassword(user.getUsername(), user.getPassword());
 		errors.rejectValue("username", "error.user", "Not a valid login.");
 		if (u != null) {
 			http.setAttribute("user", u);

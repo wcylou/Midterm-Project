@@ -15,7 +15,7 @@
 </head>
 <body class="register">
 	<div class="container">
-	<form:form action="addProfile.do" method="POST" modelAttribute="profile">
+	<form:form action="addProfileDetails.do" method="POST" modelAttribute="profile">
 			<form:label path="firstName">First Name</form:label>
 			<form:input path="firstName" />
 			<form:errors path="firstName" />
