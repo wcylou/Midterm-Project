@@ -5,6 +5,9 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Schema midterm
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `midterm` ;
@@ -26,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `midterm`.`location` (
   `city` VARCHAR(45) NOT NULL,
   `address` VARCHAR(45) NOT NULL,
   `address2` VARCHAR(45) NULL DEFAULT NULL,
-  `zip_code` INT NOT NULL,
+  `zip_code` VARCHAR(5) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -42,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `midterm`.`event` (
   `name` VARCHAR(45) NOT NULL,
   `location_id` INT(11) NOT NULL,
   `date` DATETIME NOT NULL,
-  `description` VARCHAR(2000) NOT NULL DEFAULT 'Under Construction',
+  `description` LONGTEXT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_event_location_idx` (`location_id` ASC),
   CONSTRAINT `fk_event_location`
@@ -117,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `midterm`.`user` (
   `access` TINYINT(1) NOT NULL DEFAULT '1',
   `membership_id` INT(11) NOT NULL DEFAULT '1',
   `active` TINYINT(1) NOT NULL DEFAULT '1',
-  `email` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `membership_id_idx` (`membership_id` ASC),
   CONSTRAINT `fk_user_membership`
@@ -141,10 +144,12 @@ CREATE TABLE IF NOT EXISTS `midterm`.`profile` (
   `age` INT(3) NULL DEFAULT NULL,
   `gender` VARCHAR(45) NULL DEFAULT NULL,
   `sexual_orientation` VARCHAR(45) NULL DEFAULT NULL,
-  `about_me` VARCHAR(2000) NULL DEFAULT NULL,
+  `about_me` LONGTEXT NULL DEFAULT NULL,
   `location_id` INT(11) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
-  `picture_url` VARCHAR(200) NULL DEFAULT NULL,
+  `picture_url` VARCHAR(2000) NULL DEFAULT NULL,
+  `min_age` INT NULL,
+  `max_age` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_user_profile_idx` (`user_id` ASC),
   INDEX `fk_profile_location_idx` (`location_id` ASC),
@@ -223,8 +228,11 @@ GRANT USAGE ON *.* TO student;
 SET SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE USER 'student' IDENTIFIED BY 'student';
 
+GRANT SELECT ON TABLE `mydb`.* TO 'student';
 GRANT SELECT ON TABLE `midterm`.* TO 'student';
+GRANT SELECT, INSERT, TRIGGER ON TABLE `mydb`.* TO 'student';
 GRANT SELECT, INSERT, TRIGGER ON TABLE `midterm`.* TO 'student';
+GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE `mydb`.* TO 'student';
 GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE `midterm`.* TO 'student';
 
 -- -----------------------------------------------------
@@ -232,9 +240,21 @@ GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE `midterm`.* TO 'student';
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `midterm`;
-INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (1, 'Colorado', 'Denver', '123 Party Avenue', NULL, 80111);
-INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (2, 'Hawaii', 'Volcano', '555 Lava Road', NULL, 72939);
-INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (3, 'Vermont', 'Montpelier', '1 Cedar ct', 'APT 6', 98238);
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (1, 'Colorado', 'Denver', '4335 W. 44th Ave.', NULL, '80212');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (2, 'Colorado', 'Denver', '2001 Blake St.', NULL, '80205');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (3, 'Colorado', 'Arvada', '17680 West 84th Place', NULL, '80007');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (4, 'Colorado', 'Englewood', '3295 S. Broadway', NULL, '80113');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (5, 'Wyoming', 'Cheyenne', '1 Depot Square Capitol & W 15th St', NULL, '82001');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (6, 'Colorado', 'Denver', '2721 Larimer St.', NULL, '80205');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (7, 'Colorado', 'Denver', '2637 Welton St.', NULL, '80205');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (8, 'Colorado', 'Denver', '1624 Market St.', NULL, '80202');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (9, 'Colorado', 'Denver', '4483 Logan St.', NULL, '80216');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (10, 'Colorado', 'Denver', '3602 E. Colfax Ave.', NULL, '80206');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (11, 'Colorado', 'Denver', '7 S. Broadway', NULL, '80209');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (12, 'Colorado', 'Denver', '608 E. 13th Ave.', NULL, '80203');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (13, 'Colorado', 'Denver', '314 E 13th Ave.', NULL, '80203');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (14, 'Colorado', 'Centennial', '8150 S University Blvd', 'Suite #120', '80122');
+INSERT INTO `midterm`.`location` (`id`, `state`, `city`, `address`, `address2`, `zip_code`) VALUES (15, 'Colorado', 'Loveland', '150 East 29th Street', NULL, '80538');
 
 COMMIT;
 
@@ -244,59 +264,26 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `midterm`;
-INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (1, 'Red Rocks Concert', 1, '2018-07-12', 'It\'s a concert.');
-INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (2, 'Dinner', 2, '2018-06-23', 'FOOD');
-INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (3, 'Football Game', 3, '2018-07-22', 'The kind where they hit eachother.');
-INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (4, 'Red Rocks Concert', 1, '2018-07-13', 'It\'s another concert.');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `midterm`.`interest`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `midterm`;
-INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (1, 'Gaming');
-INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (2, 'Sports');
-INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (3, 'Technology');
-INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (4, 'Music');
-INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (5, 'Movies');
-INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (6, 'Food');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `midterm`.`membership`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `midterm`;
-INSERT INTO `midterm`.`membership` (`id`, `name`, `price`) VALUES (1, 'Bronze', 0);
-INSERT INTO `midterm`.`membership` (`id`, `name`, `price`) VALUES (2, 'Silver', 4.99);
-INSERT INTO `midterm`.`membership` (`id`, `name`, `price`) VALUES (3, 'Gold', 9.99);
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `midterm`.`user`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `midterm`;
-INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (1, 'admin', 'admin', 0, 3, 1, 'admin@admin.com');
-INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (2, 'user1', 'user1', 1, 1, 1, 'user@user.com');
-INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (3, 'inactive', 'inactive', 1, 2, 0, 'inactive@inactive.com');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `midterm`.`profile`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `midterm`;
-INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`) VALUES (1, 'Wilson', 'Lou', 14, 'Indeterminate', 'Who knows?', 'Does stuff', 2, 2, NULL);
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (1, 'The Faceless Concert', 1, '2018-07-01 20:00:00', 'Concert at The Oriental Theater');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (2, 'Rockies Game', 2, '2018-07-04 18:10:00', 'Colorado Rockies vs San Fransico Giants');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (3, 'Pie Baking Contest', 3, '2018-07-04 10:00:00', 'Leyden Rock\'s Annual 4th of July Bash');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (4, 'Younger Than Neil', 4, '2018-07-06 20:00:00', 'Concert at Moe\'s Original BBQ');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (5, '4-Ever West Tattoo Festival', 5, '2018-07-06 17:30:00', 'Tattoo Festival');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (6, 'Pile of Priests', 6, '2018-07-06 20:00:00', 'A concert... hopefully');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (7, 'Ballyhoo!', 7, '2018-07-10 20:00:00', 'with Bumpin Uglies, Tropidelic and more\nwith Bumpin Uglies, Tropidelic and more\nwith Bumpin Uglies, Tropidelic and more');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (8, 'Rockies Game', 2, '2018-07-10 18:40:00', 'Colorado Rockies vs. Arizona Diamondbacks');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (9, 'Black Buzzard Open Mic Comedy', 8, '2018-07-10 21:30:00', 'Hosted by Janae Burris');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (10, 'The Get Up Kids', 1, '2018-06-30 21:00:00', 'Concert At Oriental Theater');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (11, 'Greyhounds', 9, '2018-06-30 21:30:00', 'Concert At Globe Hall');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (12, 'Electric Six', 10, '2018-06-30 21:30:00', 'They wanna take you to a gay bar');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (13, 'Canyon of the Skull', 11, '2018-06-30 20:30:00', 'They sound like a nice band.');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (14, 'Rockies Game', 2, '2018-07-02 18:40:00', 'Colorado Rockies vs San Fransisco Giants');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (15, 'SmileEatingJesus', 12, '2018-07-02 21:00:00', 'Concert at Your Mom\'s House');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (16, 'Reggae Tuesdays', 7, '2018-07-17 19:15:00', 'At Cervantes\' Other Side');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (17, 'Slug Wife Takeover', 13, '2018-07-17 21:00:00', 'At The Black Box LLC');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (18, 'The Lituation', 11, '2018-07-17 21:00:00', 'At the hi-dive');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (19, 'BASIC CPR / AED Certification', 14, '2018-07-17 18:00:00', 'Have a productive date');
+INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description`) VALUES (20, 'Yes! You Can Adopt', 15, '2018-07-17 17:00:00', 'In case you\'re ready to move REALLY fast.');
 
 COMMIT;
 
