@@ -31,7 +31,7 @@ public class Profile {
 	private String sexualOrientation;
 	@Column(name="about_me")
 	private String aboutMe;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="location_id")
 	private Location location;
 	@OneToOne

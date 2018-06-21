@@ -168,11 +168,11 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `midterm`.`match`
+-- Table `midterm`.`usermatch`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `midterm`.`match` ;
+DROP TABLE IF EXISTS `midterm`.`usermatch` ;
 
-CREATE TABLE IF NOT EXISTS `midterm`.`match` (
+CREATE TABLE IF NOT EXISTS `midterm`.`usermatch` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `profile_id` INT(11) NOT NULL,
   `partner_id` INT(11) NOT NULL,
@@ -360,6 +360,15 @@ COMMIT;
 START TRANSACTION;
 USE `midterm`;
 INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (1, 'user', 'password', 1, 1, 1, 'a@a.com');
+INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (2, 'notadmin', 'password', 0, 1, 1, 'notadmin@notadmin.com');
+INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (3, '3', '3', 0, 1, 1, 'a@a.com');
+INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (4, '4', '4', 0, 1, 1, 'b@b.com');
+INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (5, '5', '5', 0, 1, 1, 'c@c.com');
+INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (6, '6', '6', 0, 1, 1, 'd@d.com');
+INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (7, '7', '7', 0, 1, 1, 'e@e.com');
+INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (8, '8', '8', 0, 1, 1, 'f@f.com');
+INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (9, '9', '9', 0, 1, 1, 'g@g.com');
+INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (10, '10', '10', 0, 1, 1, 'h@h.com');
 
 COMMIT;
 
@@ -370,6 +379,11 @@ COMMIT;
 START TRANSACTION;
 USE `midterm`;
 INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (1, 'Wilson', 'Lou', 26, 'No', 'Yes', 'I do stuff.', 1, 1, 'asdfsdf', 18, 88);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (2, 'Someone', 'asdf', 18, 'a', 'a', 'aaa', 2, 2, 'asdf', 40, 45);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (3, 'Another', 'words', 43, 'a', 'a', 'a', 3, 3, 'asdf', 18, 100);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (4, 'Better not match this one', 'Person', 12, 'a', 'a', 'a', 4, 4, 'aasdf', 1, 100);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (5, 'Test', 'Test', 25, 'a', 'a', 'a', 5, 5, 'asdf', 18, 80);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (6, 'AnotherTest', 'Asfasfsdll', 30, 'a', 'a', 'asdf', 6, 6, 'asdf', 18, 80);
 
 COMMIT;
 
@@ -380,6 +394,21 @@ COMMIT;
 START TRANSACTION;
 USE `midterm`;
 INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (1, 1);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (1, 3);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (1, 4);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (2, 5);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (2, 7);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (2, 3);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (3, 6);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (4, 6);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (5, 1);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (6, 1);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (6, 2);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (6, 3);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (6, 4);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (6, 5);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (6, 6);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (6, 7);
 
 COMMIT;
 
