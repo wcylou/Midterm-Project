@@ -1,5 +1,7 @@
 package com.skilldistillery.midterm.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -13,8 +15,8 @@ import com.skilldistillery.midterm.entities.Location;
 @Component
 public class EventDAOImpl implements EventDAO {
 
-	 @PersistenceContext
-	  private EntityManager em;
+	@PersistenceContext
+	private EntityManager em;
 
 	@Override
 	public Event create(Event event) {
@@ -32,7 +34,7 @@ public class EventDAOImpl implements EventDAO {
 		managed.setDate(updatedEvent.getDate());
 		managed.setInterests(updatedEvent.getInterests());
 		managed.setLocation(updatedEvent.getLocation());
-		
+
 		return managed;
 	}
 
@@ -40,7 +42,7 @@ public class EventDAOImpl implements EventDAO {
 	public void delete(int id) {
 		Event managed = em.find(Event.class, id);
 		em.remove(managed);
-		
+
 	}
 
 	@Override
@@ -48,7 +50,14 @@ public class EventDAOImpl implements EventDAO {
 		event.setLocation(location);
 		em.persist(event);
 		em.flush();
-		
+
 		return event;
+	}
+
+	@Override
+	public List<Event> index() {
+		String queryString = "SELECT e FROM Event e";
+		List<Event> events = em.createQuery(queryString, Event.class).getResultList();
+		return events;
 	}
 }

@@ -1,9 +1,12 @@
 package com.skilldistillery.midterm.data;
 
+import java.util.List;
+
 import com.skilldistillery.midterm.entities.Event;
 import com.skilldistillery.midterm.entities.Location;
 
 public interface EventDAO {
+	public List<Event> index();
 	public Event create(Event event);
 	public Event update(int id, Event updatedEvent);
 	public void delete(int id);

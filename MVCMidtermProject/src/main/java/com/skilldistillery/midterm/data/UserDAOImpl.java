@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.skilldistillery.midterm.entities.Event;
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Location;
 import com.skilldistillery.midterm.entities.Match;
@@ -97,6 +98,11 @@ public class UserDAOImpl implements UserDAO {
 		
 		return profile;
 	}
-
+	@Override
+	public List<Profile> getAllProfiles() {
+		String queryString = "SELECT p FROM Profile p";
+		List<Profile> profiles = em.createQuery(queryString, Profile.class).getResultList();
+		return profiles;
+	}
 	
 }
