@@ -72,7 +72,8 @@ public class MatchDAOImpl implements MatchDAO {
 			}
 
 			List<Profile> result = new ArrayList<>();
-			for (int i = 0; i < 5 && i < partners.size(); i++) {
+			int partnersSize = partners.size();
+			for (int i = 0; i < 5 && i < partnersSize; i++) {
 				int max = common.get(0).size();
 				int place = 0;
 				for (int j = 0; j < common.size(); j++) {
