@@ -33,7 +33,7 @@ public class Profile {
 	private String aboutMe;
 	@ManyToOne
 	@JoinColumn(name="location_id")
-	private int locationId;
+	private Location location;
 	@OneToOne
 	@JoinColumn(name="user_id")
 	private int userId;
@@ -86,11 +86,11 @@ public class Profile {
 	public void setAboutMe(String aboutMe) {
 		this.aboutMe = aboutMe;
 	}
-	public int getLocationId() {
-		return locationId;
+	public Location getLocation() {
+		return location;
 	}
-	public void setLocationId(int locationId) {
-		this.locationId = locationId;
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 	public int getUserId() {
 		return userId;
@@ -188,12 +188,20 @@ public class Profile {
 		builder.append(sexualOrientation);
 		builder.append(", aboutMe=");
 		builder.append(aboutMe);
-		builder.append(", locationId=");
-		builder.append(locationId);
+		builder.append(", location=");
+		builder.append(location);
 		builder.append(", userId=");
 		builder.append(userId);
 		builder.append(", pictureUrl=");
 		builder.append(pictureUrl);
+		builder.append(", matches=");
+		builder.append(matches);
+		builder.append(", interests=");
+		builder.append(interests);
+		builder.append(", minAge=");
+		builder.append(minAge);
+		builder.append(", maxAge=");
+		builder.append(maxAge);
 		builder.append("]");
 		return builder.toString();
 	}

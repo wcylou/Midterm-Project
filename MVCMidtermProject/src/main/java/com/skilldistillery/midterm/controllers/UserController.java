@@ -40,7 +40,7 @@ public class UserController {
 	@RequestMapping(path = "addUser.do", method = RequestMethod.GET)
 	public ModelAndView addUser(Profile profile) {
 		ModelAndView mv = new ModelAndView();
-		Profile profileAdded = userDAO.create(profile);
+		Profile profileAdded = udao.createProfile(profile);
 		mv.addObject("profile", profileAdded);
 		mv.setViewName("WEB-INF/profileDetails.jsp");
 		return mv;
@@ -49,7 +49,7 @@ public class UserController {
 	@RequestMapping(path = "updateProfile.do", method = RequestMethod.GET)
 	public ModelAndView updateProfile(@RequestParam(name = "profileId") int profileId) {
 		ModelAndView mv = new ModelAndView();
-		Profile profile = userDAO.show(profileId);
+		Profile profile = udao.findProfileById(profileId);
 		mv.addObject("profileUpdated", profile);
 		mv.setViewName("WEB-INF/updateProfile.jsp"); // redirect to new mapping
 		return mv;
@@ -58,7 +58,7 @@ public class UserController {
 	@RequestMapping(path = "updateProfileDetails.do", method = RequestMethod.POST)
 	public ModelAndView updateFilmDetails(@RequestParam(name = "profileId") int profileId, Profile profile) {
 		ModelAndView mv = new ModelAndView();
-		Profile playerUpdated = userDAO.update(profileId, profile);
+		Profile profileUpdated = udao.updateProfile(profile, profileId);
 		mv.addObject("profileUpdated", profileUpdated);
 		mv.setViewName("WEB-INF/updatedProfileDetails.jsp");
 		return mv;
