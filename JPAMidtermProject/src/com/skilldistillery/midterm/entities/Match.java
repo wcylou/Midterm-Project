@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 
 @Entity
+@Table(name="user_match")
 public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

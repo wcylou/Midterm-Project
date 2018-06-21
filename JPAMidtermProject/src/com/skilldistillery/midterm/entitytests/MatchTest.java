@@ -1,6 +1,6 @@
 package com.skilldistillery.midterm.entitytests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,12 +12,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.midterm.entities.Profile;
+import com.skilldistillery.midterm.entities.Match;
 
-class ProfileTest {
+public class MatchTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Profile p;
+	private Match m;
 	
 	
 	@BeforeAll
@@ -29,13 +29,13 @@ class ProfileTest {
 	@BeforeEach
 	public void setUp() throws Exception {
 		em = emf.createEntityManager();
-		p = em.find(Profile.class, 1);
+		m = em.find(Match.class, 1);
 	}
 
 	@AfterEach
 	public void tearDown() throws Exception {
 		em.close();
-		p = null;
+		m = null;
 	}
 
 	@AfterAll
@@ -45,21 +45,7 @@ class ProfileTest {
 	}
 	
 	@Test
-	void test_profile_mappings() {
-		assertEquals("Wilson", p.getFirstName());
+	public void test_mappings() {
+		assertEquals();
 	}
-
-	@Test
-	void test_profile_to_interest() {
-		assertEquals("Food", p.getInterests().get(0).getName());
-	}
-	
-	@Test
-	void test_profile_to_match() {
-		assertEquals(0, p.getMatches().size());
-	}
-	
-	
-	
-	
 }

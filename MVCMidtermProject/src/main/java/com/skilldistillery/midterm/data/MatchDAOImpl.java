@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Component;
@@ -19,6 +21,18 @@ public class MatchDAOImpl implements MatchDAO {
 
 	@PersistenceContext
 	private EntityManager em;
+	public static void main(String[] args) {
+		MatchDAOImpl dao = new MatchDAOImpl();
+		dao.test();
+	}
+
+	private void test() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Midterm");
+		EntityManager em = emf.createEntityManager();
+		Profile profile = em.find(Profile.class, 1);
+		System.out.println(profile.getFirstName());
+		System.out.println(findPotentialMatches(profile));
+	}
 
 	public Match findEventMatch(Profile profile, Profile partner) {
 		List<Interest> common = new ArrayList<>();
@@ -38,6 +52,8 @@ public class MatchDAOImpl implements MatchDAO {
 	}
 
 	public List<Profile> findPotentialMatches(Profile profile) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Midterm");
+		EntityManager em = emf.createEntityManager();
 		List<Interest> profileInterests = profile.getInterests();
 		List<List<Interest>> common = new ArrayList<>();
 
@@ -56,10 +72,10 @@ public class MatchDAOImpl implements MatchDAO {
 			}
 
 			List<Profile> result = new ArrayList<>();
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 5 && i < partners.size(); i++) {
 				int max = common.get(0).size();
 				int place = 0;
-				for (int j = 1; j < common.size(); j++) {
+				for (int j = 0; j < common.size(); j++) {
 					if (common.get(j).size() > max) {
 						max = common.get(j).size();
 						place = j;
@@ -67,6 +83,7 @@ public class MatchDAOImpl implements MatchDAO {
 				}
 				result.add(partners.get(place));
 				common.remove(place);
+				partners.remove(place);
 			}
 			return result;
 		}
