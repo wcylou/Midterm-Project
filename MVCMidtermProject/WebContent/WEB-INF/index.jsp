@@ -27,6 +27,9 @@
       <form action="register.do" method="GET">
 			<button type="submit"  class="btn btn-dark">Register</button>
 		</form>
+		   <form action="login.do" method="GET">
+			<button type="submit"  class="btn btn-dark">Login</button>
+		</form>
     </div>
   </div>
 </nav>

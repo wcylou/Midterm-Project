@@ -11,4 +11,5 @@ public interface UserDAO {
 	public Profile findProfileById(int profileId);
 	public Profile createProfile(Profile profile);
 	public Profile updateProfile(Profile profile, int profileId);
+	public User getUserByUserNameAndPassword(String username, String password);
 }

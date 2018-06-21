@@ -16,7 +16,21 @@ public class User {
 	private boolean active;
 	private String email;
 	
+	public User() {
+	}
 	
+	public User(int id, String username, String password, boolean access, Membership membership, boolean active,
+			String email) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.access = access;
+		this.membership = membership;
+		this.active = active;
+		this.email = email;
+	}
+
 	//gets and sets
 	public String getUsername() {
 		return username;

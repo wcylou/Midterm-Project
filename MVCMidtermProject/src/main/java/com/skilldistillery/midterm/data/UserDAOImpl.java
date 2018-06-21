@@ -1,9 +1,10 @@
 package com.skilldistillery.midterm.data;
 
-
-
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,10 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Match;
+import com.skilldistillery.midterm.entities.Membership;
 import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.User;
-
-
 
 @Transactional
 @Component
@@ -24,6 +24,13 @@ public class UserDAOImpl implements UserDAO {
 	
 	 @PersistenceContext
 	  private EntityManager em;
+	
+	 private  Map<Integer, User> users = new LinkedHashMap<>();
+	 
+	 public UserDAOImpl () 
+	 { users.put(1, new User(1, "bobdobbs", "password", false, em.find(Membership.class, 1), true, "bobdobbs@gmail.com"));
+	    users.put(2, new User(2, "ronnytoms", "password", false, em.find(Membership.class, 1), true, "ronnytoms@gmail.com"));
+	  }
 	 
 	 public static void main(String[] args) {
 		UserDAOImpl udao = new UserDAOImpl();
@@ -105,5 +112,18 @@ public class UserDAOImpl implements UserDAO {
 		return null;
 	}
 	
-	
+	  
+	  @Override
+	  public User getUserByUserNameAndPassword(String username, String password) {
+	    User u = null;
+	    Set<Integer> keys = users.keySet();
+	    for (Integer key : keys) {
+	      User user = users.get(key);
+	      if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
+	        u = user;
+	        break;
+	      }
+	    }
+	    return u;
+	  }
 }
