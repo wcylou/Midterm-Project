@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.skilldistillery.midterm.entities.Event;
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Match;
 import com.skilldistillery.midterm.entities.Profile;
@@ -48,6 +49,13 @@ public class MatchDAOImpl implements MatchDAO {
 		if (common.size() == 0) {
 			common.add(em.find(Interest.class, 1));
 		}
+		
+		for(int i = 0; i < common.size(); i++) {
+			
+		}
+		Match match = new Match();
+		match.setProfile(profile);
+		match.setPartner(partner);
 		return null;
 	}
 
