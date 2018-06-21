@@ -1,6 +1,14 @@
 package com.skilldistillery.midterm.entities;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Location {
@@ -12,7 +20,9 @@ public class Location {
 	private String address;
 	private String address2;
 	@Column(name="zip_code")
-	private int zipCode;
+	private String zipCode;
+	@OneToMany(mappedBy = "locationId")
+	private List<Event> events;
 	
 	//gets and sets
 	public String getState() {
@@ -39,15 +49,42 @@ public class Location {
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
-	public int getZipCode() {
+	public String getZipCode() {
 		return zipCode;
 	}
-	public void setZipCode(int zipCode) {
+	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
 	public int getId() {
 		return id;
 	}
+	public List<Event> getEvents() {
+		return events;
+	}
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+	
+	public void addEvent(Event event) {
+		if(events == null) events = new ArrayList<>();
+		
+		if(!events.contains(event)) {
+			events.add(event);
+			if(event.getLocation() != null) {
+				event.getLocation().getEvents().remove(event);
+			}
+			event.setLocation(this);
+		}
+	}
+	
+	public void removeEvent(Event event) {
+		event.setLocation(null);
+		if (events != null) {
+			events.remove(event);
+		}
+	}
+	
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

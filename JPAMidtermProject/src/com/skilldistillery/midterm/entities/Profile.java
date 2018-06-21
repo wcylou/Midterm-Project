@@ -1,6 +1,20 @@
 package com.skilldistillery.midterm.entities;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Profile {
@@ -17,12 +31,23 @@ public class Profile {
 	private String sexualOrientation;
 	@Column(name="about_me")
 	private String aboutMe;
-	@Column(name="location_id")
+	@ManyToOne
+	@JoinColumn(name="location_id")
 	private int locationId;
-	@Column(name="user_id")
+	@OneToOne
+	@JoinColumn(name="user_id")
 	private int userId;
 	@Column(name="picture_url")
 	private String pictureUrl;
+	@OneToMany(mappedBy="profile_id")
+	private List<Match> matches;
+	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
+	@JoinTable(name = "profile_interest", joinColumns = @JoinColumn(name = "profile_id"), inverseJoinColumns = @JoinColumn(name = "interest_id"))
+	private List<Interest> interests;
+	@Column(name = "min_age")
+	private int minAge;
+	@Column(name = "max_age")
+	private int maxAge;
 	
 	//gets and sets
 	public String getFirstName() {
@@ -81,6 +106,70 @@ public class Profile {
 	}
 	public int getId() {
 		return id;
+	}
+	public List<Match> getMatches() {
+		return matches;
+	}
+	public void setMatches(List<Match> matches) {
+		this.matches = matches;
+	}
+	
+	//convenience methods
+		public void addMatch(Match match) {
+			if(matches == null) matches = new ArrayList<>();
+			
+			if(!matches.contains(match)) {
+				matches.add(match);
+				if(match.getProfile() != null) {
+					match.getProfile().getMatches().remove(match);
+				}
+				match.setProfile(this);
+			}
+		}
+		
+		public void removeMatch(Match match) {
+			match.setProfile(null);
+			if (matches != null) {
+				matches.remove(match);
+			}
+		}
+	
+	public List<Interest> getInterests() {
+		return interests;
+	}
+	public void setInterests(List<Interest> interests) {
+		this.interests = interests;
+	}
+	
+	public void addInterest(Interest interest) {
+		if (interests == null)
+			interests = new ArrayList<>();
+
+		if (!interests.contains(interest)) {
+			interests.add(interest);
+			interest.addProfile(this);
+		}
+
+	}
+
+	public void removeInterest(Interest interest) {
+		if (interests != null && interests.contains(interest)) {
+			interests.remove(interest);
+			interest.removeProfile(this);
+		}
+	}
+	
+	public int getMinAge() {
+		return minAge;
+	}
+	public void setMinAge(int minAge) {
+		this.minAge = minAge;
+	}
+	public int getMaxAge() {
+		return maxAge;
+	}
+	public void setMaxAge(int maxAge) {
+		this.maxAge = maxAge;
 	}
 	@Override
 	public String toString() {
