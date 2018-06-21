@@ -36,7 +36,7 @@ public class Profile {
 	private Location location;
 	@OneToOne
 	@JoinColumn(name="user_id")
-	private int userId;
+	private User user;
 	@Column(name="picture_url")
 	private String pictureUrl;
 	@OneToMany(mappedBy="profile_id")
@@ -92,11 +92,12 @@ public class Profile {
 	public void setLocation(Location location) {
 		this.location = location;
 	}
-	public int getUserId() {
-		return userId;
+	
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public String getPictureUrl() {
 		return pictureUrl;
@@ -190,8 +191,8 @@ public class Profile {
 		builder.append(aboutMe);
 		builder.append(", location=");
 		builder.append(location);
-		builder.append(", userId=");
-		builder.append(userId);
+		builder.append(", user=");
+		builder.append(user);
 		builder.append(", pictureUrl=");
 		builder.append(pictureUrl);
 		builder.append(", matches=");
