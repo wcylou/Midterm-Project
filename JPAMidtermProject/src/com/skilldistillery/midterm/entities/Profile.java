@@ -23,6 +23,7 @@ import javax.validation.constraints.Size;
 public class Profile {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull
 	private int id;
 	@NotNull
 	@Column(name="first_name")
@@ -31,11 +32,15 @@ public class Profile {
 	@Column(name="last_name")
 	private String lastName;
 	@Min(0)
+	@NotNull
 	private int age;
+	@NotNull
 	private String gender;
 	@Column(name="sexual_orientation")
+	@NotNull
 	private String sexualOrientation;
 	@Column(name="about_me")
+	@NotNull
 	private String aboutMe;
 	@ManyToOne
 	@JoinColumn(name="location_id")
@@ -44,6 +49,7 @@ public class Profile {
 	@JoinColumn(name="user_id")
 	private User user;
 	@Column(name="picture_url")
+	@NotNull
 	private String pictureUrl;
 	@OneToMany(mappedBy="profile")
 	private List<Match> matches;
