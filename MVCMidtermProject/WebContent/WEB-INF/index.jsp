@@ -14,39 +14,33 @@
 <title>Home</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-md fixed-top" id="mainNav">
-    <a href="#page-top">Dating</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active ml-auto">
-          <a class="nav-link" href="#aboutus" data-toggle="collapse" data-target=".navbar-collapse.show">About Us</a>
-        </li>
-        <li class="nav-item ml-auto">
-          <a class="nav-link " href="#testimonials" data-toggle="collapse" data-target=".navbar-collapse.show">Testimonials</a>
-        </li>
-        <li class="nav-item ml-auto">
-          <a class="nav-link " href="#pricing" data-toggle="collapse" data-target=".navbar-collapse.show">Pricing</a>
-        </li>
-        <li class="nav-item ml-auto">
-          <a class="nav-link" href="#footer" data-toggle="collapse" data-target=".navbar-collapse.show">Contact us</a>
-        </li>
-        <li class="nav-item ml-auto">
-          <a class="nav-link" href="#" data-toggle="collapse" data-target=".navbar-collapse.show">Login</a>
-        </li>
-      </ul>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#pricing">Pricing</a>
+      <form action="register.do" method="GET">
+			<button type="submit"  class="btn btn-dark">Register</button>
+		</form>
     </div>
-  </nav>
+  </div>
+</nav>
   
-  <section id ="#aboutus">
-  	<div class = "container">
-  	<div class = "row">
-  	
-  	</div>
-  	</div>
-  
+  <section id ="#aboutus" class ="banner">
+  	<div class="jumbotron">
+  		<h1 class="display-4">Hello, world!</h1>
+  		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  		<hr class="my-4">
+  		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  		<p class="lead">
+   		 <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+ 		 </p>
+		</div>
   </section>
   
   <section id = "#testimonials">
