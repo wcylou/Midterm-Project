@@ -1,5 +1,9 @@
 package com.skilldistillery.midterm.data;
 
-public class LoginDAO {
+import com.skilldistillery.midterm.entities.User;
+
+public interface LoginDAO {
+
+	public User getUserByUserNameAndPassword(String username, String password);
 
 }

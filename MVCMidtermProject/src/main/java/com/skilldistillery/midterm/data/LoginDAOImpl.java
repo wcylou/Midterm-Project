@@ -2,12 +2,8 @@ package com.skilldistillery.midterm.data;
 
 import java.util.Set;
 
-import com.skilldistillery.midterm.entities.User;
-
-public class LoginDAOImpl {
+public class LoginDAOImpl implements LoginDAO {
 	
-
-	  
 	  @Override
 	  public User getUserByUserNameAndPassword(String username, String password) {
 	    User u = null;
