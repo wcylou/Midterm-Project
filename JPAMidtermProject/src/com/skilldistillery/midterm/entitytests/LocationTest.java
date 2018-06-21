@@ -51,7 +51,7 @@ class LocationTest {
 
 	@Test
 	void test_location_mapping_to_event() {
-		assertEquals("Denver", e.getLocation().getCity());
+		assertEquals("Rockies Game", l.getEvents().get(0).getName());
 	}
 
 //	@Test
