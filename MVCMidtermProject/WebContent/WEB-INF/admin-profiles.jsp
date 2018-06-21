@@ -9,14 +9,14 @@
 <body>
 	<%--Edit the file nav.jsp to change nav links --%>
 	<%@ include file="nav.jsp"%>
-	<h2>Events</h2>
-	<form action="addEvent.do" method="GET">
-		<button type="submit" class="btn btn-dark">Add New Event</button>
+	<h2>Profiles</h2>
+	<form action="addProfile.do" method="GET">
+		<button type="submit" class="btn btn-dark">Add New Profile</button>
 	</form>
-	<%-- Event list items --%>
+	<%-- Profile list items --%>
 	<ul>
-		<c:forEach items="${eventList}" var="event">
-			<li><a href="getEvent.do?id=${event.id}">${event.title}</a></li>
+		<c:forEach items="${profileList}" var="profile">
+			<li><a href="getProfile.do?id=${profile.id}">${profile.firstName} ${profile.lastName}</a></li>
 		</c:forEach>
 
 	</ul>

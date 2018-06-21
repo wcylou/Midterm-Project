@@ -39,7 +39,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(path = "getEvent.do", method=RequestMethod.GET)
-	public ModelAndView getFilm(@RequestParam("eventId") int eventId) {
+	public ModelAndView getFilm(@RequestParam("id") int eventId) {
 		ModelAndView mv = new ModelAndView();
 		Event e = edao.find(eventId);
 		mv.addObject("event", e);
@@ -82,6 +82,15 @@ public class AdminController {
 		List<Profile> profileList = udao.getAllProfiles();
 		mv.addObject("profileList", profileList);
 		mv.setViewName("WEB-INF/admin-profiles.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "getProfile.do", method=RequestMethod.GET)
+	public ModelAndView getProfile(@RequestParam("id") int profileId) {
+		ModelAndView mv = new ModelAndView();
+		Profile p = udao.findProfileById(profileId);
+		mv.addObject("profile", p);
+		mv.setViewName("WEB-INF/profileDetails.jsp");
 		return mv;
 	}
 	
