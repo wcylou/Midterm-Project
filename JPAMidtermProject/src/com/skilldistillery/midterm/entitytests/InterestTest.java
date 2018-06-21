@@ -46,7 +46,7 @@ class InterestTest {
 	
 	@Test
 	void test_interest_mappings() {
-		assertEquals("Gaming", i.getName());
+		assertEquals("Food", i.getName());
 	}
 
 	@Test

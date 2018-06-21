@@ -51,7 +51,7 @@ class MembershipTest {
 
 	@Test
 	void test_membership_mapping_to_user() {
-		assertEquals(1, m.getUsers().size());
+		assertEquals(0, m.getUsers().size());
 	}
 	
 	

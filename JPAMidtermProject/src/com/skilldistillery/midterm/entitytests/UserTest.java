@@ -46,11 +46,11 @@ class UserTest {
 	
 	@Test
 	void test_user_mappings() {
-		assertEquals("admin@admin.com", u.getEmail());
+		assertEquals("a@a.com", u.getEmail());
 	}
 	@Test
 	void test_user_membership() {
-		assertEquals("Gold", u.getMembership().getName());
+		assertEquals("Bronze", u.getMembership().getName());
 	}
 	
 	

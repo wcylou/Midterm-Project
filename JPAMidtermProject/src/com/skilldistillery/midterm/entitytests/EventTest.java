@@ -46,7 +46,7 @@ class EventTest {
 	
 	@Test
 	void test_event_mappings() {
-		assertEquals("Red Rocks Concert", e.getName());
+		assertEquals("The Faceless Concert", e.getName());
 	}
 
 	@Test
