@@ -87,22 +87,6 @@ public class UserDAOImpl implements UserDAO {
 	public Profile findProfileById(int profileId) {
 		return em.find(Profile.class, profileId);
 	}
-	
-	public Match findEventMatch(Profile profile, Profile partner) {
-		List<Interest> common = new ArrayList<>();
-		List<Interest> profileInterests = profile.getInterests();
-		List<Interest> partnerInterests = partner.getInterests();
-		
-		for (Interest interest : profileInterests) {
-			if(partnerInterests.contains(interest)) {
-				common.add(interest);
-			}
-		}
-		
-		if(common.size() == 0) {
-			common.add(em.find(Interest.class, 1));
-		}
-		return null;
-	}
+
 	
 }
