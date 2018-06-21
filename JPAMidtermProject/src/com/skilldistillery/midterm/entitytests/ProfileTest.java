@@ -49,10 +49,10 @@ class ProfileTest {
 		assertEquals("Wilson", p.getFirstName());
 	}
 
-//	@Test
-//	void test_membership_mapping_to_user() {
-//		assertEquals(1, m.getUsers().size());
-//	}
+	@Test
+	void test_profile_to_interest() {
+		assertEquals("Food", p.getInterests().get(0).getName());
+	}
 	
 	
 	

@@ -294,6 +294,50 @@ COMMIT;
 START TRANSACTION;
 USE `midterm`;
 INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (1, 'Food');
+INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (2, 'Music');
+INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (3, 'Tattoo');
+INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (4, 'America');
+INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (5, 'Children');
+INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (6, 'Health');
+INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (7, 'Sports');
+INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (8, 'Comedy');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `midterm`.`event_interest`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `midterm`;
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (1, 2);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (2, 7);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (2, 1);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (2, 4);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (3, 1);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (3, 4);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (4, 2);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (5, 3);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (6, 2);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (7, 1);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (7, 2);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (8, 7);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (8, 1);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (8, 4);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (9, 8);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (10, 2);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (11, 2);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (12, 2);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (13, 2);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (14, 1);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (14, 4);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (14, 7);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (15, 2);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (16, 2);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (17, 2);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (18, 8);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (19, 6);
+INSERT INTO `midterm`.`event_interest` (`event_id`, `interest_id`) VALUES (20, 5);
 
 COMMIT;
 
@@ -304,6 +348,8 @@ COMMIT;
 START TRANSACTION;
 USE `midterm`;
 INSERT INTO `midterm`.`membership` (`id`, `name`, `price`) VALUES (1, 'Bronze', 0.00);
+INSERT INTO `midterm`.`membership` (`id`, `name`, `price`) VALUES (2, 'Silver', 4.99);
+INSERT INTO `midterm`.`membership` (`id`, `name`, `price`) VALUES (3, 'Gold', 9.99);
 
 COMMIT;
 
