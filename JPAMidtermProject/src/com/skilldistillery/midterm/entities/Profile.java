@@ -15,16 +15,22 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Profile {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@NotNull
 	@Column(name="first_name")
 	private String firstName;
+	@NotNull
 	@Column(name="last_name")
 	private String lastName;
+	@Min(0)
 	private int age;
 	private String gender;
 	@Column(name="sexual_orientation")

@@ -15,7 +15,6 @@
 </head>
 <body class="register">
 	<div class="container">
-	<br>
 	<form:form action="addProfile.do" method="POST" modelAttribute="profile">
 			<form:label path="firstName">First Name</form:label>
 			<form:input path="firstName" />
@@ -34,7 +33,7 @@
 			<form:errors path="gender" />
 			<br/>
 			<form:label path="sexualOrientation">Sexual Orientation:</form:label>
-			<form:select path="sexualOrientation"/>
+			<form:input path="sexualOrientation"/>
 			<form:errors path="sexualOrientation" />
 			<br>
 			<form:label path="aboutMe">About Me:</form:label>
