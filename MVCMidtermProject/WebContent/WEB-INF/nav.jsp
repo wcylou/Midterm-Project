@@ -5,6 +5,7 @@
 	<a href="index.do">Home</a>
 	<c:if test="${loggedIn}">
 	<a href="account.do">Account</a>
+	<a href="addprofile.do">Add Profile</a>
 	<a href="logout.do">Log Out</a>
 	
 	</c:if>

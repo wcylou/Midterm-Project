@@ -11,29 +11,18 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/main.css">
-<title>Register</title>
+<title>User Details</title>
 </head>
-<body class="register">
+<body>
 	<div class="container">
-		<form:form action="registerUser.do" method="POST" modelAttribute="user">
-			<form:label path="username">Username:</form:label>
-			<form:input path="username" />
-			<form:errors path="username" />
-			<br/>
-			<form:label path="password">Password:</form:label>
-			<form:input path="password" />
-			<form:errors path="password" />
-			<br/>
-			<form:hidden path="access" value="false" />
-			<form:hidden path="active" value="true" />
-			<form:label path="email">Email:</form:label>
-			<form:input path="email" />
-			<form:errors path="email" />
-			<button type="submit" class="btn btn-dark">Add</button>
-			</form:form>
-			<form action="index.do" method="GET">
-				<button type="submit" class="btn btn-dark">Back</button>
-			</form>
+		<span class = "headings">Username: </span><c:out value="${user.username}" /><br>
+		<span class = "headings">Password: </span><c:out value="${user.password}" /><br>
+		<span class = "headings">Active: </span><c:out value="${user.active}" /><br>
+		<span class = "headings">Membership: </span><c:out value="${user.membership}" /><br>
+		<span class = "headings">Email: </span><c:out value="${user.email}" /><br>
+		<form action="index.do" method="GET">
+			<button type="submit" class="btn btn-dark">Back</button>
+		</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -4,13 +4,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.midterm.data.EventDAO;
 import com.skilldistillery.midterm.data.MatchDAO;
@@ -35,16 +33,31 @@ public class UserController {
 		return mv;
 	}
 	
-	@RequestMapping(path = "register.do", method = RequestMethod.GET)
-	public ModelAndView showRegister() {
+	@RequestMapping(path = "profileDetails.do", method = RequestMethod.GET)
+	public String getPlayer(@RequestParam("profileId") int profileId, RedirectAttributes redir, HttpSession session) {
+		Profile profile = udao.findProfileById(profileId);
+		redir.addFlashAttribute("profile", profile);
+		session.setAttribute("profile", profile);
+		return "redirect:profilecreated.do";
+	}
+
+	@RequestMapping(path = "profilecreated.do", method = RequestMethod.GET)
+	public ModelAndView created() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/profileDetaills.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "addprofile.do", method = RequestMethod.GET)
+	public ModelAndView addProfile() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("profile", new Profile());
-		mv.setViewName("WEB-INF/register.jsp");
+		mv.setViewName("WEB-INF/addprofile.jsp");
 		return mv;
 	}
 	
 	@RequestMapping(path = "addProfileDetails.do", method = RequestMethod.POST)
-	public ModelAndView addPlayerDetails(Profile profile, HttpSession session) {
+	public ModelAndView addProfileDetails(Profile profile, HttpSession session) {
 		User current = getCurrentUserFromSession(session);
 		ModelAndView mv = new ModelAndView();
 		Profile profileAdded = udao.createProfile(profile, current);

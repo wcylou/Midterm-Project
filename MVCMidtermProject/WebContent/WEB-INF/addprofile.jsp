@@ -13,22 +13,36 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <title>Register</title>
 </head>
-<body class="register">
+<body class="addprofile">
 	<div class="container">
-		<form:form action="registerUser.do" method="POST" modelAttribute="user">
-			<form:label path="username">Username:</form:label>
-			<form:input path="username" />
-			<form:errors path="username" />
+		<form:form action="addProfileDetails.do" method="POST" modelAttribute="profile">
+			<form:label path="firstName">First Name</form:label>
+			<form:input path="firstName" />
+			<form:errors path="firstName" />
 			<br/>
-			<form:label path="password">Password:</form:label>
-			<form:input path="password" />
-			<form:errors path="password" />
+			<form:label path="lastName">Last Name:</form:label>
+			<form:input path="lastName" />
+			<form:errors path="lastName" />
 			<br/>
-			<form:hidden path="access" value="false" />
-			<form:hidden path="active" value="true" />
-			<form:label path="email">Email:</form:label>
-			<form:input path="email" />
-			<form:errors path="email" />
+			<form:label path="age">Age:</form:label>
+			<form:input path="age" />
+			<form:errors path="age" />
+			<br/>
+			<form:label path="gender">Gender:</form:label>
+			<form:input path="gender" />
+			<form:errors path="gender" />
+			<br/>
+			<form:label path="sexualOrientation">Sexual Orientation:</form:label>
+			<form:input path="sexualOrientation"/>
+			<form:errors path="sexualOrientation" />
+			<br>
+			<form:label path="aboutMe">About Me:</form:label>
+			<form:input path="aboutMe" />
+			<form:errors path="aboutMe" />
+			<br/>
+			<form:label path="pictureUrl">Picture URL:</form:label>
+			<form:input path="pictureUrl" />
+			<form:errors path="pictureUrl" /> --%>
 			<button type="submit" class="btn btn-dark">Add</button>
 			</form:form>
 			<form action="index.do" method="GET">

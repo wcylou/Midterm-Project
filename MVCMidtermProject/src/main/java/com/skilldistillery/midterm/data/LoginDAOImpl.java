@@ -1,7 +1,6 @@
 package com.skilldistillery.midterm.data;
 
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.skilldistillery.midterm.entities.Membership;
 import com.skilldistillery.midterm.entities.User;
 
 @Transactional
@@ -33,5 +33,12 @@ public class LoginDAOImpl implements LoginDAO {
 			}
 		}
 		return u;
+	}
+	
+	@Override
+	public User createUser(User user) {
+		user.setMembership(em.find(Membership.class, 1));
+		em.persist(user);
+		return user;
 	}
 }
