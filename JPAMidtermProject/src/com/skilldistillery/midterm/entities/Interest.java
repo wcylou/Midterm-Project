@@ -91,6 +91,30 @@ public class Interest {
 		builder.append("]");
 		return builder.toString();
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((events == null) ? 0 : events.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((profiles == null) ? 0 : profiles.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Interest other = (Interest) obj;
+		if(other.getName().equals(this.getName())) {
+			return true;
+		}
+		return false;
+	}
 	
 	
 }
