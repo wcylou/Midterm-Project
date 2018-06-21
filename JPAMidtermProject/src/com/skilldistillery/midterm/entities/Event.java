@@ -1,6 +1,8 @@
 package com.skilldistillery.midterm.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -11,11 +13,15 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	@Column(name="location_id")
-	private int locationId;
+	@ManyToOne
+	@JoinColumn(name="location_id")
+	private Location location;
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	private String description;
+	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
+	@JoinTable(name = "event_interest", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "interest_id"))
+	private List<Interest> interests;
 	
 	//gets and sets
 	public String getName() {
@@ -24,11 +30,12 @@ public class Event {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getLocationId() {
-		return locationId;
+	
+	public Location getLocation() {
+		return location;
 	}
-	public void setLocationId(int locationId) {
-		this.locationId = locationId;
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 	public Date getDate() {
 		return date;
@@ -45,6 +52,32 @@ public class Event {
 	public int getId() {
 		return id;
 	}
+	public List<Interest> getInterests() {
+		return interests;
+	}
+	public void setInterests(List<Interest> interests) {
+		this.interests = interests;
+	}
+	
+	public void addInterest(Interest interest) {
+		if (interests == null)
+			interests = new ArrayList<>();
+		
+		if (!interests.contains(interest)) {
+			interests.add(interest);
+			interest.addEvent(this);
+		}
+		
+	}
+	
+	public void removeInterest(Interest interest) {
+		if (interests != null && interests.contains(interest)) {
+			interests.remove(interest);
+			interest.removeEvent(this);
+		}
+	}
+	
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -52,8 +85,6 @@ public class Event {
 		builder.append(id);
 		builder.append(", name=");
 		builder.append(name);
-		builder.append(", locationId=");
-		builder.append(locationId);
 		builder.append(", date=");
 		builder.append(date);
 		builder.append(", description=");

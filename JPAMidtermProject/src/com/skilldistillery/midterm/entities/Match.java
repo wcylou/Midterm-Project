@@ -8,46 +8,44 @@ public class Match {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name="profile_id")
-	private int profileId;
+	@ManyToOne
+	@JoinColumn(name="profile_id")
+	private Profile profile;
 	@Column(name="partner_id")
-	private int partnerId;
-	@Column(name="event_id")
-	private int eventId;
+	private Profile partner;
+	@ManyToOne
+	@JoinColumn(name="event_id")
+	private Event event;
 	
 	//gets and sets
-	public int getProfileId() {
-		return profileId;
-	}
-	public void setProfileId(int profileId) {
-		this.profileId = profileId;
-	}
-	public int getPartnerId() {
-		return partnerId;
-	}
-	public void setPartnerId(int partnerId) {
-		this.partnerId = partnerId;
-	}
-	public int getEventId() {
-		return eventId;
-	}
-	public void setEventId(int eventId) {
-		this.eventId = eventId;
-	}
+	
+	
 	public int getId() {
 		return id;
+	}
+	public Profile getProfile() {
+		return profile;
+	}
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+	public Profile getPartner() {
+		return partner;
+	}
+	public void setPartner(Profile partner) {
+		this.partner = partner;
+	}
+	public Event getEvent() {
+		return event;
+	}
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Match [id=");
 		builder.append(id);
-		builder.append(", profileId=");
-		builder.append(profileId);
-		builder.append(", partnerId=");
-		builder.append(partnerId);
-		builder.append(", eventId=");
-		builder.append(eventId);
 		builder.append("]");
 		return builder.toString();
 	}

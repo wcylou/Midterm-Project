@@ -9,10 +9,11 @@ public class User {
 	private int id;
 	private String username;
 	private String password;
-	private int access;
-	@Column(name="membership_id")
-	private int membershipId;
-	private int active;
+	private boolean access;
+	@ManyToOne
+	@JoinColumn(name="membership_id")
+	private Membership membership;
+	private boolean active;
 	private String email;
 	
 	
@@ -29,22 +30,23 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getAccess() {
+	public boolean getAccess() {
 		return access;
 	}
-	public void setAccess(int access) {
+	public void setAccess(boolean access) {
 		this.access = access;
 	}
-	public int getMembershipId() {
-		return membershipId;
+	
+	public Membership getMembership() {
+		return membership;
 	}
-	public void setMembershipId(int membershipId) {
-		this.membershipId = membershipId;
+	public void setMembership(Membership membership) {
+		this.membership = membership;
 	}
-	public int getActive() {
+	public boolean getActive() {
 		return active;
 	}
-	public void setActive(int active) {
+	public void setActive(boolean active) {
 		this.active = active;
 	}
 	public String getEmail() {

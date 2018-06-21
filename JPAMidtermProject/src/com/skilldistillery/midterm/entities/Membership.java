@@ -1,6 +1,13 @@
 package com.skilldistillery.midterm.entities;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Membership {
@@ -9,6 +16,8 @@ public class Membership {
 	private int id;
 	private String name;
 	private double price;
+	@OneToMany(mappedBy = "membershipId")
+	private List<User> users;
 	
 	//gets and sets
 	public String getName() {
@@ -26,6 +35,34 @@ public class Membership {
 	public int getId() {
 		return id;
 	}
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+	
+	public void addUser(User user) {
+		if(users == null) users = new ArrayList<>();
+		
+		if(!users.contains(user)) {
+			users.add(user);
+			if(user.getMembership() != null) {
+				user.getMembership().getUsers().remove(user);
+			}
+			user.setMembership(this);
+		}
+	}
+	
+	public void removeUser(User user) {
+		user.setMembership(null);
+		if (users != null) {
+			users.remove(user);
+		}
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
