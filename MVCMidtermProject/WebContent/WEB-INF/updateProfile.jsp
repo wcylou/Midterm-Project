@@ -19,20 +19,19 @@
 <h1>Update Profile</h1>
 
       <form action="updateProfileDetails.do" method="POST">
-       <span class = "headings">Profille ID: </span><input type= "text" name="profileId" value="${profileUpdated.id}" readonly/><br>
-        <span class = "headings">First Name:</span> <input type="text" type="text" name = "firstName" value="${profileUpdated.firstName}"/> <br> 
-        <span class = "headings">Last Name: </span> <input type="text" name = "lastName" type="text" value="${profileUpdated.lastName}" /><br> 
-       <span class = "headings">Age: </span><input type="text" name="age" value="${profileUpdated.age}"/><br> 
-      <span class = "headings">Gender: </span> <input type="text" name="gender" value="${profileUpdated.gender}"/><br> 
-       	<span class = "headings">Sexual Orientation: </span>  <input type="text" name="sexualOrientation" value="${profileUpdated.sexualOrientation}"/><br> 
-       	<span class = "headings">About me: </span>  <input type="text" name="aboutMe" value="${profileUpdated.aboutMe}"/><br> 
-       	<span class = "headings">Picture URL: </span>  <input type="text" name="sexualOrientation" value="${profileUpdated.pictureUrl}"/><br> 
+       <span class = "headings">Profile ID: </span><input type= "text" name="profileId" value="${profileUpdate.id}" readonly/><br>
+        <span class = "headings">First Name:</span> <input type="text" type="text" name = "firstName" value="${profileUpdate.firstName}"/> <br> 
+        <span class = "headings">Last Name: </span> <input type="text" name = "lastName" type="text" value="${profileUpdate.lastName}" /><br> 
+       <span class = "headings">Age: </span><input type="text" name="age" value="${profileUpdate.age}"/><br> 
+      <span class = "headings">Gender: </span> <input type="text" name="gender" value="${profileUpdate.gender}"/><br> 
+       	<span class = "headings">Sexual Orientation: </span>  <input type="text" name="sexualOrientation" value="${profileUpdate.sexualOrientation}"/><br> 
+       	<span class = "headings">About me: </span>  <input type="text" name="aboutMe" value="${profileUpdate.aboutMe}"/><br> 
+       	<span class = "headings">Picture URL: </span>  <input type="text" name="sexualOrientation" value="${profileUpdate.pictureUrl}"/><br> 
 				<button type="submit" class="btn btn-dark">Update</button>
 			</form>
      <form action="index.do" method="GET">
 				<button type="submit" class="btn btn-dark">Back</button>
 	</form>
-        <img src="images/usa.jpg">
     
     </div>
    	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

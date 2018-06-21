@@ -15,6 +15,7 @@
 <c:out value="${user.username}"></c:out><br>
 <c:out value="${user.access}"></c:out><br>
 
+  
 <form action="logout.do">
 	<input type="submit" value="Log Out" > 
 </form>

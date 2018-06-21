@@ -6,6 +6,7 @@
 	<c:if test="${loggedIn}">
 	<a href="account.do">Account</a>
 	<a href="logout.do">Log Out</a>
+	
 	</c:if>
 	<c:if test="${!loggedIn}">
 	<a href="login.do">Log In</a>

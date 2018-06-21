@@ -4,6 +4,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,19 +36,18 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "register.do", method = RequestMethod.GET)
-	public ModelAndView showRegister(HttpSession session) {
+	public ModelAndView showRegister() {
 		ModelAndView mv = new ModelAndView();
-		User current = getCurrentUserFromSession(session);
 		mv.addObject("profile", new Profile());
-		mv.addObject("userCurrent", current);
 		mv.setViewName("WEB-INF/register.jsp");
 		return mv;
 	}
 	
 	@RequestMapping(path = "addProfileDetails.do", method = RequestMethod.POST)
-	public ModelAndView addPlayerDetails(Profile profile) {
+	public ModelAndView addPlayerDetails(Profile profile, HttpSession session) {
+		User current = getCurrentUserFromSession(session);
 		ModelAndView mv = new ModelAndView();
-		Profile profileAdded = udao.createProfile(profile);
+		Profile profileAdded = udao.createProfile(profile, current);
 		mv.addObject("profile", profileAdded);
 		mv.setViewName("WEB-INF/profileDetails.jsp");
 		return mv;
@@ -55,15 +57,16 @@ public class UserController {
 	public ModelAndView updateProfile(@RequestParam(name = "profileId") int profileId) {
 		ModelAndView mv = new ModelAndView();
 		Profile profile = udao.findProfileById(profileId);
-		mv.addObject("profileUpdated", profile);
-		mv.setViewName("WEB-INF/updateProfile.jsp"); // redirect to new mapping
+		mv.addObject("profileUpdate", profile);
+		mv.setViewName("WEB-INF/updateProfile.jsp"); 
 		return mv;
 	}
 
 	@RequestMapping(path = "updateProfileDetails.do", method = RequestMethod.POST)
-	public ModelAndView updateFilmDetails(@RequestParam(name = "profileId") int profileId, Profile profile) {
+	public ModelAndView updateProfileDetails(@RequestParam(name = "profileId") int profileId, Profile profile, HttpSession session) {
+		User current = getCurrentUserFromSession(session);
 		ModelAndView mv = new ModelAndView();
-		Profile profileUpdated = udao.updateProfile(profile, profileId);
+		Profile profileUpdated = udao.updateProfile(profile, profileId, current);
 		mv.addObject("profileUpdated", profileUpdated);
 		mv.setViewName("WEB-INF/updatedProfileDetails.jsp");
 		return mv;
@@ -72,16 +75,6 @@ public class UserController {
 	private User getCurrentUserFromSession(HttpSession session) {
 		User current = (User) session.getAttribute("user");
 		return current;
-	}
-
-	@RequestMapping(path = "navPlayer.do", params = "next")
-	public ModelAndView navPlayerNext(HttpSession session) {
-		ModelAndView mv = new ModelAndView();
-		Player next = playerDAO.getNextPlayer(current);
-		session.setAttribute("player", next);
-		mv.addObject(next);
-		mv.setViewName("WEB-INF/playerdetails.jsp");
-		return mv;
 	}
 
 }

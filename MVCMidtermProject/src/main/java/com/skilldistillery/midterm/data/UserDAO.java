@@ -9,6 +9,6 @@ public interface UserDAO {
 	public User updateUser(User user, int userId);
 	public User findUserById(int userId);
 	public Profile findProfileById(int profileId);
-	public Profile createProfile(Profile profile);
-	public Profile updateProfile(Profile profile, int profileId);
+	public Profile createProfile(Profile profile, User user);
+	public Profile updateProfile(Profile profile, int profileId, User user);
 }

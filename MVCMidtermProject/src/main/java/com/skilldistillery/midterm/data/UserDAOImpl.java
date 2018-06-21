@@ -58,13 +58,15 @@ public class UserDAOImpl implements UserDAO {
 	
 	
 	@Override
-	public Profile createProfile(Profile profile) {
+	public Profile createProfile(Profile profile, User user) {
+		profile.setUser(user);
 		em.persist(profile);
 		return profile;
 	}
 	
 	@Override
-	public Profile updateProfile(Profile profile, int profileId) {
+	public Profile updateProfile(Profile profile, int profileId, User user) {
+		profile.setUser(user);
 		Profile managed = em.find(Profile.class, profileId);
 		managed.setAboutMe(profile.getAboutMe());
 		managed.setAge(profile.getAge());

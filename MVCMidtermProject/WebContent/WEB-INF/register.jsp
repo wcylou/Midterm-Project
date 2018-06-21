@@ -15,7 +15,20 @@
 </head>
 <body class="register">
 	<div class="container">
-	<form:form action="addProfileDetails.do" method="POST" modelAttribute="profile">
+	<%-- <form action="addProfileDetails.do" method="POST">
+	First Name<input type="text" name="firstName" /><br>
+	Last Name<input type="text" name="lastName" />	<br>
+	<!-- Age<input type="number" name="age" />	<br>
+	Gender<input type="text" name=gender />	<br>
+	Sexual Orientation<input type="text" name="sexualOrientation" /><br>
+	About Me<input type="text" name="aboutMe" /><br>	
+	Picture URL<input type="text" name="pictureUrl" /><br>	 -->
+	<p> ${userCurrent.id}</p>
+	<input type="hidden" name="user"  value="${userCurrent.id}"/><br>
+		<button type="submit" class="btn btn-dark">Add</button>
+	</form> --%>
+	
+		<form:form action="addProfileDetails.do" method="POST" modelAttribute="profile">
 			<form:label path="firstName">First Name</form:label>
 			<form:input path="firstName" />
 			<form:errors path="firstName" />
@@ -24,7 +37,7 @@
 			<form:input path="lastName" />
 			<form:errors path="lastName" />
 			<br/>
-			<form:label path="age">Age:</form:label>
+		<form:label path="age">Age:</form:label>
 			<form:input path="age" />
 			<form:errors path="age" />
 			<br/>
@@ -42,9 +55,9 @@
 			<br/>
 			<form:label path="pictureUrl">Picture URL:</form:label>
 			<form:input path="pictureUrl" />
-			<form:errors path="pictureUrl" />
-			<button type="submit" class="btn btn-dark">Add</button>
-		</form:form>
+			<form:errors path="pictureUrl" /> --%>
+		<button type="submit" class="btn btn-dark">Add</button>
+			</form:form>
 			<form action="index.do" method="GET">
 				<button type="submit" class="btn btn-dark">Back</button>
 			</form>
