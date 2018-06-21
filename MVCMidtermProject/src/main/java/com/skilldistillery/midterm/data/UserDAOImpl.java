@@ -1,13 +1,22 @@
 package com.skilldistillery.midterm.data;
 
+
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.skilldistillery.midterm.entities.Interest;
+import com.skilldistillery.midterm.entities.Match;
 import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.User;
+
+
 
 @Transactional
 @Component
@@ -77,6 +86,23 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public Profile findProfileById(int profileId) {
 		return em.find(Profile.class, profileId);
+	}
+	
+	public Match findEventMatch(Profile profile, Profile partner) {
+		List<Interest> common = new ArrayList<>();
+		List<Interest> profileInterests = profile.getInterests();
+		List<Interest> partnerInterests = partner.getInterests();
+		
+		for (Interest interest : profileInterests) {
+			if(partnerInterests.contains(interest)) {
+				common.add(interest);
+			}
+		}
+		
+		if(common.size() == 0) {
+			common.add(em.find(Interest.class, 1));
+		}
+		return null;
 	}
 	
 	
