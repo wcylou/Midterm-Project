@@ -16,7 +16,7 @@ public class Membership {
 	private int id;
 	private String name;
 	private double price;
-	@OneToMany(mappedBy = "membershipId")
+	@OneToMany(mappedBy = "membership")
 	private List<User> users;
 	
 	//gets and sets
