@@ -21,7 +21,7 @@ public class Location {
 	private String address2;
 	@Column(name="zip_code")
 	private String zipCode;
-	@OneToMany(mappedBy = "locationId")
+	@OneToMany(mappedBy = "location")
 	private List<Event> events;
 	
 	//gets and sets

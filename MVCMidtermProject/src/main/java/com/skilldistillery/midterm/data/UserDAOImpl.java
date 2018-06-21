@@ -33,7 +33,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public void deleteUser(User user) {
-		user.setActive(0);
+		user.setActive(false);
 	}
 
 	@Override
@@ -42,7 +42,6 @@ public class UserDAOImpl implements UserDAO {
 		managed.setAccess(user.getAccess());
 		managed.setActive(user.getActive());
 		managed.setEmail(user.getEmail());
-		managed.setMembershipId(user.getMembershipId());
 		managed.setPassword(user.getPassword());
 		managed.setUsername(user.getUsername());
 		return managed;
@@ -64,9 +63,9 @@ public class UserDAOImpl implements UserDAO {
 		managed.setLastName(profile.getLastName());
 		managed.setGender(profile.getGender());
 		managed.setSexualOrientation(profile.getSexualOrientation());
-		managed.setLocationId(profile.getLocationId());
+		managed.setLocation(profile.getLocation());
 		managed.setPictureUrl(profile.getPictureUrl());
-		managed.setUserId(profile.getUserId());
+		managed.setUser(profile.getUser());
 		return managed;
 	}
 
