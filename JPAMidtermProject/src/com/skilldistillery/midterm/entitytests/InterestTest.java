@@ -12,12 +12,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.midterm.entities.User;
+import com.skilldistillery.midterm.entities.Interest;
 
-class UserTest {
+class InterestTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User u;
+	private Interest i;
 	
 	
 	@BeforeAll
@@ -29,13 +29,13 @@ class UserTest {
 	@BeforeEach
 	public void setUp() throws Exception {
 		em = emf.createEntityManager();
-		u = em.find(User.class, 1);
+		i = em.find(Interest.class, 1);
 	}
 
 	@AfterEach
 	public void tearDown() throws Exception {
 		em.close();
-		u = null;
+		i = null;
 	}
 
 	@AfterAll
@@ -45,13 +45,20 @@ class UserTest {
 	}
 	
 	@Test
-	void test_user_mappings() {
-		assertEquals("admin@admin.com", u.getEmail());
+	void test_interest_mappings() {
+		assertEquals("Gaming", i.getName());
 	}
+
 	@Test
-	void test_user_membership() {
-		assertEquals("Gold", u.getMembership().getName());
+	void test_interest_mapping_to_profile() {
+		assertEquals("Wilson", i.getProfiles().get(0).getFirstName());
 	}
+
+//	@Test
+//	void test_event_mapping_to_interest() {
+//		assertEquals("Music", e.getInterests().get(0).getName());
+//	}
+	
 	
 	
 	
