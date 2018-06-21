@@ -63,7 +63,7 @@ public class UserDAOImpl implements UserDAO {
 		managed.setLastName(profile.getLastName());
 		managed.setGender(profile.getGender());
 		managed.setSexualOrientation(profile.getSexualOrientation());
-		managed.setLocationId(profile.getLocationId());
+		managed.setLocation(profile.getLocation());
 		managed.setPictureUrl(profile.getPictureUrl());
 		managed.setUserId(profile.getUserId());
 		return managed;
