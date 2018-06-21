@@ -60,4 +60,10 @@ public class EventDAOImpl implements EventDAO {
 		List<Event> events = em.createQuery(queryString, Event.class).getResultList();
 		return events;
 	}
+
+	@Override
+	public Event find(int id) {
+		return em.find(Event.class, id);
+		
+	}
 }
