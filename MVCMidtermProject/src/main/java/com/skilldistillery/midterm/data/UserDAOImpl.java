@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skilldistillery.midterm.entities.Interest;
+import com.skilldistillery.midterm.entities.Location;
 import com.skilldistillery.midterm.entities.Match;
 import com.skilldistillery.midterm.entities.Membership;
 import com.skilldistillery.midterm.entities.Profile;
@@ -86,6 +87,15 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public Profile findProfileById(int profileId) {
 		return em.find(Profile.class, profileId);
+	}
+
+	@Override
+	public Profile createProfileAndLocation(Profile profile, Location location) {
+		profile.setLocation(location);
+		em.persist(profile);
+		em.flush();
+		
+		return profile;
 	}
 
 	
