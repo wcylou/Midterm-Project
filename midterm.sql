@@ -288,6 +288,56 @@ INSERT INTO `midterm`.`event` (`id`, `name`, `location_id`, `date`, `description
 COMMIT;
 
 
+-- -----------------------------------------------------
+-- Data for table `midterm`.`interest`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `midterm`;
+INSERT INTO `midterm`.`interest` (`id`, `name`) VALUES (1, 'Food');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `midterm`.`membership`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `midterm`;
+INSERT INTO `midterm`.`membership` (`id`, `name`, `price`) VALUES (1, 'Bronze', 0.00);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `midterm`.`user`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `midterm`;
+INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (1, 'user', 'password', 1, 1, 1, 'a@a.com');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `midterm`.`profile`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `midterm`;
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (1, 'Wilson', 'Lou', 26, 'No', 'Yes', 'I do stuff.', 1, 1, 'asdfsdf', 18, 88);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `midterm`.`profile_interest`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `midterm`;
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (1, 1);
+
+COMMIT;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
