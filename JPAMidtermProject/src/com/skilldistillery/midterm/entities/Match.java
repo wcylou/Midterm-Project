@@ -11,7 +11,8 @@ public class Match {
     @ManyToOne
     @JoinColumn(name="profile_id")
     private Profile profile;
-    @Column(name="partner_id")
+    @ManyToOne
+    @JoinColumn(name="partner_id")
     private Profile partner;
     @ManyToOne
     @JoinColumn(name="event_id")
