@@ -88,8 +88,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public Profile findProfileById(int profileId) {
-		return em.find(Profile.class, profileId);
+	public Profile findProfileById(int userId) {
+		Profile p = null;
+		String query = "SELECT p from Profile p JOIN User u on u.id = p.user where u.id = :id";
+		p = em.createQuery(query, Profile.class).setParameter("id", userId).getSingleResult();
+		return p;
 	}
 
 	@Override
@@ -106,5 +109,18 @@ public class UserDAOImpl implements UserDAO {
 		List<Profile> profiles = em.createQuery(queryString, Profile.class).getResultList();
 		return profiles;
 	}
+	
+	@Override
+	public List<Interest> getInterestsForProfileWithId(int profileId) {
+		String query = "SELECT p from Profile p JOIN FETCH p.interests where p.id = :id";
+		Profile p = em.createQuery(query, Profile.class)
+				.setParameter("id", profileId)
+				.getResultList()
+				.get(0);
+		
+		List <Interest> interests = p.getInterests();
+		return interests;
+	}
+	
 	
 }

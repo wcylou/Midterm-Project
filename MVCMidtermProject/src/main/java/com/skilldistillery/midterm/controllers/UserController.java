@@ -34,52 +34,59 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "profileDetails.do", method = RequestMethod.GET)
-	public String getPlayer(@RequestParam("profileId") int profileId, RedirectAttributes redir, HttpSession session) {
+	public String getProfile(@RequestParam("profileId") int profileId, RedirectAttributes redir, HttpSession session) {
 		Profile profile = udao.findProfileById(profileId);
 		redir.addFlashAttribute("profile", profile);
 		session.setAttribute("profile", profile);
 		return "redirect:profilecreated.do";
 	}
-
-	@RequestMapping(path = "profilecreated.do", method = RequestMethod.GET)
-	public ModelAndView created() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("WEB-INF/profileDetaills.jsp");
-		return mv;
-	}
 	
-	@RequestMapping(path = "addprofile.do", method = RequestMethod.GET)
+	@RequestMapping(path = "addProfile2.do", method = RequestMethod.GET)
 	public ModelAndView addProfile() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("profile", new Profile());
-		mv.setViewName("WEB-INF/addprofile.jsp");
+		mv.setViewName("WEB-INF/addProfile.jsp");
 		return mv;
 	}
 	
-	@RequestMapping(path = "addProfileDetails.do", method = RequestMethod.POST)
-	public ModelAndView addProfileDetails(Profile profile, HttpSession session) {
-		User current = getCurrentUserFromSession(session);
+	@RequestMapping(path = "profilecreated.do", method = RequestMethod.GET)
+	public ModelAndView created() {
 		ModelAndView mv = new ModelAndView();
-		Profile profileAdded = udao.createProfile(profile, current);
-		mv.addObject("profile", profileAdded);
 		mv.setViewName("WEB-INF/profileDetails.jsp");
 		return mv;
 	}
 	
+	@RequestMapping(path = "addProfileDetails.do", method = RequestMethod.POST)
+	public String addProfileDetails(Profile profile, HttpSession session, RedirectAttributes redir) {
+		User current = getCurrentUserFromSession(session);
+		System.out.println(current);
+		Profile profileAdded = udao.createProfile(profile, current);
+		System.out.println(profileAdded);
+		redir.addFlashAttribute("profile", profileAdded);
+		session.setAttribute("profile", profileAdded);
+		return "redirect:profilecreated.do";
+	}
+	
 	@RequestMapping(path = "updateProfile.do", method = RequestMethod.GET)
-	public ModelAndView updateProfile(@RequestParam(name = "profileId") int profileId) {
+	public ModelAndView updateProfile(HttpSession session) {
+		Profile current = getCurrentProfileFromSession(session);
 		ModelAndView mv = new ModelAndView();
-		Profile profile = udao.findProfileById(profileId);
+		Profile profile = udao.findProfileById(current.getId());
 		mv.addObject("profileUpdate", profile);
 		mv.setViewName("WEB-INF/updateProfile.jsp"); 
+		session.setAttribute("profile", profile);
 		return mv;
 	}
 
 	@RequestMapping(path = "updateProfileDetails.do", method = RequestMethod.POST)
-	public ModelAndView updateProfileDetails(@RequestParam(name = "profileId") int profileId, Profile profile, HttpSession session) {
+	public ModelAndView updateProfileDetails(Profile profile, HttpSession session) {
 		User current = getCurrentUserFromSession(session);
+		System.out.println(current);
+		Profile p = getCurrentProfileFromSession(session);
+		System.out.println(p);
 		ModelAndView mv = new ModelAndView();
-		Profile profileUpdated = udao.updateProfile(profile, profileId, current);
+		Profile profileUpdated = udao.updateProfile(profile, p.getId(), current);
+		System.out.println(profile);
 		mv.addObject("profileUpdated", profileUpdated);
 		mv.setViewName("WEB-INF/updatedProfileDetails.jsp");
 		return mv;
@@ -89,5 +96,11 @@ public class UserController {
 		User current = (User) session.getAttribute("user");
 		return current;
 	}
+	
+	private Profile getCurrentProfileFromSession(HttpSession session) {
+		Profile current = (Profile) session.getAttribute("profile");
+		return current;
+	}
+
 
 }

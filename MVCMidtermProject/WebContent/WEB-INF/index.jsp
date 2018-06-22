@@ -10,20 +10,20 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
 <title>Home</title>
 </head>
-<body>
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+<body id = "home">
+
+ <nav class="navbar navbar-static-top fixed-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#home">DATING 101</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#pricing">Pricing</a>
+      <a class="navbar-nav ml-auto" href="#pricing">Pricing</a>
+      <a class="navbar-nav ml-auto" href="#contact">Contact Us</a>
       <form action="register.do" method="GET">
 			<button type="submit"  class="btn btn-dark">Register</button>
 		</form>
@@ -37,7 +37,7 @@
   </div>
 </nav>
   
-  <section id ="#aboutus" class ="banner">
+  <section id ="aboutus" class ="banner">
   	<div class="jumbotron">
   		<h1 class="display-4">Hello, world!</h1>
   		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -49,7 +49,7 @@
 		</div>
   </section>
   
-  <section id = "#testimonials">
+  <section id = "testimonials">
 	<div class = "container">
   	<div class = "row">
   	
@@ -115,7 +115,8 @@
     </div>
     </section>
     
-   	<div class="row contact-info">
+  <section id="contact">
+   	<div class="row contact-us">
    		<div class="col-md-4">
    			<div class="icon">
    				<i class="fas fa-map-marker-alt"></i>
@@ -142,11 +143,10 @@
    			<p>Phone: (720) 503 2312</p>
    		</div>
    	</div> 
-
+</section>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script src="js/main.js"></script>
 </body>
 </html>
 

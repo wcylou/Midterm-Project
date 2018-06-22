@@ -27,6 +27,9 @@
        	<span class = "headings">Sexual Orientation: </span>  <input type="text" name="sexualOrientation" value="${profileUpdate.sexualOrientation}"/><br> 
        	<span class = "headings">About me: </span>  <input type="text" name="aboutMe" value="${profileUpdate.aboutMe}"/><br> 
        	<span class = "headings">Picture URL: </span>  <input type="text" name="sexualOrientation" value="${profileUpdate.pictureUrl}"/><br> 
+       	<span class = "headings">Interest 1: </span>  <input type="text" name="interests[0].name" value="${profileUpdate.interests[0].name}"/><br> 
+       	<span class = "headings">Interest 2: </span>  <input type="text" name="interests[1].name" value="${profileUpdate.interests[1].name}"/><br> 
+       	
 				<button type="submit" class="btn btn-dark">Update</button>
 			</form>
      <form action="index.do" method="GET">

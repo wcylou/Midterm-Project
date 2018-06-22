@@ -14,6 +14,24 @@
 <title>Register</title>
 </head>
 <body class="register">
+
+ <nav class="navbar navbar-static-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="http://localhost:8080/MVCMidtermProject/index.do#home">DATING 101</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <form action="register.do" method="GET">
+			<button type="submit"  class="btn btn-dark">Register</button>
+		</form>
+		   <form action="login.do" method="GET">
+			<button type="submit"  class="btn btn-dark">Login</button>
+		</form>
+    </div>
+  </div>
+</nav>
+
 	<div class="container">
 		<form:form action="registerUser.do" method="POST" modelAttribute="user">
 			<form:label path="username">Username:</form:label>

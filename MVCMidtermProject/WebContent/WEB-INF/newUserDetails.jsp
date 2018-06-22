@@ -14,12 +14,32 @@
 <title>User Details</title>
 </head>
 <body>
+	<nav class="navbar navbar-static-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="http://localhost:8080/MVCMidtermProject/index.do#home">DATING 101</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="navbar-nav ml-auto" href="account.do">My Account</a>
+      <a class="navbar-nav ml-auto" href="updateUser.do">Update User</a>
+      <a class="navbar-nav ml-auto" href="updateUser.do">See Past Matches</a>
+      <a class="navbar-nav ml-auto" href="getEvent.do">See Events</a>
+      <a class="navbar-nav ml-auto" href="logout.do">Logout</a>
+    </div>
+  </div>
+</nav>
 	<div class="container">
+		<span class = "headings">User ID: </span><c:out value="${user.id}" /><br>
 		<span class = "headings">Username: </span><c:out value="${user.username}" /><br>
 		<span class = "headings">Password: </span><c:out value="${user.password}" /><br>
 		<span class = "headings">Active: </span><c:out value="${user.active}" /><br>
 		<span class = "headings">Membership: </span><c:out value="${user.membership}" /><br>
 		<span class = "headings">Email: </span><c:out value="${user.email}" /><br>
+		<form action="updateUser.do" method="GET">
+			<input type="hidden" name="userId" value="${user.id}" />
+			<button type="submit" class="btn btn-dark">Update</button>
+		</form>
 		<form action="index.do" method="GET">
 			<button type="submit" class="btn btn-dark">Back</button>
 		</form>
