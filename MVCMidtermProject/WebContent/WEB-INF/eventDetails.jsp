@@ -39,7 +39,7 @@
 		<c:out value="${event.location.state}" />
 		<br> <span class="headings">Interests: </span>
 		<ul>
-			<c:forEach var="interest" items="${event.interests}">
+			<c:forEach var="interest" items="${interestList}">
 				<li>${interest.name}</li>
 			</c:forEach>
 		</ul>

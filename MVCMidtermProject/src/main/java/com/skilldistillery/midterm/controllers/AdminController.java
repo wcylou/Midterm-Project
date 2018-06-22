@@ -14,6 +14,7 @@ import com.skilldistillery.midterm.data.EventDAO;
 import com.skilldistillery.midterm.data.MatchDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Event;
+import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Location;
 import com.skilldistillery.midterm.entities.Profile;
 
@@ -27,6 +28,13 @@ public class AdminController {
 	@Autowired
 	private UserDAO udao;
 
+	@RequestMapping(path = "admin.do", method = RequestMethod.GET)
+	public ModelAndView adminView() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("WEB-INF/admin.jsp");
+		return mv;
+	}
 	
 	//events mapping
 	@RequestMapping(path = "getEvents.do", method = RequestMethod.GET)
@@ -42,7 +50,9 @@ public class AdminController {
 	public ModelAndView getFilm(@RequestParam("id") int eventId) {
 		ModelAndView mv = new ModelAndView();
 		Event e = edao.find(eventId);
+		List<Interest> interestList = edao.loadInterestsByEvent(eventId);
 		mv.addObject("event", e);
+		mv.addObject("interestList", interestList);
 		mv.setViewName("WEB-INF/eventDetails.jsp");
 		return mv;
 	}
@@ -101,7 +111,7 @@ public class AdminController {
 		Location l = new Location();
 		mv.addObject("profile", p);
 		mv.addObject("location", l);
-		mv.setViewName("WEB-INF/addProfile.jsp");
+		mv.setViewName("WEB-INF/addprofile.jsp");
 		return mv;
 	}
 	
