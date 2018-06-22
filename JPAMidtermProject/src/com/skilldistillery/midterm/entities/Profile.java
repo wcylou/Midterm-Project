@@ -27,9 +27,9 @@ public class Profile {
 	@Column(name="last_name")
 	private String lastName;
 	private int age;
-	private String gender;
+	private Gender gender;
 	@Column(name="sexual_orientation")
-	private String sexualOrientation;
+	private Sexuality sexualOrientation;
 	@Column(name="about_me")
 	private String aboutMe;
 	@ManyToOne(cascade=CascadeType.PERSIST)
@@ -69,16 +69,16 @@ public class Profile {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getGender() {
+	public Gender getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
-	public String getSexualOrientation() {
+	public Sexuality getSexualOrientation() {
 		return sexualOrientation;
 	}
-	public void setSexualOrientation(String sexualOrientation) {
+	public void setSexualOrientation(Sexuality sexualOrientation) {
 		this.sexualOrientation = sexualOrientation;
 	}
 	public String getAboutMe() {
