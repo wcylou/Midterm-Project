@@ -47,9 +47,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(path = "getEvent.do", method=RequestMethod.GET)
-	public ModelAndView getFilm(@RequestParam("id") int eventId) {
+	public ModelAndView getEvent(@RequestParam("id") int eventId) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("&&&&&&&&&&&&&");
 		Event e = edao.getEventById(eventId);
 		mv.addObject("event", e);
 		mv.setViewName("WEB-INF/eventDetails.jsp");
@@ -83,6 +82,26 @@ public class AdminController {
 		mv.setViewName("WEB-INF/eventDetails.jsp");
 		return mv;
 	}
+	
+	@RequestMapping(path = "updateEvent.do", method=RequestMethod.GET)
+	public ModelAndView updateEvent(@RequestParam("id") int eventId) {
+		ModelAndView mv = new ModelAndView();
+		Event e = edao.getEventById(eventId);
+		mv.addObject("event", e);
+		mv.setViewName("WEB-INF/updateEvent.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
+	public ModelAndView updateEventPost(Event event, RedirectAttributes redir) {
+		ModelAndView mv = new ModelAndView();
+		edao.update(event.getId(), event);
+		redir.addFlashAttribute("event", event);
+		mv.setViewName("redirect:eventCreated.do");
+
+		return mv;
+	}
+	
 	
 	//profile mapping
 	@RequestMapping(path = "getProfiles.do", method = RequestMethod.GET)

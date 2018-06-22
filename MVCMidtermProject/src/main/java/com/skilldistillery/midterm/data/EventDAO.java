@@ -13,6 +13,5 @@ public interface EventDAO {
 	public Event update(int id, Event updatedEvent);
 	public void delete(int id);
 	public Event createEventAndLocation(Event event, Location location);
-	public List<Interest> loadInterestsByEvent(int id);
 	public Event getEventById(int id);
 }

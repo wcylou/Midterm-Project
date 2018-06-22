@@ -63,22 +63,15 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
-	public List<Interest> loadInterestsByEvent(int id) {
-		String query = "SELECT e FROM Event e JOIN FETCH e.interests WHERE e.id = :id";
-		Event event = em.createQuery(query, Event.class).setParameter("id", id).getResultList().get(0);
-
-		// This will work
-		List<Interest> interests = event.getInterests();
-		return interests;
-
-	}
-
-	@Override
 	public Event getEventById(int id) {
 		String query = "SELECT e FROM Event e JOIN FETCH e.interests WHERE e.id = :id";
 		Event event = em.createQuery(query, Event.class).setParameter("id", id).getResultList().get(0);
-		System.out.println("********");
-		System.out.println(event.getInterests().size());
 		return event;
+	}
+
+	@Override
+	public Event find(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

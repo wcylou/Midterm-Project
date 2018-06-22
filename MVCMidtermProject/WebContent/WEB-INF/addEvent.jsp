@@ -15,7 +15,7 @@
 </head>
 <body class="addprofile">
 	<div class="container">
-		<form:form action="addEventDetails.do" method="POST" modelAttribute="event">
+		<form:form action="addEvent.do" method="POST" modelAttribute="event">
 			<form:label path="name">Name</form:label>
 			<form:input path="name" />
 			<form:errors path="name" />
