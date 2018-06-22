@@ -396,8 +396,8 @@ INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender
 INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (16, 'Santa', 'Claus', 75, 'Man', 'Bisexual', 'asdf', 6, 6, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Jonathan_G_Meath_portrays_Santa_Claus.jpg/220px-Jonathan_G_Meath_portrays_Santa_Claus.jpg', 18, 150);
 INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (17, 'Inigo', 'Montoya', 35, 'Man', 'Heterosexual', 'asdf', 7, 6, 'https://i.ytimg.com/vi/UCo-_QAGKTg/maxresdefault.jpg', 18, 60);
 INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (18, 'John', 'Yossarian', 30, 'Man', 'Heterosexual', 'asdf', 8, 6, 'http://static.tvtropes.org/pmwiki/pub/images/catch_22_1.jpg', 18, 50);
-INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (19, 'Gogo', 'Yubari', 18, 'Woman', 'Heterosexual', 'asdf', 9, 6, 'https://vignette.wikia.nocookie.net/killbill/images/9/99/Gogo_Slider_2.jpg/revision/latest?cb=20130201053902', NULL, NULL);
-INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (20, 'Ned', 'Stark', 58, 'Man', 'Heterosexual', 'asdf', 10, 6, 'https://vignette.wikia.nocookie.net/marvelcrossroads/images/5/5f/Ned-Stark.png/revision/latest?cb=20170306202013', NULL, NULL);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (19, 'Gogo', 'Yubari', 18, 'Woman', 'Heterosexual', 'asdf', 9, 6, 'https://vignette.wikia.nocookie.net/killbill/images/9/99/Gogo_Slider_2.jpg/revision/latest?cb=20130201053902', 30, 70);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (20, 'Ned', 'Stark', 58, 'Man', 'Heterosexual', 'asdf', 10, 6, 'https://vignette.wikia.nocookie.net/marvelcrossroads/images/5/5f/Ned-Stark.png/revision/latest?cb=20170306202013', 18, 90);
 
 COMMIT;
 
@@ -423,6 +423,40 @@ INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (6
 INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (6, 5);
 INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (6, 6);
 INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (6, 7);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (7, 2);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (7, 3);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (7, 4);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (8, 1);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (8, 7);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (8, 2);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (9, 1);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (9, 3);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (9, 4);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (10, 1);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (10, 2);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (11, 1);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (11, 2);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (11, 3);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (11, 4);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (11, 5);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (12, 6);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (12, 7);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (13, 1);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (13, 2);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (13, 3);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (14, 5);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (15, 7);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (16, 2);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (16, 5);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (16, 6);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (17, 2);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (17, 7);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (18, 3);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (19, 1);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (19, 3);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (19, 5);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (20, 7);
+INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (20, 6);
 
 COMMIT;
 
