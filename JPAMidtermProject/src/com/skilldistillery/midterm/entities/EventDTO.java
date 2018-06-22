@@ -6,7 +6,7 @@ import java.util.Date;
 public class EventDTO {
 	private String name;
 	private String description;
-	private Date date;
+	private String date;
 	private String address;
 	private String address2;
 	private String city;
@@ -15,7 +15,7 @@ public class EventDTO {
 	private String[] interests = new String[1];
 	//remove this init block once checkboxes implemented
 	{
-	interests[0] = "Food";
+		interests[0] = "Food";
 	}
 	
 	@Override
@@ -54,10 +54,10 @@ public class EventDTO {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getAddress() {

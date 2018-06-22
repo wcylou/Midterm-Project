@@ -86,15 +86,23 @@ public class AdminController {
 	public ModelAndView updateEvent(@RequestParam("id") int eventId) {
 		ModelAndView mv = new ModelAndView();
 		Event e = edao.getEventById(eventId);
-		mv.addObject("event", e);
+		Location l = e.getLocation();
+		EventDTO dto = edao.getEventDTOFromEventAndLocation(e, l);
+		System.out.println(dto.getName());
+		mv.addObject("dto", dto);
+		mv.addObject("id", e.getId());
 		mv.setViewName("WEB-INF/updateEvent.jsp");
 		return mv;
 	}
 	
 	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
-	public ModelAndView updateEventPost(Event event, RedirectAttributes redir) {
+	public ModelAndView updateEventPost(EventDTO dto, @RequestParam("id") int eventId, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-		edao.update(event.getId(), event);
+		
+		Event event = edao.updateEventAndLocation(dto, eventId);
+		System.out.println("**************");
+		System.out.println(event.getName());
+		
 		redir.addFlashAttribute("event", event);
 		mv.setViewName("redirect:eventCreated.do");
 

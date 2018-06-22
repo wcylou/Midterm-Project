@@ -49,7 +49,7 @@
 			<form:errors path="zipCode" />
 			<br/>
 			<form:label path="date">Date:</form:label>
-			<form:input path="date" />
+			<form:input type="date" path="date" />
 			<form:errors path="date" />
 			<br/>
 			<%-- This will eventually need to be checkboxes

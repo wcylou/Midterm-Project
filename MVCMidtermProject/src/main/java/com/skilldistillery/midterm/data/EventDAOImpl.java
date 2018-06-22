@@ -1,5 +1,10 @@
 package com.skilldistillery.midterm.data;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -55,18 +60,21 @@ public class EventDAOImpl implements EventDAO {
 	public Event createEventAndLocation(EventDTO dto) {
 		Event e = new Event();
 		Location l = new Location();
-		System.out.println("&&&&&&&&&&");
-		System.out.println(dto.toString());
 		e.setName(dto.getName());
 		e.setDescription(dto.getDescription());
-		e.setDate(dto.getDate());
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date inputDate = null;
+		try {
+			inputDate = format.parse(dto.getDate());
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		e.setDate(inputDate);
 		for (String interest : dto.getInterests()) {
 			Interest i = udao.getInterestObject(interest);
 			e.addInterest(i);
 		}
 		l.setAddress(dto.getAddress());
-		System.out.println("*********");
-		System.out.println(l.getAddress());
 		l.setAddress2(dto.getAddress2());
 		l.setCity(dto.getCity());
 		l.setState(dto.getState());
@@ -78,7 +86,60 @@ public class EventDAOImpl implements EventDAO {
 
 		return e;
 	}
+	@Override
+	public Event updateEventAndLocation(EventDTO dto, int id) {
+		Event managed = em.find(Event.class, id);
+		Location l = managed.getLocation();
+		managed.setName(dto.getName());
+		managed.setDescription(dto.getDescription());
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date inputDate = null;
+		try {
+			inputDate = format.parse(dto.getDate());
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		managed.setDate(inputDate);			
+		
+		for (String interest : dto.getInterests()) {
+			Interest i = udao.getInterestObject(interest);
+			managed.addInterest(i);
+		}
+		l.setAddress(dto.getAddress());
+		l.setAddress2(dto.getAddress2());
+		l.setCity(dto.getCity());
+		l.setState(dto.getState());
+		l.setZipCode(dto.getZipCode());
+		
+		managed.setLocation(l);
 
+		return managed;
+		
+	}
+	
+	@Override
+	public EventDTO getEventDTOFromEventAndLocation(Event event, Location location) {
+		EventDTO dto = new EventDTO();
+		dto.setName(event.getName());
+		dto.setDescription(event.getDescription());
+	
+		int arraySize = event.getInterests().size();
+		List<String> listStrings = new ArrayList<>();
+		for (Interest interest : event.getInterests()) {
+			listStrings.add(interest.getName());
+		}
+		String[] interestNames = listStrings.toArray(new String[arraySize]);
+		dto.setInterests(interestNames);
+		dto.setAddress(location.getAddress());
+		dto.setAddress2(location.getAddress2());
+		dto.setCity(location.getCity());
+		dto.setState(location.getState());
+		dto.setZipCode(location.getZipCode());
+		
+		return dto;
+	}
+	
+	
 	@Override
 	public List<Event> index() {
 		String queryString = "SELECT e FROM Event e";
@@ -98,4 +159,6 @@ public class EventDAOImpl implements EventDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 }
