@@ -44,13 +44,9 @@ public class Match {
         this.event = event;
     }
     @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Match [id=");
-        builder.append(id);
-        builder.append("]");
-        return builder.toString();
-    }
+	public String toString() {
+		return "Match [id=" + id + ", profile=" + profile + ", partner=" + partner + ", event=" + event + "]";
+	}
     
     
 }
