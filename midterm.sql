@@ -142,8 +142,8 @@ CREATE TABLE IF NOT EXISTS `midterm`.`profile` (
   `first_name` VARCHAR(45) NULL DEFAULT NULL,
   `last_name` VARCHAR(45) NULL DEFAULT NULL,
   `age` INT(3) NULL DEFAULT NULL,
-  `gender` VARCHAR(45) NULL DEFAULT NULL,
-  `sexual_orientation` VARCHAR(45) NULL DEFAULT NULL,
+  `gender` ENUM('Man', 'Woman') NULL DEFAULT NULL,
+  `sexual_orientation` ENUM('Heterosexual', 'Homosexual', 'Bisexual') NULL DEFAULT NULL,
   `about_me` LONGTEXT NULL DEFAULT NULL,
   `location_id` INT(11) NULL DEFAULT NULL,
   `user_id` INT(11) NOT NULL,
@@ -168,11 +168,11 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `midterm`.`usermatch`
+-- Table `midterm`.`user_match`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `midterm`.`usermatch` ;
+DROP TABLE IF EXISTS `midterm`.`user_match` ;
 
-CREATE TABLE IF NOT EXISTS `midterm`.`usermatch` (
+CREATE TABLE IF NOT EXISTS `midterm`.`user_match` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `profile_id` INT(11) NOT NULL,
   `partner_id` INT(11) NOT NULL,
@@ -378,12 +378,12 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `midterm`;
-INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (1, 'Wilson', 'Lou', 26, 'No', 'Yes', 'I do stuff.', 1, 1, 'asdfsdf', 18, 88);
-INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (2, 'Someone', 'asdf', 18, 'a', 'a', 'aaa', 2, 2, 'asdf', 40, 45);
-INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (3, 'Another', 'words', 43, 'a', 'a', 'a', 3, 3, 'asdf', 18, 100);
-INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (4, 'Better not match this one', 'Person', 12, 'a', 'a', 'a', 4, 4, 'aasdf', 1, 100);
-INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (5, 'Test', 'Test', 25, 'a', 'a', 'a', 5, 5, 'asdf', 18, 80);
-INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (6, 'AnotherTest', 'Asfasfsdll', 30, 'a', 'a', 'asdf', 6, 6, 'asdf', 18, 80);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (1, 'Wilson', 'Lou', 26, 'Man', 'Heterosexual', 'I do stuff.', 1, 1, 'asdfsdf', 18, 88);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (2, 'Someone', 'asdf', 18, 'Man', 'Bisexual', 'aaa', 2, 2, 'asdf', 40, 45);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (3, 'Another', 'words', 43, 'Man', 'Bisexual', 'a', 3, 3, 'asdf', 18, 100);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (4, 'Better not match this one', 'Person', 12, 'Woman', 'Bisexual', 'a', 4, 4, 'aasdf', 1, 100);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (5, 'Test', 'Test', 25, 'Woman', 'Homosexual', 'a', 5, 5, 'asdf', 18, 80);
+INSERT INTO `midterm`.`profile` (`id`, `first_name`, `last_name`, `age`, `gender`, `sexual_orientation`, `about_me`, `location_id`, `user_id`, `picture_url`, `min_age`, `max_age`) VALUES (6, 'AnotherTest', 'Asfasfsdll', 30, 'Woman', 'Heterosexual', 'asdf', 6, 6, 'asdf', 18, 80);
 
 COMMIT;
 

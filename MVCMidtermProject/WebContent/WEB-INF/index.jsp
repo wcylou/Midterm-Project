@@ -14,7 +14,6 @@
 <title>Home</title>
 </head>
 <body id = "home">
-
  <nav class="navbar navbar-static-top fixed-top navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#home">DATING 101</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,15 +37,14 @@
 </nav>
   
   <section id ="aboutus" class ="banner">
-  	<div class="jumbotron">
-  		<h1 class="display-4">Hello, world!</h1>
-  		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  		<hr class="my-4">
-  		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  		<p class="lead">
-   		 <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
- 		 </p>
-		</div>
+  <div class="container intro-content">
+      <div class="row">
+        <div class="intro-text mx-auto">
+        <br><br><br>
+           <p>loremasdadsadadsadad</p>
+        </div>
+      </div>
+    </div> 		
   </section>
   
   <section id = "testimonials">
