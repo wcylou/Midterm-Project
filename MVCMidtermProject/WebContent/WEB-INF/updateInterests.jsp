@@ -18,20 +18,7 @@
 <body class="addprofile">
 	<div class="container">
 		<form action="updateInterests.do" method="POST">
-			<input type="checkbox" id="Food" name="interests" value="Food" />
-		        <label for="Food">Food</label>
-		      
-		        <input type="checkbox" id="Music" name="interests" value="Music" />
-		        <label for="Music">Music</label>
-		       
-		        <input type="checkbox" id="Tattoo" name="interests" value="Tattoo" />
-		        <label for="Tattoo">Tattoo</label>
-		       
-		        <input type="checkbox" id="America" name="interests" value="America" />
-		        <label for="America">America</label>
-		        
-		        <input type="checkbox" id="Children" name="interests" value="Children" />
-		        <label for="Children">Children</label>
+			
 			<button type="submit" class="btn btn-dark">Update</button>
 			</form>
 			<form action="index.do" method="GET">

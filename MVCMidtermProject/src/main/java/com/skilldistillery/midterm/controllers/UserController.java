@@ -1,11 +1,13 @@
 package com.skilldistillery.midterm.controllers;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +19,7 @@ import com.skilldistillery.midterm.data.MatchDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Profile;
+import com.skilldistillery.midterm.entities.ProfileDTO;
 import com.skilldistillery.midterm.entities.User;
 
 @Controller
@@ -47,9 +50,7 @@ public class UserController {
 	@RequestMapping(path = "addProfile2.do", method = RequestMethod.GET)
 	public ModelAndView addProfile() {
 		ModelAndView mv = new ModelAndView();
-		List <Interest> interests = udao.getAllInterests();
-		mv.addObject("interests", interests);
-		mv.addObject("profile", new Profile());
+		mv.addObject("profiledto", new ProfileDTO());
 		mv.setViewName("WEB-INF/addProfile.jsp");
 		return mv;
 	}
@@ -62,37 +63,37 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "addProfileDetails.do", method = RequestMethod.POST)
-	public String addProfileDetails(Profile profile, HttpSession session, RedirectAttributes redir) {
+	public String addProfileDetails(ProfileDTO profiledto, HttpSession session, RedirectAttributes redir) {
 		User current = getCurrentUserFromSession(session);
-		System.out.println(current);
-		Profile profileAdded = udao.createProfile(profile, current);
-		System.out.println(profileAdded);
-		redir.addFlashAttribute("profile", profileAdded);
+		Profile profileAdded = udao.createProfile(profiledto, current);
+		redir.addFlashAttribute("profileid", profileAdded.getId());
+		redir.addFlashAttribute("profile", profiledto);
 		session.setAttribute("profile", profileAdded);
 		return "redirect:profilecreated.do";
 	}
 	
 	@RequestMapping(path = "updateProfile.do", method = RequestMethod.GET)
 	public ModelAndView updateProfile(HttpSession session) {
-		Profile current = getCurrentProfileFromSession(session);
 		ModelAndView mv = new ModelAndView();
-		Profile profile = udao.findProfileById(current.getId());
-		mv.addObject("profileUpdate", profile);
+		User currentUser = getCurrentUserFromSession(session);
+		Profile profile = udao.findProfileById(currentUser.getId());
+		ProfileDTO pdto = udao.getProfileDTOfromProfile(profile, currentUser);
+		List interests = Arrays.asList(pdto.getInterests());
+		mv.addObject("profileUpdate", pdto);
+		mv.addObject("interests", interests);
+		mv.addObject("profiledto2", new ProfileDTO());
 		mv.setViewName("WEB-INF/updateProfile.jsp"); 
 		session.setAttribute("profile", profile);
 		return mv;
 	}
 
 	@RequestMapping(path = "updateProfileDetails.do", method = RequestMethod.POST)
-	public ModelAndView updateProfileDetails(Profile profile, HttpSession session) {
-		User current = getCurrentUserFromSession(session);
-		System.out.println(current);
-		Profile p = getCurrentProfileFromSession(session);
-		System.out.println(p);
+	public ModelAndView updateProfileDetails(ProfileDTO profiledto, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		Profile profileUpdated = udao.updateProfile(profile, p.getId(), current);
-		System.out.println(profile);
-		mv.addObject("profileUpdated", profileUpdated);
+//		User current = getCurrentUserFromSession(session);
+//		Profile profileUpdated = udao.updateProfile(profile, p.getId(), current);
+//		System.out.println(profile);
+		mv.addObject("profileUpdated", profiledto);
 		mv.setViewName("WEB-INF/updatedProfileDetails.jsp");
 		return mv;
 	}

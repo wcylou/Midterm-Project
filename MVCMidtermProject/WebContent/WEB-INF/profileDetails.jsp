@@ -19,7 +19,7 @@
 <body class="profileBody">
 	<div class="container">
 			<span class="headings">Profile ID:</span>
-			<c:out value="${profile.id}" />
+			<c:out value="${profileid}" />
 			<br>
 			<span class="headings">First Name: </span>
 			<c:out value="${profile.firstName}" />
@@ -42,12 +42,31 @@
 			<span class="headings">Picture URL: </span>
 			<c:out value="${profile.pictureUrl}" />
 			<br>
-			<span class = "headings">Interest 1: </span>  
-			<c:out value="${profileUpdate.interests[0].name}"/>
+			<span class="headings">Min Age: </span>
+			<c:out value="${profile.minAge}" />
+			<br>
+			<span class="headings">Max Age: </span>
+			<c:out value="${profile.maxAge}" />
+			<br>
+			<span class = "headings">State: </span>  
+			<c:out value="${profile.state}"/>
 			<br> 
-       		<span class = "headings">Interest 2: </span> 
-			<c:out value="${profileUpdate.interests[1].name}"/>
-       		<br> 
+       		<span class = "headings">City: </span>  
+			<c:out value="${profile.state}"/>
+			<br> 
+			<span class = "headings">Address: </span>  
+			<c:out value="${profile.address}"/>
+			<br> 
+			<span class = "headings">Address 2: </span>  
+			<c:out value="${profile.address2}"/>
+			<br> 
+			<span class = "headings">ZIP Code: </span>  
+			<c:out value="${profile.zipCode}"/>
+			<br>
+			<span class = "headings">Interests: </span>  
+			<c:forEach items="${profile.interests}" var="interest">
+				<c:out value="${interest}"/>
+			</c:forEach>
 			<form action="updateProfile.do" method="GET">
 				<input type="hidden" name="profileId" value="${profile.id}" />
 				<button type="submit" class="btn btn-dark">Update</button>

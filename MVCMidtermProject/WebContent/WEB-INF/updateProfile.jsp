@@ -18,20 +18,33 @@
 <div class = "container">
 <h1>Update Profile</h1>
 
-      <form action="updateProfileDetails.do" method="POST">
-       <span class = "headings">Profile ID: </span><input type= "text" name="profileId" value="${profileUpdate.id}" readonly/><br>
-        <span class = "headings">First Name:</span> <input type="text" type="text" name = "firstName" value="${profileUpdate.firstName}"/> <br> 
-        <span class = "headings">Last Name: </span> <input type="text" name = "lastName" type="text" value="${profileUpdate.lastName}" /><br> 
-       <span class = "headings">Age: </span><input type="text" name="age" value="${profileUpdate.age}"/><br> 
-      <span class = "headings">Gender: </span> <input type="text" name="gender" value="${profileUpdate.gender}"/><br> 
-       	<span class = "headings">Sexual Orientation: </span>  <input type="text" name="sexualOrientation" value="${profileUpdate.sexualOrientation}"/><br> 
-       	<span class = "headings">About me: </span>  <input type="text" name="aboutMe" value="${profileUpdate.aboutMe}"/><br> 
-       	<span class = "headings">Picture URL: </span>  <input type="text" name="sexualOrientation" value="${profileUpdate.pictureUrl}"/><br> 
-       	<span class = "headings">Interest 1: </span>  <input type="text" name="interests[0].name" value="${profileUpdate.interests[0].name}"/><br> 
-       	<span class = "headings">Interest 2: </span>  <input type="text" name="interests[1].name" value="${profileUpdate.interests[1].name}"/><br> 
-       	
+ <form:form action="updateProfileDetails.do" method="POST" modelAttribute="profiledto2">
+    <span class = "headings">Profile ID: </span><input type= "text" name="profileId" value="${profileUpdate.id}" readonly/><br>
+    <span class = "headings">First Name:</span> <input type="text" type="text" name = "firstName" value="${profileUpdate.firstName}"/> <br> 
+    <span class = "headings">Last Name: </span> <input type="text" name = "lastName" type="text" value="${profileUpdate.lastName}" /><br> 
+    <span class = "headings">Age: </span><input type="text" name="age" value="${profileUpdate.age}"/><br> 
+    <span class = "headings">Gender: </span> <input type="text" name="gender" value="${profileUpdate.gender}"/><br> 
+    <span class = "headings">Sexual Orientation: </span>  <input type="text" name="sexualOrientation" value="${profileUpdate.sexualOrientation}"/><br> 
+    <span class = "headings">About me: </span>  <input type="text" name="aboutMe" value="${profileUpdate.aboutMe}"/><br> 
+   	<span class = "headings">Picture URL: </span>  <input type="text" name="pictureUrl" value="${profileUpdate.pictureUrl}"/><br> 
+   	<span class = "headings">Min Age: </span>  <input type="text" name="minAge" value="${profileUpdate.minAge}"/><br> 
+   	<span class = "headings">Max Age: </span>  <input type="text" name="maxAge" value="${profileUpdate.maxAge}"/><br> 
+   	<span class = "headings">State: </span>  <input type="text" name="state" value="${profileUpdate.state}"/><br> 
+   	<span class = "headings">City:</span>  <input type="text" name="city" value="${profileUpdate.city}"/><br> 
+   	<span class = "headings">Address Line 1: </span>  <input type="text" name="address" value="${profileUpdate.address}"/><br> 
+   	<span class = "headings">Address Line 2: </span>  <input type="text" name="address2" value="${profileUpdate.address2}"/><br> 
+   	<span class = "headings">Zip Code: </span>  <input type="text" name="zipCode" value="${profileUpdate.zipCode}"/><br> 
+	 <span class = "headings">Interests: </span>   
+         <input type="checkbox" name="interests" value="Food" <c:if test="${interests.contains('Food')}">CHECKED</c:if> /><label for="Food">Food</label><br>
+         <input type="checkbox" name="interests" value="Music" <c:if test="${interests.contains('Music')}">CHECKED</c:if> /><label for="Music">Music</label><br>
+        <input type="checkbox" name="interests" value="Tattoo" <c:if test="${interests.contains('Tattoo')}">CHECKED</c:if> /><br><label for="Tattoo">Tattoo</label><br>
+         <input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('America')}">CHECKED</c:if> /><br><label for="America">America</label><br>
+         <input type="checkbox" name="interests" value="Children" <c:if test="${interests.contains('Children')}">CHECKED</c:if> /><br><label for="Children">Children</label><br>
+         <input type="checkbox" name="interests" value="Health" <c:if test="${interests.contains('Health')}">CHECKED</c:if> /><br><label for="Health">Health</label><br>
+         <input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('Sports')}">CHECKED</c:if> /><br><label for="Sports">Sports</label><br>
+         <input type="checkbox" name="interests" value="Comedy" <c:if test="${interests.contains('Comedy')}">CHECKED</c:if> /><br><label for="Comedy">Comedy</label><br>
 				<button type="submit" class="btn btn-dark">Update</button>
-			</form>
+			</form:form>
      <form action="index.do" method="GET">
 				<button type="submit" class="btn btn-dark">Back</button>
 	</form>

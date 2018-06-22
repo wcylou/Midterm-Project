@@ -15,7 +15,7 @@
 </head>
 <body class="addprofile">
 	<div class="container">
-		<form:form action="addProfileDetails.do" method="POST" modelAttribute="profile">
+		<form:form action="addProfileDetails.do" method="POST" modelAttribute="profiledto">
 			<form:label path="firstName">First Name</form:label>
 			<form:input path="firstName" />
 			<form:errors path="firstName" />
@@ -72,6 +72,16 @@
 			<form:label path="zipCode">Zip Code: </form:label>
 			<form:input path="zipCode" />
 			<form:errors path="zipCode" />
+			<br>
+			<input type="checkbox" id="Food" name="interests" value="Food" /><label for="Food">Food</label>
+		    <input type="checkbox" id="Music" name="interests" value="Music" /><label for="Music">Music</label>
+		    <input type="checkbox" id="Tattoo" name="interests" value="Tattoo" /> <label for="Tattoo">Tattoo</label>
+		    <input type="checkbox" id="America" name="interests" value="America" /> <label for="America">America</label>
+		    <input type="checkbox" id="Children" name="interests" value="Children" /> <label for="Children">Children</label>
+		    <input type="checkbox" id="Health" name="interests" value="Health" /><label for="Health">Health</label>
+		    <input type="checkbox" id="Sports" name="interests" value="Sports" /><label for="Sports">Sports</label>
+		    <input type="checkbox" id="Comedy" name="interests" value="Comedy" /><label for="Comedy">Comedy</label>
+		    <br>
 			<button type="submit" class="btn btn-dark">Add</button>
 			</form:form>
 			

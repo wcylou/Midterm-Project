@@ -2,7 +2,7 @@ package com.skilldistillery.midterm.entities;
 
 import java.util.Arrays;
 
-public class ProfieDTO {
+public class ProfileDTO {
 
 	private int id;
 	private String firstName;

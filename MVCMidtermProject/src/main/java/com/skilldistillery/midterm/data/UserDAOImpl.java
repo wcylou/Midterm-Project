@@ -1,10 +1,7 @@
 package com.skilldistillery.midterm.data;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,12 +9,12 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.skilldistillery.midterm.entities.Event;
+import com.skilldistillery.midterm.entities.Gender;
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Location;
-import com.skilldistillery.midterm.entities.Match;
-import com.skilldistillery.midterm.entities.Membership;
 import com.skilldistillery.midterm.entities.Profile;
+import com.skilldistillery.midterm.entities.ProfileDTO;
+import com.skilldistillery.midterm.entities.Sexuality;
 import com.skilldistillery.midterm.entities.User;
 
 @Transactional
@@ -60,10 +57,33 @@ public class UserDAOImpl implements UserDAO {
 	
 	
 	@Override
-	public Profile createProfile(Profile profile, User user) {
-		profile.setUser(user);
-		em.persist(profile);
-		return profile;
+	public Profile createProfile(ProfileDTO pdto, User user) {
+		Profile p = new Profile();
+		p.setUser(user);
+		p.setFirstName(pdto.getFirstName());
+		p.setLastName(pdto.getLastName());
+		p.setAge(pdto.getAge());
+		p.setGender(Gender.valueOf(pdto.getGender()));
+		p.setSexualOrientation(Sexuality.valueOf(pdto.getSexualOrientation()));
+		p.setAboutMe(pdto.getAboutMe());
+		p.setPictureUrl(pdto.getPictureUrl());
+		p.setMinAge(pdto.getMinAge());
+		p.setMaxAge(pdto.getMaxAge());
+		Location l = new Location();
+		l.setState(pdto.getState());
+		l.setCity(pdto.getCity());
+		l.setAddress(pdto.getAddress());
+		l.setAddress2(pdto.getAddress2());
+		l.setZipCode(pdto.getZipCode());
+		List<Interest> interestsUser = new ArrayList<>();
+		for (String interest : pdto.getInterests()) {
+			interestsUser.add(getInterestObject(interest));
+		}
+		p.setLocation(l);
+		p.setInterests(interestsUser);
+		em.persist(p);
+		em.flush();
+		return p;
 	}
 	
 	@Override
@@ -97,6 +117,31 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return p;
 	}
+	
+	@Override
+	public ProfileDTO getProfileDTOfromProfile(Profile profile, User user) {
+		ProfileDTO p = new ProfileDTO();
+		p.setFirstName(profile.getFirstName());
+		p.setLastName(profile.getLastName());
+		p.setAge(profile.getAge());
+		p.setGender(profile.getGender().toString());
+		p.setSexualOrientation(profile.getSexualOrientation().toString());
+		p.setAboutMe(profile.getAboutMe());
+		p.setPictureUrl(profile.getPictureUrl());
+		p.setMinAge(profile.getMinAge());
+		p.setMaxAge(profile.getMaxAge());
+		p.setState(profile.getLocation().getState());
+		p.setCity(profile.getLocation().getCity());
+		p.setAddress(profile.getLocation().getAddress());
+		p.setAddress2(profile.getLocation().getAddress2());
+		p.setZipCode(profile.getLocation().getZipCode());
+		String [] interestsString = new String [profile.getInterests().size()];
+		for (int i = 0; i < interestsString.length; i++) {
+			interestsString[i] = profile.getInterests().get(i).getName();
+		}
+		p.setInterests(interestsString);
+		return p;
+	}
 
 	@Override
 	public Profile createProfileAndLocation(Profile profile, Location location) {
@@ -119,7 +164,6 @@ public class UserDAOImpl implements UserDAO {
 				.setParameter("id", profileId)
 				.getResultList()
 				.get(0);
-		
 		List <Interest> interests = p.getInterests();
 		return interests;
 	}
@@ -137,10 +181,8 @@ public class UserDAOImpl implements UserDAO {
 		String query = "SELECT i from Interest i where i.name = :name";
 		Interest i = em.createQuery(query, Interest.class)
 				.setParameter("name", name)
-				.getResultList()
-				.get(0);
+				.getSingleResult();
 		return i;
 	}
-	
-	
+
 }
