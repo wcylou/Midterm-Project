@@ -45,8 +45,8 @@
 		</ul>
 		<br>
 
-		<form action="updateEvent.do" method="GET">
-			<input type="hidden" name="eventId" value="${event.id}" />
+		<form action="updateEvent.do?" method="GET">
+			<input type="hidden" name="id" value="${event.id}" />
 			<button type="submit" class="btn btn-dark">Update</button>
 		</form>
 		<form action="index.do" method="GET">

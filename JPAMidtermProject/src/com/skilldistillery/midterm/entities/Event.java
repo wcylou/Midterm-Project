@@ -13,7 +13,7 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	@ManyToOne
+	@ManyToOne(cascade= CascadeType.PERSIST)
 	@JoinColumn(name="location_id")
 	private Location location;
 	@Temporal(TemporalType.DATE)

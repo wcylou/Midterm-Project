@@ -14,6 +14,7 @@ import com.skilldistillery.midterm.data.EventDAO;
 import com.skilldistillery.midterm.data.MatchDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Event;
+import com.skilldistillery.midterm.entities.EventDTO;
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Location;
 import com.skilldistillery.midterm.entities.Profile;
@@ -47,9 +48,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(path = "getEvent.do", method=RequestMethod.GET)
-	public ModelAndView getFilm(@RequestParam("id") int eventId) {
+	public ModelAndView getEvent(@RequestParam("id") int eventId) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("&&&&&&&&&&&&&");
 		Event e = edao.getEventById(eventId);
 		mv.addObject("event", e);
 		mv.setViewName("WEB-INF/eventDetails.jsp");
@@ -59,18 +59,16 @@ public class AdminController {
 	@RequestMapping(path = "addEvent.do", method = RequestMethod.GET)
 	public ModelAndView addEventGet(Event event) {
 		ModelAndView mv = new ModelAndView();
-		Event e = new Event();
-		Location l = new Location();
-		mv.addObject("event", e);
-		mv.addObject("location", l);
+		EventDTO dto = new EventDTO();
+		mv.addObject("dto", dto);
 		mv.setViewName("WEB-INF/addEvent.jsp");
 		return mv;
 	}
 
 	@RequestMapping(path = "addEvent.do", method = RequestMethod.POST)
-	public ModelAndView addEventPost(Event event, Location location, RedirectAttributes redir) {
+	public ModelAndView addEventPost(EventDTO dto, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-		edao.createEventAndLocation(event, location);
+		Event event = edao.createEventAndLocation(dto);
 		redir.addFlashAttribute("event", event);
 		mv.setViewName("redirect:eventCreated.do");
 
@@ -83,6 +81,26 @@ public class AdminController {
 		mv.setViewName("WEB-INF/eventDetails.jsp");
 		return mv;
 	}
+	
+	@RequestMapping(path = "updateEvent.do", method=RequestMethod.GET)
+	public ModelAndView updateEvent(@RequestParam("id") int eventId) {
+		ModelAndView mv = new ModelAndView();
+		Event e = edao.getEventById(eventId);
+		mv.addObject("event", e);
+		mv.setViewName("WEB-INF/updateEvent.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "updateEvent.do", method = RequestMethod.POST)
+	public ModelAndView updateEventPost(Event event, RedirectAttributes redir) {
+		ModelAndView mv = new ModelAndView();
+		edao.update(event.getId(), event);
+		redir.addFlashAttribute("event", event);
+		mv.setViewName("redirect:eventCreated.do");
+
+		return mv;
+	}
+	
 	
 	//profile mapping
 	@RequestMapping(path = "getProfiles.do", method = RequestMethod.GET)

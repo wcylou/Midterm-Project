@@ -9,13 +9,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skilldistillery.midterm.entities.Event;
+import com.skilldistillery.midterm.entities.EventDTO;
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Location;
 
 @Transactional
 @Component
 public class EventDAOImpl implements EventDAO {
-
+	
 	@PersistenceContext
 	private EntityManager em;
 
@@ -47,12 +48,30 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
-	public Event createEventAndLocation(Event event, Location location) {
-		event.setLocation(location);
-		em.persist(event);
+	public Event createEventAndLocation(EventDTO dto) {
+		UserDAOImpl udi = new UserDAOImpl();
+		Event e = new Event();
+		Location l = new Location();
+		e.setName(dto.getName());
+		e.setDescription(dto.getDescription());
+		e.setDate(dto.getDate());
+		for (String interest : dto.getInterests()) {
+			Interest i = udi.getInterestObject(interest);
+			System.out.println("***********");
+			System.out.println(i.getName());
+			if (i != null) e.addInterest(i);
+		}
+		l.setAddress(dto.getAddress());
+		l.setAddress2(dto.getAddress2());
+		l.setCity(dto.getCity());
+		l.setState(dto.getState());
+		l.setZipCode(dto.getZipCode());
+		
+		e.setLocation(l);
+		em.persist(e);
 		em.flush();
 
-		return event;
+		return e;
 	}
 
 	@Override
@@ -63,22 +82,15 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
-	public List<Interest> loadInterestsByEvent(int id) {
-		String query = "SELECT e FROM Event e JOIN FETCH e.interests WHERE e.id = :id";
-		Event event = em.createQuery(query, Event.class).setParameter("id", id).getResultList().get(0);
-
-		// This will work
-		List<Interest> interests = event.getInterests();
-		return interests;
-
-	}
-
-	@Override
 	public Event getEventById(int id) {
 		String query = "SELECT e FROM Event e JOIN FETCH e.interests WHERE e.id = :id";
 		Event event = em.createQuery(query, Event.class).setParameter("id", id).getResultList().get(0);
-		System.out.println("********");
-		System.out.println(event.getInterests().size());
 		return event;
+	}
+
+	@Override
+	public Event find(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
