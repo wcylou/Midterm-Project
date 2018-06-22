@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,8 +29,10 @@ public class Profile {
 	@Column(name="last_name")
 	private String lastName;
 	private int age;
+	@Enumerated(EnumType.STRING)
 	private Gender gender;
 	@Column(name="sexual_orientation")
+	@Enumerated(EnumType.STRING)
 	private Sexuality sexualOrientation;
 	@Column(name="about_me")
 	private String aboutMe;
@@ -176,35 +180,18 @@ public class Profile {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Profile [id=");
+		builder.append("Profile id=");
 		builder.append(id);
-		builder.append(", firstName=");
-		builder.append(firstName);
-		builder.append(", lastName=");
-		builder.append(lastName);
-		builder.append(", age=");
-		builder.append(age);
-		builder.append(", gender=");
+		builder.append("\n gender=");
 		builder.append(gender);
-		builder.append(", sexualOrientation=");
+		builder.append("\n sexualOrientation=");
 		builder.append(sexualOrientation);
-		builder.append(", aboutMe=");
-		builder.append(aboutMe);
-		builder.append(", location=");
-		builder.append(location);
-		builder.append(", user=");
-		builder.append(user);
-		builder.append(", pictureUrl=");
-		builder.append(pictureUrl);
-		builder.append(", matches=");
-		builder.append(matches);
-		builder.append(", interests=");
-		builder.append(interests);
-		builder.append(", minAge=");
+		builder.append("\n minAge=");
 		builder.append(minAge);
-		builder.append(", maxAge=");
+		builder.append("\n maxAge=");
 		builder.append(maxAge);
-		builder.append("]");
+		builder.append("\n Age =");
+		builder.append(age);
 		return builder.toString();
 	}
 	
