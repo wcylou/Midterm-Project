@@ -40,7 +40,11 @@ public class LoginController {
 	@RequestMapping(path ="login.do", method = RequestMethod.POST) 
 	public String loginAttempt (User user, HttpSession http, Errors errors) {
 		User u = ldao.getUserByUserNameAndPassword(user.getUsername(), user.getPassword());
-		Profile p = udao.findProfileById(u.getId());
+		Profile p = null;
+		if(u != null) {
+			p = udao.findProfileById(u.getId());
+		}
+		
 		System.out.println(p);
 		errors.rejectValue("username", "error.user", "Not a valid login.");
 		if (u != null) {
@@ -50,7 +54,10 @@ public class LoginController {
 			if (p != null) {
 				http.setAttribute("profileCreated", true);
 			}
-			http.setAttribute("profileCreated", false);
+			else {
+				http.setAttribute("profileCreated", false);
+
+			}
 			return "redirect:account.do";
 		}
 		http.setAttribute("loggedIn", false);

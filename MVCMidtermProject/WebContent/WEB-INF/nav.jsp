@@ -35,24 +35,24 @@
 
 	<c:if test="${loggedIn}">
 	<c:if test= "${profileCreated}">
-	<nav class="navbar navbar-static-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="http://localhost:8080/MVCMidtermProject/index.do#home">DATING 101</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="navbar-nav ml-auto" href="account.do">My Account</a>
-      <a class="navbar-nav ml-auto" href="updateUser.do">Update User</a>
-      <a class="navbar-nav ml-auto" href="updateProfile.do">Update Profile</a>
-      <a class="navbar-nav ml-auto" href="updateInterests.do">Update Interests</a>
-      <a class="navbar-nav ml-auto" href="updateUser.do">See Past Matches</a>
-      <a class="navbar-nav ml-auto" href="getEvent.do">See Events</a>
-      <a class="navbar-nav ml-auto" href="logout.do">Logout</a>
-    </div>
-  </div>
-  </nav>
-  </c:if>
+		<nav class="navbar navbar-static-top navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" href="http://localhost:8080/MVCMidtermProject/index.do#home">DATING 101</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		    <div class="navbar-nav">
+		      <a class="navbar-nav ml-auto" href="account.do">My Account</a>
+		      <a class="navbar-nav ml-auto" href="updateUser.do">Update User</a>
+		      <a class="navbar-nav ml-auto" href="updateProfile.do">Update Profile</a>
+		      <a class="navbar-nav ml-auto" href="updateInterests.do">Update Interests</a>
+		      <a class="navbar-nav ml-auto" href="updateUser.do">See Past Matches</a>
+		      <a class="navbar-nav ml-auto" href="getEvent.do">See Events</a>
+		      <a class="navbar-nav ml-auto" href="logout.do">Logout</a>
+		    </div>
+		  </div>
+	  </nav>
+	  </c:if>
 	</c:if>
 	
 	<c:if test="${loggedIn}">
@@ -78,5 +78,7 @@
 
 	
 </nav>
+logged in ${loggedIn}
+profile ${profileCreated}
 </body>
 </html>

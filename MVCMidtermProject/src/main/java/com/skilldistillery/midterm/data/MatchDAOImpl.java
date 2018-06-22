@@ -12,9 +12,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skilldistillery.midterm.entities.Event;
+import com.skilldistillery.midterm.entities.Gender;
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Match;
 import com.skilldistillery.midterm.entities.Profile;
+import com.skilldistillery.midterm.entities.Sexuality;
 
 @Transactional
 @Component
@@ -22,6 +24,7 @@ public class MatchDAOImpl implements MatchDAO {
 
 	@PersistenceContext
 	private EntityManager em;
+
 	public static void main(String[] args) {
 		MatchDAOImpl dao = new MatchDAOImpl();
 		dao.test();
@@ -30,7 +33,7 @@ public class MatchDAOImpl implements MatchDAO {
 	private void test() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Midterm");
 		EntityManager em = emf.createEntityManager();
-		Profile profile = em.find(Profile.class, 1);
+		Profile profile = em.find(Profile.class, 6);
 		System.out.println(profile.getFirstName());
 		System.out.println(findPotentialMatches(profile));
 	}
@@ -49,9 +52,9 @@ public class MatchDAOImpl implements MatchDAO {
 		if (common.size() == 0) {
 			common.add(em.find(Interest.class, 1));
 		}
-		
-		for(int i = 0; i < common.size(); i++) {
-			
+
+		for (int i = 0; i < common.size(); i++) {
+
 		}
 		Match match = new Match();
 		match.setProfile(profile);
@@ -64,10 +67,33 @@ public class MatchDAOImpl implements MatchDAO {
 		EntityManager em = emf.createEntityManager();
 		List<Interest> profileInterests = profile.getInterests();
 		List<List<Interest>> common = new ArrayList<>();
+		String query = "";
+		
+		if (profile.getSexualOrientation() == Sexuality.Heterosexual) {
+			if (profile.getGender() == Gender.Man) {
+				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Woman' AND p.sexualOrientation != 'Homosexual'";
+			} else {
+				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Man' AND p.sexualOrientation != 'Homosexual'";
+			}
+		} else if (profile.getSexualOrientation() == Sexuality.Homosexual) {
+			if (profile.getGender() == Gender.Man) {
+				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Man' AND p.sexualOrientation != 'Heterosexual'";
+			} else {
+				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Woman' AND p.sexualOrientation != 'Heterosexual'";
+			}
 
-		String query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age > :min AND p.age < :max";
+		} else {
+			if(profile.getGender() == Gender.Man) {
+				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND (p.gender != 'Man' OR p.sexualOrientation != 'Heterosexual') AND (p.gender != 'Woman' OR p.sexualOrientation != 'Homosexual')";
+			} else {
+				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND (p.gender != 'Woman' OR p.sexualOrientation != 'Heterosexual') AND (p.gender != 'Man' OR p.sexualOrientation != 'Homosexual')";
+				
+			}
+
+		}
+		
 		List<Profile> partners = em.createQuery(query, Profile.class).setParameter("id", profile.getId())
-				.setParameter("min", profile.getMinAge()).setParameter("max", profile.getMaxAge()).getResultList();
+				.setParameter("min", profile.getMinAge()).setParameter("max", profile.getMaxAge()).setParameter("age", profile.getAge()).getResultList();
 		if (partners.size() != 0) {
 			for (int i = 0; i < partners.size(); i++) {
 				common.add(new ArrayList<>());
