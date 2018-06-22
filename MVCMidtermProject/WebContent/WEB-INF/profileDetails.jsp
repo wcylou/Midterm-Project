@@ -46,7 +46,7 @@
 			<c:out value="${profileUpdate.interests[0].name}"/>
 			<br> 
        		<span class = "headings">Interest 2: </span> 
-       		<c:out value="${profileUpdate.interests[1].name}"/>
+			<c:out value="${profileUpdate.interests[1].name}"/>
        		<br> 
 			<form action="updateProfile.do" method="GET">
 				<input type="hidden" name="profileId" value="${profile.id}" />
