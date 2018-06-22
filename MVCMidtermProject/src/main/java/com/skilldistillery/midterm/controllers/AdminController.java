@@ -49,10 +49,9 @@ public class AdminController {
 	@RequestMapping(path = "getEvent.do", method=RequestMethod.GET)
 	public ModelAndView getFilm(@RequestParam("id") int eventId) {
 		ModelAndView mv = new ModelAndView();
-		Event e = edao.find(eventId);
-		List<Interest> interestList = edao.loadInterestsByEvent(eventId);
+		System.out.println("&&&&&&&&&&&&&");
+		Event e = edao.getEventById(eventId);
 		mv.addObject("event", e);
-		mv.addObject("interestList", interestList);
 		mv.setViewName("WEB-INF/eventDetails.jsp");
 		return mv;
 	}
