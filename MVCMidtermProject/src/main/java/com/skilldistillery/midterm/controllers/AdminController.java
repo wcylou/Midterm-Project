@@ -14,6 +14,7 @@ import com.skilldistillery.midterm.data.EventDAO;
 import com.skilldistillery.midterm.data.MatchDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Event;
+import com.skilldistillery.midterm.entities.EventDTO;
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Location;
 import com.skilldistillery.midterm.entities.Profile;
@@ -58,18 +59,16 @@ public class AdminController {
 	@RequestMapping(path = "addEvent.do", method = RequestMethod.GET)
 	public ModelAndView addEventGet(Event event) {
 		ModelAndView mv = new ModelAndView();
-		Event e = new Event();
-		Location l = new Location();
-		mv.addObject("event", e);
-		mv.addObject("location", l);
+		EventDTO dto = new EventDTO();
+		mv.addObject("dto", dto);
 		mv.setViewName("WEB-INF/addEvent.jsp");
 		return mv;
 	}
 
 	@RequestMapping(path = "addEvent.do", method = RequestMethod.POST)
-	public ModelAndView addEventPost(Event event, Location location, RedirectAttributes redir) {
+	public ModelAndView addEventPost(EventDTO dto, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-		edao.createEventAndLocation(event, location);
+		Event event = edao.createEventAndLocation(dto);
 		redir.addFlashAttribute("event", event);
 		mv.setViewName("redirect:eventCreated.do");
 

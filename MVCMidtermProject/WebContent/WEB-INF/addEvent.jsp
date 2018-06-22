@@ -52,10 +52,10 @@
 			<form:input path="date" />
 			<form:errors path="date" />
 			<br/>
-			<%-- <form:label path="interest">Interests:</form:label>
-			<form:input path="interest"/>
-			<form:errors path="interest" />
-			<br> --%>
+			<form:label path="interests">Interests:</form:label>
+			<form:input path="interests[0].name"/>
+			<form:errors path="interests" />
+			<br>
 			
 			<button type="submit" class="btn btn-dark">Add</button>
 			</form:form>

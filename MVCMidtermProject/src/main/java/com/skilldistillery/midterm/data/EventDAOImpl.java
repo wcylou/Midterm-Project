@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skilldistillery.midterm.entities.Event;
+import com.skilldistillery.midterm.entities.EventDTO;
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Location;
 
@@ -47,7 +48,14 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
-	public Event createEventAndLocation(Event event, Location location) {
+	public Event createEventAndLocation(EventDTO dto) {
+		Event e = new Event();
+		Location l = new Location();
+		e.setName(dto.getName());
+		e.setDescription(dto.getDescription());
+		e.setDate(dto.getDate());
+		e.addInterest(g);
+		
 		event.setLocation(location);
 		em.persist(event);
 		em.flush();
