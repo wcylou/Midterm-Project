@@ -30,6 +30,9 @@
 		   <form action="login.do" method="GET">
 			<button type="submit"  class="btn btn-dark">Login</button>
 		</form>
+		   <form action="admin.do" method="GET">
+			<button type="submit"  class="btn btn-dark">Admin</button>
+		</form>
     </div>
   </div>
 </nav>

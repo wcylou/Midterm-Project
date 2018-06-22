@@ -16,7 +16,7 @@
 	<%-- Event list items --%>
 	<ul>
 		<c:forEach items="${eventList}" var="event">
-			<li><a href="getEvent.do?id=${event.id}">${event.title}</a></li>
+			<li><a href="getEvent.do?id=${event.id}">${event.name}</a></li>
 		</c:forEach>
 
 	</ul>

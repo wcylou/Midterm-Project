@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skilldistillery.midterm.entities.Event;
+import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Location;
 
 @Transactional
@@ -62,8 +63,18 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
+	public List<Interest> loadInterestsByEvent(int id) {
+		String query = "SELECT e FROM Event e WHERE e.id = :id";
+		Event event = em.createQuery(query, Event.class).setParameter("id", id).getResultList().get(0);
+
+		// This will work
+		List<Interest> interests = event.getInterests();
+		return interests;
+
+	}
+
+	@Override
 	public Event find(int id) {
 		return em.find(Event.class, id);
-		
 	}
 }
