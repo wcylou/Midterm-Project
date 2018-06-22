@@ -1,10 +1,16 @@
 package com.skilldistillery.midterm.data;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +25,9 @@ public class EventDAOImpl implements EventDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
+	
+	@Autowired
+	private UserDAO udao;
 
 	@Override
 	public Event create(Event event) {
@@ -49,17 +58,21 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public Event createEventAndLocation(EventDTO dto) {
-		UserDAOImpl udi = new UserDAOImpl();
 		Event e = new Event();
 		Location l = new Location();
 		e.setName(dto.getName());
 		e.setDescription(dto.getDescription());
-		e.setDate(dto.getDate());
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date inputDate = null;
+		try {
+			inputDate = format.parse(dto.getDate());
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		e.setDate(inputDate);
 		for (String interest : dto.getInterests()) {
-			Interest i = udi.getInterestObject(interest);
-			System.out.println("***********");
-			System.out.println(i.getName());
-			if (i != null) e.addInterest(i);
+			Interest i = udao.getInterestObject(interest);
+			e.addInterest(i);
 		}
 		l.setAddress(dto.getAddress());
 		l.setAddress2(dto.getAddress2());
@@ -73,7 +86,60 @@ public class EventDAOImpl implements EventDAO {
 
 		return e;
 	}
+	@Override
+	public Event updateEventAndLocation(EventDTO dto, int id) {
+		Event managed = em.find(Event.class, id);
+		Location l = managed.getLocation();
+		managed.setName(dto.getName());
+		managed.setDescription(dto.getDescription());
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date inputDate = null;
+		try {
+			inputDate = format.parse(dto.getDate());
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		managed.setDate(inputDate);			
+		
+		for (String interest : dto.getInterests()) {
+			Interest i = udao.getInterestObject(interest);
+			managed.addInterest(i);
+		}
+		l.setAddress(dto.getAddress());
+		l.setAddress2(dto.getAddress2());
+		l.setCity(dto.getCity());
+		l.setState(dto.getState());
+		l.setZipCode(dto.getZipCode());
+		
+		managed.setLocation(l);
 
+		return managed;
+		
+	}
+	
+	@Override
+	public EventDTO getEventDTOFromEventAndLocation(Event event, Location location) {
+		EventDTO dto = new EventDTO();
+		dto.setName(event.getName());
+		dto.setDescription(event.getDescription());
+	
+		int arraySize = event.getInterests().size();
+		List<String> listStrings = new ArrayList<>();
+		for (Interest interest : event.getInterests()) {
+			listStrings.add(interest.getName());
+		}
+		String[] interestNames = listStrings.toArray(new String[arraySize]);
+		dto.setInterests(interestNames);
+		dto.setAddress(location.getAddress());
+		dto.setAddress2(location.getAddress2());
+		dto.setCity(location.getCity());
+		dto.setState(location.getState());
+		dto.setZipCode(location.getZipCode());
+		
+		return dto;
+	}
+	
+	
 	@Override
 	public List<Event> index() {
 		String queryString = "SELECT e FROM Event e";
@@ -93,4 +159,6 @@ public class EventDAOImpl implements EventDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 }

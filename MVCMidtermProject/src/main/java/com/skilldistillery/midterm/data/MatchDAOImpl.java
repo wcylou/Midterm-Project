@@ -33,10 +33,14 @@ public class MatchDAOImpl implements MatchDAO {
 	private void test() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Midterm");
 		EntityManager em = emf.createEntityManager();
-		Profile profile = em.find(Profile.class, 6);
+		Profile profile = em.find(Profile.class, 20);
 		Profile partner = em.find(Profile.class, 2);
 		System.out.println(profile.getFirstName());
-		System.out.println(findEventMatch(profile, partner));
+		List<Profile> matches = findPotentialMatches(profile);
+		
+		for (Profile profile2 : matches) {
+			System.out.println(profile2);
+		}
 	}
 
 	public Match findEventMatch(Profile profile, Profile partner) {

@@ -19,16 +19,17 @@
 <h1>Update Event</h1>
 
       <form action="updateEvent.do" method="POST">
-     	 <span class = "headings">Event ID</span> <input type="text" type="text" name = "eventId" value="${event.id}" readonly/> <br> 
-        <span class = "headings">Name: </span> <input type="text" name = "name" type="text" value="${event.name}" /><br> 
-       <span class = "headings">Description: </span><input type="text" name="description" value="${event.description}"/><br> 
-       <span class = "headings">Address: </span><input type="text" name="address" value="${event.location.address}"/><br> 
-       <span class = "headings">Address2: </span><input type="text" name="address2" value="${event.location.address2}"/><br> 
-       <span class = "headings">City: </span><input type="text" name="city" value="${event.location.city}"/><br> 
-       <span class = "headings">State: </span><input type="text" name="state" value="${event.location.state}"/><br> 
-       <span class = "headings">Zip Code: </span><input type="text" name="zipCode" value="${event.location.zipCode}"/><br> 
-       	<span class = "headings">Date: </span>  <input type="text" name="date" value="${event.date}"/><br> 
-       	<span class = "headings">Interest 1: </span>  <input type="text" name="interest" value="${event.interests[0].name}"/><br> 
+     	<span class = "headings">Event ID: ${id}</span>
+        <span class = "headings">Name: </span> <input type="text" name = "name" type="text" value="${dto.name}" /><br> 
+       <span class = "headings">Description: </span><input type="text" name="description" value="${dto.description}"/><br> 
+       <span class = "headings">Address: </span><input type="text" name="address" value="${dto.address}"/><br> 
+       <span class = "headings">Address2: </span><input type="text" name="address2" value="${dto.address2}"/><br> 
+       <span class = "headings">City: </span><input type="text" name="city" value="${dto.city}"/><br> 
+       <span class = "headings">State: </span><input type="text" name="state" value="${dto.state}"/><br> 
+       <span class = "headings">Zip Code: </span><input type="text" name="zipCode" value="${dto.zipCode}"/><br> 
+     	<span class = "headings">Date: </span>  <input type="date" name="date" value="${dto.date}"/><br> 
+         <%-- 	<span class = "headings">Interest 1: </span>  <input type="text" name="interests" value="${dto.interests[0]}"/><br>  --%>
+				<input type="hidden" name="id" value="${id}" />
 				<button type="submit" class="btn btn-dark">Update</button>
 			</form>
 		<form action="account.do" method="GET">
