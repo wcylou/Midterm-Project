@@ -100,7 +100,6 @@ public class UserDAOImpl implements UserDAO {
 		profile.setLocation(location);
 		em.persist(profile);
 		em.flush();
-		
 		return profile;
 	}
 	@Override

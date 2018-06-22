@@ -40,7 +40,7 @@ public class Profile {
 	private User user;
 	@Column(name="picture_url")
 	private String pictureUrl;
-	@OneToMany(mappedBy="profile", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="profile")
 	private List<Match> matches;
 	@ManyToMany(fetch=FetchType.EAGER, cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name = "profile_interest", joinColumns = @JoinColumn(name = "profile_id"), inverseJoinColumns = @JoinColumn(name = "interest_id"))
