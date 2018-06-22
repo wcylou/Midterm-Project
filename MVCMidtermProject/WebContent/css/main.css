@@ -46,24 +46,32 @@ table {
 }
 
 /* Landing Banner */
-
-
-
-.banner {
-	font-size:3em;
-}
-
-/* Pricing */
-
 html {
 	font-size: 14px;
+	color:red;
 }
 
-@media ( min-width : 768px) {
+/* @media ( min-width : 768px) {
 	html {
 		font-size: 16px;
 	}
+} */
+
+
+.banner {
+	background: url(../images/banner.jpg);
+	background-attachment: fixed;
+	background-repeat : no-repeat; 
+	  min-height: 720px;
+	background-size : cover;
+	color: white;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	font-size: 1.4em;
 }
+
+
+/* Pricing */
 
 .container {
 	max-width: 960px;
@@ -90,12 +98,9 @@ html {
 }
 
 /* End Pricing */
-
-
 /* Contact us */
 
 .contact-us {
 	text-align: center;
-	color:red;
-	font-size: 2em;
+	color:gray;
 }
