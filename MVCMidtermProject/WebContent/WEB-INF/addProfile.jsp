@@ -44,8 +44,37 @@
 			<form:label path="pictureUrl">Picture URL:</form:label>
 			<form:input path="pictureUrl" />
 			<form:errors path="pictureUrl" />
+			<br>
+			<form:label path="minAge">Min Age:</form:label>
+			<form:input path="minAge" />
+			<form:errors path="minAge" />
+			<br>
+			<form:label path="maxAge">Max Age:</form:label>
+			<form:input path="maxAge" />
+			<form:errors path="maxAge" />
+			<br>
+			<form:label path="address">Address Line 1: </form:label>
+			<form:input path="address" />
+			<form:errors path="address" />
+			<br>
+			<form:label path="address2">Address Line 2: </form:label>
+			<form:input path="address2" />
+			<form:errors path="address2" />
+			<br>
+			<form:label path="state">State: </form:label>
+			<form:input path="state" />
+			<form:errors path="state" />
+			<br>
+			<form:label path="city">City: </form:label>
+			<form:input path="city" />
+			<form:errors path="city" />
+			<br>
+			<form:label path="zipCode">Zip Code: </form:label>
+			<form:input path="zipCode" />
+			<form:errors path="zipCode" />
 			<button type="submit" class="btn btn-dark">Add</button>
 			</form:form>
+			
 			<form action="index.do" method="GET">
 				<button type="submit" class="btn btn-dark">Back</button>
 			</form>
