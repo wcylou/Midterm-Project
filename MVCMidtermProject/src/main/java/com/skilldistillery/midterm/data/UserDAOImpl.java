@@ -110,4 +110,17 @@ public class UserDAOImpl implements UserDAO {
 		return profiles;
 	}
 	
+	@Override
+	public List<Interest> getInterestsForProfileWithId(int profileId) {
+		String query = "SELECT p from Profile p JOIN FETCH p.interests where p.id = :id";
+		Profile p = em.createQuery(query, Profile.class)
+				.setParameter("id", profileId)
+				.getResultList()
+				.get(0);
+		
+		List <Interest> interests = p.getInterests();
+		return interests;
+	}
+	
+	
 }

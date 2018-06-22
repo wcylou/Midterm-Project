@@ -2,6 +2,7 @@ package com.skilldistillery.midterm.data;
 
 import java.util.List;
 
+import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Location;
 import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.User;
@@ -16,4 +17,5 @@ public interface UserDAO {
 	public Profile updateProfile(Profile profile, int profileId, User user);
 	public Profile createProfileAndLocation(Profile profile, Location location);
 	public List<Profile> getAllProfiles();
+	public List<Interest> getInterestsForProfileWithId(int profileId);
 }

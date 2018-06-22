@@ -22,7 +22,9 @@
 		<span class = "headings">Gender: </span><c:out value="${profileUpdated.gender}" /><br>
 		<span class = "headings">Sexual Orientation: </span><c:out value="${profileUpdated.sexualOrientation}" /><br>
 		<span class = "headings">About Me: </span><c:out value="${profileUpdated.aboutMe}" /><br>
-		<form action="account.do" method="GET">
+		<span class = "headings">Interest 1: </span><c:out value="${profileUpdated.interests[0].name}" /><br>
+		<span class = "headings">Interest 2: </span><c:out value="${profileUpdated.interests[1].name}" /><br>
+		<form action="index.do" method="GET">
 			<button type="submit" class="btn btn-dark">Back</button>
 		</form>
 	</div>

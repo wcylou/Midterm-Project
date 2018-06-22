@@ -40,6 +40,10 @@
 			<form:input path="aboutMe" />
 			<form:errors path="aboutMe" />
 			<br/>
+			Interest 1<input type="text" name="interests[0].name" />
+			<br/>
+			Interest 2<input type="text" name="interests[1].name" />
+			<br/>
 			<form:label path="pictureUrl">Picture URL:</form:label>
 			<form:input path="pictureUrl" />
 			<form:errors path="pictureUrl" /> --%>

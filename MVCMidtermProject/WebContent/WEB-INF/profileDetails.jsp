@@ -42,6 +42,12 @@
 			<span class="headings">Picture URL: </span>
 			<c:out value="${profile.pictureUrl}" />
 			<br>
+			<span class = "headings">Interest 1: </span>  
+			<c:out value="${profileUpdate.interests[0].name}"/>
+			<br> 
+       		<span class = "headings">Interest 2: </span> 
+       		<c:out value="${profileUpdate.interests[1].name}"/>
+       		<br> 
 			<form action="updateProfile.do" method="GET">
 				<input type="hidden" name="profileId" value="${profile.id}" />
 				<button type="submit" class="btn btn-dark">Update</button>
