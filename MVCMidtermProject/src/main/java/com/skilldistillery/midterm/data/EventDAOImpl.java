@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,9 @@ public class EventDAOImpl implements EventDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
+	
+	@Autowired
+	private UserDAO udao;
 
 	@Override
 	public Event create(Event event) {
@@ -49,19 +53,20 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public Event createEventAndLocation(EventDTO dto) {
-		UserDAOImpl udi = new UserDAOImpl();
 		Event e = new Event();
 		Location l = new Location();
+		System.out.println("&&&&&&&&&&");
+		System.out.println(dto.toString());
 		e.setName(dto.getName());
 		e.setDescription(dto.getDescription());
 		e.setDate(dto.getDate());
 		for (String interest : dto.getInterests()) {
-			Interest i = udi.getInterestObject(interest);
-			System.out.println("***********");
-			System.out.println(i.getName());
-			if (i != null) e.addInterest(i);
+			Interest i = udao.getInterestObject(interest);
+			e.addInterest(i);
 		}
 		l.setAddress(dto.getAddress());
+		System.out.println("*********");
+		System.out.println(l.getAddress());
 		l.setAddress2(dto.getAddress2());
 		l.setCity(dto.getCity());
 		l.setState(dto.getState());

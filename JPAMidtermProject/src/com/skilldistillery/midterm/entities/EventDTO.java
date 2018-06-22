@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.entities;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class EventDTO {
@@ -11,8 +12,36 @@ public class EventDTO {
 	private String city;
 	private String state;
 	private String zipCode;
-	private String[] interests;
+	private String[] interests = new String[1];
+	//remove this init block once checkboxes implemented
+	{
+	interests[0] = "Food";
+	}
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("EventDTO [name=");
+		builder.append(name);
+		builder.append(", description=");
+		builder.append(description);
+		builder.append(", date=");
+		builder.append(date);
+		builder.append(", address=");
+		builder.append(address);
+		builder.append(", address2=");
+		builder.append(address2);
+		builder.append(", city=");
+		builder.append(city);
+		builder.append(", state=");
+		builder.append(state);
+		builder.append(", zipCode=");
+		builder.append(zipCode);
+		builder.append(", interests=");
+		builder.append(Arrays.toString(interests));
+		builder.append("]");
+		return builder.toString();
+	}
 	public String getName() {
 		return name;
 	}

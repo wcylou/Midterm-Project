@@ -15,7 +15,7 @@
 </head>
 <body class="addprofile">
 	<div class="container">
-		<form:form action="addEvent.do" method="POST" modelAttribute="event">
+		<form:form action="addEvent.do" method="POST" modelAttribute="dto">
 			<form:label path="name">Name</form:label>
 			<form:input path="name" />
 			<form:errors path="name" />
@@ -24,38 +24,39 @@
 			<form:input path="description" />
 			<form:errors path="description" />
 			<br/>
-			<form:label path="location.address">Address:</form:label>
-			<form:input path="location.address" />
-			<form:errors path="location.address" />
+			<form:label path="address">Address:</form:label>
+			<form:input path="address" />
+			<form:errors path="address" />
 			<br/>
 			<br/>
-			<form:label path="location.address2">Address2:</form:label>
-			<form:input path="location.address2" />
-			<form:errors path="location.address2" />
+			<form:label path="address2">Address2:</form:label>
+			<form:input path="address2" />
+			<form:errors path="address2" />
 			<br/>
 			<br/>
-			<form:label path="location.city">City:</form:label>
-			<form:input path="location.city" />
-			<form:errors path="location.city" />
+			<form:label path="city">City:</form:label>
+			<form:input path="city" />
+			<form:errors path="city" />
 			<br/>
 			<br/>
-			<form:label path="location.state">State:</form:label>
-			<form:input path="location.state" />
-			<form:errors path="location.state" />
+			<form:label path="state">State:</form:label>
+			<form:input path="state" />
+			<form:errors path="state" />
 			<br/>
 			<br/>
-			<form:label path="location.zipCode">Zip Code:</form:label>
-			<form:input path="location.zipCode" />
-			<form:errors path="location.zipCode" />
+			<form:label path="zipCode">Zip Code:</form:label>
+			<form:input path="zipCode" />
+			<form:errors path="zipCode" />
 			<br/>
 			<form:label path="date">Date:</form:label>
 			<form:input path="date" />
 			<form:errors path="date" />
 			<br/>
+			<%-- This will eventually need to be checkboxes
 			<form:label path="interests">Interests:</form:label>
 			<form:input path="interests[0].name"/>
 			<form:errors path="interests" />
-			<br>
+			<br> --%>
 			
 			<button type="submit" class="btn btn-dark">Add</button>
 			</form:form>
