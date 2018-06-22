@@ -18,4 +18,6 @@ public interface UserDAO {
 	public Profile createProfileAndLocation(Profile profile, Location location);
 	public List<Profile> getAllProfiles();
 	public List<Interest> getInterestsForProfileWithId(int profileId);
+	public List<Interest> getAllInterests();
+	public Interest getInterestObject(String name);
 }

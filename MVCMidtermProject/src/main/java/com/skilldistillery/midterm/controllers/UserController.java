@@ -1,5 +1,7 @@
 package com.skilldistillery.midterm.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.skilldistillery.midterm.data.EventDAO;
 import com.skilldistillery.midterm.data.MatchDAO;
 import com.skilldistillery.midterm.data.UserDAO;
+import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.User;
 
@@ -44,6 +47,8 @@ public class UserController {
 	@RequestMapping(path = "addProfile2.do", method = RequestMethod.GET)
 	public ModelAndView addProfile() {
 		ModelAndView mv = new ModelAndView();
+		List <Interest> interests = udao.getAllInterests();
+		mv.addObject("interests", interests);
 		mv.addObject("profile", new Profile());
 		mv.setViewName("WEB-INF/addProfile.jsp");
 		return mv;
@@ -100,6 +105,17 @@ public class UserController {
 	private Profile getCurrentProfileFromSession(HttpSession session) {
 		Profile current = (Profile) session.getAttribute("profile");
 		return current;
+	}
+	
+	@RequestMapping(path = "updateInterests.do", method = RequestMethod.GET)
+	public ModelAndView updateInterests(HttpSession session) {
+		Profile current = getCurrentProfileFromSession(session);
+		ModelAndView mv = new ModelAndView();
+		Profile profile = udao.findProfileById(current.getId());
+		mv.addObject("profileUpdate", profile);
+		mv.setViewName("WEB-INF/updateProfile.jsp"); 
+		session.setAttribute("profile", profile);
+		return mv;
 	}
 
 

@@ -28,25 +28,22 @@
 			<form:input path="age" />
 			<form:errors path="age" />
 			<br/>
-			<form:label path="gender">Gender:</form:label>
-			<form:input path="gender" />
-			<form:errors path="gender" />
-			<br/>
-			<form:label path="sexualOrientation">Sexual Orientation:</form:label>
-			<form:input path="sexualOrientation"/>
-			<form:errors path="sexualOrientation" />
+			Gender
+			<input id="man" value = "Man" name = "gender" type = "radio"/><label for = "man">Man</label>
+			<input id="woman" value = "Woman" name = "gender" type = "radio"/><label for = "woman">Woman</label>
+			<br>
+			Sexuality
+			<input id="heterosexual" value = "Heterosexual" name = "sexualOrientation" type = "radio"/><label for = "heterosexual">Heterosexual</label>
+			<input id="homosexual" value = "Homosexual" name = "sexualOrientation" type = "radio"/><label for = "homosexual">Homosexual</label>
+			<input id="bisexual" value = "Bisexual" name = "sexualOrientation" type = "radio"/><label for = "bisexual">Bisexual</label>
 			<br>
 			<form:label path="aboutMe">About Me:</form:label>
 			<form:input path="aboutMe" />
 			<form:errors path="aboutMe" />
-			<br/>
-			Interest 1<input type="text" name="interests[0].name" />
-			<br/>
-			Interest 2<input type="text" name="interests[1].name" />
-			<br/>
+			<br>
 			<form:label path="pictureUrl">Picture URL:</form:label>
 			<form:input path="pictureUrl" />
-			<form:errors path="pictureUrl" /> --%>
+			<form:errors path="pictureUrl" />
 			<button type="submit" class="btn btn-dark">Add</button>
 			</form:form>
 			<form action="index.do" method="GET">

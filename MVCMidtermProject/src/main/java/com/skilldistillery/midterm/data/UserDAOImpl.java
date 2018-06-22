@@ -91,7 +91,10 @@ public class UserDAOImpl implements UserDAO {
 	public Profile findProfileById(int userId) {
 		Profile p = null;
 		String query = "SELECT p from Profile p JOIN User u on u.id = p.user where u.id = :id";
-		p = em.createQuery(query, Profile.class).setParameter("id", userId).getSingleResult();
+		List<Profile> profiles = em.createQuery(query, Profile.class).setParameter("id", userId).getResultList();
+		if (profiles.size() > 0) {
+			p = profiles.get(0);
+		}
 		return p;
 	}
 
@@ -119,6 +122,23 @@ public class UserDAOImpl implements UserDAO {
 		
 		List <Interest> interests = p.getInterests();
 		return interests;
+	}
+	
+	@Override
+	public List<Interest> getAllInterests() {
+		String query = "SELECT i from Interest i";
+		List<Interest> interests = em.createQuery(query, Interest.class)
+				.getResultList();
+		return interests;
+	}
+	
+	@Override
+	public Interest getInterestObject(String name) {
+		String query = "SELECT i from Interest i where i.name = :name";
+		Interest i = em.createQuery(query, Interest.class)
+				.setParameter("name", name)
+				.getSingleResult();
+		return i;
 	}
 	
 	
