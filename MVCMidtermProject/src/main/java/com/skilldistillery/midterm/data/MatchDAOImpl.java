@@ -33,13 +33,13 @@ public class MatchDAOImpl implements MatchDAO {
 	private void test() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Midterm");
 		EntityManager em = emf.createEntityManager();
-		Profile profile = em.find(Profile.class, 20);
-		Profile partner = em.find(Profile.class, 2);
-		System.out.println(profile.getFirstName());
-		List<Profile> matches = findPotentialMatches(profile);
-		
-		for (Profile profile2 : matches) {
-			System.out.println(profile2);
+		for (int i = 1; i < 21; i++) {
+			Profile profile = em.find(Profile.class, i);
+			List<Profile> matches = findPotentialMatches(profile);
+			System.out.println(profile.getFirstName() + " " + profile.getLastName());
+			for (Profile profile2 : matches) {
+				System.out.println(profile2);
+			}
 		}
 	}
 
@@ -76,7 +76,6 @@ public class MatchDAOImpl implements MatchDAO {
 			commonEvent.add(temp);
 		}
 
-		List<Profile> result = new ArrayList<>();
 		int max = commonEvent.get(0).size();
 		int place = 0;
 		for (int j = 1; j < commonEvent.size(); j++) {
@@ -84,9 +83,9 @@ public class MatchDAOImpl implements MatchDAO {
 				max = commonEvent.get(j).size();
 				place = j;
 			} else if (commonEvent.get(j).size() == max) {
-				if(Math.random() > 0.5) {
+				if (Math.random() > 0.5) {
 					max = commonEvent.get(j).size();
-					place = j;				
+					place = j;
 				}
 			}
 		}
@@ -104,22 +103,42 @@ public class MatchDAOImpl implements MatchDAO {
 
 		if (profile.getSexualOrientation() == Sexuality.Heterosexual) {
 			if (profile.getGender() == Gender.Man) {
-				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Woman' AND p.sexualOrientation != 'Homosexual'";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
+			            "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
+						"AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Woman' AND " +
+			            "p.sexualOrientation != 'Homosexual' AND u.active = 1 AND p.location.state = :state";
 			} else {
-				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Man' AND p.sexualOrientation != 'Homosexual'";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
+			            "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
+						"AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Man' AND " +
+			            "p.sexualOrientation != 'Homosexual' AND u.active = 1 AND p.location.state = :state";
 			}
 		} else if (profile.getSexualOrientation() == Sexuality.Homosexual) {
 			if (profile.getGender() == Gender.Man) {
-				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Man' AND p.sexualOrientation != 'Heterosexual'";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
+			            "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
+						"AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Man' AND " +
+			            "p.sexualOrientation != 'Heterosexual' AND u.active = 1 AND p.location.state = :state";
 			} else {
-				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Woman' AND p.sexualOrientation != 'Heterosexual'";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
+			            "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
+						"AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Woman' AND " +
+			            "p.sexualOrientation != 'Heterosexual' AND u.active = 1 AND p.location.state = :state";
 			}
 
 		} else {
 			if (profile.getGender() == Gender.Man) {
-				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND (p.gender != 'Man' OR p.sexualOrientation != 'Heterosexual') AND (p.gender != 'Woman' OR p.sexualOrientation != 'Homosexual')";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
+						"l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
+						"AND p.minAge <= :age AND p.maxAge >= :age AND (p.gender != 'Man' OR " +
+						"p.sexualOrientation != 'Heterosexual') AND (p.gender != 'Woman' OR " +
+						"p.sexualOrientation != 'Homosexual') AND u.active = 1 AND p.location.state = :state";
 			} else {
-				query = "SELECT p FROM Profile p WHERE p.id != :id AND p.age >= :min AND p.age <= :max AND p.minAge <= :age AND p.maxAge >= :age AND (p.gender != 'Woman' OR p.sexualOrientation != 'Heterosexual') AND (p.gender != 'Man' OR p.sexualOrientation != 'Homosexual')";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
+						"l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
+						"AND p.minAge <= :age AND p.maxAge >= :age AND (p.gender != 'Woman' OR " +
+						"p.sexualOrientation != 'Heterosexual') AND (p.gender != 'Man' OR " +
+						"p.sexualOrientation != 'Homosexual') AND u.active = 1 AND p.location.state = :state";
 
 			}
 
@@ -127,16 +146,12 @@ public class MatchDAOImpl implements MatchDAO {
 
 		List<Profile> partners = em.createQuery(query, Profile.class).setParameter("id", profile.getId())
 				.setParameter("min", profile.getMinAge()).setParameter("max", profile.getMaxAge())
-				.setParameter("age", profile.getAge()).getResultList();
+				.setParameter("age", profile.getAge()).setParameter("state", profile.getLocation().getState()).getResultList();
 		if (partners.size() != 0) {
 			for (int i = 0; i < partners.size(); i++) {
-				common.add(new ArrayList<>());
 				List<Interest> partnerInterests = partners.get(i).getInterests();
-				for (int j = 0; j < partnerInterests.size(); j++) {
-					if (profileInterests.contains(partnerInterests.get(j))) {
-						common.get(i).add(partnerInterests.get((j)));
-					}
-				}
+				partnerInterests.retainAll(profileInterests);
+				common.add(partnerInterests);
 			}
 
 			List<Profile> result = new ArrayList<>();
