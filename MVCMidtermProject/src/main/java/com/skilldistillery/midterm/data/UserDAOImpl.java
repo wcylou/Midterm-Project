@@ -137,7 +137,8 @@ public class UserDAOImpl implements UserDAO {
 		String query = "SELECT i from Interest i where i.name = :name";
 		Interest i = em.createQuery(query, Interest.class)
 				.setParameter("name", name)
-				.getSingleResult();
+				.getResultList()
+				.get(0);
 		return i;
 	}
 	

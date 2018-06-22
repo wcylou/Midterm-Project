@@ -16,7 +16,7 @@ import com.skilldistillery.midterm.entities.Location;
 @Transactional
 @Component
 public class EventDAOImpl implements EventDAO {
-
+	
 	@PersistenceContext
 	private EntityManager em;
 
@@ -49,18 +49,29 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public Event createEventAndLocation(EventDTO dto) {
+		UserDAOImpl udi = new UserDAOImpl();
 		Event e = new Event();
 		Location l = new Location();
 		e.setName(dto.getName());
 		e.setDescription(dto.getDescription());
 		e.setDate(dto.getDate());
-		e.addInterest(g);
+		for (String interest : dto.getInterests()) {
+			Interest i = udi.getInterestObject(interest);
+			System.out.println("***********");
+			System.out.println(i.getName());
+			if (i != null) e.addInterest(i);
+		}
+		l.setAddress(dto.getAddress());
+		l.setAddress2(dto.getAddress2());
+		l.setCity(dto.getCity());
+		l.setState(dto.getState());
+		l.setZipCode(dto.getZipCode());
 		
-		event.setLocation(location);
-		em.persist(event);
+		e.setLocation(l);
+		em.persist(e);
 		em.flush();
 
-		return event;
+		return e;
 	}
 
 	@Override
