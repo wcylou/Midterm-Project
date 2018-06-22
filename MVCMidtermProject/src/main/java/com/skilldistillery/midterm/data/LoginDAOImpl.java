@@ -22,11 +22,8 @@ public class LoginDAOImpl implements LoginDAO {
 	@Override
 	public User getUserByUserNameAndPassword(String username, String password) {
 	    User u = null;
-		String query = "SELECT u FROM User u WHERE u.username = :username and u.password = :password";
 		String query2 = "SELECT u FROM User u";
 		List<User> users = em.createQuery(query2, User.class).getResultList();
-		u = em.createQuery(query, User.class).setParameter("username", username).setParameter("password", password)
-				.getSingleResult();
 		for (User user : users) {
 			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
 				u = user;

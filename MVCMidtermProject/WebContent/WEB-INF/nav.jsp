@@ -45,6 +45,7 @@
       <a class="navbar-nav ml-auto" href="account.do">My Account</a>
       <a class="navbar-nav ml-auto" href="updateUser.do">Update User</a>
       <a class="navbar-nav ml-auto" href="updateProfile.do">Update Profile</a>
+      <a class="navbar-nav ml-auto" href="updateInterests.do">Update Interests</a>
       <a class="navbar-nav ml-auto" href="updateUser.do">See Past Matches</a>
       <a class="navbar-nav ml-auto" href="getEvent.do">See Events</a>
       <a class="navbar-nav ml-auto" href="logout.do">Logout</a>
