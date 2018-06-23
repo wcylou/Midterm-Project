@@ -56,7 +56,6 @@ public class LoginController {
 			}
 			else {
 				http.setAttribute("profileCreated", false);
-
 			}
 			return "redirect:account.do";
 		}
@@ -88,9 +87,11 @@ public class LoginController {
 	}
 
 	@RequestMapping(path = "usercreated.do", method = RequestMethod.GET)
-	public ModelAndView userCreated() {
+	public ModelAndView userCreated(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("WEB-INF/newUserDetails.jsp");
+		session.setAttribute("profileCreated", false);
+		session.setAttribute("loggedIn", true);
 		return mv;
 	}
 	
@@ -110,6 +111,7 @@ public class LoginController {
 		User user = udao.findUserById(current.getId());
 		mv.addObject("userUpdate", user);
 		mv.setViewName("WEB-INF/updateUser.jsp"); 
+		session.setAttribute("user", user);
 		return mv;
 	}
 

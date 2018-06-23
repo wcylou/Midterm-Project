@@ -55,6 +55,21 @@ public class UserDAOImpl implements UserDAO {
 		return managed;
 	}
 	
+	@Override
+	public Profile getProfilefromProfileDTO(ProfileDTO pdto, User user) {
+		Profile p = new Profile();
+		p.setUser(user);
+		p.setFirstName(pdto.getFirstName());
+		p.setLastName(pdto.getLastName());
+		p.setAge(pdto.getAge());
+		p.setGender(Gender.valueOf(pdto.getGender()));
+		p.setSexualOrientation(Sexuality.valueOf(pdto.getSexualOrientation()));
+		p.setAboutMe(pdto.getAboutMe());
+		p.setPictureUrl(pdto.getPictureUrl());
+		p.setMinAge(pdto.getMinAge());
+		p.setMaxAge(pdto.getMaxAge());
+		return p;
+	}
 	
 	@Override
 	public Profile createProfile(ProfileDTO pdto, User user) {

@@ -13,45 +13,40 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <title>Register</title>
 </head>
-<body class="register">
+<body class="standardLayout">
 
- <nav class="navbar navbar-static-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="http://localhost:8080/MVCMidtermProject/index.do#home">DATING 101</a>
+ <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
+  <a class="navbar-brand" href="#home">DATING 101</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <form action="register.do" method="GET">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <form action="register.do" method="GET">
 			<button type="submit"  class="btn btn-dark">Register</button>
 		</form>
 		   <form action="login.do" method="GET">
 			<button type="submit"  class="btn btn-dark">Login</button>
 		</form>
+		
+      </ul>
     </div>
-  </div>
 </nav>
-
-	<div class="container">
+	<div class="container formInput">
+	<h1>SIGN UP</h1>
 		<form:form action="registerUser.do" method="POST" modelAttribute="user">
-			<form:label path="username">Username:</form:label>
-			<form:input path="username" />
-			<form:errors path="username" />
+			Username<input type="text" name="username" placeholder="Enter a username">
 			<br/>
-			<form:label path="password">Password:</form:label>
-			<form:input path="password" />
-			<form:errors path="password" />
+			Password<input type="text" name="password" placeholder="Enter a password">
 			<br/>
 			<form:hidden path="access" value="false" />
 			<form:hidden path="active" value="true" />
-			<form:label path="email">Email:</form:label>
-			<form:input path="email" />
-			<form:errors path="email" />
-			<button type="submit" class="btn btn-dark">Add</button>
+			Email<input type="text" name="email" placeholder="Enter an email">
+			<br>
+			<button type="submit" class="btn btn-dark">Submit</button>
 			</form:form>
-			<form action="index.do" method="GET">
-				<button type="submit" class="btn btn-dark">Back</button>
-			</form>
+			logged in ${loggedIn}
+profile ${profileCreated}
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

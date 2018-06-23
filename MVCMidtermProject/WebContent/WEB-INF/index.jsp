@@ -10,38 +10,45 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <title>Home</title>
 </head>
 <body id = "home">
- <nav class="navbar navbar-static-top fixed-top navbar-expand-lg navbar-light bg-light">
+  <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
   <a class="navbar-brand" href="#home">DATING 101</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="navbar-nav ml-auto" href="#pricing">Pricing</a>
-      <a class="navbar-nav ml-auto" href="#contact">Contact Us</a>
-      <form action="register.do" method="GET">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ml-auto">
+          <a class="nav-link" href="#about" data-target=".navbar-collapse.show">Who are we</a>
+        </li>
+        <li class="nav-item ml-auto">
+          <a class="nav-link " href="#resume" data-target=".navbar-collapse.show">Testimonials</a>
+        </li>
+        <li class="nav-item ml-auto">
+          <a class="nav-link " href="#pricing" data-target=".navbar-collapse.show">Pricing</a>
+        </li>
+        <li class="nav-item ml-auto">
+          <a class="nav-link" href="#contact" data-target=".navbar-collapse.show">Contact</a>
+        </li>
+        <form action="register.do" method="GET">
 			<button type="submit"  class="btn btn-dark">Register</button>
 		</form>
 		   <form action="login.do" method="GET">
 			<button type="submit"  class="btn btn-dark">Login</button>
 		</form>
-		   <form action="admin.do" method="GET">
-			<button type="submit"  class="btn btn-dark">Admin</button>
-		</form>
+		
+      </ul>
     </div>
-  </div>
 </nav>
   
   <section id ="aboutus" class ="banner">
   <div class="container intro-content">
       <div class="row">
         <div class="intro-text mx-auto">
-        <br><br><br>
-           <p>loremasdadsadadsadad</p>
         </div>
       </div>
     </div> 		
@@ -55,7 +62,7 @@
   	</div>  
   </section>
   
-  <section id = "pricing">
+  <section id="pricing">
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">Pricing</h1>
@@ -114,6 +121,7 @@
     </section>
     
   <section id="contact">
+  <div class = "container">
    	<div class="row contact-us">
    		<div class="col-md-4">
    			<div class="icon">
@@ -141,10 +149,16 @@
    			<p>Phone: (720) 503 2312</p>
    		</div>
    	</div> 
+   	</div>
 </section>
+    <div id="map"></div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script async defer
+ 	 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYZTFbiNh3s9QEXLnh-7dmVJJF0-3OBYM&callback=initMap">
+</script>	
+<script src="js/main.js"></script>
 </body>
 </html>
 

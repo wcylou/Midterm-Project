@@ -22,4 +22,5 @@ public interface UserDAO {
 	public Interest getInterestObject(String name);
 	public Profile createProfile(ProfileDTO pdto, User user);
 	public ProfileDTO getProfileDTOfromProfile(Profile profile, User user);
+	public Profile getProfilefromProfileDTO(ProfileDTO pdto, User user);
 }

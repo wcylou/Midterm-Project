@@ -45,34 +45,54 @@ table {
 	text-align: center;
 }
 
-/* Landing Banner */
-html {
-	font-size: 14px;
-	color:red;
+/*Navbar */
+#mainNav {
+	background-color: firebrick;
 }
 
-/* @media ( min-width : 768px) {
+#mainNav ul {
+	font-size: 1em;
+}
+
+#mainNav li {
+	margin-right: 12px;
+}
+
+#mainNav a {
+	color: white;
+	text-transform: uppercase;
+}
+
+#mainNav a:hover {
+	border: 2px solid white;
+	color: silver;
+}
+
+/* Landing Banner */
+html {
+	font-size: 1em;
+	font-family: 'Poppins', sans-serif;
+}
+
+@media ( min-width : 768px) {
 	html {
 		font-size: 16px;
 	}
-} */
-
+}
 
 .banner {
 	background: url(../images/banner.jpg);
 	background-attachment: fixed;
-	background-repeat : no-repeat; 
-	  min-height: 720px;
-	background-size : cover;
+	background-repeat: no-repeat;
+	min-height: 720px;
+	background-size: cover;
 	color: white;
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
 	font-size: 1.4em;
 }
 
-
 /* Pricing */
-
 .container {
 	max-width: 960px;
 }
@@ -99,8 +119,102 @@ html {
 
 /* End Pricing */
 /* Contact us */
-
 .contact-us {
 	text-align: center;
-	color:gray;
+	color: gray;
+}
+
+#map {
+	justify-content: center;
+	height: 400px; /* The height is 400 pixels */
+	width: 100%; /* The width is the width of the web page */
+}
+
+
+/*register.jsp*/
+
+.standardLayout {
+	background: lightgray;
+}
+
+.formInput {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 16px;
+    background: #d92626	;
+    color:white;
+	text-transform: uppercase;
+}
+
+.formInput h1{
+    background: black;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: white;
+    margin: -16px -16px 16px -16px;
+}
+.formInput input[type="text"],
+.formInput input[type="date"],
+.formInput input[type="datetime"],
+.formInput input[type="email"],
+.formInput input[type="number"],
+.formInput textarea,
+.formInput select 
+{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+}
+.formInput input[type="text"]:focus,
+.formInput input[type="date"]:focus,
+.formInput input[type="datetime"]:focus,
+.formInput input[type="email"]:focus,
+.formInput input[type="number"]:focus,
+.formInput textarea:focus,
+.formInput select:focus
+{
+    box-shadow: 0 0 5px #43D1AF;
+    padding: 3%;
+    border: 2px solid #43D1AF;
+}
+
+.formInput input[type="submit"],
+.formInput input[type="button"]{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #43D1AF;
+    border-bottom: 2px solid #30C29E;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;    
+    color: #fff;
+}
+
+.formInput button[type="submit"]:hover,
+.formInput input[type="button"]:hover{
+    background: #2EBC99;
+}
+
+/*Display profile/user information*/
+
+.displayInformation {
+	padding-top:2em;
+	max-width: 768px
 }

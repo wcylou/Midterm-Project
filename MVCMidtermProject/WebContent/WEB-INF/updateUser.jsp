@@ -15,6 +15,8 @@
 <title>Update User</title>
 </head>
 <body class = "updateUser">
+<%@ include file="nav.jsp" %>
+
 <div class = "container">
 <h1>Update User</h1>
 

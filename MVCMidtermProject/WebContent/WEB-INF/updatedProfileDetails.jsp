@@ -15,15 +15,25 @@
 </head>
 <body>
 	<div class="container">
-		<span class = "headings">Player ID: </span><c:out value="${profileUpdated.id}" /><br>
+		<span class = "headings">Profile ID: </span><c:out value="${profileId}" /><br>
 		<span class = "headings">First Name: </span><c:out value="${profileUpdated.firstName}" /><br>
 		<span class = "headings">Last Name: </span><c:out value="${profileUpdated.lastName}" /><br>
 		<span class = "headings">Age: </span><c:out value="${profileUpdated.age}" /><br>
 		<span class = "headings">Gender: </span><c:out value="${profileUpdated.gender}" /><br>
 		<span class = "headings">Sexual Orientation: </span><c:out value="${profileUpdated.sexualOrientation}" /><br>
 		<span class = "headings">About Me: </span><c:out value="${profileUpdated.aboutMe}" /><br>
-		<span class = "headings">Interest 1: </span><c:out value="${profileUpdated.interests[0].name}" /><br>
-		<span class = "headings">Interest 2: </span><c:out value="${profileUpdated.interests[1].name}" /><br>
+		<span class = "headings">Picture URL: </span><c:out value="${profileUpdated.pictureUrl}" /><br>
+		<span class = "headings">Min Age: </span><c:out value="${profileUpdated.minAge}" /><br>
+		<span class = "headings">Max Age: </span><c:out value="${profileUpdated.maxAge}" /><br>
+		<span class = "headings">State: </span><c:out value="${profileUpdated.state}" /><br>
+		<span class = "headings">City: </span><c:out value="${profileUpdated.city}" /><br>
+		<span class = "headings">Address Line 1 </span><c:out value="${profileUpdated.address}" /><br>
+		<span class = "headings">Address Line 2: </span><c:out value="${profileUpdated.address2}" /><br>
+		<span class = "headings">ZIP Code: </span><c:out value="${profileUpdated.zipCode}" /><br>
+		<span class = "headings">Interests: </span>   
+			<c:forEach items = "${profileUpdated.interests}" var = "interests">
+				<c:out value = "${interests}"/>
+			</c:forEach>			
 		<form action="index.do" method="GET">
 			<button type="submit" class="btn btn-dark">Back</button>
 		</form>

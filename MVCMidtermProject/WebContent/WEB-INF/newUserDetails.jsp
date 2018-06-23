@@ -14,34 +14,45 @@
 <title>User Details</title>
 </head>
 <body>
-	<nav class="navbar navbar-static-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="http://localhost:8080/MVCMidtermProject/index.do#home">DATING 101</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="navbar-nav ml-auto" href="account.do">My Account</a>
-      <a class="navbar-nav ml-auto" href="updateUser.do">Update User</a>
-      <a class="navbar-nav ml-auto" href="updateUser.do">See Past Matches</a>
-      <a class="navbar-nav ml-auto" href="getEvent.do">See Events</a>
-      <a class="navbar-nav ml-auto" href="logout.do">Logout</a>
-    </div>
-  </div>
-</nav>
-	<div class="container">
-		<span class = "headings">User ID: </span><c:out value="${user.id}" /><br>
-		<span class = "headings">Username: </span><c:out value="${user.username}" /><br>
-		<span class = "headings">Password: </span><c:out value="${user.password}" /><br>
-		<span class = "headings">Active: </span><c:out value="${user.active}" /><br>
-		<span class = "headings">Membership: </span><c:out value="${user.membership}" /><br>
-		<span class = "headings">Email: </span><c:out value="${user.email}" /><br>
+<%@ include file="nav.jsp" %>
+
+	<div class="container displayInformation">
+		<table class="table table-striped table-light table-hover">
+		<thead class="thead-dark">
+			<tr>
+				<th colspan="2">Account Details</th>
+			</tr>
+		</thead>
+		<tbody id = "table" >
+				<tr>
+					<td><span class = "headings">User ID: </span></td>
+					<td><c:out value="${user.id}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Username: </span></td>
+					<td><c:out value="${user.username}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Password: </span></td>
+					<td><c:out value="${user.password}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Email: </span></td>
+					<td><c:out value="${user.email}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Membership: </span></td>
+					<td><c:out value="${user.membership}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Active: </span></td>
+					<td><c:out value="${user.active}" /></td>
+				</tr>
+		</tbody>
+	</table>
 		<form action="updateUser.do" method="GET">
 			<input type="hidden" name="userId" value="${user.id}" />
 			<button type="submit" class="btn btn-dark">Update</button>
-		</form>
-		<form action="index.do" method="GET">
-			<button type="submit" class="btn btn-dark">Back</button>
 		</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

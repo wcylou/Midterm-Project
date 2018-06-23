@@ -17,7 +17,6 @@
 <body class = "updatePlayer">
 <div class = "container">
 <h1>Update Profile</h1>
-
  <form:form action="updateProfileDetails.do" method="POST" modelAttribute="profiledto2">
     <span class = "headings">Profile ID: </span><input type= "text" name="profileId" value="${profileUpdate.id}" readonly/><br>
     <span class = "headings">First Name:</span> <input type="text" type="text" name = "firstName" value="${profileUpdate.firstName}"/> <br> 
@@ -35,9 +34,9 @@
    	<span class = "headings">Address Line 2: </span>  <input type="text" name="address2" value="${profileUpdate.address2}"/><br> 
    	<span class = "headings">Zip Code: </span>  <input type="text" name="zipCode" value="${profileUpdate.zipCode}"/><br> 
 	 <span class = "headings">Interests: </span>   
-         <input type="checkbox" name="interests" value="Food" <c:if test="${interests.contains('Food')}">CHECKED</c:if> /><label for="Food">Food</label><br>
+     	 <input type="checkbox" name="interests" value="Food" <c:if test="${interests.contains('Food')}">CHECKED</c:if> /><label for="Food">Food</label><br>
          <input type="checkbox" name="interests" value="Music" <c:if test="${interests.contains('Music')}">CHECKED</c:if> /><label for="Music">Music</label><br>
-        <input type="checkbox" name="interests" value="Tattoo" <c:if test="${interests.contains('Tattoo')}">CHECKED</c:if> /><br><label for="Tattoo">Tattoo</label><br>
+         <input type="checkbox" name="interests" value="Tattoo" <c:if test="${interests.contains('Tattoo')}">CHECKED</c:if> /><br><label for="Tattoo">Tattoo</label><br>
          <input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('America')}">CHECKED</c:if> /><br><label for="America">America</label><br>
          <input type="checkbox" name="interests" value="Children" <c:if test="${interests.contains('Children')}">CHECKED</c:if> /><br><label for="Children">Children</label><br>
          <input type="checkbox" name="interests" value="Health" <c:if test="${interests.contains('Health')}">CHECKED</c:if> /><br><label for="Health">Health</label><br>

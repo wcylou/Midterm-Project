@@ -43,9 +43,4 @@ public class MatchTest {
 		emf.close();
 
 	}
-	
-	@Test
-	public void test_mappings() {
-		assertEquals();
-	}
 }
