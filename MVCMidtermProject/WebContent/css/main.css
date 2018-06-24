@@ -45,6 +45,28 @@ table {
 	text-align: center;
 }
 
+html {
+	font-size: 1em;
+	font-family: 'Poppins', sans-serif;
+}
+
+@media ( min-width : 768px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+.lightSection {
+	font-size: 1em;
+	padding: 3em;
+	text-align:center;
+}
+
+.darkSection {
+	
+	
+}
+
 /*Navbar */
 #mainNav {
 	background-color: firebrick;
@@ -69,16 +91,7 @@ table {
 }
 
 /* Landing Banner */
-html {
-	font-size: 1em;
-	font-family: 'Poppins', sans-serif;
-}
 
-@media ( min-width : 768px) {
-	html {
-		font-size: 16px;
-	}
-}
 
 .banner {
 	background: url(../images/banner.jpg);
@@ -90,6 +103,36 @@ html {
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
 	font-size: 1.4em;
+}
+
+/* stats */
+
+#stats {
+	background: firebrick;
+	padding-top: 7.2rem;
+	padding-bottom: 6rem;
+	text-align: center;
+	padding-left:3em;
+	padding-right:3em;
+}
+
+#stats .stat-count {
+	font-size: 3rem;
+	margin-top: 1.2rem;
+	margin-bottom: 0;
+	color: white;
+}
+
+#stats .far {
+	color:white;
+}
+
+#stats .fas {
+	color:white;
+}
+
+#stats .stat-title {
+	color: rgba(255, 255, 255, 0.5);
 }
 
 /* Pricing */
@@ -136,13 +179,13 @@ html {
 .standardLayout {
 	background: lightgray !important;
 	padding-bottom:3em;
-	padding-top:3em;
+	padding-top:2.5em;
 }
 
 .formInput {
-    max-width: 400px;
+    max-width: 500px;
     margin: 100px auto;
-    padding: 16px;
+    padding: 0px 16px 16px 16px;
     background: #d92626	;
     color:white;
 	text-transform: uppercase;

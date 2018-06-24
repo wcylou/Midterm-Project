@@ -16,63 +16,89 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <title>Profile Details</title>
 </head>
-<body class="profileBody">
+<body class="profileBody standardLayout">
+<%@ include file="nav.jsp" %>
 	<div class="container">
-			<span class="headings">Profile ID:</span>
-			<c:out value="${profileid}" />
-			<br>
-			<span class="headings">First Name: </span>
-			<c:out value="${profile.firstName}" />
-			<br>
-			<span class="headings">Last Name: </span>
-			<c:out value="${profile.lastName}" />
-			<br>
-			<span class="headings">Age: </span>
-			<c:out value="${profile.age}" />
-			<br>
-			<span class="headings">Age: </span>
-			<c:out value="${profile.gender}" />
-			<br>
-			<span class="headings">Sexual Orientation: </span>
-			<c:out value="${profile.sexualOrientation}" />
-			<br>
-			<span class="headings">About Me: </span>
-			<c:out value="${profile.aboutMe}" />
-			<br>
-			<span class="headings">Picture URL: </span>
-			<c:out value="${profile.pictureUrl}" />
-			<br>
-			<span class="headings">Min Age: </span>
-			<c:out value="${profile.minAge}" />
-			<br>
-			<span class="headings">Max Age: </span>
-			<c:out value="${profile.maxAge}" />
-			<br>
-			<span class = "headings">State: </span>  
-			<c:out value="${profile.state}"/>
-			<br> 
-       		<span class = "headings">City: </span>  
-			<c:out value="${profile.state}"/>
-			<br> 
-			<span class = "headings">Address: </span>  
-			<c:out value="${profile.address}"/>
-			<br> 
-			<span class = "headings">Address 2: </span>  
-			<c:out value="${profile.address2}"/>
-			<br> 
-			<span class = "headings">ZIP Code: </span>  
-			<c:out value="${profile.zipCode}"/>
-			<br>
-			<span class = "headings">Interests: </span>  
-			<c:forEach items="${profile.interests}" var="interest">
-				<c:out value="${interest}"/>
-			</c:forEach>
+					<table class="table table-striped table-light table-hover">
+		<thead class="thead-dark">
+			<tr>
+				<th colspan="2">Profile Details</th>
+			</tr>
+		</thead>
+		<tbody id = "table" >
+				<tr>
+					<td><span class = "headings">Profile ID: </span> </td>
+					<td> <c:out value="${profileId}" /></td>
+				</tr>
+				<tr>
+					<td> <span class = "headings">First Name: </span></td>
+					<td> <c:out value="${profile.firstName}" /></td>
+				</tr>
+				<tr>
+					<td>  <span class = "headings">Last Name:  </span></td>
+					<td> <c:out value="${profile.lastName}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Age: </span></td>
+					<td> <c:out value="${profile.age}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Gender: </span></td>
+					<td><c:out value="${profile.gender}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Sexual Orientation: </span></td>
+					<td><c:out value="${profile.sexualOrientation}" /></td>
+				</tr>
+				<tr>
+					<td>  <span class = "headings">About me:  </span></td>
+					<td><c:out value="${profile.aboutMe}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Picture URL:  </span></td>
+					<td><c:out value="${profile.pictureUrl}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Min Age: </span></td>
+					<td><c:out value="${profile.minAge}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Max Age: </span></td>
+					<td><c:out value="${profile.maxAge}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">State:  </span></td>
+					<td><c:out value="${profile.state}" /></td>
+				</tr>
+				<tr>
+					<td>  <span class = "headings">City: </span></td>
+					<td><c:out value="${profile.city}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Address Line 1:</span></td>
+					<td><c:out value="${profile.address}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Address Line 2:</span></td>
+					<td><c:out value="${profile.address2}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Zip Code: </span></td>
+					<td><c:out value="${profile.zipCode}" /></td>
+				</tr>
+				<tr>
+					<td> <span class = "headings">Interests: </span></td>
+					<td>
+     				<c:forEach items = "${profile.interests}" var = "interests">
+						<c:out value = "${interests}"/>
+					</c:forEach>	
+         </td>
+				</tr>
+		</tbody>
+	</table>
 			<form action="updateProfile.do" method="GET">
 				<input type="hidden" name="profileId" value="${profile.id}" />
 				<button type="submit" class="btn btn-dark">Update</button>
-			</form>
-			<form action="account.do" method="GET">
-				<button type="submit" class="btn btn-dark">Back</button>
 			</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

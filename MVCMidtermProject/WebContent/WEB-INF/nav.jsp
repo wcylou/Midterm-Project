@@ -15,22 +15,22 @@
 <body class="register">
 
 	<c:if test="${!loggedIn}">
-	 <nav class="navbar navbar-static-top navbar-expand-lg navbar-light bg-light">
- 		 <a class="navbar-brand" href="http://localhost:8080/MVCMidtermProject/index.do#home">DATING 101</a>
- 		 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-   		 <span class="navbar-toggler-icon"></span>
-  		</button>
-  	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    	<div class="navbar-nav">
-     		 <form action="register.do" method="GET">
-				<button type="submit"  class="btn btn-dark">Register</button>
-			</form>
-		   <form action="login.do" method="GET">
-				<button type="submit"  class="btn btn-dark">Login</button>
-			</form>
-   		 </div>
- 	</div>
-	</nav>
+	 <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
+			  <a class="navbar-brand" href="index.do">DATING 101</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			      <ul class="navbar-nav ml-auto">
+			        <li class="nav-item ml-auto">
+			          <a class="nav-link" href="register.do" data-target=".navbar-collapse.show">Register</a>
+			        </li>
+			        <li class="nav-item ml-auto">
+			          <a class="nav-link " href="login.do" data-target=".navbar-collapse.show">Login</a>
+			        </li>
+			      </ul>
+			    </div>
+			</nav>
 	</c:if>
 
 	<c:if test="${loggedIn}">

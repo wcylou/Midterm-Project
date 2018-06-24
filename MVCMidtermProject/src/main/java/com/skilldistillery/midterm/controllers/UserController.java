@@ -66,9 +66,9 @@ public class UserController {
 	public String addProfileDetails(ProfileDTO profiledto, HttpSession session, RedirectAttributes redir) {
 		User current = getCurrentUserFromSession(session);
 		Profile profileAdded = udao.createProfile(profiledto, current);
-		redir.addFlashAttribute("profileid", profileAdded.getId());
 		redir.addFlashAttribute("profile", profiledto);
 		session.setAttribute("profile", profileAdded);
+		System.out.println(profileAdded);
 		return "redirect:profilecreated.do";
 	}
 	
@@ -79,6 +79,7 @@ public class UserController {
 		Profile profile = udao.findProfileById(currentUser.getId());
 		ProfileDTO pdto = udao.getProfileDTOfromProfile(profile, currentUser);
 		List interests = Arrays.asList(pdto.getInterests());
+		mv.addObject("profileId", profile.getId());
 		mv.addObject("profileUpdate", pdto);
 		mv.addObject("interests", interests);
 		mv.addObject("profiledto2", new ProfileDTO());

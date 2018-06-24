@@ -14,7 +14,6 @@
 <title>Register</title>
 </head>
 <body class="standardLayout">
-
  <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
   <a class="navbar-brand" href="#home">DATING 101</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

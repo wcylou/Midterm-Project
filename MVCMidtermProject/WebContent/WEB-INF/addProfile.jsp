@@ -13,8 +13,10 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <title>Register</title>
 </head>
-<body class="addprofile">
-	<div class="container">
+<body class="addprofile standardLayout">
+<%@ include file="nav.jsp" %>
+	<div class="container formInput">
+		<h1>CREATE PROFILE</h1>
 		<form:form action="addProfileDetails.do" method="POST" modelAttribute="profiledto">
 			<form:label path="firstName">First Name</form:label>
 			<form:input path="firstName" />
@@ -28,15 +30,15 @@
 			<form:input path="age" />
 			<form:errors path="age" />
 			<br/>
-			Gender
-			<input id="man" value = "Man" name = "gender" type = "radio"/><label for = "man">Man</label>
-			<input id="woman" value = "Woman" name = "gender" type = "radio"/><label for = "woman">Woman</label>
-			<br>
-			Sexuality
-			<input id="heterosexual" value = "Heterosexual" name = "sexualOrientation" type = "radio"/><label for = "heterosexual">Heterosexual</label>
-			<input id="homosexual" value = "Homosexual" name = "sexualOrientation" type = "radio"/><label for = "homosexual">Homosexual</label>
-			<input id="bisexual" value = "Bisexual" name = "sexualOrientation" type = "radio"/><label for = "bisexual">Bisexual</label>
-			<br>
+			Gender<br>
+			Man &nbsp<input id="man" value = "Man" name = "gender" type = "radio"/><label for = "man"></label>
+			Woman &nbsp<input id="woman" value = "Woman" name = "gender" type = "radio"/><label for = "woman"></label>
+			<br><br>
+			Sexuality<br>
+			Heterosexual &nbsp<input id="heterosexual" value = "Heterosexual" name = "sexualOrientation" type = "radio"/>
+			Homosexual &nbsp<input id="homosexual" value = "Homosexual" name = "sexualOrientation" type = "radio"/>
+			Bisexual &nbsp<input id="bisexual" value = "Bisexual" name = "sexualOrientation" type = "radio"/>
+			<br><br>
 			<form:label path="aboutMe">About Me:</form:label>
 			<form:input path="aboutMe" />
 			<form:errors path="aboutMe" />
@@ -73,21 +75,18 @@
 			<form:input path="zipCode" />
 			<form:errors path="zipCode" />
 			<br>
-			<input type="checkbox" id="Food" name="interests" value="Food" /><label for="Food">Food</label>
-		    <input type="checkbox" id="Music" name="interests" value="Music" /><label for="Music">Music</label>
-		    <input type="checkbox" id="Tattoo" name="interests" value="Tattoo" /> <label for="Tattoo">Tattoo</label>
-		    <input type="checkbox" id="America" name="interests" value="America" /> <label for="America">America</label>
-		    <input type="checkbox" id="Children" name="interests" value="Children" /> <label for="Children">Children</label>
-		    <input type="checkbox" id="Health" name="interests" value="Health" /><label for="Health">Health</label>
-		    <input type="checkbox" id="Sports" name="interests" value="Sports" /><label for="Sports">Sports</label>
-		    <input type="checkbox" id="Comedy" name="interests" value="Comedy" /><label for="Comedy">Comedy</label>
+			Interests<br>
+			Food &nbsp&nbsp<input type="checkbox" id="Food" name="interests" value="Food" />
+		    Music&nbsp&nbsp<input type="checkbox" id="Music" name="interests" value="Music" />
+		    Tattoo&nbsp&nbsp<input type="checkbox" id="Tattoo" name="interests" value="Tattoo" /> 
+		    America&nbsp&nbsp<input type="checkbox" id="America" name="interests" value="America" /> <br>
+		    Children&nbsp&nbsp<input type="checkbox" id="Children" name="interests" value="Children" /> 
+		    Health&nbsp&nbsp<input type="checkbox" id="Health" name="interests" value="Health" />
+		    Sports&nbsp&nbsp<input type="checkbox" id="Sports" name="interests" value="Sports" />
+		    Comedy&nbsp&nbsp<input type="checkbox" id="Comedy" name="interests" value="Comedy" />
 		    <br>
-			<button type="submit" class="btn btn-dark">Add</button>
+			<button type="submit">Add</button>
 			</form:form>
-			
-			<form action="index.do" method="GET">
-				<button type="submit" class="btn btn-dark">Back</button>
-			</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -14,34 +14,95 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <title>Update Profile</title>
 </head>
-<body class = "updatePlayer">
+<body class = "updatePlayer standardLayout">
 <div class = "container">
-<h1>Update Profile</h1>
+<%@ include file="nav.jsp" %>
+
  <form:form action="updateProfileDetails.do" method="POST" modelAttribute="profiledto2">
-    <span class = "headings">Profile ID: </span><input type= "text" name="profileId" value="${profileUpdate.id}" readonly/><br>
-    <span class = "headings">First Name:</span> <input type="text" type="text" name = "firstName" value="${profileUpdate.firstName}"/> <br> 
-    <span class = "headings">Last Name: </span> <input type="text" name = "lastName" type="text" value="${profileUpdate.lastName}" /><br> 
-    <span class = "headings">Age: </span><input type="text" name="age" value="${profileUpdate.age}"/><br> 
-    <span class = "headings">Gender: </span> <input type="text" name="gender" value="${profileUpdate.gender}"/><br> 
-    <span class = "headings">Sexual Orientation: </span>  <input type="text" name="sexualOrientation" value="${profileUpdate.sexualOrientation}"/><br> 
-    <span class = "headings">About me: </span>  <input type="text" name="aboutMe" value="${profileUpdate.aboutMe}"/><br> 
-   	<span class = "headings">Picture URL: </span>  <input type="text" name="pictureUrl" value="${profileUpdate.pictureUrl}"/><br> 
-   	<span class = "headings">Min Age: </span>  <input type="text" name="minAge" value="${profileUpdate.minAge}"/><br> 
-   	<span class = "headings">Max Age: </span>  <input type="text" name="maxAge" value="${profileUpdate.maxAge}"/><br> 
-   	<span class = "headings">State: </span>  <input type="text" name="state" value="${profileUpdate.state}"/><br> 
-   	<span class = "headings">City:</span>  <input type="text" name="city" value="${profileUpdate.city}"/><br> 
-   	<span class = "headings">Address Line 1: </span>  <input type="text" name="address" value="${profileUpdate.address}"/><br> 
-   	<span class = "headings">Address Line 2: </span>  <input type="text" name="address2" value="${profileUpdate.address2}"/><br> 
-   	<span class = "headings">Zip Code: </span>  <input type="text" name="zipCode" value="${profileUpdate.zipCode}"/><br> 
-	 <span class = "headings">Interests: </span>   
-     	 <input type="checkbox" name="interests" value="Food" <c:if test="${interests.contains('Food')}">CHECKED</c:if> /><label for="Food">Food</label><br>
-         <input type="checkbox" name="interests" value="Music" <c:if test="${interests.contains('Music')}">CHECKED</c:if> /><label for="Music">Music</label><br>
-         <input type="checkbox" name="interests" value="Tattoo" <c:if test="${interests.contains('Tattoo')}">CHECKED</c:if> /><br><label for="Tattoo">Tattoo</label><br>
-         <input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('America')}">CHECKED</c:if> /><br><label for="America">America</label><br>
-         <input type="checkbox" name="interests" value="Children" <c:if test="${interests.contains('Children')}">CHECKED</c:if> /><br><label for="Children">Children</label><br>
-         <input type="checkbox" name="interests" value="Health" <c:if test="${interests.contains('Health')}">CHECKED</c:if> /><br><label for="Health">Health</label><br>
-         <input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('Sports')}">CHECKED</c:if> /><br><label for="Sports">Sports</label><br>
-         <input type="checkbox" name="interests" value="Comedy" <c:if test="${interests.contains('Comedy')}">CHECKED</c:if> /><br><label for="Comedy">Comedy</label><br>
+ <table class="table table-striped table-light table-hover">
+		<thead class="thead-dark">
+			<tr>
+				<th colspan="2">Update Profile Details</th>
+			</tr>
+		</thead>
+		<tbody id = "table" >
+				<tr>
+					<td><span class = "headings">Profile ID: </span> </td>
+					<td> <input type= "text" name="profileId" value="${profileId}" readonly/></td>
+				</tr>
+				<tr>
+					<td> <span class = "headings">First Name: </span></td>
+					<td> <input type="text" type="text" name = "firstName" value="${profileUpdate.firstName}"/></td>
+				</tr>
+				<tr>
+					<td>  <span class = "headings">Last Name:  </span></td>
+					<td> <input type="text" name = "lastName" type="text" value="${profileUpdate.lastName}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Age: </span></td>
+					<td> <input type="text" name="age" value="${profileUpdate.age}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Gender: </span></td>
+					<td><input type="text" name="gender" value="${profileUpdate.gender}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Sexual Orientation: </span></td>
+					<td><input type="text" name="sexualOrientation" value="${profileUpdate.sexualOrientation}"/></td>
+				</tr>
+				<tr>
+					<td>  <span class = "headings">About me:  </span></td>
+					<td><input type="text" name="aboutMe" value="${profileUpdate.aboutMe}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Picture URL:  </span></td>
+					<td><input type="text" name="pictureUrl" value="${profileUpdate.pictureUrl}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Min Age: </span></td>
+					<td><input type="text" name="minAge" value="${profileUpdate.minAge}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Max Age: </span></td>
+					<td><input type="text" name="maxAge" value="${profileUpdate.maxAge}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">State:  </span></td>
+					<td><input type="text" name="state" value="${profileUpdate.state}"/></td>
+				</tr>
+				<tr>
+					<td>  <span class = "headings">City: </span></td>
+					<td><input type="text" name="city" value="${profileUpdate.city}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Address Line 1:</span></td>
+					<td><input type="text" name="address" value="${profileUpdate.address}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Address Line 2:</span></td>
+					<td><input type="text" name="address2" value="${profileUpdate.address2}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Zip Code: </span></td>
+					<td><input type="text" name="zipCode" value="${profileUpdate.zipCode}"/></td>
+				</tr>
+				<tr>
+					<td> <span class = "headings">Interests: </span></td>
+					<td>
+     	 Food&nbsp<input type="checkbox" name="interests" value="Food" <c:if test="${interests.contains('Food')}">CHECKED</c:if> />
+         Music&nbsp<input type="checkbox" name="interests" value="Music" <c:if test="${interests.contains('Music')}">CHECKED</c:if> />
+         Tattoo&nbsp<input type="checkbox" name="interests" value="Tattoo" <c:if test="${interests.contains('Tattoo')}">CHECKED</c:if> />
+         America&nbsp<input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('America')}">CHECKED</c:if> /><br>
+         Children&nbsp<input type="checkbox" name="interests" value="Children" <c:if test="${interests.contains('Children')}">CHECKED</c:if> />
+         Health&nbsp<input type="checkbox" name="interests" value="Health" <c:if test="${interests.contains('Health')}">CHECKED</c:if> />
+         Sports&nbsp<input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('Sports')}">CHECKED</c:if> />
+         Comedy&nbsp<input type="checkbox" name="interests" value="Comedy" <c:if test="${interests.contains('Comedy')}">CHECKED</c:if> />
+         </td>
+				</tr>
+		</tbody>
+	</table>
+   <br>
+	
 				<button type="submit" class="btn btn-dark">Update</button>
 			</form:form>
      <form action="index.do" method="GET">

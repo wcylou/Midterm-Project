@@ -9,14 +9,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <title>Home</title>
 </head>
 <body id = "home">
   <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
-  <a class="navbar-brand" href="#home">DATING 101</a>
+  <a class="navbar-brand" href="#home">NAME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -54,13 +54,53 @@
     </div> 		
   </section>
   
-  <section id = "testimonials">
-	<div class = "container">
+  <section id = "testimonials ">
+	<div class = "container lightSection">
   	<div class = "row">
-  	
+  	<h1>About us</h1>
+  	<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in eleifend sem, vel egestas lorem. Nam vel lectus nunc. Sed tempus, nisi vestibulum consequat tincidunt, velit orci lobortis dui, sit amet gravida ligula dolor a lectus. Etiam quis semper elit, sed dapibus ligula. Ut efficitur neque ante, at auctor massa placerat venenatis. Mauris consectetur blandit quam imperdiet scelerisque. Proin sit amet faucibus tellus. Ut bibendum rutrum laoreet. Suspendisse non felis a felis vulputate finibus. Etiam pellentesque dictum tellus.
+
+  	</p>
+
   	</div>
   	</div>  
   </section>
+  
+  
+  <section id="stats" class="count-up">
+		<div class="row col-lg-12">
+				<div class="col-lg-2 ">
+						<i class="far fa-heart fa-3x"></i>
+						<h3 class="stat-count">300</h3>
+						<h5 class="stat-title">Relationships Formed</h5>
+				</div>
+				<div class="col-lg-2 ">
+						<i class="fas fa-music fa-3x"></i>
+						<h3 class="stat-count">120 </h3>
+						<h5 class="stat-title">Concerts Attended</h5>
+				</div>
+				<div class="col-lg-2">
+						<i class="far fa-clock fa-3x"></i>
+						<h3 class="stat-count">500</h3>
+						<h5 class="stat-title">'Sorry I'm late' Texts Sent</h5>
+				</div> 								
+				<div class="col-lg-2">
+						<i class="far fa-calendar-alt fa-3x"></i>
+						<h3 class="stat-count">2400</h3>
+						<h5 class="stat-title">Events Suggested</h5>
+				</div>
+				<div class="col-lg-2">
+						<i class="fas fa-home fa-3x"></i>
+						<h3 class="stat-count">24</h3>
+						<h5 class="stat-title">Marriages</h5>
+				</div> 
+				<div class="col-lg-2">
+						<i class="far fa-smile-wink fa-3x"></i>
+						<h3 class="stat-count">7200</h3>
+						<h5 class="stat-title">Winky Faces</h5>
+				</div> 
+			</div>
+	</section>
   
   <section id="pricing">
 

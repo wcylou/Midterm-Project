@@ -52,6 +52,8 @@ public class UserDAOImpl implements UserDAO {
 		managed.setEmail(user.getEmail());
 		managed.setPassword(user.getPassword());
 		managed.setUsername(user.getUsername());
+		managed.setMembership(user.getMembership());
+		System.out.println(managed);
 		return managed;
 	}
 	
