@@ -97,7 +97,7 @@
 	</table>
 			<form action="adminUpdateProfile.do" method="GET">
 				<input type="hidden" name="id" value="${profileId}" />
-				<button type="submit" class="btn btn-dark">Update</button>
+				<button type="submit" class="btn btn-light">Update</button>
 			</form>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

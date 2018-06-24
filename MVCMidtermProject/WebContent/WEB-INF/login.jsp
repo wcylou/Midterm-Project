@@ -24,7 +24,7 @@
 			<br/>
 			Password<input type="text" name="password" placeholder="Enter a password">
 			<br/>
-			<button type="submit" value = "Log In" class="btn btn-dark">Submit</button>
+			<button type="submit" value = "Log In" class="btn btn-light">Submit</button>
 		</form:form>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

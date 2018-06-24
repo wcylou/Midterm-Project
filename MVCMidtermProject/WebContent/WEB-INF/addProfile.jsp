@@ -86,7 +86,7 @@
 		    Sports&nbsp&nbsp<input type="checkbox" id="Sports" name="interests" value="Sports" />
 		    Comedy&nbsp&nbsp<input type="checkbox" id="Comedy" name="interests" value="Comedy" />
 		    <br>
-			<button type="submit">Add</button>
+			<button type="submit" class="btn btn-light">Add</button>
 			</form:form>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

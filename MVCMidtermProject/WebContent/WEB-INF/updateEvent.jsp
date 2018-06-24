@@ -92,11 +92,8 @@
      	
          <%-- 	<span class = "headings">Interest 1: </span>  <input type="text" name="interests" value="${dto.interests[0]}"/><br>  --%>
 				<input type="hidden" name="id" value="${id}" />
-				<button type="submit" class="btn btn-dark">Update</button>
+				<button type="submit" class="btn btn-light">Update</button>
 			</form>
-		<form action="account.do" method="GET">
-			<button type="submit" class="btn btn-dark">Back</button>
-		</form>
     
     </div>
    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

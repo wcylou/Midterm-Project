@@ -53,7 +53,7 @@
 				</tr>
 		</tbody>
 	</table>
-		<button type="submit" class="btn btn-dark">Update</button>
+		<button type="submit" class="btn btn-light">Update</button>
 		</form:form>
     
     </div>

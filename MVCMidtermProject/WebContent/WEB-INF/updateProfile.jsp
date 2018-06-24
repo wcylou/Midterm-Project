@@ -103,11 +103,8 @@
 	</table>
    <br>
 	
-				<button type="submit" class="btn btn-dark">Update</button>
+				<button type="submit" class="btn btn-light">Update</button>
 			</form:form>
-     <form action="index.do" method="GET">
-				<button type="submit" class="btn btn-dark">Back</button>
-	</form>
     
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

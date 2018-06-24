@@ -16,7 +16,7 @@
 	<div class = "container">
 		<h1>Events</h1>
 	<form action="addEvent.do" method="GET">
-		<button type="submit" class="btn btn-dark">Add New Event</button>
+		<button type="submit" class="btn btn-light">Add New Event</button>
 	</form><br>
 	<%-- Event list items --%>
 Search&nbsp<input type="text" id="search" placeholder="Type to search">	

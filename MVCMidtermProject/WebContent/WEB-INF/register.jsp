@@ -27,7 +27,7 @@
 			<form:hidden path="active" value="true" />
 			Email<input type="text" name="email" placeholder="Enter an email">
 			<br>
-			<button type="submit" class="btn btn-dark">Submit</button>
+			<button type="submit" class="btn btn-light">Submit</button>
 			</form:form>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

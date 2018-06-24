@@ -16,7 +16,7 @@
 		<div class = "container">
 		<h1>Profiles</h1>
 	<form action="addProfile.do" method="GET">
-		<button type="submit" class="btn btn-dark">Add New Profile</button>
+		<button type="submit" class="btn btn-light">Add New Profile</button>
 	</form><br>
 	<%-- Event list items --%>
 Search&nbsp<input type="text" id="search" placeholder="Type to search">	

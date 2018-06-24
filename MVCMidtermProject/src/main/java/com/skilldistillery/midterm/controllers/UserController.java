@@ -66,6 +66,7 @@ public class UserController {
 	public String addProfileDetails(ProfileDTO profiledto, HttpSession session, RedirectAttributes redir) {
 		User current = getCurrentUserFromSession(session);
 		Profile profileAdded = udao.createProfile(profiledto, current);
+		redir.addFlashAttribute("profileId", profileAdded.getId());
 		redir.addFlashAttribute("profile", profiledto);
 		session.setAttribute("profile", profileAdded);
 		System.out.println(profileAdded);

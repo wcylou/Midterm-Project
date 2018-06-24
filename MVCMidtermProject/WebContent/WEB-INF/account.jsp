@@ -51,7 +51,7 @@
 	</table>
 
   <form action="updateUser.do" method="GET">
-		<button type="submit" class="btn btn-dark">Update</button>
+		<button type="submit" class="btn btn-light">Update</button>
 	</form>
 	</div>
 	

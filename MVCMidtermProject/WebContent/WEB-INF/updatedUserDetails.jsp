@@ -36,7 +36,7 @@
 		<span class = "headings">Membership: </span><c:out value="${userUpdated.membership}"/><br>
 		<span class = "headings">Email: </span><c:out value="${userUpdated.email}" /><br>
 		<form action="account.do" method="GET">
-			<button type="submit" class="btn btn-dark">Back</button>
+			<button type="submit" class="btn btn-light">Back</button>
 		</form>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

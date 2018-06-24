@@ -103,7 +103,7 @@
 	</table>
    <br>
 				<input type="hidden" name="id" value="${profileId}" />
-				<button type="submit" class="btn btn-dark">Update</button>
+				<button type="submit" class="btn btn-light">Update</button>
 			</form:form>
     
     </div>
