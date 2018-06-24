@@ -7,34 +7,44 @@
 	  var marker = new google.maps.Marker({position: sd, map: map});
 	}
 	
-    var statSection = $("#stats"),
-    stats = $(".stat-count");
+	$(document).ready(function(){
+	  // Add smooth scrolling to all links
+	  $("a").on('click', function(event) {
 
-statSection.waypoint({
+	    // Make sure this.hash has a value before overriding default behavior
+	    if (this.hash !== "") {
+	      // Prevent default anchor click behavior
+	      event.preventDefault();
 
-	handler: function(direction) {
+	      // Store hash
+	      var hash = this.hash;
 
-   	if (direction === "down") {       		
-
-			   stats.each(function () {
-				   var $this = $(this);
-
-				   $({ Counter: 0 }).animate({ Counter: $this.text() }, {
-				   	duration: 4000,
-				   	easing: 'swing',
-				   	step: function (curValue) {
-				      	$this.text(Math.ceil(curValue));
-				    	}
-				  	});
-				});
-
-    	} 
-
-    	// trigger once only
-    	this.destroy();      	
-
-		},
-			
-		offset: "90%"
+	      // Using jQuery's animate() method to add smooth page scroll
+	      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+	      $('html, body').animate({
+	        scrollTop: $(hash).offset().top
+	      }, 800, function(){
+	   
+	        // Add hash (#) to URL when done scrolling (default click behavior)
+	        window.location.hash = hash;
+	      });
+	    } // End if
+	  });
+	});
 	
-	});	
+	$(document).ready(function() {
+		   var $rows = $('#table .searchRows');
+		   $('#search').keyup(function() {
+		     var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase().split(' ');
+
+		     $rows.hide().filter(function() {
+		       var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+		       var matchesSearch = true;
+		       $(val).each(function(index, value) {
+		         matchesSearch = (!matchesSearch) ? false : ~text.indexOf(value);
+		       });
+		       return matchesSearch;
+		     }).show();
+		   });
+	});
+

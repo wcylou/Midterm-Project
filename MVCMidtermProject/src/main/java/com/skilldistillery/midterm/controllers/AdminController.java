@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.controllers;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +71,7 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView();
 		Event event = edao.createEventAndLocation(dto);
 		redir.addFlashAttribute("event", event);
+		System.out.println(event.getDate());
 		mv.setViewName("redirect:eventCreated.do");
 
 		return mv;
@@ -88,7 +90,9 @@ public class AdminController {
 		Event e = edao.getEventById(eventId);
 		Location l = e.getLocation();
 		EventDTO dto = edao.getEventDTOFromEventAndLocation(e, l);
-		System.out.println(dto.getName());
+		System.out.println(dto.getDate());
+		List interests = Arrays.asList(dto.getInterests());
+		mv.addObject("interests", interests);
 		mv.addObject("dto", dto);
 		mv.addObject("id", e.getId());
 		mv.setViewName("WEB-INF/updateEvent.jsp");

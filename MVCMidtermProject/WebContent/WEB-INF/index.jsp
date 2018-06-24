@@ -23,10 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item ml-auto">
-          <a class="nav-link" href="#about" data-target=".navbar-collapse.show">Who are we</a>
-        </li>
-        <li class="nav-item ml-auto">
-          <a class="nav-link " href="#resume" data-target=".navbar-collapse.show">Testimonials</a>
+          <a class="nav-link" href="#aboutUs" data-target=".navbar-collapse.show">Who are we</a>
         </li>
         <li class="nav-item ml-auto">
           <a class="nav-link " href="#pricing" data-target=".navbar-collapse.show">Pricing</a>
@@ -34,18 +31,17 @@
         <li class="nav-item ml-auto">
           <a class="nav-link" href="#contact" data-target=".navbar-collapse.show">Contact</a>
         </li>
-        <form action="register.do" method="GET">
-			<button type="submit"  class="btn btn-dark">Register</button>
-		</form>
-		   <form action="login.do" method="GET">
-			<button type="submit"  class="btn btn-dark">Login</button>
-		</form>
-		
+        <li class="nav-item ml-auto">
+          <a class="nav-link" href="register.do" data-target=".navbar-collapse.show">Register</a>
+        </li>
+		<li class="nav-item ml-auto">
+          <a class="nav-link" href="login.do" data-target=".navbar-collapse.show">Log In</a>
+        </li>
       </ul>
     </div>
 </nav>
   
-  <section id ="aboutus" class ="banner">
+  <section class ="banner">
   <div class="container intro-content">
       <div class="row">
         <div class="intro-text mx-auto">
@@ -54,15 +50,13 @@
     </div> 		
   </section>
   
-  <section id = "testimonials ">
+  <section id = "aboutUs">
 	<div class = "container lightSection">
-  	<div class = "row">
-  	<h1>About us</h1>
+  	<h1>Who are we</h1><br>
   	<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in eleifend sem, vel egestas lorem. Nam vel lectus nunc. Sed tempus, nisi vestibulum consequat tincidunt, velit orci lobortis dui, sit amet gravida ligula dolor a lectus. Etiam quis semper elit, sed dapibus ligula. Ut efficitur neque ante, at auctor massa placerat venenatis. Mauris consectetur blandit quam imperdiet scelerisque. Proin sit amet faucibus tellus. Ut bibendum rutrum laoreet. Suspendisse non felis a felis vulputate finibus. Etiam pellentesque dictum tellus.
 
   	</p>
 
-  	</div>
   	</div>  
   </section>
   
@@ -103,12 +97,10 @@
 	</section>
   
   <section id="pricing">
-
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">Pricing</h1>
       <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
     </div>
-
     <div class="container">
       <div class="card-deck mb-3 text-center">
         <div class="card mb-4 box-shadow">
@@ -160,45 +152,44 @@
     </div>
     </section>
     
-  <section id="contact">
+  <section id="contact" class = "darkSection">
   <div class = "container">
    	<div class="row contact-us">
    		<div class="col-md-4">
    			<div class="icon">
-   				<i class="fas fa-map-marker-alt"></i>
-   			</div>
-   			<h4>Find us</h4>
-   			<p>Denver
-            <br>
-            Colorado
-            <br>
-            80223</p>
+   				<i class="fas fa-map-marker-alt fa-2x"></i>
+   			</div><br>
+   			<h4>Where are we</h4>
+   			<p> 7400 E Orchard Rd <br>
+            Greenwood Village <br>
+            CO, 80111</p>
    		</div>
    		<div class="col-md-4">
    			<div class="icon">
-   				<i class="far fa-envelope"></i>
-   			</div>
+   				<i class="far fa-envelope fa-2x"></i>
+   			</div><br>
    			<h4>Email Us</h4>
    			<p>dating@gmail.com</p>
    		</div>
    		<div class="col-md-4">
    			<div class="icon">
-   				<i class="fas fa-phone"></i>
-   			</div>
-   			<h5>Call Us</h5>
+   				<i class="fas fa-phone fa-2x"></i>
+   			</div><br>
+   			<h4>Call Us</h4>
    			<p>Phone: (720) 503 2312</p>
    		</div>
    	</div> 
    	</div>
 </section>
     <div id="map"></div>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script async defer
  	 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYZTFbiNh3s9QEXLnh-7dmVJJF0-3OBYM&callback=initMap">
 </script>	
 <script src="js/main.js"></script>
+
 </body>
 </html>
 

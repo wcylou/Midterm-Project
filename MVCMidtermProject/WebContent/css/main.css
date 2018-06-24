@@ -59,12 +59,25 @@ html {
 .lightSection {
 	font-size: 1em;
 	padding: 3em;
-	text-align:center;
+	text-align: center;
 }
 
 .darkSection {
-	
-	
+	background-color: firebrick;
+	padding: 3em;
+}
+
+.darkSection h4 {
+	color: white;
+}
+
+.darkSection p {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+#aboutUs h1 {
+	text-align:center !important;
+	text-transform:uppercase;
 }
 
 /*Navbar */
@@ -91,8 +104,6 @@ html {
 }
 
 /* Landing Banner */
-
-
 .banner {
 	background: url(../images/banner.jpg);
 	background-attachment: fixed;
@@ -106,14 +117,13 @@ html {
 }
 
 /* stats */
-
 #stats {
 	background: firebrick;
 	padding-top: 7.2rem;
 	padding-bottom: 6rem;
 	text-align: center;
-	padding-left:3em;
-	padding-right:3em;
+	padding-left: 3em;
+	padding-right: 3em;
 }
 
 #stats .stat-count {
@@ -123,12 +133,12 @@ html {
 	color: white;
 }
 
-#stats .far {
-	color:white;
+.far {
+	color: white;
 }
 
-#stats .fas {
-	color:white;
+.fas {
+	color: white;
 }
 
 #stats .stat-title {
@@ -173,93 +183,88 @@ html {
 	width: 100%; /* The width is the width of the web page */
 }
 
-
 /*register.jsp*/
-
 .standardLayout {
 	background: lightgray !important;
-	padding-bottom:3em;
-	padding-top:2.5em;
+	padding-bottom: 3em;
+	padding-top: 6em;
 }
 
-.formInput {
-    max-width: 500px;
-    margin: 100px auto;
-    padding: 0px 16px 16px 16px;
-    background: #d92626	;
-    color:white;
+.standardLayout h1 {
+	text-align:center;
+	color: firebrick;
+	font-size:3.2em;
 	text-transform: uppercase;
 }
 
-.formInput h1{
-    background: black;
-    padding: 20px 0;
-    font-size: 140%;
-    font-weight: 300;
-    text-align: center;
-    color: white;
-    margin: -16px -16px 16px -16px;
-}
-.formInput input[type="text"],
-.formInput input[type="date"],
-.formInput input[type="datetime"],
-.formInput input[type="email"],
-.formInput input[type="number"],
-.formInput textarea,
-.formInput select 
-{
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
-    outline: none;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    width: 100%;
-    background: #fff;
-    margin-bottom: 4%;
-    border: 1px solid #ccc;
-    padding: 3%;
-    color: #555;
-    font: 95% Arial, Helvetica, sans-serif;
-}
-.formInput input[type="text"]:focus,
-.formInput input[type="date"]:focus,
-.formInput input[type="datetime"]:focus,
-.formInput input[type="email"]:focus,
-.formInput input[type="number"]:focus,
-.formInput textarea:focus,
-.formInput select:focus
-{
-    box-shadow: 0 0 5px #43D1AF;
-    padding: 3%;
-    border: 2px solid #43D1AF;
+.formInput {
+	max-width: 500px;
+	padding: 0px 16px 16px 16px;
+	background: #d92626;
+	color: white;
+	text-transform: uppercase;
 }
 
-.formInput input[type="submit"],
-.formInput input[type="button"]{
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    width: 100%;
-    padding: 3%;
-    background: #43D1AF;
-    border-bottom: 2px solid #30C29E;
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;    
-    color: #fff;
+.formInput h1 {
+	background: black;
+	padding: 20px 0;
+	font-size: 140%;
+	font-weight: 300;
+	text-align: center;
+	color: white;
+	margin: -16px -16px 16px -16px;
 }
 
-.formInput button[type="submit"]:hover,
-.formInput input[type="button"]:hover{
-    background: #2EBC99;
+.formInput input[type="text"], .formInput input[type="date"], .formInput input[type="datetime"],
+	.formInput input[type="email"], .formInput input[type="number"],
+	.formInput textarea, .formInput select {
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: #555;
+	font: 95% Arial, Helvetica, sans-serif;
+}
+
+.formInput input[type="text"]:focus, .formInput input[type="date"]:focus,
+	.formInput input[type="datetime"]:focus, .formInput input[type="email"]:focus,
+	.formInput input[type="number"]:focus, .formInput textarea:focus,
+	.formInput select:focus {
+	box-shadow: 0 0 5px #43D1AF;
+	padding: 3%;
+	border: 2px solid #43D1AF;
+}
+
+.formInput input[type="submit"], .formInput input[type="button"] {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 3%;
+	background: #43D1AF;
+	border-bottom: 2px solid #30C29E;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+	color: #fff;
+}
+
+.formInput button[type="submit"]:hover, .formInput input[type="button"]:hover
+	{
+	background: #2EBC99;
 }
 
 /*Display profile/user information*/
-
 .displayInformation {
-	padding-top:2em;
+	padding-top: 2em;
 	max-width: 768px
 }

@@ -45,8 +45,6 @@ public class LoginController {
 		if(u != null) {
 			p = udao.findProfileById(u.getId());
 		}
-		
-		System.out.println(p);
 		errors.rejectValue("username", "error.user", "Not a valid login.");
 		if (u != null) {
 			http.setAttribute("user", u);
@@ -57,6 +55,9 @@ public class LoginController {
 			}
 			else {
 				http.setAttribute("profileCreated", false);
+			}
+			if (u.getId()==1) {
+				http.setAttribute("adminLoggedIn", true);
 			}
 			return "redirect:account.do";
 		}
@@ -122,7 +123,7 @@ public class LoginController {
 		User current = getCurrentUserFromSession(session);
 		ModelAndView mv = new ModelAndView();
 		System.out.println(user);
-		User userUpdated = udao.updateUser(user, current.getId());
+		User userUpdated = ldao.updateUser(user, current.getId());
 		System.out.println(userUpdated);
 		mv.addObject("userUpdated", userUpdated);
 		mv.setViewName("WEB-INF/updatedUserDetails.jsp");

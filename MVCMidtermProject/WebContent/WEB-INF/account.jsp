@@ -9,28 +9,56 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/main.css"></head>
-<body>
+
+<body class = "standardLayout">
 <%--Edit the file nav.jsp to change nav links --%>
 <%@ include file="nav.jsp" %>
-<h2>Your Details</h2>
 
 <%-- Output user details --%>
 <div class = "container">
-Username: <c:out value="${user.username}"></c:out><br>
-Password: <c:out value="${user.password}"></c:out><br>
-Email: <c:out value="${user.email}"></c:out><br>
-Membership: <c:out value="${user.membership}"></c:out><br>
-Active: <c:out value="${user.active}"></c:out><br>
+	<table class="table table-striped table-light table-hover">
+		<thead class="thead-dark">
+			<tr>
+				<th colspan="2">Account Details</th>
+			</tr>
+		</thead>
+		<tbody id = "table" >
+				<tr>
+					<td><span class = "headings">User ID: </span></td>
+					<td><c:out value="${user.id}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Username: </span></td>
+					<td><c:out value="${user.username}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Password: </span></td>
+					<td><c:out value="${user.password}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Email: </span></td>
+					<td><c:out value="${user.email}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Membership: </span></td>
+					<td><c:out value="${user.membership}" /></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Active: </span></td>
+					<td><c:out value="${user.active}" /></td>
+				</tr>
+		</tbody>
+	</table>
 
   <form action="updateUser.do" method="GET">
 		<button type="submit" class="btn btn-dark">Update</button>
 	</form>
-	<form action="logout.do" method="GET">
-		<button type="submit" class="btn btn-dark">Logout</button>
-	</form>
-	<form action="login.do" method="GET">
-		<button type="submit" class="btn btn-dark">Back</button>
-	</form>
 	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>

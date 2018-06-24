@@ -42,13 +42,14 @@ public class LoginDAOImpl implements LoginDAO {
 	
 	@Override
 	public User updateUser(User user, int userId) {
-		user.setMembership(user.getMembership());
 		User managed = em.find(User.class, userId);
 		managed.setUsername(user.getUsername());
 		managed.setPassword(user.getPassword());
 		managed.setEmail(user.getEmail());
 		managed.setAccess(user.getAccess());
 		managed.setActive(user.getActive());
+		managed.setMembership(em.find(Membership.class, 1));
 		return managed;
 	}
+	
 }
