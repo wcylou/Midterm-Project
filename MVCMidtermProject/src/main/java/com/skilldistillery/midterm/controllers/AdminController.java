@@ -109,6 +109,17 @@ public class AdminController {
 		return mv;
 	}
 	
+	@RequestMapping(path = "deleteEvent.do", method = RequestMethod.GET)
+	public ModelAndView deleteEvent(@RequestParam("id") int eventId) {
+		ModelAndView mv = new ModelAndView();
+		edao.delete(eventId);
+		List<Event> eventList = edao.index();
+		mv.addObject("eventList", eventList);
+		mv.setViewName("WEB-INF/admin-events.jsp");
+		
+		return mv;
+	}
+	
 	
 	//profile mapping
 	@RequestMapping(path = "getProfiles.do", method = RequestMethod.GET)

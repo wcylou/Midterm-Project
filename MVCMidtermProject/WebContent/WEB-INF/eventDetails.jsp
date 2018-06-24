@@ -49,6 +49,10 @@
 			<input type="hidden" name="id" value="${event.id}" />
 			<button type="submit" class="btn btn-dark">Update</button>
 		</form>
+		<form action="deleteEvent.do?" method="GET">
+			<input type="hidden" name="id" value="${event.id}" />
+			<button type="submit" class="btn btn-dark">Delete</button>
+		</form>
 		<form action="index.do" method="GET">
 			<button type="submit" class="btn btn-dark">Back</button>
 		</form>

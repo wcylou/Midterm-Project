@@ -156,9 +156,10 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public Event find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Event.class, id);
 	}
+	
+	
 
 	
 }
