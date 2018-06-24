@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `midterm`.`event_interest` (
   CONSTRAINT `fk_event_interest_interest`
     FOREIGN KEY (`interest_id`)
     REFERENCES `midterm`.`interest` (`id`)
-    ON DELETE RESTRICT
+    ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_event_interest_event`
     FOREIGN KEY (`event_id`)
