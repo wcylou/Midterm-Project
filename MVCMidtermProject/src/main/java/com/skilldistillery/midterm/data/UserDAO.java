@@ -23,4 +23,6 @@ public interface UserDAO {
 	public Profile createProfile(ProfileDTO pdto, User user);
 	public ProfileDTO getProfileDTOfromProfile(Profile profile, User user);
 	public Profile getProfilefromProfileDTO(ProfileDTO pdto, User user);
+	public User getUserFromProfileID(int profileId);
+	public Profile findProfileByProfileId(int profileId);
 }

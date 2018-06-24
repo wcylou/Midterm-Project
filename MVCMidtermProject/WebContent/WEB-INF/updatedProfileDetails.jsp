@@ -89,7 +89,7 @@
 					<td> <span class = "headings">Interests: </span></td>
 					<td>
      				<c:forEach items = "${profileUpdated.interests}" var = "interests">
-						<c:out value = "${interests}"/>
+						<li><c:out value = "${interests}"/></li>
 					</c:forEach>	
          </td>
 				</tr>

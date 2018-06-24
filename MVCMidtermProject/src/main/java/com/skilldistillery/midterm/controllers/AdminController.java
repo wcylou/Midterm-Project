@@ -3,6 +3,8 @@ package com.skilldistillery.midterm.controllers;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,8 @@ import com.skilldistillery.midterm.entities.EventDTO;
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Location;
 import com.skilldistillery.midterm.entities.Profile;
+import com.skilldistillery.midterm.entities.ProfileDTO;
+import com.skilldistillery.midterm.entities.User;
 
 @Controller
 public class AdminController {
@@ -138,9 +142,43 @@ public class AdminController {
 	@RequestMapping(path = "getProfile.do", method=RequestMethod.GET)
 	public ModelAndView getProfile(@RequestParam("id") int profileId) {
 		ModelAndView mv = new ModelAndView();
-		Profile p = udao.findProfileById(profileId);
-		mv.addObject("profile", p);
-		mv.setViewName("WEB-INF/profileDetails.jsp");
+		User u = udao.getUserFromProfileID(profileId);
+		Profile profile = udao.findProfileByProfileId(profileId);
+		ProfileDTO pdto = udao.getProfileDTOfromProfile(profile, u);
+		List interests = Arrays.asList(pdto.getInterests());
+		mv.addObject("profileId", profile.getId());
+		mv.addObject("profile", pdto);
+		mv.addObject("interests", interests);
+		mv.addObject("profiledto2", new ProfileDTO());
+		mv.setViewName("WEB-INF/adminUpdateProfileDetails.jsp"); 
+		return mv;
+	}
+	
+
+	@RequestMapping(path = "adminUpdateProfile.do", method = RequestMethod.GET)
+	public ModelAndView updateProfile(@RequestParam("id") int profileId) {
+		ModelAndView mv = new ModelAndView();
+		User u = udao.getUserFromProfileID(profileId);
+		Profile profile = udao.findProfileById(u.getId());
+		ProfileDTO pdto = udao.getProfileDTOfromProfile(profile, u);
+		List interests = Arrays.asList(pdto.getInterests());
+		mv.addObject("profileId", profile.getId());
+		mv.addObject("profileUpdate", pdto);
+		mv.addObject("interests", interests);
+		mv.addObject("profiledto2", new ProfileDTO());
+		mv.setViewName("WEB-INF/adminUpdateProfile.jsp"); 
+		return mv;
+	}
+
+	@RequestMapping(path = "adminUpdateProfileDetails.do", method = RequestMethod.POST)
+	public ModelAndView updateProfileDetails(@RequestParam("id") int profileId, ProfileDTO profiledto) {
+		ModelAndView mv = new ModelAndView();
+		User u = udao.getUserFromProfileID(profileId);
+		Profile profile = udao.findProfileById(u.getId());
+		Profile p = udao.getProfilefromProfileDTO(profiledto, u);
+		mv.addObject("profileId", profile.getId());
+		mv.addObject("profileUpdated", profiledto);
+		mv.setViewName("WEB-INF/updatedProfileDetails.jsp");
 		return mv;
 	}
 	

@@ -56,8 +56,11 @@ public class LoginController {
 			else {
 				http.setAttribute("profileCreated", false);
 			}
-			if (u.getId()==1) {
+			if (u.getId() == 1) {
 				http.setAttribute("adminLoggedIn", true);
+			}
+			else {
+				http.setAttribute("adminLoggedIn", false);
 			}
 			return "redirect:account.do";
 		}
@@ -73,10 +76,11 @@ public class LoginController {
 	}
 	
 	@RequestMapping(path = "register.do", method = RequestMethod.GET)
-	public ModelAndView register() {
+	public ModelAndView register(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("user", new User());
 		mv.setViewName("WEB-INF/register.jsp");
+		session.setAttribute("adminLoggedIn", false);
 		return mv;
 	}
 	

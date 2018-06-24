@@ -136,6 +136,15 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
+	public Profile findProfileByProfileId(int profileId) {
+		String query = "SELECT p from Profile p where p.id = :id";
+		Profile p = em.createQuery(query, Profile.class)
+				.setParameter("id", profileId)
+				.getSingleResult();
+		return p;
+	}
+	
+	@Override
 	public ProfileDTO getProfileDTOfromProfile(Profile profile, User user) {
 		ProfileDTO p = new ProfileDTO();
 		p.setFirstName(profile.getFirstName());
@@ -200,6 +209,15 @@ public class UserDAOImpl implements UserDAO {
 				.setParameter("name", name)
 				.getSingleResult();
 		return i;
+	}
+	
+	@Override
+	public User getUserFromProfileID(int profileId) {
+		String query = "SELECT u from User u JOIN Profile p on u.id = p.user WHERE p.id = :id";
+		User u = em.createQuery(query, User.class)
+				.setParameter("id", profileId)
+				.getSingleResult();
+		return u;
 	}
 
 }

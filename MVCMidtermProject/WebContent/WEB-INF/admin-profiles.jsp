@@ -38,7 +38,7 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 		</c:forEach>
 		</tbody>
 	</table>
-	<input type="hidden" name="profileId" value="${profile.id}" />
+	<input type="hidden" name="id" value="${profile.id}" />
 </div>
 
 	

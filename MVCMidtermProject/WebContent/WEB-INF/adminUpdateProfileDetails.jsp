@@ -89,14 +89,14 @@
 					<td> <span class = "headings">Interests: </span></td>
 					<td>
      				<c:forEach items = "${profile.interests}" var = "interests">
-						<li><c:out value = "${interests}"/></li>
+						<c:out value = "${interests}"/>
 					</c:forEach>	
          </td>
 				</tr>
 		</tbody>
 	</table>
 			<form action="adminUpdateProfile.do" method="GET">
-				<input type="hidden" name="profileId" value="${profile.id}" />
+				<input type="hidden" name="id" value="${profileId}" />
 				<button type="submit" class="btn btn-dark">Update</button>
 			</form>
 	</div>
