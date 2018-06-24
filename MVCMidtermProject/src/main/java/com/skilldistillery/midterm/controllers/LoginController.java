@@ -17,6 +17,7 @@ import com.skilldistillery.midterm.data.LoginDAO;
 import com.skilldistillery.midterm.data.MatchDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Profile;
+import com.skilldistillery.midterm.entities.ProfileDTO;
 import com.skilldistillery.midterm.entities.User;
 
 @Controller
@@ -111,6 +112,7 @@ public class LoginController {
 		User user = udao.findUserById(current.getId());
 		mv.addObject("userUpdate", user);
 		mv.setViewName("WEB-INF/updateUser.jsp"); 
+		mv.addObject("userUpdateDetail", new ProfileDTO());
 		session.setAttribute("user", user);
 		return mv;
 	}

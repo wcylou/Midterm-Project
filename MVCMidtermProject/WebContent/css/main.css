@@ -51,7 +51,7 @@ table {
 }
 
 #mainNav ul {
-	font-size: 1em;
+	font-size: 0.8em;
 }
 
 #mainNav li {
@@ -63,7 +63,7 @@ table {
 	text-transform: uppercase;
 }
 
-#mainNav a:hover {
+#mainNav ul a:hover {
 	border: 2px solid white;
 	color: silver;
 }
@@ -134,7 +134,9 @@ html {
 /*register.jsp*/
 
 .standardLayout {
-	background: lightgray;
+	background: lightgray !important;
+	padding-bottom:3em;
+	padding-top:3em;
 }
 
 .formInput {

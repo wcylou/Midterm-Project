@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <title>User Details</title>
 </head>
-<body>
+<body class = "standardLayout">
 <%@ include file="nav.jsp" %>
 
 	<div class="container displayInformation">

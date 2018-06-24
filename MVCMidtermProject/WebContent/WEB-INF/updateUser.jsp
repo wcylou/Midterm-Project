@@ -14,23 +14,47 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <title>Update User</title>
 </head>
-<body class = "updateUser">
+<body class = "updateUser standardLayout">
 <%@ include file="nav.jsp" %>
 
 <div class = "container">
-<h1>Update User</h1>
 
-      <form action="updateUserDetails.do" method="POST">
-     	 <span class = "headings">User ID</span> <input type="text" type="text" name = "userId" value="${userUpdate.id}" readonly/> <br> 
-        <span class = "headings">Username: </span> <input type="text" name = "username" type="text" value="${userUpdate.username}" /><br> 
-       <span class = "headings">Password: </span><input type="text" name="password" value="${userUpdate.password}"/><br> 
-      <span class = "headings">Membership: ${userUpdate.membership} </span><br>
-       	<span class = "headings">Email: </span>  <input type="text" name="email" value="${userUpdate.email}"/><br> 
-				<button type="submit" class="btn btn-dark">Update</button>
-			</form>
-		<form action="account.do" method="GET">
-			<button type="submit" class="btn btn-dark">Back</button>
-		</form>
+       <form:form action="updateUserDetails.do" method="POST" modelAttribute="userUpdateDetail">
+		<table class="table table-striped table-light table-hover">
+		<thead class="thead-dark">
+			<tr>
+				<th colspan="2">Update Account Details</th>
+			</tr>
+		</thead>
+		<tbody id = "table" >
+				<tr>
+					<td><span class = "headings">User ID</span> </td>
+					<td><input type="text" type="text" name = "userId" value="${userUpdate.id}" readonly/></td>
+				</tr>
+				<tr>
+					<td> <span class = "headings">Username: </span></td>
+					<td> <input type="text" name = "username" type="text" value="${userUpdate.username}" /></td>
+				</tr>
+				<tr>
+					<td>  <span class = "headings">Password: </span></td>
+					<td> <input type="text" name="password" value="${userUpdate.password}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Email: </span></td>
+					<td> <input type="text" name="email" value="${userUpdate.email}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Membership: </span></td>
+					<td><input type="text" name="password" value="${userUpdate.membership}"/></td>
+				</tr>
+				<tr>
+					<td><span class = "headings">Active: </span></td>
+					<td><c:out value="${user.active}" /></td>
+				</tr>
+		</tbody>
+	</table>
+		<button type="submit" class="btn btn-dark">Update</button>
+		</form:form>
     
     </div>
    	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
