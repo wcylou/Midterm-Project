@@ -210,6 +210,11 @@ html {
 	text-transform: uppercase;
 }
 
+.headings {
+font-weight:bold;
+color:firebrick;
+	}
+
 .formInput {
 	max-width: 500px;
 	padding: 0px 16px 16px 16px;
@@ -252,17 +257,17 @@ html {
 	.formInput input[type="datetime"]:focus, .formInput input[type="email"]:focus,
 	.formInput input[type="number"]:focus, .formInput textarea:focus,
 	.formInput select:focus {
-	box-shadow: 0 0 5px #43D1AF;
+	box-shadow: 0 0 5px black;
 	padding: 3%;
-	border: 2px solid #43D1AF;
+	border: 2px solid black;
 }
 
 .formInput input[type="submit"], .formInput input[type="button"] {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	background: #43D1AF;
-	border-bottom: 2px solid #30C29E;
+	background: black;
+	border-bottom: 2px solid black;
 	border-top-style: none;
 	border-right-style: none;
 	border-left-style: none;
