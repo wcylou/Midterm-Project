@@ -28,33 +28,15 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 		<thead class="thead-dark">
 			<tr>
 				<th scope="col">Match Name</th>
-				<th scope="col">Age</th>
-				<th scope="col">Gender</th>
-				<th scope="col">Sexuality</th>
-				<th scope="col">State</th>
-				<th scope="col">Interests</th>
-			</tr>
-			<tr>
-				<th colspan="6">About Me</th>
+				<th scope="col">Event</th>
 			</tr>
 		</thead>
 		<tbody id = "table" >
-		
-		<c:forEach items="${matches}" var="match">
 				<tr class = "searchRows">
-					<td><input value = "${match.id}" name = "matchId" type = "radio"/>
-					<c:out value="${match.firstName} ${match.lastName}" /></td>
-					<td><c:out value="${match.age}" /></td>
-					<td><c:out value="${match.gender}" /></td>
-					<td><c:out value="${match.sexualOrientation}" /></td>
-					<td><c:out value="${match.location.state}" /></td>
-					<td><c:out value="${match.interests}" /></td>
+					<td><input value = "matchId" type = "radio"/>
+					<c:out value="${match.partner.firstName} ${match.partner.lastName}" /></td>
+					<td><c:out value="${match.event.name}" /></td>
 				</tr>
-				<tr>
-					<td><c:out value="${match.aboutMe}" /></td>
-				</tr>
-			</c:forEach>
-		
 		</tbody>
 	</table>
 	<button type="submit" class="btn btn-light">Submit</button>

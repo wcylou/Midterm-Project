@@ -59,7 +59,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public Profile getProfilefromProfileDTO(ProfileDTO pdto, User user) {
-		Profile p = new Profile();
+		Profile p = em.find(Profile.class, pdto.getId());
 		p.setUser(user);
 		p.setFirstName(pdto.getFirstName());
 		p.setLastName(pdto.getLastName());
@@ -70,6 +70,13 @@ public class UserDAOImpl implements UserDAO {
 		p.setPictureUrl(pdto.getPictureUrl());
 		p.setMinAge(pdto.getMinAge());
 		p.setMaxAge(pdto.getMaxAge());
+		Location l = new Location();
+		l.setState(pdto.getState());
+		l.setCity(pdto.getCity());
+		l.setAddress(pdto.getAddress());
+		l.setAddress2(pdto.getAddress2());
+		l.setZipCode(pdto.getZipCode());	
+		p.setLocation(l);
 		return p;
 	}
 	

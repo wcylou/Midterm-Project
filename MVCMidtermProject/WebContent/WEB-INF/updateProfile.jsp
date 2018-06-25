@@ -28,7 +28,7 @@
 		<tbody id = "table" >
 				<tr>
 					<td><span class = "headings">Profile ID: </span> </td>
-					<td> <input type= "text" name="profileId" value="${profileId}" readonly/></td>
+					<td> <input type= "text" name="id" value="${profileId}" readonly/></td>
 				</tr>
 				<tr>
 					<td> <span class = "headings">First Name: </span></td>

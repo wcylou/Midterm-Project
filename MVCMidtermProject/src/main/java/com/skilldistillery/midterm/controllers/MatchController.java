@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.midterm.data.EventDAO;
@@ -35,12 +36,15 @@ public class MatchController {
 		System.out.println(temp);
 		List<Profile> matches = mdao.findPotentialMatches(temp);
 		mv.addObject("matches", matches);
+		for (Profile profile : matches) {
+			System.out.println(profile.getInterests());
+		}
 		mv.setViewName("WEB-INF/viewMatches.jsp");
 		System.out.println(matches);
 		return mv;
 	}
 	@RequestMapping(path = "findevent.do", method = RequestMethod.GET)
-	public ModelAndView findEvent(HttpSession session, int matchId) {
+	public ModelAndView findEvent(HttpSession session, @RequestParam("matchId") int matchId) {
 		ModelAndView mv = new ModelAndView();
 		Profile temp = (Profile) session.getAttribute("profile");
 		Profile partner = udao.findProfileByProfileId(matchId);
