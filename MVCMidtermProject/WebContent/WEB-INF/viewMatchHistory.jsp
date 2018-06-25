@@ -21,7 +21,7 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 	<c:if test="${empty matches}">
   		<h2>No matches for this profile... Yet.</h2>
 	</c:if>
-	
+	<c:if test="${not empty matches}">
 	<table class="table table-striped table-light table-hover">
 		<thead class="thead-dark">
 			<tr>
@@ -39,7 +39,7 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 			</c:forEach>
 		</tbody>
 	</table>
-	
+	</c:if>
 
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
