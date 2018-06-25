@@ -63,8 +63,8 @@ html {
 }
 
 .lightSection h1 {
-	text-align:center !important;
-	text-transform:uppercase;
+	text-align: center !important;
+	text-transform: uppercase;
 }
 
 .darkSection {
@@ -81,9 +81,8 @@ html {
 }
 
 #aboutUs, #pricing, #contact {
-	padding-top:30px;
+	padding-top: 30px;
 }
-
 
 /*Navbar */
 #mainNav {
@@ -172,15 +171,15 @@ html {
 }
 
 .bronze {
-	background-color:#A67D3D;
+	background-color: #A67D3D;
 }
 
 .silver {
-	background-color:#E6E8FA;
+	background-color: #E6E8FA;
 }
 
 .gold {
-	background-color:#D9D919;
+	background-color: #D9D919;
 }
 
 /* End Pricing */
@@ -192,7 +191,7 @@ html {
 
 #map {
 	justify-content: center;
-	height: 400px; /* The height is 400 pixels */
+	height: 300px; /* The height is 400 pixels */
 	width: 100%; /* The width is the width of the web page */
 }
 
@@ -204,16 +203,16 @@ html {
 }
 
 .standardLayout h1 {
-	text-align:center;
+	text-align: center;
 	color: firebrick;
-	font-size:3.2em;
+	font-size: 3.2em;
 	text-transform: uppercase;
 }
 
 .headings {
-font-weight:bold;
-color:firebrick;
-	}
+	font-weight: bold;
+	color: firebrick;
+}
 
 .formInput {
 	max-width: 500px;
@@ -277,13 +276,12 @@ color:firebrick;
 .formInput button[type="submit"]:hover, .formInput input[type="button"]:hover
 	{
 	background: black;
-	color:white;
+	color: white;
 }
 
-button[type="submit"]:hover, input[type="button"]:hover
-	{
+button[type="submit"]:hover, input[type="button"]:hover {
 	background: black;
-	color:white;
+	color: white;
 }
 /*Display profile/user information*/
 .displayInformation {
@@ -292,6 +290,26 @@ button[type="submit"]:hover, input[type="button"]:hover
 }
 
 .viewMatches img {
-	height:200px;
-	width:150px;
+	height: 200px;
+	width: 200px;
+}
+
+.instagram2 {
+	padding-top: 50px;
+	padding-left: 100px;
+}
+
+#floating-panel {
+		margin-top:400px;
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: firebrick;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        line-height: 20px;
+        padding-left: 10px;
+        font-size:10px;
 }

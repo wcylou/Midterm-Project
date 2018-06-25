@@ -27,6 +27,9 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 			</tr>
 		</thead>
 		<tbody id = "table" >
+		<c:if test="${empty matches }">
+		<tr><td>NONE YET. GET MATCHING!<td></tr>
+		</c:if>
 			<c:forEach items="${matches}" var="match">
 				<tr class = "searchRows">
 					<td><c:out value="${match.partner.firstName} ${match.partner.lastName}" /></td>

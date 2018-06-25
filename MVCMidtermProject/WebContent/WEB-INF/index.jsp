@@ -53,9 +53,12 @@
   <section id = "aboutUs">
 	<div class = "container lightSection">
   	<h1>Who are we</h1><br>
-  	<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in eleifend sem, vel egestas lorem. Nam vel lectus nunc. Sed tempus, nisi vestibulum consequat tincidunt, velit orci lobortis dui, sit amet gravida ligula dolor a lectus. Etiam quis semper elit, sed dapibus ligula. Ut efficitur neque ante, at auctor massa placerat venenatis. Mauris consectetur blandit quam imperdiet scelerisque. Proin sit amet faucibus tellus. Ut bibendum rutrum laoreet. Suspendisse non felis a felis vulputate finibus. Etiam pellentesque dictum tellus.
-
-  	</p>
+	<p>Blindr was made for people who want more out of their dating site than just random singles in their area.  
+	Deep, meaningful connections are built on common interests and shared experience. </p> 
+	<p>A great first date can set the stage for a lasting relationship, or just leave a lasting memory of that one special night.  
+	Our mission is to connect people and events to create that spark.  </p>
+	<h4>Where you take things is completely up to you!</h4>
+  
 
   	</div>  
   </section>
@@ -95,7 +98,13 @@
 				</div> 
 			</div>
 	</section>
-  
+	
+	<section id ="instagramFeed">
+	<div class = "container instagram2">
+<!-- SnapWidget -->
+<iframe src="https://snapwidget.com/embed/563517" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:780px; height:770px"></iframe>   </div>
+   	</section>
+   	
   <section id="pricing">
     <div class="container lightSection">
       	<h1>Membership Plans</h1><br>
@@ -112,9 +121,6 @@
               <li>24/7 customer support</li>
               <br>
             </ul>
-            <form action="register.do" method="GET">
-            <button type="button" class="btn btn-lg btn-block btn-outline-danger">Sign up for free</button>
-			</form>
           </div>
         </div>
         <div class="card mb-4 box-shadow">
@@ -129,7 +135,6 @@
               <li>Invite to exclusive events</li>
               <li>24/7 customer support</li>
             </ul>
-            <button type="button" class="btn btn-lg btn-block btn-danger">Get started</button>
           </div>
         </div>
         <div class="card mb-4 box-shadow">
@@ -144,7 +149,6 @@
               <li>Invite to exclusive events</li>
               <li>24/7 customer support</li>
             </ul>
-            <button type="button" class="btn btn-lg btn-block btn-outline-danger">Contact us</button>
           </div>
         </div>
       </div>
@@ -188,7 +192,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
 	<script async defer
- 	 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYZTFbiNh3s9QEXLnh-7dmVJJF0-3OBYM&callback=initMap">
+ 	 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu3z8H8wEptTmzLK1unAnBejz0QmTc_h8&callback=initMap">
 	</script>	
 
 </body>

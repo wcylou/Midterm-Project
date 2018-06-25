@@ -77,6 +77,11 @@ public class UserDAOImpl implements UserDAO {
 		l.setAddress2(pdto.getAddress2());
 		l.setZipCode(pdto.getZipCode());	
 		p.setLocation(l);
+		List<Interest> interestsUser = new ArrayList<>();
+		for (String interest : pdto.getInterests()) {
+			interestsUser.add(getInterestObject(interest));
+		}
+		p.setInterests(interestsUser);
 		return p;
 	}
 	
