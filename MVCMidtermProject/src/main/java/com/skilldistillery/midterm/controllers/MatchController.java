@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.midterm.data.EventDAO;
 import com.skilldistillery.midterm.data.LoginDAO;
@@ -51,10 +52,18 @@ public class MatchController {
 		Profile temp = (Profile) session.getAttribute("profile");
 		Profile partner = udao.findProfileByProfileId(matchId);
 		Match match = mdao.findEventMatch(temp, partner);
-		mv.addObject("match", match);
+		session.setAttribute("matchfound", match);
+		mv.setViewName("redirect:findeventrefresh.do");
+		return mv;
+	}
+	@RequestMapping(path = "findeventrefresh.do", method = RequestMethod.GET)
+	public ModelAndView findEventRefresh(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("match", (Match) session.getAttribute("matchfound"));
 		mv.setViewName("WEB-INF/viewMatch.jsp");
 		return mv;
 	}
+	
 
 	@RequestMapping(path = "matchhistory.do", method = RequestMethod.GET)
 	public ModelAndView findMatchHistory(HttpSession session) {
