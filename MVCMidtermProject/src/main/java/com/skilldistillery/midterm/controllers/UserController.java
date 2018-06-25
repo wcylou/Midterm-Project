@@ -69,6 +69,7 @@ public class UserController {
 		redir.addFlashAttribute("profileId", profileAdded.getId());
 		redir.addFlashAttribute("profile", profiledto);
 		session.setAttribute("profile", profileAdded);
+		session.setAttribute("profileCreated", true);
 		System.out.println(profileAdded);
 		return "redirect:profilecreated.do";
 	}
