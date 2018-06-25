@@ -490,6 +490,19 @@ INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (2
 COMMIT;
 
 
+-- -----------------------------------------------------
+-- Data for table `midterm`.`message`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `midterm`;
+INSERT INTO `midterm`.`message` (`id`, `sender_id`, `recipient_id`, `date_sent`, `in_reply_to`, `thread_id`, `message_text`) VALUES (1, 2, 1, '2018-06-25 12:00:00', NULL, 1, 'First');
+INSERT INTO `midterm`.`message` (`id`, `sender_id`, `recipient_id`, `date_sent`, `in_reply_to`, `thread_id`, `message_text`) VALUES (2, 1, 2, '2018-06-25 12:10:00', 1, 1, 'Second');
+INSERT INTO `midterm`.`message` (`id`, `sender_id`, `recipient_id`, `date_sent`, `in_reply_to`, `thread_id`, `message_text`) VALUES (3, 2, 1, '2018-06-25 12:15:00', 2, 1, 'Third');
+INSERT INTO `midterm`.`message` (`id`, `sender_id`, `recipient_id`, `date_sent`, `in_reply_to`, `thread_id`, `message_text`) VALUES (4, 1, 2, '2018-06-25 13:00:00', 3, 1, 'Fourth');
+
+COMMIT;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
