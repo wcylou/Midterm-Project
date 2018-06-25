@@ -248,6 +248,11 @@ CREATE TABLE IF NOT EXISTS `midterm`.`message` (
     FOREIGN KEY (`sender_id`)
     REFERENCES `midterm`.`profile` (`id`)
     ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_message_reply`
+    FOREIGN KEY (`id`)
+    REFERENCES `midterm`.`message` (`sender_id`)
+    ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
