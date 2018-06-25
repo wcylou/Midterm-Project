@@ -84,11 +84,7 @@ public class Interest {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Interest [id=");
-		builder.append(id);
-		builder.append(", name=");
 		builder.append(name);
-		builder.append("]");
 		return builder.toString();
 	}
 	@Override

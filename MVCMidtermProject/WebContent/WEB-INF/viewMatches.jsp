@@ -14,13 +14,12 @@
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <title>Matches</title>
 </head>
-<body class = "standardLayout">
+<body class = "standardLayout viewMatches">
 <%@ include file="nav.jsp" %>
 	
 	<div class = "container">
 		<h1>Matches</h1>
 	<%-- Event list items --%>
-Search&nbsp<input type="text" id="search" placeholder="Type to search">	
 <br><br>
 		<form:form action="findevent.do" method="GET">
 
@@ -34,14 +33,11 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 				<th scope="col">State</th>
 				<th scope="col">Interests</th>
 			</tr>
-			<tr>
-				<th colspan="6">About Me</th>
-			</tr>
 		</thead>
 		<tbody id = "table" >
 		
 		<c:forEach items="${matches}" var="match">
-				<tr class = "searchRows">
+				<tr>
 					<td><input value = "${match.id}" name = "matchId" type = "radio"/>
 					<c:out value="${match.firstName} ${match.lastName}" /></td>
 					<td><c:out value="${match.age}" /></td>
@@ -51,10 +47,10 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 					<td><c:out value="${match.interests}" /></td>
 				</tr>
 				<tr>
-					<td><c:out value="${match.aboutMe}" /></td>
+					<td colspan="2"><img src="<c:out value="${match.pictureUrl}" />"></td>
+					<td colspan="4"><c:out value="${match.aboutMe}" /></td>
 				</tr>
 			</c:forEach>
-		
 		</tbody>
 	</table>
 	<button type="submit" class="btn btn-light">Submit</button>
