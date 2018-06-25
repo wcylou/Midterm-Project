@@ -52,6 +52,9 @@
 			        <li class="nav-item ml-auto">
 			          <a class="nav-link " href="getEvents.do" data-target=".navbar-collapse.show">Get Events</a>
 			        </li>
+			        <li class="nav-item ml-auto">
+			          <a class="nav-link " href="findmatches.do" data-target=".navbar-collapse.show">See Matches</a>
+			        </li>
 					 <li class="nav-item ml-auto">
 			          <a class="nav-link " href="logout.do" data-target=".navbar-collapse.show">Logout</a>
 			        </li>
@@ -78,7 +81,7 @@
 			          <a class="nav-link " href="updateProfile.do" data-target=".navbar-collapse.show">Update Profile</a>
 			        </li>
 			        <li class="nav-item ml-auto">
-			          <a class="nav-link " href="#pricing" data-target=".navbar-collapse.show">See Past Matches</a>
+			          <a class="nav-link " href="findmatches.do" data-target=".navbar-collapse.show">See Matches</a>
 			        </li>
 					<li class="nav-item ml-auto">
 			          <a class="nav-link " href="logout.do" data-target=".navbar-collapse.show">Logout</a>

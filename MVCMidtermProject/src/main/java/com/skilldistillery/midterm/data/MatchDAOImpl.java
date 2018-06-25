@@ -25,27 +25,25 @@ public class MatchDAOImpl implements MatchDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	public static void main(String[] args) {
-		MatchDAOImpl dao = new MatchDAOImpl();
-		dao.test();
-	}
-
-	private void test() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Midterm");
-		EntityManager em = emf.createEntityManager();
-		for (int i = 1; i < 21; i++) {
-			Profile profile = em.find(Profile.class, i);
-			List<Profile> matches = findPotentialMatches(profile);
-			System.out.println(profile.getFirstName() + " " + profile.getLastName());
-			for (Profile profile2 : matches) {
-				System.out.println(profile2);
-			}
-		}
-	}
+//	public static void main(String[] args) {
+//		MatchDAOImpl dao = new MatchDAOImpl();
+//		dao.test();
+//	}
+//
+//	private void test() {
+//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Midterm");
+//		EntityManager em = emf.createEntityManager();
+//		for (int i = 1; i < 21; i++) {
+//			Profile profile = em.find(Profile.class, i);
+//			List<Profile> matches = findPotentialMatches(profile);
+//			System.out.println(profile.getFirstName() + " " + profile.getLastName());
+//			for (Profile profile2 : matches) {
+//				System.out.println(profile2);
+//			}
+//		}
+//	}
 
 	public Match findEventMatch(Profile profile, Profile partner) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Midterm");
-		EntityManager em = emf.createEntityManager();
 		List<Interest> common = new ArrayList<>();
 		List<Interest> profileInterests = profile.getInterests();
 		List<Interest> partnerInterests = partner.getInterests();
@@ -60,9 +58,6 @@ public class MatchDAOImpl implements MatchDAO {
 			common.add(em.find(Interest.class, 1));
 		}
 
-		for (int i = 0; i < common.size(); i++) {
-
-		}
 		Match match = new Match();
 		match.setProfile(profile);
 		match.setPartner(partner);
@@ -95,8 +90,6 @@ public class MatchDAOImpl implements MatchDAO {
 	}
 
 	public List<Profile> findPotentialMatches(Profile profile) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Midterm");
-		EntityManager em = emf.createEntityManager();
 		List<Interest> profileInterests = profile.getInterests();
 		List<List<Interest>> common = new ArrayList<>();
 		String query = "";
