@@ -8,4 +8,5 @@ import com.skilldistillery.midterm.entities.Profile;
 public interface MatchDAO {
 	public Match findEventMatch(Profile profile, Profile partner);
 	public List<Profile> findPotentialMatches(Profile profile);
+	public Profile getMatchesById(int id);
 }
