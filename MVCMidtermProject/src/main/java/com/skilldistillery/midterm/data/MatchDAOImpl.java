@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Component;
@@ -18,7 +16,6 @@ import com.skilldistillery.midterm.entities.Match;
 import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.Sexuality;
 
-@Transactional
 @Component
 public class MatchDAOImpl implements MatchDAO {
 
@@ -42,7 +39,7 @@ public class MatchDAOImpl implements MatchDAO {
 //			}
 //		}
 //	}
-
+	@Transactional
 	public Match findEventMatch(Profile profile, Profile partner) {
 		List<Interest> common = new ArrayList<>();
 		List<Interest> profileInterests = profile.getInterests();
@@ -89,7 +86,7 @@ public class MatchDAOImpl implements MatchDAO {
 		em.persist(match);
 		return match;
 	}
-
+	@Transactional
 	public List<Profile> findPotentialMatches(Profile profile) {
 		List<Interest> profileInterests = profile.getInterests();
 		List<List<Interest>> common = new ArrayList<>();
@@ -179,4 +176,18 @@ public class MatchDAOImpl implements MatchDAO {
 			return em.find(Profile.class, id);
 		}
 	}
+	
+	@Override
+	public List<Match> getListMatchesByProfileId(int id) {
+		String query = "SELECT m FROM Match m WHERE m.profile.id = :id";
+		try {
+		 return em.createQuery(query, Match.class).setParameter("id", id).getResultList();
+		} catch(Exception e) {
+			return new ArrayList<Match>();
+		}
+	}
+	
+	
+	
+
 }

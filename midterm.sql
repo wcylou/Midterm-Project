@@ -222,6 +222,40 @@ CREATE TABLE IF NOT EXISTS `midterm`.`profile_interest` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+
+-- -----------------------------------------------------
+-- Table `midterm`.`message`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `midterm`.`message` ;
+
+CREATE TABLE IF NOT EXISTS `midterm`.`message` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `sender_id` INT NULL,
+  `recipient_id` INT NULL,
+  `date_sent` DATETIME NULL,
+  `in_reply_to` INT NULL,
+  `thread_id` INT NULL,
+  `message_text` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_message_profile_idx` (`recipient_id` ASC),
+  INDEX `fk_message_partner_idx` (`sender_id` ASC),
+  CONSTRAINT `fk_message_profile`
+    FOREIGN KEY (`recipient_id`)
+    REFERENCES `midterm`.`profile` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_message_partner`
+    FOREIGN KEY (`sender_id`)
+    REFERENCES `midterm`.`profile` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_message_reply`
+    FOREIGN KEY (`id`)
+    REFERENCES `midterm`.`message` (`sender_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
 SET SQL_MODE = '';
 GRANT USAGE ON *.* TO student;
  DROP USER student;
@@ -457,6 +491,19 @@ INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (1
 INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (19, 5);
 INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (20, 7);
 INSERT INTO `midterm`.`profile_interest` (`profile_id`, `interest_id`) VALUES (20, 6);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `midterm`.`message`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `midterm`;
+INSERT INTO `midterm`.`message` (`id`, `sender_id`, `recipient_id`, `date_sent`, `in_reply_to`, `thread_id`, `message_text`) VALUES (1, 2, 1, '2018-06-25 12:00:00', NULL, 1, 'First');
+INSERT INTO `midterm`.`message` (`id`, `sender_id`, `recipient_id`, `date_sent`, `in_reply_to`, `thread_id`, `message_text`) VALUES (2, 1, 2, '2018-06-25 12:10:00', 1, 1, 'Second');
+INSERT INTO `midterm`.`message` (`id`, `sender_id`, `recipient_id`, `date_sent`, `in_reply_to`, `thread_id`, `message_text`) VALUES (3, 2, 1, '2018-06-25 12:15:00', 2, 1, 'Third');
+INSERT INTO `midterm`.`message` (`id`, `sender_id`, `recipient_id`, `date_sent`, `in_reply_to`, `thread_id`, `message_text`) VALUES (4, 1, 2, '2018-06-25 13:00:00', 3, 1, 'Fourth');
 
 COMMIT;
 
