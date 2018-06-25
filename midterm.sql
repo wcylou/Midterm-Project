@@ -212,12 +212,12 @@ CREATE TABLE IF NOT EXISTS `midterm`.`profile_interest` (
   CONSTRAINT `fk_profile_interest_profile`
     FOREIGN KEY (`profile_id`)
     REFERENCES `midterm`.`profile` (`id`)
-    ON DELETE RESTRICT
+    ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_profile_interest_interest`
     FOREIGN KEY (`interest_id`)
     REFERENCES `midterm`.`interest` (`id`)
-    ON DELETE RESTRICT
+    ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
