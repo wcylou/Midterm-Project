@@ -74,7 +74,7 @@
 					<td><span class = "headings">Date: </span></td>
 					<td><input type="date" name="date" value="${dto.date}"/></td>
 				</tr>
-				<%-- <tr>
+				<tr>
 					<td> <span class = "headings">Interests: </span></td>
 					<td>
      	 Food&nbsp<input type="checkbox" name="interests" value="Food" <c:if test="${interests.contains('Food')}">CHECKED</c:if> />
@@ -86,7 +86,7 @@
          Sports&nbsp<input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('Sports')}">CHECKED</c:if> />
          Comedy&nbsp<input type="checkbox" name="interests" value="Comedy" <c:if test="${interests.contains('Comedy')}">CHECKED</c:if> />
          </td>
-				</tr> --%>
+				</tr>
 		</tbody>
 	</table>
      	
