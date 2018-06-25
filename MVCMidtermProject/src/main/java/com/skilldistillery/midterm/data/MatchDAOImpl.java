@@ -86,6 +86,7 @@ public class MatchDAOImpl implements MatchDAO {
 		}
 
 		match.setEvent(events.get(place));
+		em.persist(match);
 		return match;
 	}
 
