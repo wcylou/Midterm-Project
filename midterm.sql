@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `midterm`.`event_interest` (
   CONSTRAINT `fk_event_interest_event`
     FOREIGN KEY (`event_id`)
     REFERENCES `midterm`.`event` (`id`)
-    ON DELETE RESTRICT
+    ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
