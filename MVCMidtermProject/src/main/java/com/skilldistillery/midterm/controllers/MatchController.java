@@ -59,12 +59,16 @@ public class MatchController {
 		ModelAndView mv = new ModelAndView();
 		Profile temp = (Profile) session.getAttribute("profile");
 		Profile tempWithMatches = mdao.getMatchesById(temp.getId());
-		List<Match> matches = new ArrayList<>();
-		if (tempWithMatches.getMatches().size() > 0) {
-			matches = tempWithMatches.getMatches();
+		boolean emptyMatches = tempWithMatches.getMatches().isEmpty();
+		
+		if (!emptyMatches) {
+			List<Match> matches = tempWithMatches.getMatches();
+			mv.setViewName("WEB-INF/viewMatchHistory.jsp");
+			mv.addObject("matches", matches);
 		}
-		mv.addObject("matches", matches);
-		mv.setViewName("WEB-INF/viewMatchHistory.jsp");
+		else {
+			mv.setViewName("WEB-INF/noMatchHistory.jsp");
+		}
 		return mv;
 	}
 	
