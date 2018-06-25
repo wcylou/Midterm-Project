@@ -168,5 +168,12 @@ public class MatchDAOImpl implements MatchDAO {
 		}
 		return new ArrayList<>();
 	}
+	
+	@Override
+	public Profile getMatchesById(int id) {
+		String query = "SELECT p FROM Profile p JOIN FETCH p.matches WHERE p.id = :id";
+		Profile profile = em.createQuery(query, Profile.class).setParameter("id", id).getResultList().get(0);
+		return profile;
+	}
 
 }
