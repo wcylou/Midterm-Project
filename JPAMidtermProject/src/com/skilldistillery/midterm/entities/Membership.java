@@ -66,13 +66,10 @@ public class Membership {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Membership [id=");
-		builder.append(id);
-		builder.append(", name=");
+		builder.append("Membership: ");
 		builder.append(name);
-		builder.append(", price=");
+		builder.append(", price: ");
 		builder.append(price);
-		builder.append("]");
 		return builder.toString();
 	}
 	

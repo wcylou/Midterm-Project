@@ -290,3 +290,8 @@ button[type="submit"]:hover, input[type="button"]:hover
 	padding-top: 2em;
 	max-width: 768px
 }
+
+.viewMatches img {
+	height:200px;
+	width:150px;
+}

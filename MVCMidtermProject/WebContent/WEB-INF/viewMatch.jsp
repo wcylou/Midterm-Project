@@ -29,13 +29,15 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 			<tr>
 				<th scope="col">Match Name</th>
 				<th scope="col">Event</th>
+				<th scope="col">Location</th>
 			</tr>
 		</thead>
 		<tbody id = "table" >
 				<tr class = "searchRows">
-					<td><input value = "matchId" type = "radio"/>
-					<c:out value="${match.partner.firstName} ${match.partner.lastName}" /></td>
+					<td><c:out value="${match.partner.firstName} ${match.partner.lastName}" /></td>
 					<td><c:out value="${match.event.name}" /></td>
+					<td><c:out value="${match.event.location.address}" /><br>
+					<c:out value="${match.event.location.state}" /></td>
 				</tr>
 		</tbody>
 	</table>
