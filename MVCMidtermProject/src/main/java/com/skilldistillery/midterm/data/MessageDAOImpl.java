@@ -21,19 +21,21 @@ public class MessageDAOImpl implements MessageDAO {
 	public Message create(Message message) {
 		em.persist(message);
 		em.flush();
-
 		return message;
 	}
 
 	@Override
-	public Message reply(Message message, int messageId) {
-		String query = "SELECT m from Message m WHERE m.inReplyTo = :id";
+	public List<Message> viewMyConversations(int profileId) {
+		String query = "SELECT m FROM Message m WHERE m.threadId = m.id AND m.recipient.id = :pid";
+		List<Message> results = em.createQuery(query, Message.class).setParameter("pid", profileId).getResultList();
+		return results;
 	}
 
 	@Override
-	public List<List<Message>> viewAllMessages(Profile recipient) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Message> viewEntireThread(int threadId) {
+		String query = "SELECT m FROM Message m WHERE m.threadId = :id";
+		List<Message> results = em.createQuery(query, Message.class).setParameter("id", threadId).getResultList();
+		return results;
 	}
 
 }
