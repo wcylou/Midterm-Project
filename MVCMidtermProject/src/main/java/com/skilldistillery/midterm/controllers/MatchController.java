@@ -29,7 +29,7 @@ public class MatchController {
 	private UserDAO udao;
 	@Autowired
 	private LoginDAO ldao;
-	
+
 	@RequestMapping(path = "findmatches.do", method = RequestMethod.GET)
 	public ModelAndView findMatches(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -44,6 +44,7 @@ public class MatchController {
 		System.out.println(matches);
 		return mv;
 	}
+
 	@RequestMapping(path = "findevent.do", method = RequestMethod.GET)
 	public ModelAndView findEvent(HttpSession session, @RequestParam("matchId") int matchId) {
 		ModelAndView mv = new ModelAndView();
@@ -54,22 +55,15 @@ public class MatchController {
 		mv.setViewName("WEB-INF/viewMatch.jsp");
 		return mv;
 	}
+
 	@RequestMapping(path = "matchhistory.do", method = RequestMethod.GET)
 	public ModelAndView findMatchHistory(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		Profile temp = (Profile) session.getAttribute("profile");
-		Profile tempWithMatches = mdao.getMatchesById(temp.getId());
-		boolean emptyMatches = tempWithMatches.getMatches().isEmpty();
-		
-		if (!emptyMatches) {
-			List<Match> matches = tempWithMatches.getMatches();
-			mv.setViewName("WEB-INF/viewMatchHistory.jsp");
-			mv.addObject("matches", matches);
-		}
-		else {
-			mv.setViewName("WEB-INF/noMatchHistory.jsp");
-		}
+		mv.setViewName("WEB-INF/viewMatchHistory.jsp");
+		System.out.println(mdao.getListMatchesByProfileId(temp.getId()));
+		mv.addObject("matches", mdao.getListMatchesByProfileId(temp.getId()));
 		return mv;
 	}
-	
+
 }
