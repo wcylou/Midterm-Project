@@ -18,6 +18,10 @@
 	
 Search&nbsp<input type="text" id="search" placeholder="Type to search">	
 <br><br>
+	<c:if test="${empty matches}">
+  		<h2>No matches for this profile... Yet.</h2>
+	</c:if>
+	
 	<table class="table table-striped table-light table-hover">
 		<thead class="thead-dark">
 			<tr>
