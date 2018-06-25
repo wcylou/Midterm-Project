@@ -209,5 +209,16 @@ public class AdminController {
 		mv.setViewName("WEB-INF/profileDetails.jsp");
 		return mv;
 	}
-
+	
+	@RequestMapping(path = "deactivateProfile.do", method = RequestMethod.GET)
+	public ModelAndView deactivateProfile(@RequestParam("id") int profileId) {
+		ModelAndView mv = new ModelAndView();
+		User u = udao.getUserFromProfileID(profileId);
+		udao.deleteUser(u);
+		List<Profile> profileList = udao.getAllProfiles();
+		mv.addObject("profileList", profileList);
+		mv.setViewName("WEB-INF/admin-profiles.jsp");
+		return mv;
+	}
+	
 }
