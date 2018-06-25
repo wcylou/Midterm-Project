@@ -1,5 +1,6 @@
 package com.skilldistillery.midterm.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -58,7 +59,10 @@ public class MatchController {
 		ModelAndView mv = new ModelAndView();
 		Profile temp = (Profile) session.getAttribute("profile");
 		Profile tempWithMatches = mdao.getMatchesById(temp.getId());
-		List<Match> matches = tempWithMatches.getMatches();
+		List<Match> matches = new ArrayList<>();
+		if (tempWithMatches.getMatches().size() > 0) {
+			matches = tempWithMatches.getMatches();
+		}
 		mv.addObject("matches", matches);
 		mv.setViewName("WEB-INF/viewMatchHistory.jsp");
 		return mv;
