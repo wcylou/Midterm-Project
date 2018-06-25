@@ -22,6 +22,7 @@
 				<th colspan="2">Account Details</th>
 			</tr>
 		</thead>
+		<c:out value="${matchHistory}"/>
 		<tbody id = "table" >
 				<tr>
 					<td><span class = "headings">User ID: </span></td>

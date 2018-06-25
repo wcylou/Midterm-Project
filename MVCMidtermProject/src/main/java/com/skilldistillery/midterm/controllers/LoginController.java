@@ -62,6 +62,7 @@ public class LoginController {
 			else {
 				http.setAttribute("adminLoggedIn", false);
 			}
+			
 			return "redirect:account.do";
 		}
 		http.setAttribute("loggedIn", false);

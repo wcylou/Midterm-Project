@@ -172,8 +172,11 @@ public class MatchDAOImpl implements MatchDAO {
 	@Override
 	public Profile getMatchesById(int id) {
 		String query = "SELECT p FROM Profile p JOIN FETCH p.matches WHERE p.id = :id";
-		Profile profile = em.createQuery(query, Profile.class).setParameter("id", id).getResultList().get(0);
-		return profile;
+		try {
+			Profile profile = em.createQuery(query, Profile.class).setParameter("id", id).getResultList().get(0);
+			return profile;
+		} catch (Exception e) {
+			return em.find(Profile.class, id);
+		}
 	}
-
 }

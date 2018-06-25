@@ -61,7 +61,6 @@ public class MatchController {
 		List<Match> matches = tempWithMatches.getMatches();
 		mv.addObject("matches", matches);
 		mv.setViewName("WEB-INF/viewMatchHistory.jsp");
-		System.out.println(tempWithMatches.getMatches());
 		return mv;
 	}
 	
