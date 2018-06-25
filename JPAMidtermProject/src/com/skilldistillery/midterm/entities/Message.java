@@ -19,7 +19,8 @@ public class Message {
 	@Column(name = "date_sent")
 	@Temporal(TemporalType.DATE)
 	private Date dateSent;
-	@Column(name = "in_reply_to")
+	@OneToOne
+	@JoinColumn(name = "in_reply_to")
 	private Message inReplyTo;
 	@Column(name = "message_text")
 	private String messageText;

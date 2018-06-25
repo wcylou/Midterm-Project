@@ -29,7 +29,7 @@ class MessageTest {
 	@BeforeEach
 	public void setUp() throws Exception {
 		em = emf.createEntityManager();
-		m = em.find(Membership.class, 2);
+		m = em.find(Message.class, 2);
 	}
 
 	@AfterEach
@@ -45,14 +45,11 @@ class MessageTest {
 	}
 	
 	@Test
-	void test_membership_mappings() {
-		assertEquals(5.00, m.getPrice());
+	void test_message_mappings() {
+		assertEquals("Second", m.getMessageText());
 	}
 
-	@Test
-	void test_membership_mapping_to_user() {
-		assertEquals(0, m.getUsers().size());
-	}
+	
 	
 	
 	
