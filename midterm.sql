@@ -222,6 +222,35 @@ CREATE TABLE IF NOT EXISTS `midterm`.`profile_interest` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+
+-- -----------------------------------------------------
+-- Table `midterm`.`message`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `midterm`.`message` ;
+
+CREATE TABLE IF NOT EXISTS `midterm`.`message` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `sender_id` INT NULL,
+  `recipient_id` INT NULL,
+  `date_sent` DATETIME NULL,
+  `in_reply_to` INT NULL,
+  `thread_id` INT NULL,
+  `message_text` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_message_profile_idx` (`recipient_id` ASC),
+  INDEX `fk_message_partner_idx` (`sender_id` ASC),
+  CONSTRAINT `fk_message_profile`
+    FOREIGN KEY (`recipient_id`)
+    REFERENCES `midterm`.`profile` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_message_partner`
+    FOREIGN KEY (`sender_id`)
+    REFERENCES `midterm`.`profile` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
 SET SQL_MODE = '';
 GRANT USAGE ON *.* TO student;
  DROP USER student;
