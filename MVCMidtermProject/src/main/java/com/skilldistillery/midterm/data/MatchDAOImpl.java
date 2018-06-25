@@ -143,8 +143,9 @@ public class MatchDAOImpl implements MatchDAO {
 		if (partners.size() != 0) {
 			for (int i = 0; i < partners.size(); i++) {
 				List<Interest> partnerInterests = partners.get(i).getInterests();
-				partnerInterests.retainAll(profileInterests);
-				common.add(partnerInterests);
+				List<Interest> temp = new ArrayList<>(partnerInterests);
+				temp.retainAll(profileInterests);
+				common.add(temp);
 			}
 
 			List<Profile> result = new ArrayList<>();
