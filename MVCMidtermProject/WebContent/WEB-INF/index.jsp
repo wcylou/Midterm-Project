@@ -9,12 +9,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <title>Home</title>
 </head>
 <body id = "home">
   <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-md">
-  <a class="navbar-brand" href="#home">NAME</a>
+  <a class="navbar-brand" href="#home">BLINDR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" 
   aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 	<i class="fas fa-bars"></i>
@@ -42,12 +44,7 @@
 </nav>
   
   <section class ="banner">
-  <div class="container intro-content">
-      <div class="row">
-        <div class="intro-text mx-auto">
-        </div>
-      </div>
-    </div> 		
+		<h1 class="animated jello">BLINDR</h1>
   </section>
   
   <section id = "aboutUs">

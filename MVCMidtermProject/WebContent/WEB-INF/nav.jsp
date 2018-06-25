@@ -17,7 +17,7 @@
 
 	<c:if test="${!loggedIn}">
 	 <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
-			  <a class="navbar-brand" href="index.do">DATING 101</a>
+			  <a class="navbar-brand" href="index.do">BLINDR</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
@@ -37,7 +37,7 @@
 		<c:if test="${loggedIn}">
 		<c:if test="${adminLoggedIn}">
 			<nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
-			  <a class="navbar-brand" href="index.do">DATING 101</a>
+			  <a class="navbar-brand" href="index.do">BLINDR</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
@@ -71,7 +71,7 @@
 	<c:if test="${!adminLoggedIn}">
 	<c:if test= "${profileCreated}">
 		<nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
-			  <a class="navbar-brand" href="index.do">DATING 101</a>
+			  <a class="navbar-brand" href="index.do">BLINDR</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
@@ -103,7 +103,7 @@
 	<c:if test="${!adminLoggedIn}">
 		<c:if test = "${!profileCreated}">
 			<nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
-			  <a class="navbar-brand" href="index.do">DATING 101</a>
+			  <a class="navbar-brand" href="index.do">BLINDR</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
