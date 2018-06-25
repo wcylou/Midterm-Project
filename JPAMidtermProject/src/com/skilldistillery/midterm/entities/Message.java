@@ -24,6 +24,8 @@ public class Message {
 	private Message inReplyTo;
 	@Column(name = "message_text")
 	private String messageText;
+	@Column(name = "thread_id")
+	private int threadId;
 	
 	
 	//gets and sets
@@ -59,6 +61,12 @@ public class Message {
 	}
 	public int getId() {
 		return id;
+	}
+	public int getThreadId() {
+		return threadId;
+	}
+	public void setThreadId(int threadId) {
+		this.threadId = threadId;
 	}
 	@Override
 	public String toString() {
