@@ -25,7 +25,7 @@
 			<br/>
 			<form:hidden path="access" value="false" />
 			<form:hidden path="active" value="true" />
-			Email<input type="text" name="email" placeholder="Enter an email">
+			Email<input type="email" name="email" required placeholder="Enter an email">
 			<br>
 			<button type="submit" class="btn btn-light">Submit</button>
 			</form:form>

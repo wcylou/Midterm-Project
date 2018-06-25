@@ -99,7 +99,6 @@
   <section id="pricing">
     <div class="container lightSection">
       	<h1>Membership Plans</h1><br>
-    
       <div class="card-deck mb-3 text-center">
         <div class="card mb-4 box-shadow">
           <div class="card-header bronze">
@@ -154,6 +153,7 @@
     
   <section id="contact" class = "darkSection">
   <div class = "container">
+  <br><br>
    	<div class="row contact-us">
    		<div class="col-md-4">
    			<div class="icon">

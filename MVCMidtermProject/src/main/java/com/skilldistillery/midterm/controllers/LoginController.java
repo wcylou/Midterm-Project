@@ -126,9 +126,8 @@ public class LoginController {
 	public ModelAndView updateUserDetails(HttpSession session, User user) {
 		User current = getCurrentUserFromSession(session);
 		ModelAndView mv = new ModelAndView();
-		System.out.println(user);
 		User userUpdated = ldao.updateUser(user, current.getId());
-		System.out.println(userUpdated);
+		mv.addObject("userId", userUpdated.getId());
 		mv.addObject("userUpdated", userUpdated);
 		mv.setViewName("WEB-INF/updatedUserDetails.jsp");
 		session.setAttribute("user", userUpdated);

@@ -29,7 +29,7 @@
 		<tbody id = "table" >
 				<tr>
 					<td><span class = "headings">User ID</span> </td>
-					<td><input type="text" type="text" name = "userId" value="${userUpdate.id}" readonly/></td>
+					<td><input type="text" type="text" name = "id" value="${userUpdate.id}" readonly/></td>
 				</tr>
 				<tr>
 					<td> <span class = "headings">Username: </span></td>
@@ -43,13 +43,14 @@
 					<td><span class = "headings">Email: </span></td>
 					<td> <input type="text" name="email" value="${userUpdate.email}"/></td>
 				</tr>
-				<tr>
+				<%-- <tr>
 					<td><span class = "headings">Membership: </span></td>
-					<td><input type="text" name="password" value="${userUpdate.membership}"/></td>
-				</tr>
+					<td><input type="text" name="membership" value="${userUpdate.membership}"/></td>
+				</tr> --%>
 				<tr>
 					<td><span class = "headings">Active: </span></td>
-					<td><c:out value="${user.active}" /></td>
+					<td>Active &nbsp<input value = "1" name = "active" type = "radio" <c:if test="${userUpdate.active==true}">CHECKED</c:if>/>
+					<br>Inactive &nbsp<input value = "0" name = "active" type = "radio" <c:if test="${userUpdate.active==false}">CHECKED</c:if>/></td>
 				</tr>
 		</tbody>
 	</table>

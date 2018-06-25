@@ -32,8 +32,8 @@
 			<form:errors path="age" />
 			<br/>
 			Gender<br>
-			Man &nbsp<input id="man" value = "Man" name = "gender" type = "radio"/><label for = "man"></label>
-			Woman &nbsp<input id="woman" value = "Woman" name = "gender" type = "radio"/><label for = "woman"></label>
+			Man &nbsp<input id="man" value = "Man" name = "gender" type = "radio"/>
+			Woman &nbsp<input id="woman" value = "Woman" name = "gender" type = "radio"/>
 			<br><br>
 			Sexuality<br>
 			Heterosexual &nbsp<input id="heterosexual" value = "Heterosexual" name = "sexualOrientation" type = "radio"/>
@@ -85,8 +85,8 @@
 		    Health&nbsp&nbsp<input type="checkbox" id="Health" name="interests" value="Health" />
 		    Sports&nbsp&nbsp<input type="checkbox" id="Sports" name="interests" value="Sports" />
 		    Comedy&nbsp&nbsp<input type="checkbox" id="Comedy" name="interests" value="Comedy" />
-		    <br>
-			<button type="submit" class="btn btn-light">Add</button>
+		    <br><br>
+			<button type="submit" class="btn btn-light">Submit</button>
 			</form:form>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

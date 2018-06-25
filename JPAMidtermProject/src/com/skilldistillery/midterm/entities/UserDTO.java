@@ -1,6 +1,6 @@
 package com.skilldistillery.midterm.entities;
 
-public class MembershipDTO {
+public class UserDTO {
 
 	private int userId;
 	private String username;
