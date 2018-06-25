@@ -101,8 +101,8 @@
 	
 	<section id ="instagramFeed">
 	<div class = "container instagram2">
-<iframe src="https://snapwidget.com/embed/563517" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:780px; height:770px"></iframe>
-   </div>
+<!-- SnapWidget -->
+<iframe src="https://snapwidget.com/embed/563517" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:780px; height:770px"></iframe>   </div>
    	</section>
    	
   <section id="pricing">
@@ -121,9 +121,6 @@
               <li>24/7 customer support</li>
               <br>
             </ul>
-            <form action="register.do" method="GET">
-            <button type="button" class="btn btn-lg btn-block btn-outline-danger">Sign up for free</button>
-			</form>
           </div>
         </div>
         <div class="card mb-4 box-shadow">
@@ -138,7 +135,6 @@
               <li>Invite to exclusive events</li>
               <li>24/7 customer support</li>
             </ul>
-            <button type="button" class="btn btn-lg btn-block btn-danger">Get started</button>
           </div>
         </div>
         <div class="card mb-4 box-shadow">
@@ -153,7 +149,6 @@
               <li>Invite to exclusive events</li>
               <li>24/7 customer support</li>
             </ul>
-            <button type="button" class="btn btn-lg btn-block btn-outline-danger">Contact us</button>
           </div>
         </div>
       </div>
