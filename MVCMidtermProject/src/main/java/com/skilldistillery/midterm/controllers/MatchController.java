@@ -53,5 +53,12 @@ public class MatchController {
 		mv.setViewName("WEB-INF/viewMatch.jsp");
 		return mv;
 	}
+	@RequestMapping(path = "matchhistory.do", method = RequestMethod.GET)
+	public ModelAndView findMatchHistory(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		Profile temp = (Profile) session.getAttribute("profile");
+		System.out.println(temp.getMatches());
+		return mv;
+	}
 	
 }
