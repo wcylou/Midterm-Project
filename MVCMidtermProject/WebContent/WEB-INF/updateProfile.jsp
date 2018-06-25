@@ -48,7 +48,9 @@
 				</tr>
 				<tr>
 					<td><span class = "headings">Sexual Orientation: </span></td>
-					<td><input type="text" name="sexualOrientation" value="${profileUpdate.sexualOrientation}"/></td>
+					<td>Heterosexual &nbsp<input value = "Heterosexual" name = "sexualOrientation" type = "radio" <c:if test="${profileUpdate.sexualOrientation.contains('Heterosexual')}">CHECKED</c:if>/>
+					Homosexual &nbsp<input value = "Homosexual" name = "sexualOrientation" type = "radio" <c:if test="${profileUpdate.sexualOrientation.contains('Homosexual')}">CHECKED</c:if>/>
+					Bisexual &nbsp<input value = "Bisexual" name = "sexualOrientation" type = "radio" <c:if test="${profileUpdate.sexualOrientation.contains('Bisexual')}">CHECKED</c:if>/></td>
 				</tr>
 				<tr>
 					<td>  <span class = "headings">About me:  </span></td>

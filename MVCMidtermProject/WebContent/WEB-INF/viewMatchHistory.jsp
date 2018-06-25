@@ -32,8 +32,7 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 		<tbody id = "table" >
 			<c:forEach items="${matches}" var="match">
 				<tr class = "searchRows">
-					<td><input value = "matchId" type = "radio"/>
-					<c:out value="${match.partner.firstName} ${match.partner.lastName}" /></td>
+					<td><c:out value="${match.partner.firstName} ${match.partner.lastName}" /></td>
 					<td><c:out value="${match.event.name}" /></td>
 				</tr>
 			</c:forEach>

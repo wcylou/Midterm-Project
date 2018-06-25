@@ -22,8 +22,6 @@
 	<%-- Event list items --%>
 Search&nbsp<input type="text" id="search" placeholder="Type to search">	
 <br><br>
-		<form:form action="findevent.do" method="GET">
-
 	<table class="table table-striped table-light table-hover">
 		<thead class="thead-dark">
 			<tr>
@@ -41,8 +39,6 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 				</tr>
 		</tbody>
 	</table>
-	<button type="submit" class="btn btn-light">Submit</button>
-			</form:form>
 </div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
