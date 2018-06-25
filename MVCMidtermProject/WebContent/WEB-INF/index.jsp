@@ -30,12 +30,13 @@
         <li class="nav-item ml-auto">
           <a class="nav-link" href="#contact" data-toggle="collapse" data-target=".navbar-collapse.show">Contact</a>
         </li>
-        <li class="nav-item ml-auto">
-          <a class="nav-link" href="register.do" data-toggle="collapse" data-target=".navbar-collapse.show">Register</a>
-        </li>
-		<li class="nav-item ml-auto">
-          <a class="nav-link" href="login.do" data-toggle="collapse" data-target=".navbar-collapse.show">Log In</a>
-        </li>
+        <form action="register.do" method="GET">
+			<button type="submit" class="btn btn-light">Register</button>
+		</form>
+		&nbsp&nbsp&nbsp
+        <form action="login.do" method="GET">
+			<button type="submit" class="btn btn-light">Login</button>
+		</form>
       </ul>
     </div>
 </nav>
@@ -62,32 +63,32 @@
   
   <section id="stats" class="count-up">
 		<div class="row col-lg-12">
-				<div class="col-lg-2 col-md-6 col-sm-6">
+				<div class="col-lg-2 col-6">
 						<i class="far fa-heart fa-3x"></i>
 						<h3 class="stat-count">300</h3>
 						<h5 class="stat-title">Relationships Formed</h5>
 				</div>
-				<div class="col-lg-2 col-md-6 col-sm-6">
+				<div class="col-lg-2 col-6">
 						<i class="fas fa-music fa-3x"></i>
 						<h3 class="stat-count">120 </h3>
 						<h5 class="stat-title">Concerts Attended</h5>
 				</div>
-				<div class="col-lg-2 col-md-6 col-sm-6">
+				<div class="col-lg-2 col-6">
 						<i class="far fa-clock fa-3x"></i>
 						<h3 class="stat-count">500</h3>
 						<h5 class="stat-title">'Sorry I'm late' Texts Sent</h5>
 				</div> 								
-				<div class="col-lg-2 col-md-6 col-sm-6">
+				<div class="col-lg-2 col-6">
 						<i class="far fa-calendar-alt fa-3x"></i>
 						<h3 class="stat-count">2400</h3>
 						<h5 class="stat-title">Events Suggested</h5>
 				</div>
-				<div class="col-lg-2 col-md-6 col-sm-6"" >
+				<div class="col-lg-2 col-6">
 						<i class="fas fa-home fa-3x"></i>
 						<h3 class="stat-count">24</h3>
 						<h5 class="stat-title">Marriages</h5>
 				</div> 
-				<div class="col-lg-2 col-md-6 col-sm-6"">
+				<div class="col-lg-2 col-6">
 						<i class="far fa-smile-wink fa-3x"></i>
 						<h3 class="stat-count">7200</h3>
 						<h5 class="stat-title">Winky Faces</h5>
@@ -154,7 +155,7 @@
   <div class = "container">
   <br><br>
    	<div class="row contact-us">
-   		<div class="col-md-4 col-sm-4">
+   		<div class="col-sm-4">
    			<div class="icon">
    				<i class="fas fa-map-marker-alt fa-2x"></i>
    			</div><br>
@@ -163,14 +164,14 @@
             Greenwood Village <br>
             CO, 80111</p>
    		</div>
-   		<div class="col-md-4 col-sm-4">
+   		<div class="col-sm-4">
    			<div class="icon">
    				<i class="far fa-envelope fa-2x"></i>
    			</div><br>
    			<h4>Email Us</h4>
    			<p>dating@gmail.com</p>
    		</div>
-   		<div class="col-md-4 col-sm-4">
+   		<div class="col-sm-4">
    			<div class="icon">
    				<i class="fas fa-phone fa-2x"></i>
    			</div><br>
