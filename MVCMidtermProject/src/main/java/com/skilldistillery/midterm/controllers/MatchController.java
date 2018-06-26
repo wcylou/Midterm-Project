@@ -59,6 +59,7 @@ public class MatchController {
 		mv.setViewName("redirect:findeventrefresh.do");
 		return mv;
 	}
+
 	@RequestMapping(path = "findeventrefresh.do", method = RequestMethod.GET)
 	public ModelAndView findEventRefresh(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -66,7 +67,6 @@ public class MatchController {
 		mv.setViewName("WEB-INF/viewMatch.jsp");
 		return mv;
 	}
-	
 
 	@RequestMapping(path = "matchhistory.do", method = RequestMethod.GET)
 	public ModelAndView findMatchHistory(HttpSession session) {
@@ -77,7 +77,7 @@ public class MatchController {
 		mv.addObject("matches", mdao.getListMatchesByProfileId(temp.getId()));
 		return mv;
 	}
-	
+
 	@RequestMapping(path = "message.do", method = RequestMethod.GET)
 	public ModelAndView message(@RequestParam("matchId") int matchId, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -86,39 +86,37 @@ public class MatchController {
 		mv.setViewName("WEB-INF/sendMessage.jsp");
 		return mv;
 	}
-	
+
 	@RequestMapping(path = "sendMessage.do", method = RequestMethod.POST)
 	public ModelAndView sendMessage(@RequestParam("matchId") int matchId,
-									@RequestParam("messageText") String messageText,
-									HttpSession session) {
+			@RequestParam("messageText") String messageText, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		Profile partner = udao.findProfileByProfileId(matchId);
 		Profile temp = (Profile) session.getAttribute("profile");
 		System.out.println(temp);
 		System.out.println(partner);
-		
+
 		Message newMessage = new Message();
 		newMessage.setDateSent(new Date());
 		newMessage.setMessageText(messageText);
 		newMessage.setRecipient(partner);
 		newMessage.setSender(temp);
 		messdao.createMessage(newMessage);
-		
+
 		List<Message> threadMessages = messdao.viewEntireThread(newMessage.getThreadId());
 		mv.addObject("threadMessages", threadMessages);
-		
+
 		mv.setViewName("WEB-INF/conversation.jsp");
 		return mv;
 	}
-	
+
 	@RequestMapping(path = "replyMessage.do", method = RequestMethod.POST)
 	public ModelAndView replyMessage(@RequestParam("matchProfile") int recipientId,
-									@RequestParam("messageText") String messageText,
-									@RequestParam("threadId") int threadId,
-									HttpSession session) {
+			@RequestParam("messageText") String messageText, @RequestParam("threadId") int threadId,
+			HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		Profile temp = (Profile) session.getAttribute("profile");
-		
+
 		Message newMessage = new Message();
 		newMessage.setDateSent(new Date());
 		newMessage.setMessageText(messageText);
@@ -126,22 +124,31 @@ public class MatchController {
 		newMessage.setSender(temp);
 		newMessage.setThreadId(threadId);
 		messdao.createReply(newMessage);
-		
+
 		List<Message> threadMessages = messdao.viewEntireThread(newMessage.getThreadId());
 		mv.addObject("threadMessages", threadMessages);
 		System.out.println(threadMessages.get(0).getSender());
-		
+
 		mv.setViewName("WEB-INF/conversation.jsp");
 		return mv;
 	}
-	
-	@RequestMapping(path = "inbox.do", method = RequestMethod.GET) 
-		public ModelAndView inbox(HttpSession session) {
+
+	@RequestMapping(path = "inbox.do", method = RequestMethod.GET)
+	public ModelAndView inbox(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		Profile temp = (Profile) session.getAttribute("profile");
 		List<Message> conversationList = messdao.viewMyConversations(temp.getId());
 		mv.addObject("conversationList", conversationList);
 		mv.setViewName("WEB-INF/inbox.jsp");
+		return mv;
+	}
+
+	@RequestMapping(path = "conversation.do", method = RequestMethod.GET)
+	public ModelAndView seeConversations(@RequestParam("threadId") int threadId, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		List<Message> threadMessages = messdao.viewEntireThread(threadId);
+		mv.addObject("threadMessages", threadMessages);
+		mv.setViewName("WEB-INF/conversation.jsp");
 		return mv;
 	}
 

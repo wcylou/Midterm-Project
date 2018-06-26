@@ -61,6 +61,9 @@
 			        <li class="nav-item ml-auto">
 			          <a class="nav-link " href="matchhistory.do" data-target=".navbar-collapse.show">Match History</a>
 			        </li>
+			         <li class="nav-item ml-auto">
+			          <a class="nav-link " href="inbox.do" data-target=".navbar-collapse.show">Inbox</a>
+			        </li>
 					 <li class="nav-item ml-auto">
 			          <a class="nav-link " href="logout.do" data-target=".navbar-collapse.show">Logout</a>
 			        </li>
@@ -91,6 +94,9 @@
 			        </li>
 			        <li class="nav-item ml-auto">
 			          <a class="nav-link " href="matchhistory.do" data-target=".navbar-collapse.show">Match History</a>
+			        </li>
+			         <li class="nav-item ml-auto">
+			          <a class="nav-link " href="inbox.do" data-target=".navbar-collapse.show">Inbox</a>
 			        </li>
 					<li class="nav-item ml-auto">
 			          <a class="nav-link " href="logout.do" data-target=".navbar-collapse.show">Logout</a>

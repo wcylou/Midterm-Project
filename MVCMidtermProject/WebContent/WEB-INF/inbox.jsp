@@ -18,8 +18,7 @@
 <%@ include file="nav.jsp" %>
 
 	<div class="container displayInformation">
-	<c:forEach items="${conversationList}" var="m">
-	<table>
+	<table class="table table-striped table-light table-hover">
 		<thead class="thead-dark">
 			<tr>
 				<th scope="col">Sender</th>
@@ -28,28 +27,15 @@
 			</tr>
 		</thead>
 		<tbody id = "table" >
+			<c:forEach items="${conversationList}" var="m">
 				<tr>
 					<td><c:out value="${m.sender.firstName}" /></td>
 					<td><c:out value="${m.recipient.firstName}" /></td>
-					<td><c:out value="${m.dateSent}" /></td>
+					<td><a href="conversation.do?threadId=${m.threadId}"><c:out value="${m.dateSent}" /></a></td>
 				</tr>
-				<tr>
-					<td colspan="2"><c:out value="${m.messageText}" />"></td>
-				</tr>
+			</c:forEach>
 		</tbody>
 		</table>
-		</c:forEach>
-		
-		<form action="replyMessage.do" method="POST" >
-		Message<input type="text" name="messageText" placeholder="Enter a message" style="width:470px; height:100px;">
-		<c:if test="${threadMessages[0].sender.id == profile.id }">
-		<input type="hidden" name="matchProfile" value="${threadMessages[0].recipient}"/>
-		</c:if>
-		<c:if test="${threadMessages[0].recipient.id == profile.id }">
-		<input type="hidden" name="matchProfile" value="${threadMessages[0].sender}"/>
-		</c:if>
-		<input type="hidden" name="threadId" value="${threadMessages[0].threadId}"/>
-		</form>
 		
 		</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
