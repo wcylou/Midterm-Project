@@ -105,7 +105,7 @@ public class MatchController {
 
 		List<Message> threadMessages = messdao.viewEntireThread(newMessage.getThreadId());
 		mv.addObject("threadMessages", threadMessages);
-
+		mv.addObject("partner", partner);
 		mv.setViewName("WEB-INF/conversation.jsp");
 		return mv;
 	}
