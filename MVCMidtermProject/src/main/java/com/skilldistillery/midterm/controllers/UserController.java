@@ -93,8 +93,9 @@ public class UserController {
 	@RequestMapping(path = "updateProfileDetails.do", method = RequestMethod.POST)
 	public ModelAndView updateProfileDetails(ProfileDTO profiledto, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		User currentUser = getCurrentUserFromSession(session);
+		User currentUser = (User) session.getAttribute("user");
 		Profile current = getCurrentProfileFromSession(session);
+		System.out.println(currentUser);
 		Profile p = udao.getProfilefromProfileDTO(profiledto, currentUser);
 		mv.addObject("profileId", current.getId());
 		mv.addObject("profileUpdated", profiledto);

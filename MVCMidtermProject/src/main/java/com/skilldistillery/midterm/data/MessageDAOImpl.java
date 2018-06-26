@@ -42,7 +42,7 @@ public class MessageDAOImpl implements MessageDAO {
 
 	@Override
 	public List<Message> viewEntireThread(int threadId) {
-		String query = "SELECT m FROM Message m WHERE m.threadId = :id ORDER BY m.date DESC";
+		String query = "SELECT m FROM Message m WHERE m.threadId = :id ORDER BY m.dateSent DESC";
 		List<Message> results = em.createQuery(query, Message.class).setParameter("id", threadId).getResultList();
 		return results;
 	}
