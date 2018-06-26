@@ -32,7 +32,7 @@
 					<td><c:out value="${m.dateSent}" /></td>
 				</tr>
 				<tr>
-					<td colspan="2"><img src="<c:out value="${m.messageText}" />"></td>
+					<td colspan="2"><c:out value="${m.messageText}" /></td>
 				</tr>
 		</tbody>
 		</table>
@@ -41,12 +41,13 @@
 		<form action="replyMessage.do" method="POST" >
 		Message<input type="text" name="messageText" placeholder="Enter a message" style="width:470px; height:100px;">
 		<c:if test="${threadMessages[0].sender.id == profile.id }">
-		<input type="hidden" name="matchProfile" value="${threadMessages[0].recipient}"/>
+		<input type="hidden" name="matchProfile" value="${threadMessages[0].recipient.id}"/>
 		</c:if>
 		<c:if test="${threadMessages[0].recipient.id == profile.id }">
-		<input type="hidden" name="matchProfile" value="${threadMessages[0].sender}"/>
+		<input type="hidden" name="matchProfile" value="${threadMessages[0].sender.id}"/>
 		</c:if>
 		<input type="hidden" name="threadId" value="${threadMessages[0].threadId}"/>
+		<button type="submit" class="btn btn-light">Send</button>
 		</form>
 		
 		</div>

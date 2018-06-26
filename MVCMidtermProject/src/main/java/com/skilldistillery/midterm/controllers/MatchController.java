@@ -89,7 +89,6 @@ public class MatchController {
 	
 	@RequestMapping(path = "sendMessage.do", method = RequestMethod.POST)
 	public ModelAndView sendMessage(@RequestParam("matchId") int matchId,
-									@RequestParam("currentDate") Date currentDate, 
 									@RequestParam("messageText") String messageText,
 									HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -99,7 +98,7 @@ public class MatchController {
 		System.out.println(partner);
 		
 		Message newMessage = new Message();
-		newMessage.setDateSent(currentDate);
+		newMessage.setDateSent(new Date());
 		newMessage.setMessageText(messageText);
 		newMessage.setRecipient(partner);
 		newMessage.setSender(temp);
@@ -113,7 +112,7 @@ public class MatchController {
 	}
 	
 	@RequestMapping(path = "replyMessage.do", method = RequestMethod.POST)
-	public ModelAndView replyMessage(@RequestParam("matchProfile") Profile recipient,
+	public ModelAndView replyMessage(@RequestParam("matchProfile") int recipientId,
 									@RequestParam("messageText") String messageText,
 									@RequestParam("threadId") int threadId,
 									HttpSession session) {
@@ -122,13 +121,14 @@ public class MatchController {
 		
 		Message newMessage = new Message();
 		newMessage.setMessageText(messageText);
-		newMessage.setRecipient(recipient);
+		newMessage.setRecipient(udao.findProfileByProfileId(recipientId));
 		newMessage.setSender(temp);
 		newMessage.setThreadId(threadId);
 		messdao.createReply(newMessage);
 		
 		List<Message> threadMessages = messdao.viewEntireThread(newMessage.getThreadId());
 		mv.addObject("threadMessages", threadMessages);
+		System.out.println(threadMessages.get(0).getSender());
 		
 		mv.setViewName("WEB-INF/conversation.jsp");
 		return mv;
