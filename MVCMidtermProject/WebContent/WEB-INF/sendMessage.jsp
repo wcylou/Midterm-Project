@@ -18,7 +18,6 @@
 <body class="standardLayout">
 <%@ include file="nav.jsp" %>
 	<div class="container formInput">
-	<h1>SEND MESSAGE</h1>
 		<h3>Sending to ${match.firstName} ${match.lastName}</h3>
 		<form action="sendMessage.do" method="POST" >
 			<c:set var="today" value="<%=new java.util.Date()%>" />
