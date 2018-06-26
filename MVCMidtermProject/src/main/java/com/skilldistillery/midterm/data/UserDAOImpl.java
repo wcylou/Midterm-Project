@@ -6,31 +6,36 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skilldistillery.midterm.entities.Gender;
 import com.skilldistillery.midterm.entities.Interest;
 import com.skilldistillery.midterm.entities.Location;
+import com.skilldistillery.midterm.entities.Membership;
 import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.ProfileDTO;
 import com.skilldistillery.midterm.entities.Sexuality;
 import com.skilldistillery.midterm.entities.User;
+import com.skilldistillery.midterm.security.PasswordMD5Hash;
 
 @Transactional
 @Component
 public class UserDAOImpl implements UserDAO {
-	
-	 @PersistenceContext
-	  private EntityManager em;
-	
-	 public static void main(String[] args) {
+
+	@PersistenceContext
+	private EntityManager em;
+	@Autowired
+	private PasswordMD5Hash md5;
+
+	public static void main(String[] args) {
 		UserDAOImpl udao = new UserDAOImpl();
 		udao.run();
 	}
 
 	private void run() {
-//		System.out.println(em.find(User.class, 1));
+		// System.out.println(em.find(User.class, 1));
 	}
 
 	@Override
@@ -50,18 +55,21 @@ public class UserDAOImpl implements UserDAO {
 		managed.setAccess(user.getAccess());
 		managed.setActive(user.getActive());
 		managed.setEmail(user.getEmail());
-		managed.setPassword(user.getPassword());
+		if (user.getPassword() != null && !user.getPassword().equals("")) {
+			String pHash = md5.hashPassword(user.getPassword());
+			managed.setPassword(pHash);
+		}
 		managed.setUsername(user.getUsername());
-		managed.setMembership(user.getMembership());
+		managed.setMembership(em.find(Membership.class, 1));
 		System.out.println(managed);
 		return managed;
 	}
-	
+
 	@Override
 	public Profile getProfilefromProfileDTO(ProfileDTO pdto, User user) {
 		Profile p = em.find(Profile.class, pdto.getId());
 		System.out.println(p);
-//		p.setUser(user);
+		// p.setUser(user);
 		p.setFirstName(pdto.getFirstName());
 		p.setLastName(pdto.getLastName());
 		p.setAge(pdto.getAge());
@@ -76,15 +84,15 @@ public class UserDAOImpl implements UserDAO {
 		l.setCity(pdto.getCity());
 		l.setAddress(pdto.getAddress());
 		l.setAddress2(pdto.getAddress2());
-		l.setZipCode(pdto.getZipCode());	
+		l.setZipCode(pdto.getZipCode());
 		p.setLocation(l);
-		
+
 		for (String interest : pdto.getInterests()) {
 			p.addInterest(getInterestObject(interest));
-		}		
+		}
 		return p;
 	}
-	
+
 	@Override
 	public Profile createProfile(ProfileDTO pdto, User user) {
 		Profile p = new Profile();
@@ -114,7 +122,7 @@ public class UserDAOImpl implements UserDAO {
 		em.flush();
 		return p;
 	}
-	
+
 	@Override
 	public Profile updateProfile(Profile profile, int profileId, User user) {
 		profile.setUser(user);
@@ -146,16 +154,14 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return p;
 	}
-	
+
 	@Override
 	public Profile findProfileByProfileId(int profileId) {
 		String query = "SELECT p from Profile p where p.id = :id";
-		Profile p = em.createQuery(query, Profile.class)
-				.setParameter("id", profileId)
-				.getSingleResult();
+		Profile p = em.createQuery(query, Profile.class).setParameter("id", profileId).getSingleResult();
 		return p;
 	}
-	
+
 	@Override
 	public ProfileDTO getProfileDTOfromProfile(Profile profile, User user) {
 		ProfileDTO p = new ProfileDTO();
@@ -173,7 +179,7 @@ public class UserDAOImpl implements UserDAO {
 		p.setAddress(profile.getLocation().getAddress());
 		p.setAddress2(profile.getLocation().getAddress2());
 		p.setZipCode(profile.getLocation().getZipCode());
-		String [] interestsString = new String [profile.getInterests().size()];
+		String[] interestsString = new String[profile.getInterests().size()];
 		for (int i = 0; i < interestsString.length; i++) {
 			interestsString[i] = profile.getInterests().get(i).getName();
 		}
@@ -188,47 +194,40 @@ public class UserDAOImpl implements UserDAO {
 		em.flush();
 		return profile;
 	}
+
 	@Override
 	public List<Profile> getAllProfiles() {
 		String queryString = "SELECT p FROM Profile p";
 		List<Profile> profiles = em.createQuery(queryString, Profile.class).getResultList();
 		return profiles;
 	}
-	
+
 	@Override
 	public List<Interest> getInterestsForProfileWithId(int profileId) {
 		String query = "SELECT p from Profile p JOIN FETCH p.interests where p.id = :id";
-		Profile p = em.createQuery(query, Profile.class)
-				.setParameter("id", profileId)
-				.getResultList()
-				.get(0);
-		List <Interest> interests = p.getInterests();
+		Profile p = em.createQuery(query, Profile.class).setParameter("id", profileId).getResultList().get(0);
+		List<Interest> interests = p.getInterests();
 		return interests;
 	}
-	
+
 	@Override
 	public List<Interest> getAllInterests() {
 		String query = "SELECT i from Interest i";
-		List<Interest> interests = em.createQuery(query, Interest.class)
-				.getResultList();
+		List<Interest> interests = em.createQuery(query, Interest.class).getResultList();
 		return interests;
 	}
-	
+
 	@Override
 	public Interest getInterestObject(String name) {
 		String query = "SELECT i from Interest i where i.name = :name";
-		Interest i = em.createQuery(query, Interest.class)
-				.setParameter("name", name)
-				.getSingleResult();
+		Interest i = em.createQuery(query, Interest.class).setParameter("name", name).getSingleResult();
 		return i;
 	}
-	
+
 	@Override
 	public User getUserFromProfileID(int profileId) {
 		String query = "SELECT u from User u JOIN Profile p on u.id = p.user WHERE p.id = :id";
-		User u = em.createQuery(query, User.class)
-				.setParameter("id", profileId)
-				.getSingleResult();
+		User u = em.createQuery(query, User.class).setParameter("id", profileId).getSingleResult();
 		return u;
 	}
 

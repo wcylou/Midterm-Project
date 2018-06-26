@@ -36,8 +36,8 @@
 					<td> <input type="text" name = "username" type="text" value="${userUpdate.username}" /></td>
 				</tr>
 				<tr>
-					<td>  <span class = "headings">Password: </span></td>
-					<td> <input type="text" name="password" value="${userUpdate.password}"/></td>
+					<td>  <span class = "headings">New Password: </span></td>
+					<td> <input type="text" name="password"/></td>
 				</tr>
 				<tr>
 					<td><span class = "headings">Email: </span></td>

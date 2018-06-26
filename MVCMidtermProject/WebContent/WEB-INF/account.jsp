@@ -33,10 +33,6 @@
 					<td><c:out value="${user.username}" /></td>
 				</tr>
 				<tr>
-					<td><span class = "headings">Password: </span></td>
-					<td><c:out value="${user.password}" /></td>
-				</tr>
-				<tr>
 					<td><span class = "headings">Email: </span></td>
 					<td><c:out value="${user.email}" /></td>
 				</tr>
