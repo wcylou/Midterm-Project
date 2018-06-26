@@ -19,9 +19,7 @@ public class Message {
 	@Column(name = "date_sent")
 	@Temporal(TemporalType.DATE)
 	private Date dateSent;
-	@OneToOne
-	@JoinColumn(name = "in_reply_to")
-	private Message inReplyTo;
+	
 	@Column(name = "message_text")
 	private String messageText;
 	@Column(name = "thread_id")
@@ -47,12 +45,7 @@ public class Message {
 	public void setDateSent(Date dateSent) {
 		this.dateSent = dateSent;
 	}
-	public Message getInReplyTo() {
-		return inReplyTo;
-	}
-	public void setInReplyTo(Message inReplyTo) {
-		this.inReplyTo = inReplyTo;
-	}
+	
 	public String getMessageText() {
 		return messageText;
 	}
