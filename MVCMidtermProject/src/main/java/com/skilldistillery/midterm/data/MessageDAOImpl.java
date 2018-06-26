@@ -10,13 +10,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skilldistillery.midterm.entities.Message;
+
 @Component
 @Transactional
 public class MessageDAOImpl implements MessageDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public Message createMessage(Message message) {
 		em.persist(message);
@@ -24,7 +25,7 @@ public class MessageDAOImpl implements MessageDAO {
 		message.setThreadId(message.getId());
 		return message;
 	}
-	
+
 	@Override
 	public Message createReply(Message message) {
 		em.persist(message);
@@ -35,7 +36,7 @@ public class MessageDAOImpl implements MessageDAO {
 
 	@Override
 	public List<Message> viewMyConversations(int profileId) {
-		String query = "SELECT m FROM Message m WHERE m.threadId = m.id AND (m.recipient.id = :pid) OR (m.sender.id = :pid)";
+		String query = "SELECT m FROM Message m WHERE m.threadId = m.id AND ((m.recipient.id = :pid) OR (m.sender.id = :pid))";
 		List<Message> results = em.createQuery(query, Message.class).setParameter("pid", profileId).getResultList();
 		return results;
 	}
@@ -46,25 +47,14 @@ public class MessageDAOImpl implements MessageDAO {
 		List<Message> results = em.createQuery(query, Message.class).setParameter("id", threadId).getResultList();
 		return results;
 	}
-	
+
 	@Override
 	public int getThreadId(int sender, int recipient) {
 		String query = "SELECT m FROM Message m WHERE (m.sender.id = :sid and m.recipient.id = :rid) "
 				+ "OR (m.sender.id = :rid and m.recipient.id = :sid)";
-		int threadId = em.createQuery(query, Message.class)
-								.setParameter("sid", sender)
-								.setParameter("rid", recipient)
-								.getResultList()
-								.get(0)
-								.getThreadId();
+		int threadId = em.createQuery(query, Message.class).setParameter("sid", sender).setParameter("rid", recipient)
+				.getResultList().get(0).getThreadId();
 		return threadId;
 	}
-	
-//	@Override 
-//	public int nextAutoIncrement() {
-//		String query="SELECT auto_increment FROM INFORMATION_SCHEMA.TABLES "
-//				+ "WHERE table_name = 'message' and table_schema = 'midterm'";
-//	}
-	
-	
+
 }
