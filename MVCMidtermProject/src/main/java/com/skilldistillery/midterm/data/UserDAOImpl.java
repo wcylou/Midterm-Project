@@ -60,7 +60,8 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public Profile getProfilefromProfileDTO(ProfileDTO pdto, User user) {
 		Profile p = em.find(Profile.class, pdto.getId());
-		p.setUser(user);
+		System.out.println(p);
+//		p.setUser(user);
 		p.setFirstName(pdto.getFirstName());
 		p.setLastName(pdto.getLastName());
 		p.setAge(pdto.getAge());
@@ -77,11 +78,10 @@ public class UserDAOImpl implements UserDAO {
 		l.setAddress2(pdto.getAddress2());
 		l.setZipCode(pdto.getZipCode());	
 		p.setLocation(l);
-		List<Interest> interestsUser = new ArrayList<>();
+		
 		for (String interest : pdto.getInterests()) {
-			interestsUser.add(getInterestObject(interest));
-		}
-		p.setInterests(interestsUser);
+			p.addInterest(getInterestObject(interest));
+		}		
 		return p;
 	}
 	
