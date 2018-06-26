@@ -370,6 +370,8 @@ button[type="submit"]:hover, input[type="button"]:hover {
 
 .dateSent {
 	color:black;
+	font-style:italic;
+	font-size:12px; 
 }
 
 .messageContent {
