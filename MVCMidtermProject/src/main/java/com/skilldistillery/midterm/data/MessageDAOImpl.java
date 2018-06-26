@@ -18,7 +18,7 @@ public class MessageDAOImpl implements MessageDAO {
 	private EntityManager em;
 	
 	@Override
-	public Message create(Message message) {
+	public Message createMessage(Message message) {
 		em.persist(message);
 		em.flush();
 		return message;

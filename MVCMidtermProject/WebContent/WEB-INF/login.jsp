@@ -22,7 +22,7 @@
 		<form:form action="login.do" method="POST" modelAttribute="user">
 			Username<input type="text" name="username" placeholder="Enter a username">
 			<br/>
-			Password<input type="text" name="password" placeholder="Enter a password">
+			Password<input type="password" name="password" placeholder="Enter a password">
 			<br/>
 			<button type="submit" value = "Log In" class="btn btn-light">Submit</button>
 		</form:form>

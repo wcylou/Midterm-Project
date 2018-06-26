@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -12,54 +13,28 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
-<title>Matches</title>
+<title>Send Message</title>
 </head>
-<body class = "standardLayout">
+<body class="standardLayout">
 <%@ include file="nav.jsp" %>
-	
-	<div class = "container">
-		<h1>Matches</h1>
-	<%-- Event list items --%>
-Search&nbsp<input type="text" id="search" placeholder="Type to search">	
-<br><br>
-	<table class="table table-striped table-light table-hover">
-		<thead class="thead-dark">
-			<tr>
-				<th scope="col">Match Name</th>
-				<th scope="col">Event</th>
-				<th scope="col">Location</th>
-				<th scope="col">Message</th>
-			</tr>
-		</thead>
-		<tbody id = "table" >
-				<tr class = "searchRows">
-					<td><c:out value="${match.partner.firstName} ${match.partner.lastName} ${match.partner.id}" /></td>
-					<td><c:out value="${match.event.name}" /></td>
-					<td><c:out value="${match.event.location.address}" /><br>
-					<c:out value="${match.event.location.state}" /></td>
-					<td><form action="message.do" method="GET">
-						<input type="hidden" name="matchId" value="${match.partner.id}"/>
-						<button type="submit" class="btn btn-light">Send</button>
-						</form></td>
-				</tr>
-		</tbody>
-	</table>
-	  <div id="floating-panel">
-      <input id="address" type="textbox" value="${match.event.location.address}, ${match.event.location.state}, ${match.event.location.city}">
-      <input id="submit" type="button" value="WHERE TO GO">
-    </div>
-    <br>
-          <div id="map"></div>
-	
-</div>
-	
+	<div class="container formInput">
+	<h1>SEND MESSAGE</h1>
+		<h3>Sending to ${match.firstName} ${match.lastName}</h3>
+		<form action="sendMessage.do" method="POST" >
+			<c:set var="today" value="<%=new java.util.Date()%>" />
+			Date: <fmt:formatDate type="date" value="${today}"/>
+			<input type="hidden" value="${today}" name="currentDate"/>
+			<br/>
+			Message<input type="text" name="messageText" placeholder="Enter a message" style="width:470px; height:100px;">
+			<br/>
+			<input type="hidden" name="matchId" value="${match.partner.id}"/>
+			<button type="submit" class="btn btn-light">Submit</button>
+			</form>
+	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu3z8H8wEptTmzLK1unAnBejz0QmTc_h8&callback=initMap">
-    </script>
-     <script src="js/viewEvent.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>

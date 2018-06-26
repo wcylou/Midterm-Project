@@ -21,7 +21,7 @@
 		<form:form action="registerUser.do" method="POST" modelAttribute="user">
 			Username<input type="text" name="username" placeholder="Enter a username">
 			<br/>
-			Password<input type="text" name="password" placeholder="Enter a password">
+			Password<input type="password" name="password" placeholder="Enter a password">
 			<br/>
 			<form:hidden path="access" value="false" />
 			<form:hidden path="active" value="true" />

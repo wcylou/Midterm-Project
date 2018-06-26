@@ -243,7 +243,7 @@ html {
 }
 
 .formInput input[type="text"], .formInput input[type="date"], .formInput input[type="datetime"],
-	.formInput input[type="email"], .formInput input[type="number"],
+	.formInput input[type="email"], .formInput input[type="number"], .formInput input[type="password"],
 	.formInput textarea, .formInput select {
 	-webkit-transition: all 0.30s ease-in-out;
 	-moz-transition: all 0.30s ease-in-out;
@@ -264,7 +264,7 @@ html {
 
 .formInput input[type="text"]:focus, .formInput input[type="date"]:focus,
 	.formInput input[type="datetime"]:focus, .formInput input[type="email"]:focus,
-	.formInput input[type="number"]:focus, .formInput textarea:focus,
+	.formInput input[type="number"]:focus, .formInput textarea:focus, .formInput input[type="password"]:focus,
 	.formInput select:focus {
 	box-shadow: 0 0 5px black;
 	padding: 3%;

@@ -1,6 +1,6 @@
 package com.skilldistillery.midterm.controllers;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.midterm.data.EventDAO;
 import com.skilldistillery.midterm.data.LoginDAO;
 import com.skilldistillery.midterm.data.MatchDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Match;
+import com.skilldistillery.midterm.entities.Message;
 import com.skilldistillery.midterm.entities.Profile;
 
 @Controller
@@ -72,6 +72,36 @@ public class MatchController {
 		mv.setViewName("WEB-INF/viewMatchHistory.jsp");
 		System.out.println(mdao.getListMatchesByProfileId(temp.getId()));
 		mv.addObject("matches", mdao.getListMatchesByProfileId(temp.getId()));
+		return mv;
+	}
+	
+	@RequestMapping(path = "message.do", method = RequestMethod.GET)
+	public ModelAndView message(@RequestParam("matchId") int matchId, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		Profile partner = udao.findProfileByProfileId(matchId);
+		mv.addObject("match", partner);
+		mv.setViewName("WEB-INF/sendMessage.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "sendMessage.do", method = RequestMethod.POST)
+	public ModelAndView sendMessage(@RequestParam("matchId") int matchId,
+									@RequestParam("currentDate") Date currentDate, 
+									@RequestParam("messageText") String messageText,
+									HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		Profile partner = udao.findProfileByProfileId(matchId);
+		Profile temp = (Profile) session.getAttribute("profile");
+		
+		Message newMessage = new Message();
+		newMessage.setDateSent(currentDate);
+		newMessage.setMessageText(messageText);
+		newMessage.setRecipient(partner);
+		newMessage.setSender(temp);
+		
+		
+		mv.addObject("match", partner);
+		mv.setViewName("WEB-INF/sendMessage.jsp");
 		return mv;
 	}
 

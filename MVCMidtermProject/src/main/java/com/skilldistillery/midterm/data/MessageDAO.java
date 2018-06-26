@@ -5,7 +5,7 @@ import java.util.List;
 import com.skilldistillery.midterm.entities.Message;
 
 public interface MessageDAO {
-	public Message create(Message message);
+	public Message createMessage(Message message);
 	public List<Message> viewMyConversations(int profileId);
 	public List<Message> viewEntireThread(int threadId);
 }
