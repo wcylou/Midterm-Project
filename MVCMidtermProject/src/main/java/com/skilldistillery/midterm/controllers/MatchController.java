@@ -121,6 +121,7 @@ public class MatchController {
 		Profile temp = (Profile) session.getAttribute("profile");
 		
 		Message newMessage = new Message();
+		newMessage.setDateSent(new Date());
 		newMessage.setMessageText(messageText);
 		newMessage.setRecipient(recipient);
 		newMessage.setSender(temp);
@@ -133,6 +134,15 @@ public class MatchController {
 		mv.setViewName("WEB-INF/conversation.jsp");
 		return mv;
 	}
-
+	
+	@RequestMapping(path = "inbox.do", method = RequestMethod.GET) 
+		public ModelAndView inbox(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		Profile temp = (Profile) session.getAttribute("profile");
+		List<Message> conversationList = messdao.viewMyConversations(temp.getId());
+		mv.addObject("conversationList", conversationList);
+		mv.setViewName("WEB-INF/inbox.jsp");
+		return mv;
+	}
 
 }

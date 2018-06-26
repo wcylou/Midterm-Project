@@ -35,7 +35,7 @@ public class MessageDAOImpl implements MessageDAO {
 
 	@Override
 	public List<Message> viewMyConversations(int profileId) {
-		String query = "SELECT m FROM Message m WHERE m.threadId = m.id AND m.recipient.id = :pid";
+		String query = "SELECT m FROM Message m WHERE m.threadId = m.id AND (m.recipient.id = :pid) OR (m.sender.id = :pid)";
 		List<Message> results = em.createQuery(query, Message.class).setParameter("pid", profileId).getResultList();
 		return results;
 	}
