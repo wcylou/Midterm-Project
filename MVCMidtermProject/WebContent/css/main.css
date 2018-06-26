@@ -80,8 +80,13 @@ html {
 	color: rgba(255, 255, 255, 0.5);
 }
 
-#aboutUs, #pricing, #contact {
+#aboutUs, #pricing, #contact, #instagramFeed {
 	padding-top: 30px;
+}
+
+#aboutUs {
+	background-color:firebrick;
+	color:white;
 }
 
 /*Navbar */
@@ -122,7 +127,7 @@ html {
 	padding-left:4em;
 	font-size:5em;
 	color:firebrick;
-  text-shadow:4px 4px 2px gray;
+  	text-shadow:4px 4px 2px gray;
 }
 
 /* stats */

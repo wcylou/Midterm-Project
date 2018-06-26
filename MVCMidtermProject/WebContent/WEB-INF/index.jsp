@@ -27,6 +27,9 @@
           <a class="nav-link" href="#aboutUs" data-toggle="collapse" data-target=".navbar-collapse.show">Who are we</a>
         </li>
         <li class="nav-item ml-auto">
+          <a class="nav-link" href="#instagramFeed" data-toggle="collapse" data-target=".navbar-collapse.show">Instagram</i></a>
+        </li>
+        <li class="nav-item ml-auto">
           <a class="nav-link " href="#pricing" data-toggle="collapse" data-target=".navbar-collapse.show">Pricing</a>
         </li>
         <li class="nav-item ml-auto">
@@ -56,10 +59,14 @@
 	Our mission is to connect people and events to create that spark.  </p>
 	<h4>Where you take things is completely up to you!</h4>
   
-
   	</div>  
   </section>
   
+<section id ="instagramFeed">
+	<div class = "container instagram2">
+<iframe src="https://snapwidget.com/embed/563517" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:795px; height:780px"></iframe>
+  </div>
+   	</section>
   
   <section id="stats" class="count-up">
 		<div class="row col-lg-12">
@@ -95,12 +102,6 @@
 				</div> 
 			</div>
 	</section>
-	
-	<section id ="instagramFeed">
-	<div class = "container instagram2">
-<!-- SnapWidget -->
-<iframe src="https://snapwidget.com/embed/563517" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:780px; height:770px"></iframe>   </div>
-   	</section>
    	
   <section id="pricing">
     <div class="container lightSection">
