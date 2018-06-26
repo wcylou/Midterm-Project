@@ -46,6 +46,9 @@
 			        <li class="nav-item ml-auto">
 			          <a class="nav-link" href="account.do" data-target=".navbar-collapse.show">My Account</a>
 			        </li>
+			          <li class="nav-item ml-auto">
+			          <a class="nav-link " href="updateProfile.do" data-target=".navbar-collapse.show">Update Profile</a>
+			        </li>
 			        <li class="nav-item ml-auto">
 			          <a class="nav-link " href="getProfiles.do" data-target=".navbar-collapse.show">Get Profiles</a>
 			        </li>

@@ -18,28 +18,30 @@
 <%@ include file="nav.jsp" %>
 
 	<div class="container displayInformation">
-	<c:forEach items="${threadMessages}" var="m">
-	<table>
-		<thead class="thead-dark">
+		<table class="table table-striped table-light table-hover">
+			<thead class="thead-dark">
 			<tr>
 				<th scope="col">Sender</th>
 				<th scope="col">Date</th>
 			</tr>
 		</thead>
+		
 		<tbody id = "table" >
+				<c:forEach items="${threadMessages}" var="m">
 				<tr>
 					<td><c:out value="${m.sender.firstName}" /></td>
 					<td><c:out value="${m.dateSent}" /></td>
 				</tr>
 				<tr>
 					<td colspan="2"><c:out value="${m.messageText}" /></td>
-				</tr>
+				</tr>		
+				</c:forEach>
 		</tbody>
 		</table>
-		</c:forEach>
-		
+		<br>
+		<div class = "container formInput">
 		<form action="replyMessage.do" method="POST" >
-		Message<input type="text" name="messageText" placeholder="Enter a message" style="width:470px; height:100px;">
+		<h1>Message</h1><input type="text" name="messageText" placeholder="Send a reply" style="width:470px; height:100px;">
 		<c:if test="${threadMessages[0].sender.id == profile.id }">
 		<input type="hidden" name="matchProfile" value="${threadMessages[0].recipient.id}"/>
 		</c:if>
@@ -49,6 +51,7 @@
 		<input type="hidden" name="threadId" value="${threadMessages[0].threadId}"/>
 		<button type="submit" class="btn btn-light">Send</button>
 		</form>
+		</div>
 		
 		</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
