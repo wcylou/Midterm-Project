@@ -158,8 +158,5 @@ public class EventDAOImpl implements EventDAO {
 	public Event find(int id) {
 		return em.find(Event.class, id);
 	}
-	
-	
 
-	
 }

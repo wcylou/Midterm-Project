@@ -337,7 +337,6 @@ button[type="submit"]:hover, input[type="button"]:hover {
 .senderMessage {
 	float:right;
 	border:2px solid black;
-	display:block;
 	height:100px;
 	width:250px;
 	background-color:firebrick;
@@ -349,7 +348,6 @@ button[type="submit"]:hover, input[type="button"]:hover {
 .recipientMessage {
 	float:left;
 	border:2px solid black;
-	display:block;
 	height:100px;
 	width:250px;
 	background-color:firebrick;
@@ -377,4 +375,10 @@ button[type="submit"]:hover, input[type="button"]:hover {
 .messageContent {
 	padding-left:10em;
 	padding-right:10em;
+}
+
+#map-canvas {
+    justify-content: center;
+	height: 300px; /* The height is 400 pixels */
+	width: 100%; /* The width is the width of the web page */
 }

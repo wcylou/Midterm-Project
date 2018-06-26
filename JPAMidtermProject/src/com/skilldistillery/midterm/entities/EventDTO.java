@@ -3,6 +3,7 @@ package com.skilldistillery.midterm.entities;
 import java.util.Arrays;
 import java.util.Date;
 
+
 public class EventDTO {
 	private String name;
 	private String description;

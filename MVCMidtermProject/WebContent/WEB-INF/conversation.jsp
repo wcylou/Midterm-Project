@@ -36,24 +36,23 @@
 				<div class="container senderMessage2">
 						<br>
 							<c:if test="${m.sender.id == profile.id }">
-<!-- 							<div id="outer" style="width:200px; height:20px; border:1px solid red;"> -->
  							<span class="senderMessage">
 							<span class = "dateSent"><c:out value="${m.dateSent}"/></span><br>
 							<c:out value="${m.messageText}"/>
    										<!--  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
    										 Integer mollis dui felis, vel vehicula tortor cursus nec</div> -->
 							</span>
- 						</c:if>
+ 							</c:if>
  				</div>
  				<div class="container recipientMessage2">
- 						<br>
-						<c:if test="${m.sender.id != profile.id }">
-						<span class="recipientMessage">
-							<span class = "dateSent"><c:out value="${m.dateSent}"/></span><br>
-							 <c:out value= "${m.messageText}"/>
-						</span>
-						</c:if>
-						<br>
+	 						<br>
+							<c:if test="${m.sender.id != profile.id }">
+							<span class="recipientMessage">
+								<span class = "dateSent"><c:out value="${m.dateSent}"/></span><br>
+								 <c:out value= "${m.messageText}"/>
+							</span>
+							</c:if>
+							<br>
 				</div>
 				</c:forEach>
 				<br><br>
@@ -65,19 +64,5 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script src="js/main.js"></script>
-	<script>
-	$(document).ready(function () {
-	    resize_to_fit();
-	});
-
-	function resize_to_fit(){
-	    var fontsize = $('div#outer div').css('font-size');
-	    $('div#outer div').css('fontSize', parseFloat(fontsize) - 1);
-
-	    if($('div#outer div').height() >= $('div#outer').height()){
-	        resize_to_fit();
-	    }
-	}
-	</script>
 </body>
 </html>

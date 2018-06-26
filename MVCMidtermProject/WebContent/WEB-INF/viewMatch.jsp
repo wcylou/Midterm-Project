@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -28,17 +29,17 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 				<th scope="col">Match Name</th>
 				<th scope="col">Event</th>
 				<th scope="col">Location</th>
-				<th scope="col">Time</th>
+				<th scope="col">Date</th>
 				<th scope="col">Message</th>
 			</tr>
 		</thead>
 		<tbody id = "table" >
 				<tr class = "searchRows">
-					<td><c:out value="${match.partner.firstName} ${match.partner.lastName} ${match.partner.id}" /></td>
+					<td><c:out value="${match.partner.firstName} ${match.partner.lastName}" /></td>
 					<td><c:out value="${match.event.name}" /></td>
 					<td><c:out value="${match.event.location.address}" /><br>
 					<c:out value="${match.event.location.state}" /></td>
-					<td><c:out value="${match.event.date}" /></td>
+					<td><c:out value="${match.event.date}"/></td>
 					<td><form action="message.do" method="GET">
 						<input type="hidden" name="matchId" value="${match.partner.id}"/>
 						<button type="submit" class="btn btn-light">Send</button>
@@ -46,13 +47,9 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 				</tr>
 		</tbody>
 	</table>
-	  <div id="floating-panel">
-      <input id="address" type="textbox" value="${match.event.location.address}, ${match.event.location.state}, ${match.event.location.city}">
-      <input id="submit" type="button" value="WHERE TO GO">
-    </div>
     <br>
-          <div id="map"></div>
-	
+          <div id="map-canvas"></div>
+          <input type="hidden" id="address" value="${match.event.location.address}, ${match.event.location.state}, ${match.event.location.city}">
 </div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
