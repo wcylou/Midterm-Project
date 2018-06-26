@@ -234,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `midterm`.`message` (
   `recipient_id` INT NULL,
   `date_sent` DATETIME NULL,
   `thread_id` INT NULL,
-  `message_text` VARCHAR(45) NULL,
+  `message_text` LONGTEXT NULL,
   INDEX `fk_message_profile_idx` (`recipient_id` ASC),
   INDEX `fk_message_partner_idx` (`sender_id` ASC),
   PRIMARY KEY (`id`),
