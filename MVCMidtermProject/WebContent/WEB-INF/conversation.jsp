@@ -19,7 +19,7 @@
 
 	<div class = "container formInput">
 		<form action="replyMessage.do" method="POST" >
-		<h3>Message</h3><input type="text" name="messageText" placeholder="Send a message" style="width:470px; height:100px;">
+		<h3>Message ${partner.firstName} ${partner.lastName}</h3><input type="text" name="messageText" placeholder="Send a message" style="width:470px; height:100px;">
 		<c:if test="${threadMessages[0].sender.id == profile.id }">
 		<input type="hidden" name="matchProfile" value="${threadMessages[0].recipient.id}"/>
 		</c:if>
