@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skilldistillery.midterm.entities.Membership;
-import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.User;
 
 @Transactional

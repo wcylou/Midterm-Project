@@ -19,6 +19,7 @@ import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Profile;
 import com.skilldistillery.midterm.entities.ProfileDTO;
 import com.skilldistillery.midterm.entities.User;
+import com.skilldistillery.midterm.security.PasswordMD5Hash;
 
 @Controller
 public class LoginController {
@@ -31,6 +32,8 @@ public class LoginController {
 	private UserDAO udao;
 	@Autowired
 	private LoginDAO ldao;
+	@Autowired
+	private PasswordMD5Hash md5;
 	
 	@RequestMapping(path = "login.do", method = RequestMethod.GET)
 	public String displayLoginPage(Model model) {
@@ -40,7 +43,9 @@ public class LoginController {
 
 	@RequestMapping(path ="login.do", method = RequestMethod.POST) 
 	public String loginAttempt (User user, HttpSession http, Errors errors) {
-		User u = ldao.getUserByUserNameAndPassword(user.getUsername(), user.getPassword());
+		String pHash = md5.hashPassword(user.getPassword());
+
+		User u = ldao.getUserByUserNameAndPassword(user.getUsername(), pHash);
 		Profile p = null;
 		if(u != null) {
 			p = udao.findProfileById(u.getId());
@@ -104,6 +109,8 @@ public class LoginController {
 	
 	@RequestMapping(path = "registerUser.do", method = RequestMethod.POST)
 	public String addUserDetails(User user, HttpSession session, RedirectAttributes redir) {
+	    String pHash = md5.hashPassword(user.getPassword());
+	    user.setPassword(pHash);
 		User userNew = ldao.createUser(user);
 		redir.addFlashAttribute("user", userNew);
 		session.setAttribute("user", userNew);
