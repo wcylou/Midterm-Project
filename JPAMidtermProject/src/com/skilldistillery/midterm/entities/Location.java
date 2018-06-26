@@ -88,19 +88,10 @@ public class Location {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Location [id=");
-		builder.append(id);
-		builder.append(", state=");
-		builder.append(state);
-		builder.append(", city=");
-		builder.append(city);
-		builder.append(", address=");
 		builder.append(address);
-		builder.append(", address2=");
-		builder.append(address2);
-		builder.append(", zipCode=");
+		builder.append(state);
+		builder.append(city);
 		builder.append(zipCode);
-		builder.append("]");
 		return builder.toString();
 	}
 	

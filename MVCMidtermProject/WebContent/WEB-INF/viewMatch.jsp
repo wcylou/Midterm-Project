@@ -28,6 +28,7 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 				<th scope="col">Match Name</th>
 				<th scope="col">Event</th>
 				<th scope="col">Location</th>
+				<th scope="col">Time</th>
 				<th scope="col">Message</th>
 			</tr>
 		</thead>
@@ -37,6 +38,7 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 					<td><c:out value="${match.event.name}" /></td>
 					<td><c:out value="${match.event.location.address}" /><br>
 					<c:out value="${match.event.location.state}" /></td>
+					<td><c:out value="${match.event.date}" /></td>
 					<td><form action="message.do" method="GET">
 						<input type="hidden" name="matchId" value="${match.partner.id}"/>
 						<button type="submit" class="btn btn-light">Send</button>

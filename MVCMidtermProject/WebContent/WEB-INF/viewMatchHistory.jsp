@@ -24,6 +24,7 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 			<tr>
 				<th scope="col">Match Name</th>
 				<th scope="col">Event</th>
+				<th scope="col">Time</th>
 			</tr>
 		</thead>
 		<tbody id = "table" >
@@ -34,6 +35,7 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 				<tr class = "searchRows">
 					<td><c:out value="${match.partner.firstName} ${match.partner.lastName}" /></td>
 					<td><c:out value="${match.event.name}" /></td>
+					<td><c:out value="${match.event.date}" /></td>
 				</tr>
 			</c:forEach>
 		</tbody>
