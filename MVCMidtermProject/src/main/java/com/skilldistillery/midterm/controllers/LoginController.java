@@ -131,10 +131,11 @@ public class LoginController {
 	}
 
 	@RequestMapping(path = "updateUserDetails.do", method = RequestMethod.POST)
-	public ModelAndView updateUserDetails(HttpSession session, User user) {
+	public ModelAndView updateUserDetails(HttpSession session, User user) {	    
 		User current = getCurrentUserFromSession(session);
 		ModelAndView mv = new ModelAndView();
-		User userUpdated = ldao.updateUser(user, current.getId());
+		
+		User userUpdated = udao.updateUser(user, current.getId());
 		mv.addObject("userId", userUpdated.getId());
 		mv.addObject("userUpdated", userUpdated);
 		mv.setViewName("WEB-INF/updatedUserDetails.jsp");

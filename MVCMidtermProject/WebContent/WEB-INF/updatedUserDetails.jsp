@@ -34,10 +34,6 @@
 					<td> <c:out value="${userUpdated.username}" /></td>
 				</tr>
 				<tr>
-					<td>  <span class = "headings">Password: </span></td>
-					<td> <c:out value="${userUpdated.password}" /></td>
-				</tr>
-				<tr>
 					<td><span class = "headings">Active: </span></td>
 					<td> <c:out value="${userUpdated.active}" /></td>
 				</tr>
