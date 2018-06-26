@@ -186,8 +186,5 @@ public class MatchDAOImpl implements MatchDAO {
 			return new ArrayList<Match>();
 		}
 	}
-	
-	
-	
 
 }

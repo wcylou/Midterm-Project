@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.midterm.data.EventDAO;
 import com.skilldistillery.midterm.data.LoginDAO;
 import com.skilldistillery.midterm.data.MatchDAO;
+import com.skilldistillery.midterm.data.MessageDAO;
 import com.skilldistillery.midterm.data.UserDAO;
 import com.skilldistillery.midterm.entities.Match;
 import com.skilldistillery.midterm.entities.Message;
@@ -30,6 +31,8 @@ public class MatchController {
 	private UserDAO udao;
 	@Autowired
 	private LoginDAO ldao;
+	@Autowired
+	private MessageDAO messdao;
 
 	@RequestMapping(path = "findmatches.do", method = RequestMethod.GET)
 	public ModelAndView findMatches(HttpSession session) {
@@ -92,17 +95,44 @@ public class MatchController {
 		ModelAndView mv = new ModelAndView();
 		Profile partner = udao.findProfileByProfileId(matchId);
 		Profile temp = (Profile) session.getAttribute("profile");
+		System.out.println(temp);
+		System.out.println(partner);
 		
 		Message newMessage = new Message();
 		newMessage.setDateSent(currentDate);
 		newMessage.setMessageText(messageText);
 		newMessage.setRecipient(partner);
 		newMessage.setSender(temp);
+		messdao.createMessage(newMessage);
 		
+		List<Message> threadMessages = messdao.viewEntireThread(newMessage.getThreadId());
+		mv.addObject("threadMessages", threadMessages);
 		
-		mv.addObject("match", partner);
-		mv.setViewName("WEB-INF/sendMessage.jsp");
+		mv.setViewName("WEB-INF/conversation.jsp");
 		return mv;
 	}
+	
+	@RequestMapping(path = "replyMessage.do", method = RequestMethod.POST)
+	public ModelAndView replyMessage(@RequestParam("matchProfile") Profile recipient,
+									@RequestParam("messageText") String messageText,
+									@RequestParam("threadId") int threadId,
+									HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		Profile temp = (Profile) session.getAttribute("profile");
+		
+		Message newMessage = new Message();
+		newMessage.setMessageText(messageText);
+		newMessage.setRecipient(recipient);
+		newMessage.setSender(temp);
+		newMessage.setThreadId(threadId);
+		messdao.createReply(newMessage);
+		
+		List<Message> threadMessages = messdao.viewEntireThread(newMessage.getThreadId());
+		mv.addObject("threadMessages", threadMessages);
+		
+		mv.setViewName("WEB-INF/conversation.jsp");
+		return mv;
+	}
+
 
 }

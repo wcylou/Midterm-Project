@@ -8,4 +8,6 @@ public interface MessageDAO {
 	public Message createMessage(Message message);
 	public List<Message> viewMyConversations(int profileId);
 	public List<Message> viewEntireThread(int threadId);
+	public int getThreadId(int sender, int recipient);
+	public Message createReply(Message message);
 }
