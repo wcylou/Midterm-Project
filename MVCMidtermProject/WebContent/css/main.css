@@ -242,6 +242,16 @@ html {
 	margin: -16px -16px 16px -16px;
 }
 
+.formInput h3 {
+	background: black;
+	padding: 10px 0;
+	font-size: 140%;
+	font-weight: 300;
+	text-align: center;
+	color: white;
+	margin: -16px -16px 16px -16px;
+}
+
 .formInput input[type="text"], .formInput input[type="date"], .formInput input[type="datetime"],
 	.formInput input[type="email"], .formInput input[type="number"], .formInput input[type="password"],
 	.formInput textarea, .formInput select {
@@ -322,4 +332,47 @@ button[type="submit"]:hover, input[type="button"]:hover {
         line-height: 20px;
         padding-left: 10px;
         font-size:10px;
+}
+
+.senderMessage {
+	float:right;
+	border:2px solid black;
+	display:block;
+	height:100px;
+	width:250px;
+	background-color:firebrick;
+	color:white;
+	border-radius: 25px;
+	padding:4px;
+}
+
+.recipientMessage {
+	float:left;
+	border:2px solid black;
+	display:block;
+	height:100px;
+	width:250px;
+	background-color:firebrick;
+	color:white;
+	border-radius: 25px;
+	padding:4px;
+}
+
+.senderMessage2 {
+	display:block;
+	margin-top:15px;
+}
+
+.recipientMessage2 { 
+	display:block;
+	margin-top:15px;
+}
+
+.dateSent {
+	color:black;
+}
+
+.messageContent {
+	padding-left:10em;
+	padding-right:10em;
 }
