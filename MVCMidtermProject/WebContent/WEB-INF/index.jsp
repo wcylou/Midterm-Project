@@ -53,7 +53,7 @@
   <section class ="banner">
 		<h1 class="animated jello">BLINDR</h1>
 		<br><br>
-		<button class="btn btn-danger btn-lg video" data-video="https://www.youtube.com/embed/xrAsxYDyaaA" data-toggle="modal" data-target="#videoModal">Launch Video</button>
+		<button class="btn btn-danger btn-lg video" data-video="https://www.youtube.com/embed/Yu7WABdDo1Y" data-toggle="modal" data-target="#videoModal">Launch Video</button>
 	  <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	    <div class="modal-dialog">
 	      <div class="modal-content">
