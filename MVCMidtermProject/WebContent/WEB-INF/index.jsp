@@ -15,7 +15,7 @@
 <title>Home</title>
 </head>
 <body id = "home">
-  <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-md">
+  <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-sm">
   <a class="navbar-brand" href="#home">BLINDR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" 
   aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,6 +48,10 @@
   
   <section class ="banner">
 		<h1 class="animated jello">BLINDR</h1>
+		<button type="button" class="btn btn-primary video-btn" data-toggle="modal" 
+		data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-target="#myModal">
+  			Launch video!
+		</button>	
   </section>
   
   <section id = "aboutUs">
@@ -58,8 +62,37 @@
 	<p>A great first date can set the stage for a lasting relationship, or just leave a lasting memory of that one special night.  
 	Our mission is to connect people and events to create that spark.  </p>
 	<h4>Where you take things is completely up to you!</h4>
-  
   	</div>  
+  	
+  	<div class="container lightSection team">
+	      	<h1>TEAM</h1><br>
+	<div class = "row">
+		<div class="col-lg-4 col-6">	
+		<div style="width: 16.2rem;">
+		  <img class="card-img-top" src="images/wilson.jpg" alt="Card image cap">
+		    <br><br>
+		    <p class="card-text">WILSON LOU</p>
+		   	<span>Likes: England <br>Hates: Trump.</span>
+		  </div>
+  		</div>
+	  <div class="col-lg-4 col-6">	
+		<div style="width: 16rem;">
+		  <img class="card-img-top" src="images/jeremy.jpg" alt="Card image cap">
+		    <br><br>
+		    <p class="card-text">JEREMY BOTTA</p>
+		    <span>Likes: databases. <br>Hates: bagels with no holes.</span>
+		  </div>
+  	</div>
+ 	 <div class="col-lg-4 col-6">	
+		<div style="width: 16rem;">
+		  <img class="card-img-top" src="images/tom.jpg" alt="Card image cap">
+		  <br><br>
+		    <p class="card-text">THOMAS BRODERICK</p>
+		    <span>Likes: sleeping.<br> Hates: uncooked chicken.</span>
+		  </div>
+  	</div>
+	</div>
+	</div>
   </section>
   
 <section id ="instagramFeed">
@@ -171,7 +204,7 @@
    				<i class="far fa-envelope fa-2x"></i>
    			</div><br>
    			<h4>Email Us</h4>
-   			<p>dating@gmail.com</p>
+   			<p>findlove@blindr.com</p>
    		</div>
    		<div class="col-sm-4">
    			<div class="icon">

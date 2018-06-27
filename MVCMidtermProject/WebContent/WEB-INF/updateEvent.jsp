@@ -21,16 +21,6 @@
 <h1>Update Event</h1>
 
       <form action="updateEvent.do" method="POST">
-     <%-- 	<span class = "headings">Event ID: ${id}</span>
-        <span class = "headings">Name: </span> <input type="text" name = "name" type="text" value="${dto.name}" /><br> 
-       <span class = "headings">Description: </span><input type="text" name="description" value="${dto.description}"/><br> 
-       <span class = "headings">Address: </span><input type="text" name="address" value="${dto.address}"/><br> 
-       <span class = "headings">Address2: </span><input type="text" name="address2" value="${dto.address2}"/><br> 
-       <span class = "headings">City: </span><input type="text" name="city" value="${dto.city}"/><br> 
-       <span class = "headings">State: </span><input type="text" name="state" value="${dto.state}"/><br> 
-       <span class = "headings">Zip Code: </span><input type="text" name="zipCode" value="${dto.zipCode}"/><br> 
-     	<span class = "headings">Date: </span>  <input type="date" name="date" value="${dto.date}"/><br>  --%>
-     	
      	<table class="table table-striped table-light table-hover">
 		<thead class="thead-dark">
 			<tr>
