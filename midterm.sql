@@ -387,7 +387,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `midterm`;
-INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (1, 'user', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, 1, 'a@a.com');
+INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 1, 1, 1, 'a@a.com');
 INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (2, 'notadmin', '5f4dcc3b5aa765d61d8327deb882cf99', 0, 1, 1, 'notadmin@notadmin.com');
 INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (3, '3', '5f4dcc3b5aa765d61d8327deb882cf99', 0, 1, 1, 'a@a.com');
 INSERT INTO `midterm`.`user` (`id`, `username`, `password`, `access`, `membership_id`, `active`, `email`) VALUES (4, '4', '5f4dcc3b5aa765d61d8327deb882cf99', 0, 1, 1, 'b@b.com');
