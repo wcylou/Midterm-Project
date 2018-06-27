@@ -112,6 +112,15 @@ html {
 	color: silver;
 }
 
+@media ( min-width : 768px) and (max-width: 1000px) {
+	.collapse {
+		display: none !important;
+	}
+	navbar-fixed-top {
+		left: 0
+	}
+}
+
 /* Landing Banner */
 .banner {
 	background: url(../images/banner.jpg);
@@ -120,7 +129,7 @@ html {
 	min-height: 720px;
 	background-size: cover;
 	color: black;
-	text-align:center;
+	text-align: center;
 }
 
 .banner h1 {
@@ -128,6 +137,26 @@ html {
 	font-size: 5em;
 	color: firebrick;
 	text-shadow: 4px 4px 2px gray;
+}
+
+.modal-dialog {
+      max-width: 800px;
+      margin: 30px auto;
+  }
+
+.modal-body {
+  position:relative;
+  padding:0px;
+}
+.close {
+  position:absolute;
+  right:-30px;
+  top:0;
+  z-index:999;
+  font-size:2rem;
+  font-weight: normal;
+  color:#fff;
+  opacity:1;
 }
 
 /* stats */
@@ -355,7 +384,6 @@ button[type="submit"]:hover, input[type="button"]:hover {
 	color: white;
 	border-radius: 25px;
 	padding: 4px;
-	
 }
 
 .senderMessage2 {
@@ -398,8 +426,7 @@ button[type="submit"]:hover, input[type="button"]:hover {
 }
 
 .card-text {
-	text-align:center;
-	
+	text-align: center;
 }
 
 #team {
@@ -408,16 +435,16 @@ button[type="submit"]:hover, input[type="button"]:hover {
 }
 
 .team p {
-	color:white;
-	font-size:1.4em;
-	font-weight:bold;
+	color: white;
+	font-size: 1.4em;
+	font-weight: bold;
 }
 
-.card {
-	border
+.card {border
+	
 }
 
 .card-img-top {
-	border-radius:50%;
+	border-radius: 50%;
 	border: 2px solid firebrick;
 }

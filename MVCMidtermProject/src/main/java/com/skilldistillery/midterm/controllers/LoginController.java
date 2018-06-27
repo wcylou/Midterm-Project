@@ -44,7 +44,6 @@ public class LoginController {
 	@RequestMapping(path ="login.do", method = RequestMethod.POST) 
 	public String loginAttempt (User user, HttpSession http, Errors errors) {
 		String pHash = md5.hashPassword(user.getPassword());
-
 		User u = ldao.getUserByUserNameAndPassword(user.getUsername(), pHash);
 		Profile p = null;
 		if(u != null) {
@@ -67,7 +66,6 @@ public class LoginController {
 			else {
 				http.setAttribute("adminLoggedIn", false);
 			}
-			
 			return "redirect:account.do";
 		}
 		http.setAttribute("loggedIn", false);

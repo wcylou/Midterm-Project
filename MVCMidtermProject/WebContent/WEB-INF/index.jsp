@@ -15,7 +15,7 @@
 <title>Home</title>
 </head>
 <body id = "home">
-  <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-sm">
+  <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-md">
   <a class="navbar-brand" href="#home">BLINDR</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" 
   aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,23 +35,35 @@
         <li class="nav-item ml-auto">
           <a class="nav-link" href="#contact" data-toggle="collapse" data-target=".navbar-collapse.show">Contact</a>
         </li>
+        <li class="nav-item ml-auto">
         <form action="register.do" method="GET">
 			<button type="submit" class="btn btn-light">Register</button>
 		</form>
-		&nbsp&nbsp&nbsp
+		</li>
+		&nbsp
+		<li class="nav-item ml-auto">
         <form action="login.do" method="GET">
 			<button type="submit" class="btn btn-light">Login</button>
 		</form>
+		</li>
       </ul>
     </div>
 </nav>
   
   <section class ="banner">
 		<h1 class="animated jello">BLINDR</h1>
-		<button type="button" class="btn btn-primary video-btn" data-toggle="modal" 
-		data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-target="#myModal">
-  			Launch video!
-		</button>	
+		<br><br>
+		<button class="btn btn-danger btn-lg video" data-video="https://www.youtube.com/embed/xrAsxYDyaaA" data-toggle="modal" data-target="#videoModal">Launch Video</button>
+	  <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	      <div class="modal-content">
+	        <div class="modal-body">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	          <iframe width="100%" height="350" src="" frameborder="0" allowfullscreen></iframe>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
   </section>
   
   <section id = "aboutUs">
@@ -225,6 +237,19 @@
 	<script async defer
  	 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu3z8H8wEptTmzLK1unAnBejz0QmTc_h8&callback=initMap">
 	</script>	
+	<script>
+	 $(function() {
+		    $(".video").click(function () {
+		      var theModal = $(this).data("target"),
+		      videoSRC = $(this).attr("data-video"),
+		      videoSRCauto = videoSRC + "?modestbranding=1&rel=0&controls=0&showinfo=0&html5=1&autoplay=1";
+		      $(theModal + ' iframe').attr('src', videoSRCauto);
+		      $(theModal + ' button.close').click(function () {
+		        $(theModal + ' iframe').attr('src', videoSRC);
+		      });
+		    });
+		  });
+	</script>
 
 </body>
 </html>

@@ -25,5 +25,4 @@ public class PasswordMD5Hash implements PasswordHash {
 		}
 		return phash;
 	}
-
 }
