@@ -79,7 +79,7 @@
   	<div class="container lightSection team">
 	      	<h1>TEAM</h1><br>
 	<div class = "row">
-		<div class="col-lg-4 col-6">	
+		<div class="col-lg-4 col-4">	
 		<div style="width: 16.2rem;">
 		  <img class="card-img-top" src="images/wilson.jpg" alt="Card image cap">
 		    <br><br>
@@ -87,7 +87,7 @@
 		   	<span>Likes: England <br>Hates: Trump.</span>
 		  </div>
   		</div>
-	  <div class="col-lg-4 col-6">	
+	  <div class="col-lg-4 col-4">	
 		<div style="width: 16rem;">
 		  <img class="card-img-top" src="images/jeremy.jpg" alt="Card image cap">
 		    <br><br>
@@ -95,7 +95,7 @@
 		    <span>Likes: databases. <br>Hates: bagels with no holes.</span>
 		  </div>
   	</div>
- 	 <div class="col-lg-4 col-6">	
+ 	 <div class="col-lg-4 col-4">	
 		<div style="width: 16rem;">
 		  <img class="card-img-top" src="images/tom.jpg" alt="Card image cap">
 		  <br><br>
@@ -237,19 +237,6 @@
 	<script async defer
  	 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu3z8H8wEptTmzLK1unAnBejz0QmTc_h8&callback=initMap">
 	</script>	
-	<script>
-	 $(function() {
-		    $(".video").click(function () {
-		      var theModal = $(this).data("target"),
-		      videoSRC = $(this).attr("data-video"),
-		      videoSRCauto = videoSRC + "?modestbranding=1&rel=0&controls=0&showinfo=0&html5=1&autoplay=1";
-		      $(theModal + ' iframe').attr('src', videoSRCauto);
-		      $(theModal + ' button.close').click(function () {
-		        $(theModal + ' iframe').attr('src', videoSRC);
-		      });
-		    });
-		  });
-	</script>
 
 </body>
 </html>

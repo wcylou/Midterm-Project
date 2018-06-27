@@ -19,7 +19,7 @@
 	 <nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
 			  <a class="navbar-brand" href="index.do">BLINDR</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
+				<i class="fas fa-bars"></i>
 			  </button>
 			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			      <ul class="navbar-nav ml-auto">
@@ -39,7 +39,7 @@
 			<nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
 			  <a class="navbar-brand" href="index.do">BLINDR</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
+				<i class="fas fa-bars"></i>
 			  </button>
 			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			      <ul class="navbar-nav ml-auto">
@@ -79,7 +79,7 @@
 		<nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
 			  <a class="navbar-brand" href="index.do">BLINDR</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
+				<i class="fas fa-bars"></i>
 			  </button>
 			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			      <ul class="navbar-nav ml-auto">
@@ -114,7 +114,7 @@
 			<nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
 			  <a class="navbar-brand" href="index.do">BLINDR</a>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
+				<i class="fas fa-bars"></i>
 			  </button>
 			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			      <ul class="navbar-nav ml-auto">
