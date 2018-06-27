@@ -37,14 +37,14 @@
 			<form:errors path="address2" />
 			<br/>
 			<br/>
-			<form:label path="city">City:</form:label>
-			<form:input path="city" />
-			<form:errors path="city" />
-			<br/>
-			<br/>
 			<form:label path="state">State:</form:label>
 			<form:input path="state" />
 			<form:errors path="state" />
+			<br/>
+			<br/>
+			<form:label path="city">City:</form:label>
+			<form:input path="city" />
+			<form:errors path="city" />
 			<br/>
 			<br/>
 			<form:label path="zipCode">Zip Code:</form:label>
