@@ -21,13 +21,17 @@
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-bars"></i>
 			  </button>
-			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			      <ul class="navbar-nav ml-auto">
 			        <li class="nav-item ml-auto">
-			          <a class="nav-link" href="register.do" data-target=".navbar-collapse.show">Register</a>
+			        	<form action="register.do" method="GET">
+							<button type="submit" class="btn btn-light">Register</button>
+						</form>
 			        </li>
 			        <li class="nav-item ml-auto">
-			          <a class="nav-link " href="login.do" data-target=".navbar-collapse.show">Login</a>
+			            <form action="login.do" method="GET">
+						<button type="submit" class="btn btn-light">Login</button>
+					</form>
 			        </li>
 			      </ul>
 			    </div>
@@ -41,31 +45,47 @@
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-bars"></i>
 			  </button>
-			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			      <ul class="navbar-nav ml-auto">
 			        <li class="nav-item ml-auto">
-			          <a class="nav-link" href="account.do" data-target=".navbar-collapse.show">My Account</a>
+			          <form action="account.do" method="GET">
+							<button type="submit" class="btn btn-light">My Account</button>
+						</form>
 			        </li>
 			          <li class="nav-item ml-auto">
-			          <a class="nav-link " href="updateProfile.do" data-target=".navbar-collapse.show">Update Profile</a>
+			          <form action="updateProfile.do" method="GET">
+							<button type="submit" class="btn btn-light">Update Profile</button>
+						</form>
 			        </li>
 			        <li class="nav-item ml-auto">
-			          <a class="nav-link " href="getProfiles.do" data-target=".navbar-collapse.show">Get Profiles</a>
+			          <form action="getProfiles.do" method="GET">
+							<button type="submit" class="btn btn-light">Get Profiles</button>
+						</form>
 			        </li>
 			        <li class="nav-item ml-auto">
-			          <a class="nav-link " href="getEvents.do" data-target=".navbar-collapse.show">Get Events</a>
+			          <form action="getEvents.do" method="GET">
+							<button type="submit" class="btn btn-light">Get Events</button>
+						</form>
 			        </li>
 			        <li class="nav-item ml-auto">
-			          <a class="nav-link " href="findmatches.do" data-target=".navbar-collapse.show">See Matches</a>
+			          <form action="findmatches.do" method="GET">
+							<button type="submit" class="btn btn-light">See Matches</button>
+						</form>
 			        </li>
 			        <li class="nav-item ml-auto">
-			          <a class="nav-link " href="matchhistory.do" data-target=".navbar-collapse.show">Match History</a>
+			          <form action="matchhistory.do" method="GET">
+							<button type="submit" class="btn btn-light">Match History</button>
+						</form>
 			        </li>
 			         <li class="nav-item ml-auto">
-			          <a class="nav-link " href="inbox.do" data-target=".navbar-collapse.show">Inbox</a>
+			          <form action="inbox.do" method="GET">
+							<button type="submit" class="btn btn-light">Inbox</button>
+						</form>
 			        </li>
 					 <li class="nav-item ml-auto">
-			          <a class="nav-link " href="logout.do" data-target=".navbar-collapse.show">Logout</a>
+			          <form action="logout.do">
+							<button type="submit" class="btn btn-light">Logout</button>
+						</form>
 			        </li>
 			      </ul>
 			    </div>
@@ -81,25 +101,37 @@
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-bars"></i>
 			  </button>
-			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			      <ul class="navbar-nav ml-auto">
 			        <li class="nav-item ml-auto">
-			          <a class="nav-link" href="account.do" data-target=".navbar-collapse.show">My Account</a>
+			          <form action="account.do" method="GET">
+							<button type="submit" class="btn btn-light">My Account</button>
+						</form>
+			        </li>
+			          <li class="nav-item ml-auto">
+			          <form action="updateProfile.do" method="GET">
+							<button type="submit" class="btn btn-light">Update Profile</button>
+						</form>
 			        </li>
 			        <li class="nav-item ml-auto">
-			          <a class="nav-link " href="updateProfile.do" data-target=".navbar-collapse.show">Update Profile</a>
+			          <form action="findmatches.do" method="GET">
+							<button type="submit" class="btn btn-light">See Matches</button>
+						</form>
 			        </li>
 			        <li class="nav-item ml-auto">
-			          <a class="nav-link " href="findmatches.do" data-target=".navbar-collapse.show">See Matches</a>
-			        </li>
-			        <li class="nav-item ml-auto">
-			          <a class="nav-link " href="matchhistory.do" data-target=".navbar-collapse.show">Match History</a>
+			          <form action="matchhistory.do" method="GET">
+							<button type="submit" class="btn btn-light">Match History</button>
+						</form>
 			        </li>
 			         <li class="nav-item ml-auto">
-			          <a class="nav-link " href="inbox.do" data-target=".navbar-collapse.show">Inbox</a>
+			          <form action="inbox.do" method="GET">
+							<button type="submit" class="btn btn-light">Inbox</button>
+						</form>
 			        </li>
-					<li class="nav-item ml-auto">
-			          <a class="nav-link " href="logout.do" data-target=".navbar-collapse.show">Logout</a>
+					 <li class="nav-item ml-auto">
+			          <form action="logout.do">
+							<button type="submit" class="btn btn-light">Logout</button>
+						</form>
 			        </li>
 			      </ul>
 			    </div>
@@ -111,21 +143,29 @@
 	<c:if test="${loggedIn}">
 	<c:if test="${!adminLoggedIn}">
 		<c:if test = "${!profileCreated}">
-			<nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-lg">
+			<nav id = "mainNav" class="navbar navbar-light navbar-static-top fixed-top navbar-expand-md">
 			  <a class="navbar-brand" href="index.do">BLINDR</a>
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+			   aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 				<i class="fas fa-bars"></i>
 			  </button>
 			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			      <ul class="navbar-nav ml-auto">
-			        <li class="nav-item ml-auto">
-			          <a class="nav-link" href="account.do" data-target=".navbar-collapse.show">My Account</a>
+			      
+			      <li class="nav-item ml-auto">
+			          <form action="account.do" method="GET">
+							<button type="submit" class="btn btn-light">My Account</button>
+						</form>
 			        </li>
-			        <li class="nav-item ml-auto">
-			          <a class="nav-link " href="addProfile2.do" data-target=".navbar-collapse.show">Create Profile</a>
+			          <li class="nav-item ml-auto">
+			          <form action="addProfile2.do" method="GET">
+							<button type="submit" class="btn btn-light">Create Profile</button>
+						</form>
 			        </li>
 					 <li class="nav-item ml-auto">
-			          <a class="nav-link " href="logout.do" data-target=".navbar-collapse.show">Logout</a>
+			          <form action="logout.do" method="GET">
+						<button type="submit" class="btn btn-light">Logout</button>
+					</form>
 			        </li>
 			      </ul>
 			    </div>
