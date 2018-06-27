@@ -45,6 +45,7 @@ public class MatchController {
 			System.out.println(profile.getInterests());
 		}
 		mv.setViewName("WEB-INF/viewMatches.jsp");
+		System.out.println(matches);
 		return mv;
 	}
 
@@ -72,6 +73,7 @@ public class MatchController {
 		ModelAndView mv = new ModelAndView();
 		Profile temp = (Profile) session.getAttribute("profile");
 		mv.setViewName("WEB-INF/viewMatchHistory.jsp");
+		System.out.println(mdao.getListMatchesByProfileId(temp.getId()));
 		mv.addObject("matches", mdao.getListMatchesByProfileId(temp.getId()));
 		return mv;
 	}
@@ -103,7 +105,7 @@ public class MatchController {
 
 		List<Message> threadMessages = messdao.viewEntireThread(newMessage.getThreadId());
 		mv.addObject("threadMessages", threadMessages);
-		mv.addObject("partner", partner);
+
 		mv.setViewName("WEB-INF/conversation.jsp");
 		return mv;
 	}
@@ -125,6 +127,7 @@ public class MatchController {
 
 		List<Message> threadMessages = messdao.viewEntireThread(newMessage.getThreadId());
 		mv.addObject("threadMessages", threadMessages);
+		System.out.println(threadMessages.get(0).getSender());
 
 		mv.setViewName("WEB-INF/conversation.jsp");
 		return mv;

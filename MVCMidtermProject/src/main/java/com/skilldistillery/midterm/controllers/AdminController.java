@@ -155,7 +155,7 @@ public class AdminController {
 	public ModelAndView updateProfile(@RequestParam("id") int profileId) {
 		ModelAndView mv = new ModelAndView();
 		User u = udao.getUserFromProfileID(profileId);
-		Profile profile = udao.findProfileById(u.getId());
+		Profile profile = udao.findProfileByProfileId(profileId);
 		ProfileDTO pdto = udao.getProfileDTOfromProfile(profile, u);
 		List<String> interests = Arrays.asList(pdto.getInterests());
 		mv.addObject("profileId", profile.getId());
@@ -170,7 +170,7 @@ public class AdminController {
 	public ModelAndView updateProfileDetails(@RequestParam("id") int profileId, ProfileDTO profiledto) {
 		ModelAndView mv = new ModelAndView();
 		User u = udao.getUserFromProfileID(profileId);
-		Profile profile = udao.findProfileById(u.getId());
+		Profile profile = udao.findProfileByProfileId(profileId);
 		Profile p = udao.getProfilefromProfileDTO(profiledto, u);
 		mv.addObject("profileId", profile.getId());
 		mv.addObject("profileUpdated", profiledto);
