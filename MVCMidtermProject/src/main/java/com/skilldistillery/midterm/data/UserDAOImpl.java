@@ -29,15 +29,6 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	private PasswordMD5Hash md5;
 
-	public static void main(String[] args) {
-		UserDAOImpl udao = new UserDAOImpl();
-		udao.run();
-	}
-
-	private void run() {
-		// System.out.println(em.find(User.class, 1));
-	}
-
 	@Override
 	public User createUser(User user) {
 		em.persist(user);

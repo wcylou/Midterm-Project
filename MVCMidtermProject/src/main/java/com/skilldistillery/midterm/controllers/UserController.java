@@ -80,7 +80,7 @@ public class UserController {
 		User currentUser = getCurrentUserFromSession(session);
 		Profile profile = udao.findProfileById(currentUser.getId());
 		ProfileDTO pdto = udao.getProfileDTOfromProfile(profile, currentUser);
-		List interests = Arrays.asList(pdto.getInterests());
+		List<String> interests = Arrays.asList(pdto.getInterests());
 		mv.addObject("profileId", profile.getId());
 		mv.addObject("profileUpdate", pdto);
 		mv.addObject("interests", interests);

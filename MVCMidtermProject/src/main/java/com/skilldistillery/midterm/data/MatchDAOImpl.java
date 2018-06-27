@@ -22,23 +22,6 @@ public class MatchDAOImpl implements MatchDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-//	public static void main(String[] args) {
-//		MatchDAOImpl dao = new MatchDAOImpl();
-//		dao.test();
-//	}
-//
-//	private void test() {
-//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Midterm");
-//		EntityManager em = emf.createEntityManager();
-//		for (int i = 1; i < 21; i++) {
-//			Profile profile = em.find(Profile.class, i);
-//			List<Profile> matches = findPotentialMatches(profile);
-//			System.out.println(profile.getFirstName() + " " + profile.getLastName());
-//			for (Profile profile2 : matches) {
-//				System.out.println(profile2);
-//			}
-//		}
-//	}
 	@Transactional
 	public Match findEventMatch(Profile profile, Profile partner) {
 		List<Interest> common = new ArrayList<>();
@@ -86,6 +69,7 @@ public class MatchDAOImpl implements MatchDAO {
 		em.persist(match);
 		return match;
 	}
+
 	@Transactional
 	public List<Profile> findPotentialMatches(Profile profile) {
 		List<Interest> profileInterests = profile.getInterests();
@@ -94,42 +78,42 @@ public class MatchDAOImpl implements MatchDAO {
 
 		if (profile.getSexualOrientation() == Sexuality.Heterosexual) {
 			if (profile.getGender() == Gender.Man) {
-				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
-			            "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
-						"AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Woman' AND " +
-			            "p.sexualOrientation != 'Homosexual' AND u.active = 1 AND p.location.state = :state";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON "
+						+ "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max "
+						+ "AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Woman' AND "
+						+ "p.sexualOrientation != 'Homosexual' AND u.active = 1 AND p.location.state = :state";
 			} else {
-				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
-			            "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
-						"AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Man' AND " +
-			            "p.sexualOrientation != 'Homosexual' AND u.active = 1 AND p.location.state = :state";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON "
+						+ "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max "
+						+ "AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Man' AND "
+						+ "p.sexualOrientation != 'Homosexual' AND u.active = 1 AND p.location.state = :state";
 			}
 		} else if (profile.getSexualOrientation() == Sexuality.Homosexual) {
 			if (profile.getGender() == Gender.Man) {
-				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
-			            "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
-						"AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Man' AND " +
-			            "p.sexualOrientation != 'Heterosexual' AND u.active = 1 AND p.location.state = :state";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON "
+						+ "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max "
+						+ "AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Man' AND "
+						+ "p.sexualOrientation != 'Heterosexual' AND u.active = 1 AND p.location.state = :state";
 			} else {
-				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
-			            "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
-						"AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Woman' AND " +
-			            "p.sexualOrientation != 'Heterosexual' AND u.active = 1 AND p.location.state = :state";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON "
+						+ "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max "
+						+ "AND p.minAge <= :age AND p.maxAge >= :age AND p.gender = 'Woman' AND "
+						+ "p.sexualOrientation != 'Heterosexual' AND u.active = 1 AND p.location.state = :state";
 			}
 
 		} else {
 			if (profile.getGender() == Gender.Man) {
-				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
-						"l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
-						"AND p.minAge <= :age AND p.maxAge >= :age AND (p.gender != 'Man' OR " +
-						"p.sexualOrientation != 'Heterosexual') AND (p.gender != 'Woman' OR " +
-						"p.sexualOrientation != 'Homosexual') AND u.active = 1 AND p.location.state = :state";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON "
+						+ "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max "
+						+ "AND p.minAge <= :age AND p.maxAge >= :age AND (p.gender != 'Man' OR "
+						+ "p.sexualOrientation != 'Heterosexual') AND (p.gender != 'Woman' OR "
+						+ "p.sexualOrientation != 'Homosexual') AND u.active = 1 AND p.location.state = :state";
 			} else {
-				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON " +
-						"l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max " +
-						"AND p.minAge <= :age AND p.maxAge >= :age AND (p.gender != 'Woman' OR " +
-						"p.sexualOrientation != 'Heterosexual') AND (p.gender != 'Man' OR " +
-						"p.sexualOrientation != 'Homosexual') AND u.active = 1 AND p.location.state = :state";
+				query = "SELECT p FROM Profile p JOIN User u ON u.id = p.user JOIN Location l ON "
+						+ "l.id = p.location WHERE p.id != :id AND p.age >= :min AND p.age <= :max "
+						+ "AND p.minAge <= :age AND p.maxAge >= :age AND (p.gender != 'Woman' OR "
+						+ "p.sexualOrientation != 'Heterosexual') AND (p.gender != 'Man' OR "
+						+ "p.sexualOrientation != 'Homosexual') AND u.active = 1 AND p.location.state = :state";
 
 			}
 
@@ -137,7 +121,8 @@ public class MatchDAOImpl implements MatchDAO {
 
 		List<Profile> partners = em.createQuery(query, Profile.class).setParameter("id", profile.getId())
 				.setParameter("min", profile.getMinAge()).setParameter("max", profile.getMaxAge())
-				.setParameter("age", profile.getAge()).setParameter("state", profile.getLocation().getState()).getResultList();
+				.setParameter("age", profile.getAge()).setParameter("state", profile.getLocation().getState())
+				.getResultList();
 		if (partners.size() != 0) {
 			for (int i = 0; i < partners.size(); i++) {
 				List<Interest> partnerInterests = partners.get(i).getInterests();
@@ -165,7 +150,7 @@ public class MatchDAOImpl implements MatchDAO {
 		}
 		return new ArrayList<>();
 	}
-	
+
 	@Override
 	public Profile getMatchesById(int id) {
 		String query = "SELECT p FROM Profile p JOIN FETCH p.matches WHERE p.id = :id";
@@ -176,13 +161,13 @@ public class MatchDAOImpl implements MatchDAO {
 			return em.find(Profile.class, id);
 		}
 	}
-	
+
 	@Override
 	public List<Match> getListMatchesByProfileId(int id) {
 		String query = "SELECT m FROM Match m WHERE m.profile.id = :id";
 		try {
-		 return em.createQuery(query, Match.class).setParameter("id", id).getResultList();
-		} catch(Exception e) {
+			return em.createQuery(query, Match.class).setParameter("id", id).getResultList();
+		} catch (Exception e) {
 			return new ArrayList<Match>();
 		}
 	}

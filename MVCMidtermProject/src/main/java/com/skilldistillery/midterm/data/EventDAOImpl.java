@@ -22,10 +22,10 @@ import com.skilldistillery.midterm.entities.Location;
 @Transactional
 @Component
 public class EventDAOImpl implements EventDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Autowired
 	private UserDAO udao;
 
@@ -79,13 +79,14 @@ public class EventDAOImpl implements EventDAO {
 		l.setCity(dto.getCity());
 		l.setState(dto.getState());
 		l.setZipCode(dto.getZipCode());
-		
+
 		e.setLocation(l);
 		em.persist(e);
 		em.flush();
 
 		return e;
 	}
+
 	@Override
 	public Event updateEventAndLocation(EventDTO dto, int id) {
 		Event managed = em.find(Event.class, id);
@@ -99,8 +100,8 @@ public class EventDAOImpl implements EventDAO {
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
-		managed.setDate(inputDate);			
-		
+		managed.setDate(inputDate);
+
 		for (String interest : dto.getInterests()) {
 			Interest i = udao.getInterestObject(interest);
 			managed.addInterest(i);
@@ -110,19 +111,19 @@ public class EventDAOImpl implements EventDAO {
 		l.setCity(dto.getCity());
 		l.setState(dto.getState());
 		l.setZipCode(dto.getZipCode());
-		
+
 		managed.setLocation(l);
 
 		return managed;
-		
+
 	}
-	
+
 	@Override
 	public EventDTO getEventDTOFromEventAndLocation(Event event, Location location) {
 		EventDTO dto = new EventDTO();
 		dto.setName(event.getName());
 		dto.setDescription(event.getDescription());
-	
+
 		int arraySize = event.getInterests().size();
 		List<String> listStrings = new ArrayList<>();
 		for (Interest interest : event.getInterests()) {
@@ -135,11 +136,10 @@ public class EventDAOImpl implements EventDAO {
 		dto.setCity(location.getCity());
 		dto.setState(location.getState());
 		dto.setZipCode(location.getZipCode());
-		
+
 		return dto;
 	}
-	
-	
+
 	@Override
 	public List<Event> index() {
 		String queryString = "SELECT e FROM Event e";

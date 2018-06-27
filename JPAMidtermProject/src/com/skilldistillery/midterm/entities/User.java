@@ -16,14 +16,14 @@ public class User {
 	private String password;
 	private boolean access;
 	@ManyToOne
-	@JoinColumn(name="membership_id")
+	@JoinColumn(name = "membership_id")
 	private Membership membership;
 	private boolean active;
 	private String email;
-	
+
 	public User() {
 	}
-	
+
 	public User(int id, String username, String password, boolean access, Membership membership, boolean active,
 			String email) {
 		super();
@@ -36,47 +36,59 @@ public class User {
 		this.email = email;
 	}
 
-	//gets and sets
+	// gets and sets
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public boolean getAccess() {
 		return access;
 	}
+
 	public void setAccess(boolean access) {
 		this.access = access;
 	}
-	
+
 	public Membership getMembership() {
 		return membership;
 	}
+
 	public void setMembership(Membership membership) {
 		this.membership = membership;
 	}
+
 	public boolean getActive() {
 		return active;
 	}
+
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -95,7 +107,5 @@ public class User {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
-	
+
 }
