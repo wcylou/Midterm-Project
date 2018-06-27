@@ -95,7 +95,7 @@ public class AdminController {
 		Location l = e.getLocation();
 		EventDTO dto = edao.getEventDTOFromEventAndLocation(e, l);
 		System.out.println(dto.getDate());
-		List interests = Arrays.asList(dto.getInterests());
+		List<String> interests = Arrays.asList(dto.getInterests());
 		mv.addObject("interests", interests);
 		mv.addObject("dto", dto);
 		mv.addObject("id", e.getId());
@@ -108,9 +108,6 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView();
 		
 		Event event = edao.updateEventAndLocation(dto, eventId);
-		System.out.println("**************");
-		System.out.println(event.getName());
-		
 		redir.addFlashAttribute("event", event);
 		mv.setViewName("redirect:eventCreated.do");
 
@@ -128,7 +125,6 @@ public class AdminController {
 		return mv;
 	}
 	
-	
 	//profile mapping
 	@RequestMapping(path = "getProfiles.do", method = RequestMethod.GET)
 	public ModelAndView profileIndex() {
@@ -145,7 +141,7 @@ public class AdminController {
 		User u = udao.getUserFromProfileID(profileId);
 		Profile profile = udao.findProfileByProfileId(profileId);
 		ProfileDTO pdto = udao.getProfileDTOfromProfile(profile, u);
-		List interests = Arrays.asList(pdto.getInterests());
+		List<String> interests = Arrays.asList(pdto.getInterests());
 		mv.addObject("profileId", profile.getId());
 		mv.addObject("profile", pdto);
 		mv.addObject("interests", interests);
@@ -161,7 +157,7 @@ public class AdminController {
 		User u = udao.getUserFromProfileID(profileId);
 		Profile profile = udao.findProfileById(u.getId());
 		ProfileDTO pdto = udao.getProfileDTOfromProfile(profile, u);
-		List interests = Arrays.asList(pdto.getInterests());
+		List<String> interests = Arrays.asList(pdto.getInterests());
 		mv.addObject("profileId", profile.getId());
 		mv.addObject("profileUpdate", pdto);
 		mv.addObject("interests", interests);

@@ -20,7 +20,7 @@ public class LoginDAOImpl implements LoginDAO {
 
 	@Override
 	public User getUserByUserNameAndPassword(String username, String password) {
-	    User u = null;
+		User u = null;
 		String query2 = "SELECT u FROM User u";
 		List<User> users = em.createQuery(query2, User.class).getResultList();
 		for (User user : users) {
@@ -31,14 +31,14 @@ public class LoginDAOImpl implements LoginDAO {
 		}
 		return u;
 	}
-	
+
 	@Override
 	public User createUser(User user) {
 		user.setMembership(em.find(Membership.class, 1));
 		em.persist(user);
 		return user;
 	}
-	
+
 	@Override
 	public User updateUser(User user, int userId) {
 		User managed = em.find(User.class, userId);
@@ -50,5 +50,5 @@ public class LoginDAOImpl implements LoginDAO {
 		managed.setMembership(em.find(Membership.class, 1));
 		return managed;
 	}
-	
+
 }
