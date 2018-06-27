@@ -120,11 +120,11 @@ html {
 	min-height: 720px;
 	background-size: cover;
 	color: black;
+	text-align:center;
 }
 
 .banner h1 {
 	padding-top: 2em;
-	padding-left: 4em;
 	font-size: 5em;
 	color: firebrick;
 	text-shadow: 4px 4px 2px gray;
@@ -405,11 +405,10 @@ button[type="submit"]:hover, input[type="button"]:hover {
 #team {
 	padding-left: 6.2em;
 	padding-right: 4em;
-	padding-top:50px;
 }
 
-#team p {
-	color:firebrick;
+.team p {
+	color:white;
 	font-size:1.4em;
 	font-weight:bold;
 }
