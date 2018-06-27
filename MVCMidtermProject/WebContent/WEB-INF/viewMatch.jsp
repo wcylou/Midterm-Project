@@ -47,9 +47,8 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 				</tr>
 		</tbody>
 	</table>
-    <br>
-          <div id="map-canvas"></div>
-          <input type="hidden" id="address" value="${match.event.location.address}, ${match.event.location.state}, ${match.event.location.city}">
+       <div id="map-canvas"></div>
+          <input type="hidden" id="address" value="${match.event.location.address}, ${match.event.location.city}, ${match.event.location.state}">
 </div>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

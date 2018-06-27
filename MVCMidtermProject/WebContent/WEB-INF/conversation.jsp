@@ -39,8 +39,6 @@
  							<span class="senderMessage">
 							<span class = "dateSent"><c:out value="${m.dateSent}"/></span><br>
 							<c:out value="${m.messageText}"/>
-   										<!--  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-   										 Integer mollis dui felis, vel vehicula tortor cursus nec</div> -->
 							</span>
  							</c:if>
  				</div>

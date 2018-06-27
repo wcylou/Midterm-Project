@@ -55,7 +55,7 @@
 			<form:input type="date" path="date" />
 			<form:errors path="date" />
 			<br/>
-			<!-- Interests<br>
+			Interests<br>
 			Food &nbsp&nbsp<input type="checkbox" id="Food" name="interests" value="Food" />
 		    Music&nbsp&nbsp<input type="checkbox" id="Music" name="interests" value="Music" />
 		    Tattoo&nbsp&nbsp<input type="checkbox" id="Tattoo" name="interests" value="Tattoo" /> 
@@ -63,7 +63,7 @@
 		    Children&nbsp&nbsp<input type="checkbox" id="Children" name="interests" value="Children" /> 
 		    Health&nbsp&nbsp<input type="checkbox" id="Health" name="interests" value="Health" />
 		    Sports&nbsp&nbsp<input type="checkbox" id="Sports" name="interests" value="Sports" />
-		    Comedy&nbsp&nbsp<input type="checkbox" id="Comedy" name="interests" value="Comedy" /> -->
+		    Comedy&nbsp&nbsp<input type="checkbox" id="Comedy" name="interests" value="Comedy" />
 			<button type="submit" class="btn btn-light">Add</button>
 			</form:form>
 	</div>

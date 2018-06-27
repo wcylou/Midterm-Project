@@ -30,6 +30,9 @@
           <a class="nav-link" href="#instagramFeed" data-toggle="collapse" data-target=".navbar-collapse.show">Instagram</i></a>
         </li>
         <li class="nav-item ml-auto">
+          <a class="nav-link" href="#team" data-toggle="collapse" data-target=".navbar-collapse.show">Team</i></a>
+        </li>
+        <li class="nav-item ml-auto">
           <a class="nav-link " href="#pricing" data-toggle="collapse" data-target=".navbar-collapse.show">Pricing</a>
         </li>
         <li class="nav-item ml-auto">
@@ -102,6 +105,38 @@
 				</div> 
 			</div>
 	</section>
+	
+	<section id ="team">
+	<div class="container lightSection">
+	      	<h1>TEAM</h1><br>
+	<div class = "row">
+		<div class="col-lg-4 col-6">	
+		<div style="width: 16rem;">
+		  <img class="card-img-top" src="..." alt="Card image cap">
+		    <br><br>
+		    <p class="card-text">WILSON LOU</p>
+		    <span></span>
+		  </div>
+  </div>
+	  <div class="col-lg-4 col-6">	
+		<div style="width: 16rem;">
+		  <img class="card-img-top" src="..." alt="Card image cap">
+		    <br><br>
+		    <p class="card-text">JEREMY BOTTA</p>
+		    <span>Likes: databases. Hates: bagels with no holes.</span>
+		  </div>
+  </div>
+  <div class="col-lg-4 col-6">	
+		<div style="width: 16rem;">
+		  <img class="card-img-top" src="..." alt="Card image cap">
+		  <br><br>
+		    <p class="card-text">THOMAS BRODERICK</p>
+		    <span></span>
+		  </div>
+  	</div>
+	</div>
+	</div>
+</section>
    	
   <section id="pricing">
     <div class="container lightSection">
@@ -171,7 +206,7 @@
    				<i class="far fa-envelope fa-2x"></i>
    			</div><br>
    			<h4>Email Us</h4>
-   			<p>dating@gmail.com</p>
+   			<p>findlove@blindr.com</p>
    		</div>
    		<div class="col-sm-4">
    			<div class="icon">

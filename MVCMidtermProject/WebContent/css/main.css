@@ -80,13 +80,13 @@ html {
 	color: rgba(255, 255, 255, 0.5);
 }
 
-#aboutUs, #pricing, #contact, #instagramFeed {
+#aboutUs, #pricing, #contact, #instagramFeed, #team {
 	padding-top: 30px;
 }
 
 #aboutUs {
-	background-color:firebrick;
-	color:white;
+	background-color: firebrick;
+	color: white;
 }
 
 /*Navbar */
@@ -123,11 +123,11 @@ html {
 }
 
 .banner h1 {
-	padding-top:2em;
-	padding-left:4em;
-	font-size:5em;
-	color:firebrick;
-  	text-shadow:4px 4px 2px gray;
+	padding-top: 2em;
+	padding-left: 4em;
+	font-size: 5em;
+	color: firebrick;
+	text-shadow: 4px 4px 2px gray;
 }
 
 /* stats */
@@ -253,8 +253,9 @@ html {
 }
 
 .formInput input[type="text"], .formInput input[type="date"], .formInput input[type="datetime"],
-	.formInput input[type="email"], .formInput input[type="number"], .formInput input[type="password"],
-	.formInput textarea, .formInput select {
+	.formInput input[type="email"], .formInput input[type="number"],
+	.formInput input[type="password"], .formInput textarea, .formInput select
+	{
 	-webkit-transition: all 0.30s ease-in-out;
 	-moz-transition: all 0.30s ease-in-out;
 	-ms-transition: all 0.30s ease-in-out;
@@ -274,8 +275,8 @@ html {
 
 .formInput input[type="text"]:focus, .formInput input[type="date"]:focus,
 	.formInput input[type="datetime"]:focus, .formInput input[type="email"]:focus,
-	.formInput input[type="number"]:focus, .formInput textarea:focus, .formInput input[type="password"]:focus,
-	.formInput select:focus {
+	.formInput input[type="number"]:focus, .formInput textarea:focus,
+	.formInput input[type="password"]:focus, .formInput select:focus {
 	box-shadow: 0 0 5px black;
 	padding: 3%;
 	border: 2px solid black;
@@ -320,65 +321,104 @@ button[type="submit"]:hover, input[type="button"]:hover {
 }
 
 #floating-panel {
-		margin-top:400px;
-        position: absolute;
-        top: 10px;
-        left: 25%;
-        z-index: 5;
-        background-color: firebrick;
-        padding: 5px;
-        border: 1px solid #999;
-        text-align: center;
-        line-height: 20px;
-        padding-left: 10px;
-        font-size:10px;
+	margin-top: 400px;
+	position: absolute;
+	top: 10px;
+	left: 25%;
+	z-index: 5;
+	background-color: firebrick;
+	padding: 5px;
+	border: 1px solid #999;
+	text-align: center;
+	line-height: 20px;
+	padding-left: 10px;
+	font-size: 10px;
 }
 
 .senderMessage {
-	float:right;
-	border:2px solid black;
-	height:100px;
-	width:250px;
-	background-color:firebrick;
-	color:white;
+	float: right;
+	border: 2px solid black;
+	height: 100px;
+	width: 280px;
+	background-color: firebrick;
+	color: white;
 	border-radius: 25px;
-	padding:4px;
+	padding: 4px;
 }
 
 .recipientMessage {
-	float:left;
-	border:2px solid black;
-	height:100px;
-	width:250px;
-	background-color:firebrick;
-	color:white;
+	float: left;
+	border: 2px solid black;
+	height: 100px;
+	width: 280px;
+	background-color: firebrick;
+	color: white;
 	border-radius: 25px;
-	padding:4px;
+	padding: 4px;
+	
 }
 
 .senderMessage2 {
-	display:block;
-	margin-top:15px;
+	display: block;
+	margin-top: 15px;
 }
 
-.recipientMessage2 { 
-	display:block;
-	margin-top:15px;
+.recipientMessage2 {
+	display: block;
+	margin-top: 15px;
 }
 
 .dateSent {
-	color:black;
-	font-style:italic;
-	font-size:12px; 
+	color: black;
+	font-style: italic;
+	font-size: 12px;
 }
 
 .messageContent {
-	padding-left:10em;
-	padding-right:10em;
+	padding-left: 10em;
+	padding-right: 10em;
 }
 
 #map-canvas {
-    justify-content: center;
-	height: 300px; /* The height is 400 pixels */
-	width: 100%; /* The width is the width of the web page */
+	justify-content: center;
+	height: 300px;
+	width: 100%;
+}
+
+#street-view {
+	justify-content: center;
+	height: 300px;
+	width: 100%;
+}
+
+#mapDistance {
+	justify-content: center;
+	height: 300px;
+	width: 100%;
+}
+
+.card-text {
+	text-align:center;
+	
+}
+
+#team {
+	padding-left: 6.2em;
+	padding-right: 4em;
+	padding-top:50px;
+}
+
+#team p {
+	color:firebrick;
+	font-size:1.4em;
+	font-weight:bold;
+}
+
+.card {
+	border
+}
+
+.card-img-top {
+	border-radius:50%;
+	border: 2px solid firebrick;
 }
