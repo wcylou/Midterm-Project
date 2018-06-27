@@ -20,3 +20,7 @@ We use a Tomcat server running on the Amazon Web Services platform to host the a
 Upon loading, the user is prompted to Register and creates their own user name and password.  The user is then able to create a profile, similar to those on a dating site and then can view their "matches" which are other profiles in the system.  Upon choosing a match, the application assigns an event based on the interests selected in the two profiles.  The user can then send and receive messages from their matches which are displayed in their inbox.  
 
 ### Challenges and Lessons Learned
+* Value of pair programming and group communication
+* Importance of project planning and agile methodology using a tool like Trello
+* Incorporating external API's to add functionality
+* Utilizing individual strengths, while ensuring that all group members understand the entire code base
