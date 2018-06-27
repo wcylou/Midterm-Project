@@ -64,13 +64,14 @@
 			<form:input path="address2" />
 			<form:errors path="address2" />
 			<br>
-			<form:label path="state">State: </form:label>
-			<form:input path="state" />
-			<form:errors path="state" />
-			<br>
 			<form:label path="city">City: </form:label>
 			<form:input path="city" />
 			<form:errors path="city" />
+			<br>
+			State:
+			<select  name="state">
+				<option value="Colorado">CO</option>
+			</select>
 			<br>
 			<form:label path="zipCode">Zip Code: </form:label>
 			<form:input path="zipCode" />

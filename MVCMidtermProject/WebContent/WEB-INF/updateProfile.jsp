@@ -70,7 +70,9 @@
 				</tr>
 				<tr>
 					<td><span class = "headings">State:  </span></td>
-					<td><input type="text" name="state" value="${profileUpdate.state}"/></td>
+					<td><select name = "state">
+						<option value="Colorado">CO</option>
+						</select></td>
 				</tr>
 				<tr>
 					<td>  <span class = "headings">City: </span></td>
