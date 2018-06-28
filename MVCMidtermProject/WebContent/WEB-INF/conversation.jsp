@@ -37,7 +37,7 @@
 						<br>
 							<c:if test="${m.sender.id == profile.id }">
  							<span class="senderMessage">
-							<span class = "dateSent"><c:out value="${m.dateSent}"/></span><br>
+							<span class = "dateSent"><c:out value="${m.sender.firstName}"/> : <c:out value="${m.dateSent}"/></span><br>
 							<c:out value="${m.messageText}"/>
 							</span>
  							</c:if>
@@ -46,8 +46,8 @@
 	 						<br>
 							<c:if test="${m.sender.id != profile.id }">
 							<span class="recipientMessage">
-								<span class = "dateSent"><c:out value="${m.dateSent}"/></span><br>
-								 <c:out value= "${m.messageText}"/>
+							<span class = "dateSent"><c:out value="${m.sender.firstName}"/> : <c:out value="${m.dateSent}"/></span><br>
+							<c:out value= "${m.messageText}"/>
 							</span>
 							</c:if>
 							<br>

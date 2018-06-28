@@ -100,7 +100,7 @@
 		  <img class="card-img-top" src="images/tom.jpg" alt="Card image cap">
 		  <br><br>
 		    <p class="card-text">THOMAS BRODERICK</p>
-		    <span>Likes: sleeping.<br> Hates: uncooked chicken.</span>
+		    <span>Likes: Brazilian Jiu-Jitsu.<br> Hates: traffic.</span>
 		  </div>
   	</div>
 	</div>

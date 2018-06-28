@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <title>Update Profile</title>
 </head>
-<body class = "standardLayout">
+<body class = "standardLayout updateProfile">
 <div class = "container">
 <%@ include file="nav.jsp" %>
 
@@ -26,6 +26,9 @@
 			</tr>
 		</thead>
 		<tbody id = "table" >
+				<tr>
+					<td colspan="2"><img src="${profileUpdate.pictureUrl}"/> </td>
+				</tr>
 				<tr>
 					<td><span class = "headings">Profile ID: </span> </td>
 					<td> <input type= "text" name="id" value="${profileId}" readonly/></td>
@@ -70,7 +73,9 @@
 				</tr>
 				<tr>
 					<td><span class = "headings">State:  </span></td>
-					<td><input type="text" name="state" value="${profileUpdate.state}"/></td>
+					<td><select name = "state">
+						<option value="Colorado">CO</option>
+						</select></td>
 				</tr>
 				<tr>
 					<td>  <span class = "headings">City: </span></td>
