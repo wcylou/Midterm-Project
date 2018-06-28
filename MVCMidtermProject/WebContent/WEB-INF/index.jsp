@@ -84,7 +84,7 @@
 		  <img class="card-img-top" src="images/wilson.jpg" alt="Card image cap">
 		    <br><br>
 		    <p class="card-text">WILSON LOU</p>
-		   	<span>Likes: England <br>Hates: Trump.</span>
+		   	<span>Likes: Football <br>Hates: People who call football "soccer."</span>
 		  </div>
   		</div>
 	  <div class="col-lg-4 col-4">	
