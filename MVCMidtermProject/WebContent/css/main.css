@@ -45,6 +45,7 @@ table {
 	text-align: center;
 }
 
+/* Section formatting */
 html {
 	font-size: 1em;
 	font-family: 'Poppins', sans-serif;
@@ -89,6 +90,11 @@ html {
 	color: white;
 }
 
+#team {
+	padding-left: 6.2em;
+	padding-right: 4em;
+}
+
 /*Navbar */
 #mainNav {
 	background-color: firebrick;
@@ -112,6 +118,24 @@ html {
 	color: silver;
 }
 
+#mainNav button {
+	background-color: Transparent;
+	background-repeat: no-repeat;
+	border: none;
+	cursor: pointer;
+	overflow: hidden;
+	outline: none;
+	color: white;
+	margin-top: 1.7px;
+	text-transform: uppercase;
+	font-size: 1em;
+}
+
+#mainNav button:hover {
+	border: 2px solid white;
+	color: silver;
+}
+
 /* Landing Banner */
 .banner {
 	background: url(../images/banner.jpg);
@@ -131,26 +155,27 @@ html {
 }
 
 .modal-dialog {
-      max-width: 800px;
-      margin: 30px auto;
-  }
+	max-width: 800px;
+	margin: 30px auto;
+}
 
 .modal-body {
-  position:relative;
-  padding:0px;
-}
-.close {
-  position:absolute;
-  right:-30px;
-  top:0;
-  z-index:999;
-  font-size:2rem;
-  font-weight: normal;
-  color:#fff;
-  opacity:1;
+	position: relative;
+	padding: 0px;
 }
 
-/* stats */
+.close {
+	position: absolute;
+	right: -30px;
+	top: 0;
+	z-index: 999;
+	font-size: 2rem;
+	font-weight: normal;
+	color: #fff;
+	opacity: 1;
+}
+
+/* Stats Section */
 #stats {
 	background: firebrick;
 	padding-top: 7.2rem;
@@ -177,6 +202,12 @@ html {
 
 #stats .stat-title {
 	color: rgba(255, 255, 255, 0.5);
+}
+
+/* Instagram */
+.instagram2 {
+	padding-top: 50px;
+	padding-left: 100px;
 }
 
 /* Pricing */
@@ -212,20 +243,57 @@ html {
 	background-color: #D9D919;
 }
 
-/* End Pricing */
 /* Contact us */
 .contact-us {
 	text-align: center;
 	color: gray;
 }
 
+/*Team */
+
+.card-text {
+	text-align: center;
+}
+
+.team p {
+	color: white;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+.card-img-top {
+	border-radius: 50%;
+}
+
+/*Google maps API*/
 #map {
 	justify-content: center;
 	height: 300px; /* The height is 400 pixels */
 	width: 100%; /* The width is the width of the web page */
 }
 
-/*register.jsp*/
+#map-canvas {
+	justify-content: center;
+	height: 300px;
+	width: 100%;
+}
+
+#floating-panel {
+	margin-top: 400px;
+	position: absolute;
+	top: 10px;
+	left: 25%;
+	z-index: 5;
+	background-color: firebrick;
+	padding: 5px;
+	border: 1px solid #999;
+	text-align: center;
+	line-height: 20px;
+	padding-left: 10px;
+	font-size: 10px;
+}
+
+/* Register */
 .standardLayout {
 	background: lightgray !important;
 	padding-bottom: 3em;
@@ -324,7 +392,8 @@ button[type="submit"]:hover, input[type="button"]:hover {
 	background: black;
 	color: white;
 }
-/*Display profile/user information*/
+
+/*Display profile and user information*/
 .displayInformation {
 	padding-top: 2em;
 	max-width: 768px
@@ -335,26 +404,18 @@ button[type="submit"]:hover, input[type="button"]:hover {
 	width: 200px;
 }
 
-.instagram2 {
-	padding-top: 50px;
-	padding-left: 100px;
+.viewMatches img {
+	border-radius: 50%;
 }
 
-#floating-panel {
-	margin-top: 400px;
-	position: absolute;
-	top: 10px;
-	left: 25%;
-	z-index: 5;
-	background-color: firebrick;
-	padding: 5px;
-	border: 1px solid #999;
-	text-align: center;
-	line-height: 20px;
-	padding-left: 10px;
-	font-size: 10px;
+.updateProfile img {
+	height: 200px;
+	width: 200px;
+	border: 2px solid firebrick;
+	border-radius: 50%;
 }
 
+/* Messaging */
 .senderMessage {
 	float: right;
 	border: 2px solid black;
@@ -398,77 +459,6 @@ button[type="submit"]:hover, input[type="button"]:hover {
 	padding-right: 10em;
 }
 
-#map-canvas {
-	justify-content: center;
-	height: 300px;
-	width: 100%;
-}
-
-#street-view {
-	justify-content: center;
-	height: 300px;
-	width: 100%;
-}
-
-#mapDistance {
-	justify-content: center;
-	height: 300px;
-	width: 100%;
-}
-
-.card-text {
-	text-align: center;
-}
-
-#team {
-	padding-left: 6.2em;
-	padding-right: 4em;
-}
-
-.team p {
-	color: white;
-	font-size: 1.4em;
-	font-weight: bold;
-}
-
-.card {border
-	
-}
-
-.card-img-top {
-	border-radius: 50%;
-	border: 2px solid firebrick;
-}
-
-.viewMatches img {
-	border-radius:50%;
-}
-
-#mainNav button {
-	background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-    color:white;
-    margin-top:1.7px;
-    text-transform:uppercase;
-    font-size:1em;
-}
-
-#mainNav button:hover {
-	border: 2px solid white;
-	color: silver;
-}
-
 .nameMessage {
-	font-size:0.6em;
-}
-
-.updateProfile img {
-	height: 200px;
-	width: 200px;
-	border: 2px solid firebrick;
-	border-radius: 50%;
+	font-size: 0.6em;
 }

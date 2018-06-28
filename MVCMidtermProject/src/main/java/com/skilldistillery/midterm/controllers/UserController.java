@@ -95,7 +95,6 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		User currentUser = (User) session.getAttribute("user");
 		Profile current = getCurrentProfileFromSession(session);
-		System.out.println(currentUser);
 		Profile p = udao.getProfilefromProfileDTO(profiledto, currentUser);
 		mv.addObject("profileId", current.getId());
 		mv.addObject("profileUpdated", profiledto);
