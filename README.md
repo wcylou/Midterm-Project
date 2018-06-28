@@ -2,7 +2,7 @@
 ## Week 9 Group Project - Skill Distillery
 ### Wilson Lou, Thomas Broderick, and Jeremy Botta
 
-## Blindr is a Full Stack Web Application that simulates a dating site.
+#### Blindr is a Full Stack Web Application that simulates a dating site.
 
 ### Overview
 - The application contains an original MySQL database schema with multiple cross-linked tables.
