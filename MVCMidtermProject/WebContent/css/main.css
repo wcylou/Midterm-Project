@@ -461,3 +461,14 @@ button[type="submit"]:hover, input[type="button"]:hover {
 	border: 2px solid white;
 	color: silver;
 }
+
+.nameMessage {
+	font-size:0.6em;
+}
+
+.updateProfile img {
+	height: 200px;
+	width: 200px;
+	border: 2px solid firebrick;
+	border-radius: 50%;
+}

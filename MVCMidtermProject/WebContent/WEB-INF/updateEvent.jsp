@@ -73,7 +73,7 @@
          America&nbsp<input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('America')}">CHECKED</c:if> /><br>
          Children&nbsp<input type="checkbox" name="interests" value="Children" <c:if test="${interests.contains('Children')}">CHECKED</c:if> />
          Health&nbsp<input type="checkbox" name="interests" value="Health" <c:if test="${interests.contains('Health')}">CHECKED</c:if> />
-         Sports&nbsp<input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('Sports')}">CHECKED</c:if> />
+         Sports&nbsp<input type="checkbox" name="interests" value="Sports" <c:if test="${interests.contains('Sports')}">CHECKED</c:if> />
          Comedy&nbsp<input type="checkbox" name="interests" value="Comedy" <c:if test="${interests.contains('Comedy')}">CHECKED</c:if> />
          </td>
 				</tr>

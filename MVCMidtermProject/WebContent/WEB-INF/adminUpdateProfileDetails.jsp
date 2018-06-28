@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <title>Profile Details</title>
 </head>
-<body class="profileBody standardLayout">
+<body class="profileBody standardLayout updateProfile">
 <%@ include file="nav.jsp" %>
 	<div class="container">
 		<table class="table table-striped table-light table-hover">
@@ -25,6 +25,9 @@
 			</tr>
 		</thead>
 		<tbody id = "table" >
+				<tr>
+					<td colspan="2"><img src="${profile.pictureUrl}"/> </td>
+				</tr>
 				<tr>
 					<td><span class = "headings">Profile ID: </span> </td>
 					<td> <c:out value="${profileId}" /></td>

@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <title>Profile Details</title>
 </head>
-<body class = "standardLayout">
+<body class = "standardLayout updateProfile">
 <%@ include file="nav.jsp" %>
 
 	<div class="container">
@@ -25,6 +25,9 @@
 			</tr>
 		</thead>
 		<tbody id = "table" >
+				<tr>
+					<td colspan="2"><img src="${profileUpdated.pictureUrl}"/> </td>
+				</tr>
 				<tr>
 					<td><span class = "headings">Profile ID: </span> </td>
 					<td> <c:out value="${profileId}" /></td>
