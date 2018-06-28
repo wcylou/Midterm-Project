@@ -24,7 +24,7 @@ Search&nbsp<input type="text" id="search" placeholder="Type to search">
 			<tr>
 				<th scope="col">Match Name</th>
 				<th scope="col">Event</th>
-				<th scope="col">Time</th>
+				<th scope="col">Date</th>
 			</tr>
 		</thead>
 		<tbody id = "table" >
