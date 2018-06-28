@@ -26,7 +26,7 @@
 		</thead>
 		<tbody id = "table" >
 				<tr>
-					<td colspan="2"><img src="${profile.pictureUrl}"/> </td>
+					<td colspan="2"><img src="${profiles.pictureUrl}"/> </td>
 				</tr>
 				<tr>
 					<td><span class = "headings">Profile ID: </span> </td>

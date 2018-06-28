@@ -93,9 +93,6 @@ public class MatchController {
 		ModelAndView mv = new ModelAndView();
 		Profile partner = udao.findProfileByProfileId(matchId);
 		Profile temp = (Profile) session.getAttribute("profile");
-		System.out.println(temp);
-		System.out.println(partner);
-
 		Message newMessage = new Message();
 		newMessage.setDateSent(new Date());
 		newMessage.setMessageText(messageText);
@@ -127,8 +124,6 @@ public class MatchController {
 
 		List<Message> threadMessages = messdao.viewEntireThread(newMessage.getThreadId());
 		mv.addObject("threadMessages", threadMessages);
-		System.out.println(threadMessages.get(0).getSender());
-
 		mv.setViewName("WEB-INF/conversation.jsp");
 		return mv;
 	}
