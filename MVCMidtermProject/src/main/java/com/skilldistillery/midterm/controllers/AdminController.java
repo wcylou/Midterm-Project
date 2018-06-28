@@ -94,7 +94,6 @@ public class AdminController {
 		Event e = edao.getEventById(eventId);
 		Location l = e.getLocation();
 		EventDTO dto = edao.getEventDTOFromEventAndLocation(e, l);
-		System.out.println(dto.getDate());
 		List<String> interests = Arrays.asList(dto.getInterests());
 		mv.addObject("interests", interests);
 		mv.addObject("dto", dto);

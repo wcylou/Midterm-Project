@@ -25,7 +25,7 @@ public class Event {
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "location_id")
 	private Location location;
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 	private String description;
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })

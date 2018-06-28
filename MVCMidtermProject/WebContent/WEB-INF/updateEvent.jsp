@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -62,7 +63,7 @@
 				</tr>
 				<tr>
 					<td><span class = "headings">Date: </span></td>
-					<td><input type="date" name="date" value="${dto.date}"/></td>
+					<td><input type="datetime-local" name="date" value="${dto.date}"/></td>
 				</tr>
 				<tr>
 					<td> <span class = "headings">Interests: </span></td>
@@ -73,7 +74,7 @@
          America&nbsp<input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('America')}">CHECKED</c:if> /><br>
          Children&nbsp<input type="checkbox" name="interests" value="Children" <c:if test="${interests.contains('Children')}">CHECKED</c:if> />
          Health&nbsp<input type="checkbox" name="interests" value="Health" <c:if test="${interests.contains('Health')}">CHECKED</c:if> />
-         Sports&nbsp<input type="checkbox" name="interests" value="America" <c:if test="${interests.contains('Sports')}">CHECKED</c:if> />
+         Sports&nbsp<input type="checkbox" name="interests" value="Sports" <c:if test="${interests.contains('Sports')}">CHECKED</c:if> />
          Comedy&nbsp<input type="checkbox" name="interests" value="Comedy" <c:if test="${interests.contains('Comedy')}">CHECKED</c:if> />
          </td>
 				</tr>
