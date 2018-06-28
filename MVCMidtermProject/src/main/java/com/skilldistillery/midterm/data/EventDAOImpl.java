@@ -93,7 +93,7 @@ public class EventDAOImpl implements EventDAO {
 		Location l = managed.getLocation();
 		managed.setName(dto.getName());
 		managed.setDescription(dto.getDescription());
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
 		Date inputDate = null;
 		try {
 			inputDate = format.parse(dto.getDate());
