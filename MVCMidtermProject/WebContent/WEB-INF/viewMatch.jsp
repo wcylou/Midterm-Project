@@ -21,6 +21,7 @@
 	<div class = "container">
 		<h1>Matches</h1>
 	<%-- Event list items --%>
+	
 Search&nbsp<input type="text" id="search" placeholder="Type to search">	
 <br><br>
 	<table class="table table-striped table-light table-hover">
