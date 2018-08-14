@@ -5,7 +5,7 @@
 http://18.191.126.24:8080/MVCMidtermProject/
 
 Testing account: (Username: 6, password: password) 
-
+ 
 #### Blindr is a Full Stack Web Application that simulates a dating site.
 
 ### Overview
